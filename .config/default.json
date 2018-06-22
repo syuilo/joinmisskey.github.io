@@ -5,7 +5,7 @@
     "default_meesage": "",
     "author": "Misskey",
     "url":{
-        "path": "",
+        "path": "/ja",
         "host": "joinmisskey.github.io",
         "scheme": "https"
     },

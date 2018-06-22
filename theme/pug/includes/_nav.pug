@@ -12,21 +12,21 @@ nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
       var current_baseurl = "#{site.url.scheme}://#{site.url.host}#{site.url.path}/"
 
       var locales = {
-        ja: "https://joinmisskey.github.io/",
-        ja_JP: "https://joinmisskey.github.io/"
+        ja: "https://joinmisskey.github.io/ja/",
+        ja_JP: "https://joinmisskey.github.io/ja/"
       }
       if (window.location.search.indexOf('moved') == -1){
         var url = locales[window.navigator.language];
         if (url){
           if(url != current_baseurl) window.location.href = url+"?moved";
         }
-        else window.location.href = "https://joinmisskey.github.io/?moved";
+        else window.location.href = "https://joinmisskey.github.io/ja/?moved";
       }
   .dropleft
     button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
       | A文
     .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
-      a.dropdown-item(href="https://joinmisskey.github.io/?moved") 🇯🇵 日本語
+      a.dropdown-item(href="https://joinmisskey.github.io/ja/?moved") 🇯🇵 日本語
 //-
   パンくずリスト
 

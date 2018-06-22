@@ -1,4 +1,4 @@
-importScripts('/workbox-sw.js')
+importScripts('/ja/workbox-sw.js')
 
 workbox.precaching.precacheAndRoute([
   {
@@ -59,11 +59,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "78d041a6951424b01af0c5c06bbd3700"
+    "revision": "fab1826182f29699b60bcb5ce8875f74"
   },
   {
     "url": "manifest.json",
-    "revision": "bc308b7c04dd0579610c8bda1b4c9547"
+    "revision": "e6d406fe77023b9de9fe86ae2f5137dd"
   },
   {
     "url": "workbox-sw.js",
