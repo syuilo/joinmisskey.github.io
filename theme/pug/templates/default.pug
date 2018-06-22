@@ -1,0 +1,124 @@
+doctype
+block _script
+  include ../includes/_script.pug
+block _mixin
+  include ../includes/_mixins.pug
+block preset
+
+
+html(lang=site.locale)
+  head
+    block meta
+      block must
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, minimum-scale=1, initial-scale=1")
+      block title
+        title #{page.attributes.title} - #{site.name}
+
+      block thankyou_seeing_sourcecode
+        //
+          *
+          *
+          * GitHub: https://github.com/joinmisskey
+          *
+          *
+      block canonical
+        link(rel="canonical", href=url.href)
+        if(page.attributes.amp)
+          link(rel="amphtml", href=`${url.href}amp.html`)
+      block seo
+        meta(name="author" content=site.author)
+        meta(name="generator" content="maqz")
+
+      block description
+        -
+          let description = page.attributes.description
+          if( !$$(page.attributes.description).string().range(25, 124).ok()){
+            description = page.attributes.description + site.default_meesage
+          }
+        meta(name="description", content=description)
+
+      block icons
+        link(rel="icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
+        each icon in site.icons
+          link(rel="apple-touch-icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes)
+          link(rel="icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
+
+      block includes_head
+        link(rel="manifest" href=`${site.url.path}/manifest.json`)
+        include ../includes/_includes_head.pug
+
+      block theme_color
+        meta(name="theme-color", content=site.theme_color.primary)
+        link(rel="manifest", href=`${site.url.path}/manifest.json`)
+        link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
+
+      block og
+        meta(property="og:type", content="website")
+        meta(property="og:title", content=`${page.attributes.title} - ${site.name}`)
+        meta(property="og:description", content=page.attributes.description)
+        if ( !!page.meta.thumbnail )
+          meta(property="og:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
+        else if ( !!site.site_card_path )
+          meta(property="og:image", content=`${urlPrefix}${site.site_card_path}`)
+        else
+          meta(property="og:image", content=`/favicon.ico`)
+        meta(property="og:url", content=url.href)
+        meta(property="og:site_name", content=site.name)
+
+      block twitter_card
+        if ( site.social_media.twitter.card )
+          if ( !!page.meta.thumbnail )
+            meta(name="twitter:card", content="summary_large_image")
+            meta(name="twitter:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
+          else if ( !!site.site_card_path )
+            meta(name="twitter:card", content="summary_large_image")
+            meta(name="twitter:image", content=`${urlPrefix}${site.site_card_path}`)
+          else
+            meta(name="twitter:card", content="summary")
+          meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
+          meta(name="twitter:description", content=page.attributes.description)
+          meta(name="twitter:site", content=site.social_media.twitter.stalk)
+
+      block gtag
+        if(site.ga)
+          .
+            <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '#{site.ga}');
+            </script>
+
+      block js_head
+
+      block style
+        style
+          != new cleanCss().minify(fontawesome.dom.css()).styles
+
+  body
+
+    block wo_footer
+      block nav
+        #nav
+          include ../includes/_nav.pug
+
+      block main
+        #main
+          != main_html
+
+    block footer
+      #footer
+        if( site.disqus )
+          .container-fluid.py-5
+            #disqus_wrap
+              #disqus_thread
+
+        #footer_wrap.py-3.bg-white
+            p.m-0 Copyright: #{site.author}
+
+    block includes_foot
+      include ../includes/_includes_foot.pug
+
+    block js_foot

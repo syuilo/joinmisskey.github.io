@@ -1,0 +1,88 @@
+extends ./default.pug
+
+append preset
+  -
+    pages.sort(function(a,b) {
+      if( a.meta.mtime < b.meta.mtime ) { return 1 } else { return -1 }
+    })
+
+    let queries = [], qpages = []
+    let rootpath = ""
+    if(page.attributes.query && page.attributes.query.root) rootpath = `/${page.attributes.query.root}/`
+    else rootpath = page.meta.permalink
+
+
+    qpages = pages.filter(e => e.meta.permalink.indexOf(rootpath) == 0
+                            && ( e.attributes.layout == "news" || e.attributes.layout == page.attributes.query.layout || e.attributes.layout == "bookmark" )
+                            && e.attributes.draft != true
+                            && e.attributes.published == true
+                          )
+
+    function addQuery(q, n){
+      if( typeof q === "string" ){ queries.push( {"type": n, "query": q} ) }
+      else if( typeof q === "object" && Array.isArray(q) ){
+        for( c = 0; c < q.length; c++ ){
+          queries.push( {"type": n, "query": q[c]} )
+        }
+      }
+    }
+
+    if( page.attributes.query ) {
+
+      const query = page.attributes.query
+
+      // front-matter のquery設定があれば適用します
+
+      function pathFilter(q, qpages){
+        return qpages.filter(function(e,i,a){
+          if( typeof q === "string" ){
+            return e.meta.permalink.indexOf(`${rootpath}${q}/`) == 0
+          } else if (typeof q === "object" && Array.isArray(q) ){
+            for( c = 0; c < q.length; c++ ){
+              if( e.meta.permalink.indexOf(`${rootpath}${q[c]}/`) == 0 ) return true
+            }
+          }
+        })
+      }
+
+      if( query.path ) qpages = pathFilter( query.path, qpages )
+      if( query.directory ) qpages = pathFilter( query.directory, qpages )
+      if( query.directories ) qpages = pathFilter( query.directories, qpages )
+
+    }
+
+block title
+  title #{page.attributes.title} - #{site.name}
+
+block main
+
+  #main
+    .container-fluid
+      h1.pt-4.pb-2 #{page.attributes.title}
+      div
+        != getTL(main_html)
+
+      #news_index.mt-2
+        each thispage in qpages
+          if(thispage.attributes.layout == "bookmark")
+            a(href=thispage.attributes.bookmark, target="_blank").bg-light
+              +article(thispage)
+          else
+            a(href=`${site.url.path}${thispage.meta.permalink}`).bg-white
+              +article(thispage)
+
+mixin article(thispage)
+  article
+    h3.h4.news-title
+      | #{thispage.attributes.title}
+      if(thispage.attributes.layout == "bookmark")
+        |  
+        span.small
+          +fa_fw("external-link-alt")
+    p.news-description.p-0.mb-1
+      | #{thispage.attributes.description}
+    - let mtime = new Date(thispage.meta.mtime)
+    div.news-date
+      +fa_fw("clock")
+      |  
+      time(datetime=thispage.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}

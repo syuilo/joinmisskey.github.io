@@ -1,0 +1,69 @@
+-
+  let style, mainHeaderStyle
+  if(page.meta.thumbnail) {
+    style = `background-image:url("${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}")`
+    mainHeaderStyle = `#main_header{${style}}`
+  } else {
+    style = "background-color:#212121"
+    mainHeaderStyle = `#main_header{background-color:#212121}`
+  }
+
+  let pagesPast = pages.filter(
+    function(el, i, array){
+      let elem_time = new Date(el.meta.mtime)
+      let page_time = new Date(page.meta.mtime)
+
+      return ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
+    }
+  ), pagesNext = pages.filter(
+    function(el, i, array){
+      let elem_time = new Date(el.meta.mtime)
+      let page_time = new Date(page.meta.mtime)
+
+      return (elem_time.getTime() > page_time.getTime() && el.attributes.layout == page.attributes.layout )
+    }
+  )
+  function mapping_pages_time(el, index, array){
+    let eltime = new Date(el.meta.mtime) 
+    return eltime.getTime()
+  }
+
+  let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_time))
+    , pageNext_mTime = Math.min.apply(null,pagesNext.map(mapping_pages_time))
+
+  let pagesPrev = pagesPast.filter(
+        function(el, i, array){
+          let elem_time = new Date(el.meta.mtime)
+
+          return (elem_time.getTime() == pagePrev_mTime)
+        }
+      )
+    , pagesNext = pagesNext.filter(
+        function(el, i, array){
+          let elem_time = new Date(el.meta.mtime)
+
+          return (elem_time.getTime() == pageNext_mTime)
+        }
+      )
+  const pagePrev = pagesPrev[0]
+  const pageNext = pagesNext[0]
+
+- let thsrc, thdims, thwidth, thheight
+
+if(page.meta.thumbnail)
+  -
+    thsrc = `${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}`
+    thdims = sizeOf( `dist${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}` )
+    thwidth = thdims.width
+    thheight = thdims.height
+else
+  -
+    thsrc = `${site.url.path}${site.site_card_path}`
+    thdims = sizeOf( site.site_card_path.slice(1) )
+    thwidth = thdims.width
+    thheight = thdims.height
+  
+- 
+  let pdims = sizeOf( site.publisher_image_path.slice(1) )
+  let pwidth = pdims.width
+  let pheight = pdims.height

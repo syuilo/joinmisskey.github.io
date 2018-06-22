@@ -1,0 +1,67 @@
+//- pug mixins
+
+mixin fa( $icon, $prefix, $option )
+  i(class=`fa ${$prefix || "fas"} ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },$option).html[0]
+
+mixin fa_fw( $icon, $prefix )
+  +fa( $icon, $prefix, {classes: ['fa-fw']})
+
+mixin toc( headings, n, tag, cl)
+  -
+    let lv = function(a, b, ht){
+      let r = a - b
+      for(let j=0; r > j; j++){
+        o += ht
+      }
+    }
+    let o = `<${tag} class="${cl} m-0 p-0">`
+    for(let i = 0; headings.length > i; i++){
+      let now = headings[i], prev
+      if (now.number < n)
+        continue
+      if (i == 0)
+        prev = {number: n}
+      else
+        prev = headings[i - 1]
+      if ( i == 0 || now.number > prev.number )
+        lv(now.number, prev.number, `<${tag} class="${cl}">`)
+      else if ( now.number < prev.number )
+        lv(prev.number, now.number, `</${tag}>`)
+      o += `<li><a href="#${now.id}">${now.text}</a></li>`
+    }
+    o += `</${tag}>`
+  != o
+
+mixin lis_of_dir(pathf, $option)
+  -
+    function pathMFilter(pathf){
+      return pages.filter(function(e,i,a){
+        if( typeof pathf === "string" ){
+          return e.meta.permalink.indexOf(`${pathf}`) == 0 && e.meta.permalink.replace(`${pathf}`, "") != "" && e.meta.permalink.split('/').length == pathf.split('/').length + 1
+        } else if (typeof pathf === "object" && Array.isArray(pathf) ){
+          for( c = 0; c < pathf.length; c++ ){
+            if( e.meta.permalink.indexOf(`${pathf[c]}`) == 0 && e.meta.permalink.replace(`${pathf[c]}`, "") != "" && e.meta.permalink.split('/').length == pathf.split('/').length + 1) return true
+          }
+        }
+      })
+    }
+    let bpages = pathMFilter(pathf)
+    bpages.sort((a,b) => { return ( a.meta.permalink > b.meta.permalink ) ? 1 : -1 })
+  each rpage in bpages
+    li
+      a(href=`${site.url.path}${rpage.meta.permalink}`)= rpage.attributes.title
+      if($option.s == true && rpage.attributes.has_child == true)
+        ul
+          +lis_of_dir(rpage.meta.permalink, {s: true})
+
+mixin embed_video(url)
+  .embed-responsive.embed-responsive-16by9.video-embed
+    iframe(src=url,allowfullscreen="allowfullscreen",frameborder="0",gesture="media",allow="encrypted-media").embed-responsive-item
+mixin embed_nicovideo(vid)
+  +embed_video(`https://embed.nicovideo.jp/watch/${vid}`)
+mixin embed_youtube(vid)
+  +embed_video(`https://www.youtube.com/embed/${vid}?controls=2&modestbranding=1&rel=0`)
+mixin embed_youtube_autoplay(vid)
+  +embed_video(`https://www.youtube.com/embed/${vid}?autoplay=1&controls=2&modestbranding=1&rel=0`)
+
+//- https://developers.google.com/youtube/player_parameters?hl=ja

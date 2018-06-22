@@ -1,0 +1,69 @@
+//-
+  ナビゲーションバー
+
+nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
+  //-
+    button(class="navbar-toggler" type="button" data-toggle="collapse" aria-label="サイドバーを開く").bg-white.border-0.rounded-0.small.d-flex.d-lg-none.py-2.px-2.m-0.sidebar_opener
+    div MENU
+  a(href=`${site.url.path}/`).navbar-brand#navbar_brand.m-0.p-0
+    img(src=`${site.url.path}/files/images/title.light.svg` class="d-inline-block align-top img-fluid" alt=`${site.name}` title=`${site.name}` style="height: 48px")
+  script
+    .
+      var current_baseurl = "#{site.url.scheme}://#{site.url.host}#{site.url.path}/"
+
+      var locales = {
+        ja: "https://joinmisskey.github.io/",
+        ja_JP: "https://joinmisskey.github.io/"
+      }
+      if (window.location.search.indexOf('moved') == -1){
+        var url = locales[window.navigator.language];
+        if (url){
+          if(url != current_baseurl) window.location.href = url+"?moved";
+        }
+        else window.location.href = "https://joinmisskey.github.io/?moved";
+      }
+  .dropleft
+    button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+      | A文
+    .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
+      a.dropdown-item(href="https://joinmisskey.github.io/?moved") 🇯🇵 日本語
+//-
+  パンくずリスト
+
+  nav(aria-label="breadcrumb")#breadcrumb.bg-white.sticky-top
+  .container-fulid.px-1.px-lg-5
+    ol.breadcrumb.bg-white.text-light.my-0.mx-md-5.mx-1.py-1.px-0
+      - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""] (たとえば)
+      if( dirs.length > 2 )
+        li.breadcrumb-item
+          a(href=`${site.url.path}/`).py-1.text-light
+            +fa_fw("home","fas")
+        - let dirpl = "/"
+        - for( let i = 1; i < dirs.length - 1; i++){                // i = 3 の場合
+        -   let nowdir = dirs[i]                                    // "bar"
+        -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
+        -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
+        -   if( indexPage != undefined && i < dirs.length - 2 ){
+        -     if (!!indexPage.attributes.title) {  // // // // // // // // ページがあったら
+          li.breadcrumb-item
+            a(href=`${site.url.path}${dirpl}`).py-1.text-light #{indexPage.attributes.title}
+        -     } else {
+          li.breadcrumb-item
+            a(href=`${site.url.path}${dirpl}`).py-1.text-light #{nowdir}
+        -     }
+        -   } else if( indexPage == undefined && i < dirs.length - 2 ){ // ページがなかったら
+          li.breadcrumb-item(aria-current="page").text-light #{nowdir}
+        -   } else if( i == dirs.length - 2 ){  // // // // // // // // // 該当ページに到着したら
+        -     if (!!page.attributes.title) {
+          li.breadcrumb-item.active
+            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{page.attributes.title}
+        -     } else {
+          li.breadcrumb-item.active
+            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{nowdir}
+        -     }
+        -   }
+        - }
+      else
+        li.breadcrumb-item.active
+          button(aria-current="page").text-light.font-weight-bold.trigger-gototop.button-like-anchor
+            +fa_fw("home","fas")

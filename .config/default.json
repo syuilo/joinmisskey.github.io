@@ -1,0 +1,54 @@
+{
+    "name": "Misskeyをはじめよう",
+    "short_name": "Misskey",
+    "description": "Misskeyは、地球で生まれた分散マイクロブログSNSです。暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。",
+    "default_meesage": "",
+    "author": "Misskey",
+    "url":{
+        "path": "",
+        "host": "joinmisskey.github.io",
+        "scheme": "https"
+    },
+    "pages_src": {
+        "path": "./pages/",
+        "src": "**/*.{html,htm,pug,md}"
+    },
+    "locale": "ja",
+    "page_namingrule": "name",
+    "theme_color": {
+        "primary": "#00e0ed",
+        "secondary": "#fffc32"
+    },
+    "default": {
+        "template": "default"
+    },
+    "social_media" : {
+        "twitter": {
+            "stalk": "misskey_xyz",
+            "share": true,
+            "card": true
+        },
+        "LINE": {
+            "stalk": false,
+            "share": true
+        },
+        "facebook": {
+            "stalk": false,
+            "share": true
+        },
+        "flickr": {
+            "stalk": false,
+            "share": false
+        },
+        "github": {
+            "stalk": "syuilo",
+            "share": false
+        },
+        "share_button": true
+    },
+    "rss_url": "https://github.com/joinmisskey/joinmisskey.github.io/commits/master.atom",
+    "manifest": {
+        "start_url": ".",
+        "display": "minimal-ui"
+    }
+}

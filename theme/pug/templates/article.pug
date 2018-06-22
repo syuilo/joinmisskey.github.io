@@ -1,0 +1,14 @@
+extends ./default.pug
+
+block main
+  #main
+    .py-5
+      - let mtime = new Date(page.meta.mtime)
+      article#article_maincontent
+        header.w-100.p-2
+          h1= page.attributes.title
+        if(headings.length > 1)
+          #article_sidenav.my-2.p-3.bg-light
+            +toc( headings, 2, "ul", "list-unstyled ml-3 page-index")
+        section.pt-2.pb-4
+          .container-fluid!= main_html

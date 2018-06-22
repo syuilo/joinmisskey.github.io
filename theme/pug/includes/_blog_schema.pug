@@ -1,0 +1,34 @@
+script(type="application/ld+json")
+  .
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting" ,
+      "mainEntityOfPage": {
+        "@type": "WebPage" ,
+        "@id": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}"
+      } ,
+      "headline": "#{page.attributes.title}" ,
+      "image": {
+        "@type": "ImageObject" ,
+        "url": "#{site.url.scheme}://#{site.url.host}#{thsrc}" ,
+        "height": #{thheight} ,
+        "width": #{thwidth}
+      },
+      "datePublished": "#{page.meta.mtime}" ,
+      "dateModified": "#{page.meta.mtime}" ,
+      "author": {
+        "@type": "Person" ,
+          "name": "#{site.author}"
+      },
+      "publisher": {
+        "@type": "Organization" ,
+        "name": "#{site.name}" ,
+        "logo": {
+          "@type": "ImageObject" ,
+          "url": "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{site.publisher_image_path}" ,
+          "height": #{pheight} ,
+          "width": #{pwidth}
+        }
+      },
+      "description": "#{page.attributes.description}"
+    }

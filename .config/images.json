@@ -1,0 +1,78 @@
+{
+    "images": {
+        "files": {
+            "all": {
+                "image": {
+                    "pngquant": true,
+                    "concurrent": 30
+                }
+            },
+            "sizes": [
+                {
+                    "resize": {
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "cover": false,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "jpegRecompress": true,
+                        "mozjpeg": ["-optimize", "-progressive"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "1600"
+                    },
+                    "resize": {
+                        "width": 1600,
+                        "height": 1600,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "cover": false,
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "jpegRecompress": true,
+                        "mozjpeg": ["-optimize", "-progressive"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": "720"
+                    },
+                    "resize": {
+                        "width": 720,
+                        "height": 720,
+                        "crop": false,
+                        "upscale": false,
+                        "interlace": "line",
+                        "cover": false,
+                        "imageMagick": true,
+                        "concurrent": 30
+                    },
+                    "image": {
+                        "jpegRecompress": true,
+                        "mozjpeg": ["-optimize", "-progressive"]
+                    }
+                }
+            ]
+        }
+    },
+    "icons": [
+        {
+            "path": "/files/images/icons/icon.svg",
+            "sizes": "700x700",
+            "type": "image/svg+xml"
+        },
+        {
+            "path": "/files/images/icons/icon.png",
+            "sizes": "700x700",
+            "type": "image/png"
+        }
+    ],
+    "site_card_path": "/files/images/icons/thumb.png",
+    "publisher_image_path": "/files/images/icons/publisher.png"
+}

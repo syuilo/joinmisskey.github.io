@@ -1,0 +1,12 @@
+extends ./default.pug
+
+block main
+  #main
+    .py-5
+      - let mtime = new Date(page.meta.mtime)
+      article#article_maincontent
+        header.w-100.p-2
+          h1= page.attributes.title
+        section.pt-2.pb-4
+          .container-fluid
+            p 準備中…

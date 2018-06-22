@@ -1,0 +1,215 @@
+block script_preset
+block requires
+  -
+    const URL = require('url')
+    const pug_api = require("pug")
+    const htmlmin = require("html-minifier").minify
+    const kramed = require("kramed")
+    const summaly = require("sync-summaly").default
+    const $$ = require("cafy").default
+    const cheerio = require("cheerio")
+    const hljs = require('highlight.js')
+    const colors = require("colors")
+    const sizeOf = require("image-size")
+    const cleanCss = require("clean-css")
+    const path = require('path')
+    const fs = require('fs')
+    const numeral = require('numeral')
+    const moment = require("moment")
+    require('moment/locale/ja')
+    moment.locale('ja')
+    const wk = require('wanakana')
+    
+    const fontawesome = require("@fortawesome/fontawesome")
+    const faSolid = require("@fortawesome/fontawesome-free-solid")['default']
+    const faRegular = require("@fortawesome/fontawesome-free-regular")['default']
+    const faBrands = require("@fortawesome/fontawesome-free-brands")['default']
+    fontawesome.library.add(faSolid, faRegular, faBrands)
+
+block vals
+  -
+    const pug_o = {
+      "site": site, 
+      "pages": pages, 
+      "page": page, 
+      "package": package, 
+      "messages": messages, 
+      "option": option, 
+      "require": require, 
+      "theme_pug": theme_pug,
+      "graph_data": graph_data,
+      "is_subcall": true,
+      filters: require('./pugfilters.js')}
+    let main_html
+    const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+    const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
+
+block messages
+  -
+    function messenger(type, text, fallback){
+      console.log(`${type}: ${text || fallback}`.yellow)
+      console.log(`in ${page.meta.permalink}`.gray)
+    }
+
+block functions
+  block pugit
+    -
+      function pugit(val){
+        return pug_api.render(`${theme_pug.script}\n${theme_pug.mixin}\n${val}`, pug_o)
+      }
+
+  block toamp
+    -
+      function toamp(htm){
+        let $ = cheerio.load(htm, {decodeEntities: false})
+
+        $('img[src]').each(function(){
+          let src    = $(this).attr('src')
+          let alt    = $(this).attr('alt')
+          let title  = $(this).attr('title')
+          let id     = $(this).attr('id')
+          let width  = $(this).attr('width')
+          let height = $(this).attr('height')
+
+            if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
+              const dims = sizeOf( src )
+              width = dims.width
+              height = dims.height
+              src = site.url.path + "/" + src
+            } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
+              const dims = sizeOf( src.slice(1) )
+              width = dims.width
+              height = dims.height
+              src = site.url.path +src
+            } else {
+              console.log( messages.amp.invalid_imageUrl )
+            }
+
+          $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+        })
+        $('img').remove()
+        $('amp-img').attr('layout','responsive')
+        return $('body').html()
+      }
+  block getTL
+    -
+      function getTL(val){
+        let result
+        eval("result = `" + val + "`")
+        return result
+      }
+
+  block existFile
+    -
+      function existFile(file) {
+          try {
+              fs.statSync(file)
+              return true
+          } catch(e) {
+              if(e.code === 'ENOENT') return false
+          }
+      }
+
+  block search_sidebar
+    -
+      function searchSidebar(pathe){
+        let searchin
+        if(pathe.dir == "") searchin = `${pathe.dir}sidebar.pug`
+        else searchin = `${pathe.dir}/sidebar.pug`
+        if(existFile(searchin)){
+          return searchin
+        } else {
+          // const uppath = path.parse(pathe.dir)
+          // searchSidebar(uppath)
+          return "pages/sidebar.pug"
+        }
+      }
+
+  block pantenecolers
+    -
+      function panteneColors(){
+        return {
+          class: 'info',
+          club: 'success',
+          others: 'dark',
+          staff: 'primary'
+        }
+      }
+
+block summary
+  //-
+    function img_weserv(src){
+      const t = URL.parse(src)
+      return `https://images.weserv.nl/?url=${t.auth || ""}${t.hostname}${t.path}${t.hash || ""}`
+    }
+
+    function suma(href){
+      try {
+        if( href.indexOf("//") == 0 ) href = "http:" + href
+        let summ = summaly(href)
+        let thumbnail = "", icon = ""
+        if(!amp){
+          if(summ.thumbnail)thumbnail = `<div style="background-image:url('${img_weserv(summ.thumbnail)}')" alt="THUMBNAIL" class="thumbnail">`
+          if(summ.icon) icon = `<img src="${img_weserv(summ.icon)}" alt="ICON" class="icon">`
+        }
+        return `<a href=${summ.url} class="summary">${thumbnail}<article><header><h1>${summ.title}</h1></header><p>${summ.description}</p><footer>${icon}${summ.sitename}</footer></article></a>`
+      } catch(e) {
+        messenger("INVALID_URL", messages.invalid_link.replace(/%s/,href), `Invalid URL ${href} is written in your article.`)
+        return false
+      }
+    }
+    function maly(htm){
+      let $ = cheerio.load(htm, {decodeEntities: false})
+      $('a[href^="http"], a[href^="//"]').each(function(){
+        const aftag = suma($(this).attr('href'))
+        if(aftag) $(this).parent().append(aftag)
+        else $(this).addClass("text-danger")
+      })
+      return $('body').html()
+    }
+
+block make_html
+  //- make main html
+  if(!is_subcall)
+    case page.meta.src.ext
+      when '.md'
+        - main_html = kramed(page.body)
+        - main_html = require('./scripts/better_markdown')(main_html, site.url.path)
+        //- main_html = maly(main_html)
+        - main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      when '.html'
+      when '.htm'
+        - main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      when '.pug'
+        - main_html = pugit(page.body)
+
+block amp
+  - 
+    if(amp && !is_subcall){
+      main_html = toamp(main_html)
+    }
+
+block highlight
+  -
+    if(!is_subcall) main_html = require('./scripts/highl')(main_html)
+
+block listUp_hedings
+  -
+    let heading_html, headings = []
+    const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
+    if(!is_subcall){
+      while((heading_html = reg_heading.exec(main_html)) !== null){
+        let heading = {},
+            idmatch = []
+        idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
+        if(idmatch == null)
+          heading.id = null
+        else
+          heading.id = idmatch[2]
+        heading.html     = heading_html[0]
+        heading.number   = heading_html[1]
+        heading.attr     = heading_html[2]
+        heading.text     = heading_html[3]
+        headings.push(heading)
+      }
+    }

@@ -1,0 +1,40 @@
+a.summary
+  display: flex
+  max-width: 572px
+  margin-top: .5rem
+  line-height: 1.1em
+  @extend .border
+  @extend .rounded
+  @extend .bg-light
+  @extend .text-dark
+  
+  div.thumbnail
+    height: auto
+    flex: 80px .25 0
+    background-size: cover
+    background-position: center
+
+  article
+    flex: 1 0 0
+    padding: 1em
+
+    header
+      margin-bottom: .5em
+
+      h1
+        font-size: 1.1em
+
+    footer
+      font-size: .9em
+      height: .9em
+      margin-top: .5em
+
+      img.icon
+        display: inline-block
+        width: 1em
+        height: 1em
+        margin-right: .25em
+
+@media (max-width: 576px)
+  a.summary
+    font-size: 3vw

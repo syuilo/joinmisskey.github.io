@@ -1,0 +1,8 @@
+{
+    "amp": {
+        "invalid_imageUrl": "AMP指定記事の外部画像の読み込みは対応していません。または、規定のURL指定方法ではありません。files/以下に画像ファイルを置き、画像指定パスをfiles/または/files/から始めるようにしてください。"
+    },
+    "seo_description": "descriptionの文字数は、60文字程度(下限25~上限124)をお勧めします。",
+    "hljs_langerr": "highlight処理中にエラーが発生しました。markdownで未知の言語が指定されている場合にこのメッセージが表示されているはずです。",
+    "invalid_link": "文書中に無効なURL\"%s\"が書かれています。"
+}

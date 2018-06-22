@@ -1,0 +1,8 @@
+script(src=`${site.url.path}/assets/pjax-api.min.js`)
+script.
+  var Pjax = require('pjax-api').Pjax;
+  new Pjax({  areas: ['#main, #sidebar, #breadcrumb', '#grid', 'body'], update: { head: 'meta, link' }  });
+
+if(site.disqus)
+  script
+    | (function() {var d = document, s = d.createElement('script');s.src = 'https://#{site.disqus}.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();
