@@ -1,5 +1,98 @@
 ---
-title: 新しい世界で繋がろう
+title: Misskeyをはじめよう
+description: 地球で生まれた分散マイクロブログSNS Misskey
 ---
-h1 テスト
-p テスト
+#toppage
+  #top
+    .texts
+      .slogan 新しい世界で繋がろう
+      h1 Misskeyをはじめよう
+    .scnshts
+      img(src="/files/images/scnshts/scnsht.deck.720.jpg" alt="Deck(Desktop)")
+      img(src="/files/images/scnshts/scnsht.home.720.jpg" alt="Home(Desktop)")
+      img(src="/files/images/scnshts/scnsht.mobile.720.jpg" alt="Mobile")
+  #section_1.mx-1.py-4.bg-light
+    p Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた<b>分散マイクロブログSNS</b>です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
+    p 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
+    p.mt-1.text-center
+      a(href="#section_").btn.btn-lg.btn-primary.mr-2 はじめる
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank").btn.btn-lg.btn-outline-secondary 運営する
+  #section_2.container.py-5.bg-primary
+    h2.text-center Misskeyをはじめる理由
+    hr.my-4
+    .s2-item
+      h3.text-center 全てが高機能
+      p.text-center Misskeyは高機能です。洗練されたUIはもちろんのこと、自分の投稿も装飾することができます。
+      
+      ul.fa-ul
+        li
+          span.fa-li.h5.text-muted: +fa('surprise', 'far')
+          b 文字数制限と公開範囲
+          | Misskeyの文字数制限は、いまのところ1000文字です。
+          br
+          | 投稿の公開範囲を段階別に定めることができます。また、迷惑をかけることを防止するために、画像や投稿を予め隠しておくことができます。
+        li
+          span.fa-li.h5.text-muted: +fa('surprise', 'far')
+          b リアクション
+          | 他のユーザーの投稿に「😆」「🤔」「👍」ほか9種類から一つ選んでリアクション(反応)することができます。
+        li
+          span.fa-li.h5.text-muted: +fa('edit')
+          b Misskey Favorited Markdown
+          | Markdown風の構文を、投稿やプロフィールで使えます。テキストを<b>太字</b>にしたりリンクを貼ったりできます。
+        li
+          span.fa-li.h5.text-muted: +fa('chart-pie')
+          b アンケート
+          | 最大10個の選択肢を作成し、アンケートをとることができます。
+        li
+          span.fa-li.h5.text-muted: +fa('columns')
+          b ホーム・デッキ (デスクトップ)
+          | デスクトップでは、幅広い画面の「ホーム」と、カラム型レイアウトの「デッキ」を選んで使うことができます。
+        li
+          span.fa-li.h5.text-muted: +fa('calculator')
+          b ウィジェット
+          | 通知、アクティビティ、カレンダー、トレンドなどをウィジェットとして利用できます。ホーム・デッキ・モバイルのそれぞれで、自由に並び替えて使えます。 
+        li
+          span.fa-li.h5.text-muted: +fa('cloud')
+          b ドライブ
+          | 投稿したりアイコンにしたりした画像は、ドライブに保存され、素早く再投稿することができます。
+
+    hr.my-4
+
+    .s2_item
+      h3.text-center 独立性と社会性
+      p.text-center あなたの意志で運営者を選択し、また自分がサーバーを運営することもできます。
+
+      ul.fa-ul
+        li
+          span.fa-li.h5.text-muted: +fa('globe')
+          b Fediverse
+          | MisskeyはActivityPubという規格でのサーバー間の通信機能を持っています。これにより他のサーバーのユーザーをフォローすることができます。
+          br
+          | ActivityPubでのサーバー間通信機能を持つサーバー「インスタンス」どうしが星々をなす宇宙のように見えるため、この連合体はFediverseと呼ばれます。
+          br
+          | ActivityPubでのサーバー間通信機能を持つサービスはMisskeyだけではありません。
+        li
+          span.fa-li.h5.text-muted: +fa('download')
+          b 簡単なインストール
+          | MisskeyはNode.jsとMongoDBをはじめとした数個のソフトウェアをインストールし、いくつかの設定をするだけでインストールできます。
+          br
+          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank")  → インストール方法
+
+    hr.my-4
+
+    .s2_item
+      h3.text-center オープン
+      p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
+      p.text-center
+        a(href="https://github.com/syuilo/misskey" target="_blank").btn.btn-lg.btn-dark
+          +fa_fw('github', 'fab')
+          | GitHub
+
+      ul.fa-ul
+        li
+          span.fa-li.h5.text-muted: +fa('balance-scale')
+          b AGPL-3.0
+          | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で副次利用することができます。
+          br
+          | AGPLv3は、個人・非商用利用はもちろんのこと、商用利用を認めます。しかし、利用しているサービスがどのような設計図のもとに動いているかを公開する必要があります。改変をしてサービスを提供した場合は、その改変部分を含め、AGPLv3の下でソースコードを公開する義務があります。
+          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank")  → ライセンス
