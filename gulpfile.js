@@ -7,7 +7,7 @@ const fs = require('fs')
 const util = require('util')
 const promisify = util.promisify
 const path = require('path')
-const del = require('rimraf')
+const del = require('del')
 const fm = require('front-matter')
 const crypto = require('crypto')
 const join = path.join
@@ -388,10 +388,10 @@ gulp.task('image-prebuildFiles', (cb) => {
     return stream2
 })
 
-gulp.task('clean-temp', (cb) => { del(temp_dir, cb) } )
-gulp.task('clean-docs', (cb) => { del('docs/', cb) } )
-gulp.task('clean-dist-docs', (cb) => { del('dist/docs/', cb) } )
-gulp.task('clean-dist-files', (cb) => { del('dist/files/', cb) } )
+gulp.task('clean-temp', (cb) => { del(temp_dir+'**/*').then(cb()) } )
+gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git']).then(cb()) } )
+gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*').then(cb()) } )
+gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*').then(cb()) } )
 
 gulp.task( 'debug-override', (cb) => {
     site = extend(true,site,require('./.config/debug_override.json'))
