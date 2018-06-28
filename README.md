@@ -7,8 +7,10 @@ https://github.com/syuilo/misskey
 ### Install
 
 1. Install Node.js
-2. `npm install`
-3. `npm install gulp -g`
+2. `git checkout src`
+3. `npm install`
+4. `npm install gulp -g`
+5. `git worktree add docs master`
 
 ### Build
 
