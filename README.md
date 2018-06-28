@@ -10,7 +10,7 @@ https://github.com/syuilo/misskey
 2. `git checkout src`
 3. `npm install`
 4. `npm install gulp -g`
-5. `git worktree add docs master`
+5. `git worktree add docs master; git worktree add pages/ja pages/ja;`
 
 ### Build
 
@@ -25,8 +25,13 @@ https://github.com/syuilo/misskey
 
 ### Translation
 
-1. Request membership
-2. Fork https://github.com/joinmisskey/joinmisskey.github.io
+#### Add new language
+
+1. `cd pages/ja`
+2. `git checkout -b pages/<languagecode>`
+3. `cd ../../`
+4. `git worktree add pages/<languagecode> pages/<languagecode>`
+5. Add the language in these files: `README.md`, `theme/pug/includes/_nav.png`, `theme/pug/includes/_includes_head.pug`
 
 ## LICENSES
 

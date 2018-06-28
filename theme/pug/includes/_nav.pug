@@ -5,30 +5,13 @@ nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
   //-
     button(class="navbar-toggler" type="button" data-toggle="collapse" aria-label="サイドバーを開く").bg-white.border-0.rounded-0.small.d-flex.d-lg-none.py-2.px-2.m-0.sidebar_opener
     div MENU
-  a(href=`${site.url.path}/`).navbar-brand#navbar_brand.m-0.p-0
+  a(href=`${site.url.path}/${locale}/`).navbar-brand#navbar_brand.m-0.p-0
     img(src=`${site.url.path}/files/images/title.light.svg` class="d-inline-block align-top img-fluid" alt=`${site.name}` title=`${site.name}` style="height: 48px")
-  script
-    .
-      var current_baseurl = "#{site.url.scheme}://#{site.url.host}#{site.url.path}/";
-
-      var locales = {
-        ja: "https://joinmisskey.github.io/ja/",
-        ja_JP: "https://joinmisskey.github.io/ja/"
-      };
-      if (window.location.search.indexOf('moved') == -1){
-        var url = locales[window.navigator.language];
-        if (url){
-          if(url != current_baseurl) window.location.href = url+"?moved";
-        }
-        else {window.location.href = "https://joinmisskey.github.io/ja/?moved";}
-      } else {
-        history.replaceState(null, null, window.location.href.replace(/\?.*$/,""));
-      }
   .dropleft
     button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
       | A文
     .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
-      a.dropdown-item(href="https://joinmisskey.github.io/ja/?moved") 🇯🇵 日本語
+      a.dropdown-item(href=`${site.url.scheme}://${site.url.host}/ja/?moved`) 🇯🇵 日本語
 //-
   パンくずリスト
 

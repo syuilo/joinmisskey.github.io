@@ -1,4 +1,7 @@
 block script_preset
+  -
+    const permalink_split = page.meta.permalink.split("/")
+    const locale = permalink_split.length > 3 ? false : permalink_split[2]
 block requires
   -
     const URL = require('url')

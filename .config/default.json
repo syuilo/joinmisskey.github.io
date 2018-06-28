@@ -1,11 +1,11 @@
 {
-    "name": "Misskeyをはじめよう",
+    "name": "joinmisskey",
     "short_name": "Misskey",
     "description": "Misskeyは、地球で生まれた分散マイクロブログSNSです。暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。",
     "default_meesage": "",
     "author": "Misskey",
     "url":{
-        "path": "/ja",
+        "path": "",
         "host": "joinmisskey.github.io",
         "scheme": "https"
     },
@@ -13,7 +13,6 @@
         "path": "./pages/",
         "src": "**/*.{html,htm,pug,md}"
     },
-    "locale": "ja",
     "page_namingrule": "name",
     "theme_color": {
         "primary": "#00e0ed",

@@ -6,7 +6,7 @@ block _mixin
 block preset
 
 
-html(lang=site.locale)
+html(lang=locale)
   head
     block meta
       block must
@@ -50,7 +50,6 @@ html(lang=site.locale)
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
-        link(rel="manifest", href=`${site.url.path}/manifest.json`)
         link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
 
       block og

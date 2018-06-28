@@ -1,8 +1,8 @@
 {
-  "name": "suiranfes_2018",
+  "name": "joinmisskey.github.io",
   "version": "1.0.0",
   "main": "docs/index.html",
-  "description": "maqzシステムベースのデータベースWikiです。",
+  "description": "joinmisskey.github.io",
   "scripts": {
     "build-files": "gulp prebuild-files",
     "build2deploy": "gulp",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tamaina/tamaina.github.io"
+    "url": "git+https://github.com/joinmisskey/joinmisskey.github.io"
   },
-  "author": "tamaina <tamaina@hotmail.co.jp> (https://tmin.xyz)",
+  "author": "tamaina <tamaina@hotmail.co.jp> (https://misskey.xyz/@aqz)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vytfs/wiki/issues"
   },
-  "homepage": "https://vytfs.github.io/wiki/",
+  "homepage": "https://joinmisskey.github.io/",
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
