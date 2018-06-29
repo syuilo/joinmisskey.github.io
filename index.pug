@@ -16,7 +16,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
     p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
       a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
-      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank").btn.btn-lg.btn-primary 運営する
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener").btn.btn-lg.btn-primary 運営する
   #section_2.py-5.bg-white: .container
     h2.text-center Misskeyをはじめる理由
     hr.my-4
@@ -56,7 +56,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
         li.mt-3
           span.fa-li.text-muted: +fa('gamepad', 'fas', {classes: 'fa-lg'})
           h4 ゲーム
-          | ゲームが遊べます。「リバーシ」は、ユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank") 変則ルール]でも遊ぶことができます。
+          | ゲームが遊べます。「リバーシ」は、ユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
 
     hr.my-4
 
@@ -78,7 +78,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
           h4 インストールが簡単
           | Misskeyサーバーの構築は簡単です。Node.jsとMongoDBをはじめとした4～5個のソフトウェアをインストールし、いくつかの設定をし、最後にビルドするだけでセットアップが終了します。
           br
-          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank")  → インストール方法
+          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener")  → インストール方法
 
     hr.my-4
 
@@ -86,7 +86,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
       h3.text-center オープン
       p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
       p.text-center
-        a(href="https://github.com/syuilo/misskey" target="_blank").btn.btn-lg.btn-dark
+        a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark
           +fa_fw('github', 'fab')
           | GitHub
 
@@ -95,14 +95,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
           span.fa-li.text-muted: +fa('code', 'fas')
           h4 API
           | Misskeyのすべての通信はAPIとして公開されています。Misskeyの機能を活用したBotやクライアントを作ってみてください。
-          a(href="https://misskey.xyz/docs/ja/api" target="_blank")  → Misskey API
+          a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener")  → Misskey API
         li.mt-3
           span.fa-li.text-muted: +fa('balance-scale', 'fas')
           h4 AGPLv3
           | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で副次利用することができます。
           br
           | AGPLv3は、個人・非商用利用はもちろん商用利用も認めますが、改変をしてサービスを提供した場合はその改変部分を含め、提供しているサービスのソースコードをAGPLv3の下で公開する義務があります。
-          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank")  → ライセンス
+          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener")  → ライセンス
 
   #section_3.bg-dark.text-white.py-5: .container
     h2.text-center さっそくはじめよう
@@ -110,7 +110,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
     hr.my-4
     h3 インスタンス一覧
     #instances.bg-white.list-group
-        a(href="https://misskey.xyz" target="_blank").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
+        a(href="https://misskey.xyz" target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
           h4 misskey.xyz
           p.m-0 syuilo氏が運営する公式インスタンス。
 
@@ -119,17 +119,17 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
   #section_4.pt-5.pb-4: .container
     h2.text-center 支援
     p.text-center
-      a(href="https://github.com/syuilo/misskey#heart-backers--sponsors" target="_blank").btn.btn-lg.btn-link.mr-2
+      a(href="https://github.com/syuilo/misskey#heart-backers--sponsors" target="_blank" rel="noopener").btn.btn-lg.btn-link.mr-2
         | 協賛者一覧
-      a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank").btn.btn-lg.btn-link
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-link
         | 寄付者一覧
 
     hr.my-4
     h3.text-center Misskeyを支援する
     p.text-center Misskeyがお気に入りですか？Misskeyは自由でオープンソースです。Misskeyの開発にご支援ください。
-    a(href="https://www.patreon.com/syuilo" target="_blank").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+    a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('patreon', 'fab')
       | パトロンになる
-    a(href="http://amzn.asia/7O1LEI5" target="_blank").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+    a(href="http://amzn.asia/7O1LEI5" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('amazon', 'fab')
       | ほしいものリスト
