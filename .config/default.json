@@ -49,5 +49,6 @@
     "manifest": {
         "start_url": ".",
         "display": "minimal-ui"
-    }
+    },
+    "locales": ["ja"]
 }

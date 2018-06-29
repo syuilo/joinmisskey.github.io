@@ -4,13 +4,14 @@ script.
   new Pjax({  areas: ['#main, #breadcrumb', '#grid', 'body'], update: { head: 'meta, link' }  });
 
 script.
-  var current_baseurl = "/#{locale}/";
-  var locales = #{site.locales};
-  var permalink = "#{page.meta.permalink.slice(locale.length + 2)}"
+  var current_locale = "#{locale}";
+  var user_language = window.navigator.language.slice(0, 2);
+  var locales = !{JSON.stringify(site.locales)};
+  var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
 
   if (window.location.search.indexOf('moved') == -1){
-    if (locales.indexOf(window.navigator.language.slice(0, 2)) >= 0){
-      if(url != current_baseurl) Pjax.replace(url + permalink + "?moved", {});
+    if (locales.indexOf(user_language) >= 0){
+      if(user_language != current_locale) Pjax.replace("/" + user_language + permalink + "?moved", {});
     } else { Pjax.replace("/ja/" + permalink + "?moved", {}); }
   } else {
     history.replaceState(null, null, window.location.href.replace(/\?.*$/,""));
