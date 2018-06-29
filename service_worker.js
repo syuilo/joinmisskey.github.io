@@ -1,25 +1,25 @@
-importScripts('/workbox-sw.js')
+importScripts('/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([
   {
     "url": "assets/main.js",
-    "revision": "0efe4f31e378d0c4b779ad6c78af74f7"
+    "revision": "98ab9d6ea78ba4e2a29d4bac6db50d29"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "f40e6508ad5fc0e5922ac0344889dd05"
+    "revision": "5c183534051a15f05d27c886e8d8ead7"
   },
   {
     "url": "assets/pjax-api.js",
-    "revision": "8e170c2081aec2bbf5ddabbcfdb510ec"
+    "revision": "b1cf3b41d7e10753b12b268df38ee938"
   },
   {
     "url": "assets/pjax-api.min.js",
-    "revision": "d39316c1fa80d4b0e8b9ed6c239747e1"
+    "revision": "73441b2e299762517990d794c5444153"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "abf078c32b7849f93ac339545c9dc565"
+    "revision": "8693f55c79e2c3c6bdc80fb37eb8d84d"
   },
   {
     "url": "files/fonts/mgenplus-c-bold.woff2",
@@ -59,7 +59,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "fc329f624d58a15dd7a7a2e3aab7c33e"
+    "revision": "f34ac6b0f5009a5fddf45cc7b622274c"
   },
   {
     "url": "manifest.json",
@@ -69,4 +69,4 @@ workbox.precaching.precacheAndRoute([
     "url": "workbox-sw.js",
     "revision": "d41d8cd98f00b204e9800998ecf8427e"
   }
-])
+]);

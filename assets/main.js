@@ -17548,7 +17548,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	var $ = __webpack_require__(4);
 
-	var sidebar_is = false;
+	var sidebar_is = void 0;
 
 	function sidebar_show() {
 		if (window.innerWidth > 992) return false;
@@ -17585,6 +17585,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	$(window).on('pjax:unload', function () {
 		sidebar_hide();
 	});
+
 	$(document).on('pjax:ready', function () {
 		$('.sidebar_closer').off('click');
 		$('.sidebar_closer').on('click', sidebar_hide);
@@ -17606,6 +17607,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				reload: true,
 				config: disqus_config
 			});
+		}
+		if (window.location.search.indexOf('moved') >= 0) {
+			history.replaceState(null, null, window.location.href.replace(/\?.*$/, ""));
 		}
 	});
 
