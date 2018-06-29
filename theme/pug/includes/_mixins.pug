@@ -1,7 +1,7 @@
 //- pug mixins
 
 mixin fa( $icon, $prefix, $option )
-  i(class=`fa ${$prefix || "fas"} ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },$option).html[0]
+  i(class=`fa ${ $prefix || "fas" } ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },( $option || {} )).html[0]
 
 mixin fa_fw( $icon, $prefix )
   +fa( $icon, $prefix, {classes: ['fa-fw']})

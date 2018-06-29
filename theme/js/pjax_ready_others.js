@@ -1,7 +1,7 @@
-var $ = require('jquery');
+var $ = require('jquery')
 
-$(window).on('pjax:load',function(){
-  if(window.gtag) gtag('event', 'page_view');
+$(window).on('pjax:load', function(){
+  if(window.gtag) gtag('event', 'page_view')
   if(window.DISQUS){
     // DISQUSでresetを送信します。
     // disqus_configはページ内に別に定義されています。
@@ -10,8 +10,11 @@ $(window).on('pjax:load',function(){
       config: disqus_config
     })
   }
+  if (window.location.search.indexOf('moved') >= 0) {
+    history.replaceState(null, null, window.location.href.replace(/\?.*$/,""))
+  }
 })
 
-$(window).on('pjax:unload',function(){
+$(window).on('pjax:unload', function(){
   $('script[src$="disqus.com/embed.js"]').remove()
 })

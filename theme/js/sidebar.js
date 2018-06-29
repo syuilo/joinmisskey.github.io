@@ -1,6 +1,6 @@
 var $ = require('jquery')
 
-let sidebar_is = false
+let sidebar_is
 
 function sidebar_show(){
     if(window.innerWidth > 992) return false
@@ -32,11 +32,12 @@ $(function(){
         if(diffX > 120) sidebar_hide()
         else if(startX < 40 && diffX < -120) sidebar_show()
     })
-})
+});
 
 $(window).on('pjax:unload', function(){
     sidebar_hide()
 })
+
 $(document).on('pjax:ready', function(){
     $('.sidebar_closer').off('click')
     $('.sidebar_closer').on('click', sidebar_hide)

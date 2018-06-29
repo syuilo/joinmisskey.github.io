@@ -8,9 +8,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-$font-family-sans-serif: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", faqz-p, -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
-$font-family-monoscape: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", faqz-m, -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
-$font-family-base: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", faqz-p, -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+
+$font-family-sans-serif: faqz-p, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
+$font-family-monoscape: faqz-m, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
+$font-family-base: faqz-p, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
 
 $font-weight-light: 200
 $font-weight-normal: 300
@@ -19,14 +21,17 @@ $font-weight-bold: 700
 $font-weight-base: $font-weight-normal
 $line-height-base: 1.6
 
-$headings-font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", faqz-c, -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
+$headings-font-family: faqz-c, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, "Yu Gothic", "メイリオ", Meiryo, sans-serif
 $headings-font-weight: 200
 $headings-line-height: 1.2
 $headings-color: inherit
 
-$theme-color: #f66e4f
-$light: #888
-$primary: $theme-color
+$misskey-red: #f66e4f
+$gray: #888
+$primary: $misskey-red
+$body-color: #444
+$body-bg: #f7f7f7
+
 @import "../../node_modules/bootstrap/scss/functions"
 @import "../../node_modules/bootstrap/scss/variables"
 
@@ -74,12 +79,12 @@ $breadcrumb-divider: "・"
  */
 
 @import "./my"
+@import "./top"
 @import "./blog"
 @import "./breadcrumb"
 @import "./navbar"
 @import "./summary"
 @import "./share"
-/*! @import "./top" */
 @import "./sidebar"
 @import "./news_index"
 

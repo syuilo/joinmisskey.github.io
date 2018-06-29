@@ -25,11 +25,8 @@ const inquirer = require('inquirer')
 const Twitter = require('twitter')
 const summaly = require('summaly').default
 const ss = require('simple-statistics')
-const fontawesome = require("@fortawesome/fontawesome")
-const faSolid = require("@fortawesome/fontawesome-free-solid")['default']
-const faRegular = require("@fortawesome/fontawesome-free-regular")['default']
-const faBrands = require("@fortawesome/fontawesome-free-brands")['default']
-fontawesome.library.add(faSolid, faRegular, faBrands)
+const fontawesome = require("@fortawesome/fontawesome-svg-core")
+fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
 
 // promisify
@@ -352,7 +349,7 @@ gulp.task('copy-f404', (cb) => {
     ], cb)
 })
 
-gulp.task('image-prebuildFiles', (cb) => {
+function images_base(){
     const images_allFalse = {
         "optipng": false,
         "pngquant": false,
@@ -363,27 +360,54 @@ gulp.task('image-prebuildFiles', (cb) => {
         "gifsicle": false,
         "svgo": false
     }
+    return site.images.files.all.image ? extend(true,images_allFalse,site.images.files.all.image) : images_allFalse
+}
+gulp.task('image-prebuildFiles', () => {
     const sizes = site.images.files.sizes
     const stream = gulp.src('files/**/*.{png,jpg,jpeg}')
-                .pipe($.image(site.images.files.all.image ? extend(true,images_allFalse,site.images.files.all.image) : images_allFalse))
     const stream2 = merge2()
     for(i = 0; i < sizes.length; i++){
         stream2.add(
             stream
             .pipe($.imageResize(sizes[i].resize || {}))
             .pipe($.rename(sizes[i].rename || {}))
-            .pipe($.image(sizes[i].image ? extend(true,images_allFalse,sizes[i].image) : images_allFalse))
+            .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
             .pipe(gulp.dest('dist/files'))
         )
     }
     stream2.add(
         gulp.src('files/**/*.{gif,svg}')
-        .pipe($.image({
+        .pipe($.image(extend(true, images_base(), {
             "gifsicle": true,
             "svgo": true
-        }))
+        })))
         .pipe(gulp.dest('dist/files'))
     )
+
+    return stream2
+})
+
+gulp.task('image', () => {
+    if (!argv.i) new Error('ファイルが指定されていません。 -i <path>を付けて指定してください。')
+    const sizes = site.images.files.sizes
+    const stream = gulp.src(argv.i)
+    const stream2 = merge2()
+    const date = new Date()
+    for(i = 0; i < sizes.length; i++){
+        stream2.add(
+            stream
+            .pipe($.imageResize(sizes[i].resize || {}))
+            .pipe($.rename(sizes[i].rename || {}))
+            .pipe($.rename({dirname: `${date.getFullYear()}/${date.getMonth() + 1}`} || {}))
+            .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+            .pipe(gulp.dest('dist/files/images/imports'))
+        )
+        stream2.add(
+            stream
+            .pipe($.rename({dirname: `${date.getFullYear()}/${date.getMonth() + 1}`} || {}))
+            .pipe(gulp.dest('files/images/imports'))
+        )
+    }
 
     return stream2
 })

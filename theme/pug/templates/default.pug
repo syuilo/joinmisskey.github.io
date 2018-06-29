@@ -114,8 +114,9 @@ html(lang=locale)
             #disqus_wrap
               #disqus_thread
 
-        #footer_wrap.py-3.bg-white
-            p.m-0 Copyright: #{site.author}
+        #footer_wrap.py-3
+          .container
+            p.m-0 Copyright (c) #{site.author}
 
     block includes_foot
       include ../includes/_includes_foot.pug

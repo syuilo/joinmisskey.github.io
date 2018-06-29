@@ -1,7 +1,7 @@
 block script_preset
   -
     const permalink_split = page.meta.permalink.split("/")
-    const locale = permalink_split.length > 3 ? false : permalink_split[2]
+    const locale = permalink_split.length > 3 ? false : permalink_split[1]
 block requires
   -
     const URL = require('url')
@@ -23,11 +23,8 @@ block requires
     moment.locale('ja')
     const wk = require('wanakana')
     
-    const fontawesome = require("@fortawesome/fontawesome")
-    const faSolid = require("@fortawesome/fontawesome-free-solid")['default']
-    const faRegular = require("@fortawesome/fontawesome-free-regular")['default']
-    const faBrands = require("@fortawesome/fontawesome-free-brands")['default']
-    fontawesome.library.add(faSolid, faRegular, faBrands)
+    const fontawesome = require("@fortawesome/fontawesome-svg-core")
+    fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 
 block vals
   -

@@ -1,0 +1,61 @@
+#toppage
+  #top
+    position: relative
+    height: 70vh
+    overflow: hidden
+    white-space: nowrap
+    text-shadow: 0 0 2px #f66e4f, 0 0 3px #f66e4f
+
+    @media (max-width: map-get($grid-breakpoints, sm))
+      height: 60vh
+
+    .texts
+      position: absolute
+      top: 33.3%
+      max-width: 88vw
+      left: 6vw
+      transform: translateY(-50%)
+      z-index: 2
+      white-space: nowrap
+    
+    .scnshts
+      position: absolute
+      z-index: 1
+    
+      img
+        position: absolute
+        filter: drop-shadow(0px 0px 1.5px rgba(0,0,0,.25))
+        
+        &:nth-child(1)
+          width: 60vw
+          left: 32vw
+          top: 45vh
+          z-index: 1
+
+        &:nth-child(2)
+          width: 80vw
+          left: 10vw
+          top: 35vh
+          z-index: 0
+
+        &:nth-child(3)
+          width: 20vw
+          left: 77vw
+          top: 40vh
+          z-index: 3
+  
+  #section_2,
+  #section_3
+    h4
+      font-size: 16px
+      line-height: 1.6em
+      font-weight: 700
+      margin: 0
+
+      @media (max-width: 500px)
+        font-size: 15px
+
+  #section_3
+    #instances
+      max-height: 80vh
+      overflow-y: auto

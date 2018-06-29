@@ -1,20 +1,17 @@
 script(src=`${site.url.path}/assets/pjax-api.min.js`)
 script.
   var Pjax = require('pjax-api').Pjax;
-  new Pjax({  areas: ['#main, #sidebar, #breadcrumb', '#grid', 'body'], update: { head: 'meta, link' }  });
+  new Pjax({  areas: ['#main, #breadcrumb', '#grid', 'body'], update: { head: 'meta, link' }  });
 
 script.
   var current_baseurl = "/#{locale}/";
+  var locales = #{site.locales};
+  var permalink = "#{page.meta.permalink.slice(locale.length + 2)}"
 
-  var locales = {
-    ja: "/ja/"
-  };
   if (window.location.search.indexOf('moved') == -1){
-    var url = locales[window.navigator.language.slice(0, 2)];
-    if (url){
-      if(url != current_baseurl) Pjax.replace(url + "?moved", {});
-    }
-    else {Pjax.replace("/ja/?moved", {});}
+    if (locales.indexOf(window.navigator.language.slice(0, 2)) >= 0){
+      if(url != current_baseurl) Pjax.replace(url + permalink + "?moved", {});
+    } else { Pjax.replace("/ja/" + permalink + "?moved", {}); }
   } else {
     history.replaceState(null, null, window.location.href.replace(/\?.*$/,""));
   }

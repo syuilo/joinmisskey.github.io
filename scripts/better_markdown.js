@@ -1,9 +1,7 @@
 module.exports = (htm, urlprefix) => {
-  const fontawesome = require("@fortawesome/fontawesome")
-  const faSolid = require("@fortawesome/fontawesome-free-solid")['default']
-  const faRegular = require("@fortawesome/fontawesome-free-regular")['default']
-  const faBrands = require("@fortawesome/fontawesome-free-brands")['default']
-  fontawesome.library.add(faSolid, faRegular, faBrands)
+
+  const fontawesome = require("@fortawesome/fontawesome-svg-core")
+  fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 
   let $ = require('cheerio').load(htm, {decodeEntities: false})
 

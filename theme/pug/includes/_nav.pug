@@ -1,9 +1,9 @@
 //-
   ナビゲーションバー
 
-nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
+nav#mainnav.navbar.navbar-light.flex-row.p-0.border-bottom
   //-
-    button(class="navbar-toggler" type="button" data-toggle="collapse" aria-label="サイドバーを開く").bg-white.border-0.rounded-0.small.d-flex.d-lg-none.py-2.px-2.m-0.sidebar_opener
+    button(class="navbar-toggler" type="button" data-toggle="collapse" aria-label="サイドバーを開く").bg-transparent.border-0.rounded-0.small.d-flex.d-lg-none.py-2.px-2.m-0.sidebar_opener
     div MENU
   a(href=`${site.url.path}/${locale}/`).navbar-brand#navbar_brand.m-0.p-0
     img(src=`${site.url.path}/files/images/title.light.svg` class="d-inline-block align-top img-fluid" alt=`${site.name}` title=`${site.name}` style="height: 48px")
@@ -11,13 +11,13 @@ nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
     button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
       | A文
     .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
-      a.dropdown-item(href=`${site.url.scheme}://${site.url.host}/ja/?moved`) 🇯🇵 日本語
+      a.dropdown-item(href=`/ja/?moved`) 🇯🇵 日本語
 //-
   パンくずリスト
 
-  nav(aria-label="breadcrumb")#breadcrumb.bg-white.sticky-top
+  nav(aria-label="breadcrumb")#breadcrumb.bg-transparent.sticky-top
   .container-fulid.px-1.px-lg-5
-    ol.breadcrumb.bg-white.text-light.my-0.mx-md-5.mx-1.py-1.px-0
+    ol.breadcrumb.bg-transparent.text-light.my-0.mx-md-5.mx-1.py-1.px-0
       - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""] (たとえば)
       if( dirs.length > 2 )
         li.breadcrumb-item
@@ -30,8 +30,8 @@ nav#mainnav.navbar.navbar-light.bg-white.flex-row.p-0
         -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
         -   if( indexPage != undefined && i < dirs.length - 2 ){
         -     if (!!indexPage.attributes.title) {  // // // // // // // // ページがあったら
-          li.breadcrumb-item
-            a(href=`${site.url.path}${dirpl}`).py-1.text-light #{indexPage.attributes.title}
+              li.breadcrumb-item
+                a(href=`${site.url.path}${dirpl}`).py-1.text-light #{indexPage.attributes.title}
         -     } else {
           li.breadcrumb-item
             a(href=`${site.url.path}${dirpl}`).py-1.text-light #{nowdir}

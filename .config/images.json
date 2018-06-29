@@ -14,6 +14,7 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
+                        "sharpen": "0x0.75+0.75+0.008",
                         "imageMagick": true
                     },
                     "image": {
@@ -23,7 +24,7 @@
                 },
                 {
                     "rename": {
-                        "suffix": "1600"
+                        "suffix": ".1600"
                     },
                     "resize": {
                         "width": 1600,
@@ -32,6 +33,7 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
+                        "sharpen": "0x0.75+0.75+0.008",
                         "imageMagick": true
                     },
                     "image": {
@@ -41,7 +43,7 @@
                 },
                 {
                     "rename": {
-                        "suffix": "720"
+                        "suffix": ".720"
                     },
                     "resize": {
                         "width": 720,
@@ -50,8 +52,28 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
-                        "imageMagick": true,
-                        "concurrent": 30
+                        "sharpen": "0x0.75+0.75+0.008",
+                        "imageMagick": true
+                    },
+                    "image": {
+                        "jpegRecompress": true,
+                        "mozjpeg": ["-optimize", "-progressive"]
+                    }
+                },
+                {
+                    "rename": {
+                        "suffix": ".720"
+                    },
+                    "resize": {
+                        "width": 720,
+                        "height": 720,
+                        "crop": false,
+                        "upscale": true,
+                        "interlace": "line",
+                        "cover": true,
+                        "format": "jpeg",
+                        "sharpen": "0x0.75+0.75+0.008",
+                        "imageMagick": true
                     },
                     "image": {
                         "jpegRecompress": true,
