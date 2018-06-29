@@ -5,56 +5,58 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
 #toppage
   #top
     .texts
-      .slogan 新しい世界で繋がろう
-      h1 Misskeyをはじめよう
+      .slogan.h1.font-weight-bold 新しい世界で<wbr>繋がろう
+      h1.h4.font-weight-normal Misskeyを<wbr>はじめよう
     .scnshts
-      img(src="/files/images/scnshts/scnsht.deck.720.jpg" alt="Deck(Desktop)")
-      img(src="/files/images/scnshts/scnsht.home.720.jpg" alt="Home(Desktop)")
-      img(src="/files/images/scnshts/scnsht.mobile.720.jpg" alt="Mobile")
-  #section_1.mx-1.py-4.bg-light
-    p Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた<b>分散マイクロブログSNS</b>です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
-    p 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
+      img(src="/files/images/scnshts/scnsht.deck.720.jpeg" alt="Deck(Desktop)")
+      img(src="/files/images/scnshts/scnsht.home.720.jpeg" alt="Home(Desktop)")
+      img(src="/files/images/scnshts/scnsht.mobile.720.jpeg" alt="Mobile")
+  #section_1.pt-5.pb-4.bg-primary.text-white: .container
+    p.text-center Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
+    p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
-      a(href="#section_").btn.btn-lg.btn-primary.mr-2 はじめる
-      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank").btn.btn-lg.btn-outline-secondary 運営する
-  #section_2.container.py-5.bg-primary
+      a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank").btn.btn-lg.btn-primary 運営する
+  #section_2.py-5.bg-white: .container
     h2.text-center Misskeyをはじめる理由
     hr.my-4
     .s2-item
-      h3.text-center 全てが高機能
-      p.text-center Misskeyは高機能です。洗練されたUIはもちろんのこと、自分の投稿も装飾することができます。
-      
+      h3.text-center 多機能
+      p.text-center Misskeyは多機能です。
+
       ul.fa-ul
-        li
-          span.fa-li.h5.text-muted: +fa('surprise', 'far')
-          b 文字数制限と公開範囲
-          | Misskeyの文字数制限は、いまのところ1000文字です。
-          br
-          | 投稿の公開範囲を段階別に定めることができます。また、迷惑をかけることを防止するために、画像や投稿を予め隠しておくことができます。
-        li
-          span.fa-li.h5.text-muted: +fa('surprise', 'far')
-          b リアクション
-          | 他のユーザーの投稿に「😆」「🤔」「👍」ほか9種類から一つ選んでリアクション(反応)することができます。
-        li
-          span.fa-li.h5.text-muted: +fa('edit')
-          b Misskey Favorited Markdown
-          | Markdown風の構文を、投稿やプロフィールで使えます。テキストを<b>太字</b>にしたりリンクを貼ったりできます。
-        li
-          span.fa-li.h5.text-muted: +fa('chart-pie')
-          b アンケート
-          | 最大10個の選択肢を作成し、アンケートをとることができます。
-        li
-          span.fa-li.h5.text-muted: +fa('columns')
-          b ホーム・デッキ (デスクトップ)
-          | デスクトップでは、幅広い画面の「ホーム」と、カラム型レイアウトの「デッキ」を選んで使うことができます。
-        li
-          span.fa-li.h5.text-muted: +fa('calculator')
-          b ウィジェット
+        li.mt-3
+          span.fa-li.text-muted: +fa('comment-alt', 'fas', {classes: 'fa-lg'})
+          h4 文字数制限と公開範囲
+          | Misskeyでは１投稿につき1000文字まで書くことができます。そして、投稿の公開範囲を段階的に定めることができます。また、迷惑防止のために画像や投稿を予め隠しておくことができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('surprise', 'far', {classes: 'fa-lg'})
+          h4 リアクション
+          | 他のユーザーの投稿に「😆」「🤔」「👍」などの9個の絵文字を一つ選んでリアクション(反応)することができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('edit', 'fas', {classes: 'fa-lg'})
+          h4 Misskey Favorited Markdown
+          | Markdown風の構文を投稿やプロフィールで使えます。テキストを<b>太字</b>にしたりリンクを貼ったりできます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('chart-pie', 'fas', {classes: 'fa-lg'})
+          h4 アンケート
+          | 最大10個の選択肢を作成しアンケートをとることができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('columns', 'fas', {classes: 'fa-lg'})
+          h4 ホーム・デッキ (デスクトップ)
+          | デスクトップでは、幅広い画面の「ホーム」とカラム型レイアウトの「デッキ」とを使うことができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('calculator', 'fas', {classes: 'fa-lg'})
+          h4 ウィジェット
           | 通知、アクティビティ、カレンダー、トレンドなどをウィジェットとして利用できます。ホーム・デッキ・モバイルのそれぞれで、自由に並び替えて使えます。 
-        li
-          span.fa-li.h5.text-muted: +fa('cloud')
-          b ドライブ
-          | 投稿したりアイコンにしたりした画像は、ドライブに保存され、素早く再投稿することができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('cloud', 'fas', {classes: 'fa-lg'})
+          h4 ドライブ
+          | 投稿したりアイコンにしたりした画像はドライブに保存されます。ファイルをドライブに直接アップロードすることもできます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('gamepad', 'fas', {classes: 'fa-lg'})
+          h4 ゲーム
+          | ゲームが遊べます。「リバーシ」は、ユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank") 変則ルール]でも遊ぶことができます。
 
     hr.my-4
 
@@ -63,18 +65,18 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
       p.text-center あなたの意志で運営者を選択し、また自分がサーバーを運営することもできます。
 
       ul.fa-ul
-        li
-          span.fa-li.h5.text-muted: +fa('globe')
-          b Fediverse
-          | MisskeyはActivityPubという規格でのサーバー間の通信機能を持っています。これにより他のサーバーのユーザーをフォローすることができます。
+        li.mt-3
+          span.fa-li.text-muted: +fa('globe', 'fas', {classes: 'fa-lg'})
+          h4 Fediverse
+          | Misskeyでは、他のサーバーのユーザーをフォローすることができます。ActivityPubという規格のサーバー間通信機能を持っているためです。
           br
-          | ActivityPubでのサーバー間通信機能を持つサーバー「インスタンス」どうしが星々をなす宇宙のように見えるため、この連合体はFediverseと呼ばれます。
+          | ActivityPubでのサーバー間通信機能を持つSNSサーバーは「インスタンス」と呼ばれます。インスタンスどうしが星々をなす宇宙のように見えるため、この連合体は「Fediverse」と呼ばれます。
           br
-          | ActivityPubでのサーバー間通信機能を持つサービスはMisskeyだけではありません。
-        li
-          span.fa-li.h5.text-muted: +fa('download')
-          b 簡単なインストール
-          | MisskeyはNode.jsとMongoDBをはじめとした数個のソフトウェアをインストールし、いくつかの設定をするだけでインストールできます。
+          | ActivityPubでのサーバー間通信機能を持つソフトウェアはMisskeyだけではありません。例えばMastodonやPrelomaなどがあり、Misskeyはそれらとも互換性を持っています。
+        li.mt-3
+          span.fa-li.text-muted: +fa('download', 'fas', {classes: 'fa-lg'})
+          h4 インストールが簡単
+          | Misskeyサーバーの構築は簡単です。Node.jsとMongoDBをはじめとした4～5個のソフトウェアをインストールし、いくつかの設定をし、最後にビルドするだけでセットアップが終了します。
           br
           a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank")  → インストール方法
 
@@ -89,10 +91,45 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
           | GitHub
 
       ul.fa-ul
-        li
-          span.fa-li.h5.text-muted: +fa('balance-scale')
-          b AGPL-3.0
+        li.mt-3
+          span.fa-li.text-muted: +fa('code', 'fas')
+          h4 API
+          | Misskeyのすべての通信はAPIとして公開されています。Misskeyの機能を活用したBotやクライアントを作ってみてください。
+          a(href="https://misskey.xyz/docs/ja/api" target="_blank")  → Misskey API
+        li.mt-3
+          span.fa-li.text-muted: +fa('balance-scale', 'fas')
+          h4 AGPLv3
           | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で副次利用することができます。
           br
-          | AGPLv3は、個人・非商用利用はもちろんのこと、商用利用を認めます。しかし、利用しているサービスがどのような設計図のもとに動いているかを公開する必要があります。改変をしてサービスを提供した場合は、その改変部分を含め、AGPLv3の下でソースコードを公開する義務があります。
+          | AGPLv3は、個人・非商用利用はもちろん商用利用も認めますが、改変をしてサービスを提供した場合はその改変部分を含め、提供しているサービスのソースコードをAGPLv3の下で公開する義務があります。
           a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank")  → ライセンス
+
+  #section_3.bg-dark.text-white.py-5: .container
+    h2.text-center さっそくはじめよう
+    p.text-center まずはどこか既存のインスタンスに登録してみてください！
+    hr.my-4
+    h3 インスタンス一覧
+    #instances.bg-white.list-group
+        a(href="https://misskey.xyz" target="_blank").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
+          h4 misskey.xyz
+          p.m-0 syuilo氏が運営する公式インスタンス。
+
+    p.text-muted.pt-2 順次掲載します。載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
+  
+  #section_4.pt-5.pb-4: .container
+    h2.text-center 支援
+    p.text-center
+      a(href="https://github.com/syuilo/misskey#heart-backers--sponsors" target="_blank").btn.btn-lg.btn-link.mr-2
+        | 協賛者一覧
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank").btn.btn-lg.btn-link
+        | 寄付者一覧
+
+    hr.my-4
+    h3.text-center Misskeyを支援する
+    p.text-center Misskeyがお気に入りですか？Misskeyは自由でオープンソースです。Misskeyの開発にご支援ください。
+    a(href="https://www.patreon.com/syuilo" target="_blank").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+      +fa_fw('patreon', 'fab')
+      | パトロンになる
+    a(href="http://amzn.asia/7O1LEI5" target="_blank").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+      +fa_fw('amazon', 'fab')
+      | ほしいものリスト
