@@ -1,10 +1,10 @@
 {
     "name": "joinmisskey",
     "short_name": "Misskey",
-    "description": "Misskeyは、地球で生まれた分散マイクロブログSNSです。暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。",
-    "default_meesage": "",
+    "description": "Misskey is a completely open source, ultimately sophisticated professional microblogging software.",
+    "default_meesage": "Misskey is a completely open source, ultimately sophisticated professional microblogging software.",
     "author": "Misskey",
-    "url":{
+    "url": {
         "path": "",
         "host": "joinmisskey.github.io",
         "scheme": "https"
@@ -15,8 +15,8 @@
     },
     "page_namingrule": "name",
     "theme_color": {
-        "primary": "#00e0ed",
-        "secondary": "#fffc32"
+        "primary": "#f66e4f",
+        "secondary": "#888"
     },
     "default": {
         "template": "default"

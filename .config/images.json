@@ -75,10 +75,24 @@
                         "sharpen": "0x0.75+0.75+0.008",
                         "imageMagick": true
                     },
-                    "image": {
-                        "jpegRecompress": true,
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
+                    "image": {}
+                },
+                {
+                    "rename": {
+                        "suffix": ".card"
+                    },
+                    "resize": {
+                        "width": 1334,
+                        "height": 700,
+                        "crop": true,
+                        "upscale": true,
+                        "interlace": "line",
+                        "cover": true,
+                        "format": "jpeg",
+                        "sharpen": "0x0.75+0.75+0.008",
+                        "imageMagick": true
+                    },
+                    "image": {}
                 }
             ]
         }

@@ -116,7 +116,19 @@ html(lang=locale)
 
         #footer_wrap.py-3
           .container
-            p.m-0 Copyright (c) #{site.author}
+            .d-flex.justify-content-between.flex-wrap
+              div Copyright (c) #{site.author} 
+              div
+                a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener")
+                  +fa_fw('github', 'fab')
+                  | Misskey
+                | 
+                a(href="https://github.com/joinmisskey/joinmisskey.github.io" target="_blank" rel="noopener")
+                  +fa_fw('github', 'fab')
+                  | joinmisskey
+                | 
+                a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
+                  +fa_fw('twitter', 'fab')
 
     block includes_foot
       include ../includes/_includes_foot.pug
