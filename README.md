@@ -31,7 +31,7 @@ https://github.com/syuilo/misskey
 2. `git checkout -b pages/<languagecode>`
 3. `cd ../../`
 4. `git worktree add pages/<languagecode> pages/<languagecode>`
-5. Add the language in these files: `README.md`, `theme/pug/includes/_nav.png`, `theme/pug/includes/_includes_head.pug`
+5. Add the language in these files: `README.md`, `.config/default.json`, `theme/pug/includes/_includes_head.pug`
 
 ## LICENSES
 
