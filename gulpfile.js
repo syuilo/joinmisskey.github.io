@@ -323,12 +323,6 @@ gulp.task('copy-theme-static', (cb) => {
         gulp.dest(dests.root)
     ], cb)
 })
-gulp.task('copy-files', (cb) => {
-    pump([
-        gulp.src('dist/files/**/*'),
-        gulp.dest(dests.root + '/files')
-    ], cb)
-})
 gulp.task('copy-wtfpjax', (cb) => {
     pump([
         gulp.src('node_modules/pjax-api/dist/**'),
@@ -337,8 +331,14 @@ gulp.task('copy-wtfpjax', (cb) => {
 })
 gulp.task('copy-prebuildFiles', (cb) => {
     pump([
+        gulp.src('dist/files/**/*'),
+        gulp.dest(dests.root + '/files')
+    ], cb)
+})
+gulp.task('copy-files', (cb) => {
+    pump([
         gulp.src(src.files),
-        gulp.dest('./dist/files')
+        gulp.dest(dests.root + '/files')
     ], cb)
 })
 gulp.task('copy-f404', (cb) => {
@@ -555,8 +555,8 @@ gulp.task('last',
 gulp.task('copy-publish',
     gulp.series(
         gulp.parallel(
+            gulp.series( 'copy-files', 'copy-prebuildFiles' ),
             'copy-theme-static',
-            'copy-files',
             'copy-wtfpjax'
         ),
         (cb) => { cb() } 
@@ -593,7 +593,6 @@ gulp.task('default',
 gulp.task('prebuild-files',
     gulp.series(
         'clean-dist-files',
-        'copy-prebuildFiles',
         'image-prebuildFiles',
         (cb) => { cb() } 
     )
