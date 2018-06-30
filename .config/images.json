@@ -3,29 +3,13 @@
         "files": {
             "all": {
                 "image": {
-                    "pngquant": true,
-                    "concurrent": 30
+                    "pngquant": ["--speed=3"],
+                    "mozjpeg": ["-optimize", "-progressive"],
+                    "concurrent": 10
                 }
             },
             "sizes": [
                 {
-                    "resize": {
-                        "crop": false,
-                        "upscale": false,
-                        "interlace": "line",
-                        "cover": false,
-                        "sharpen": "0x0.75+0.75+0.008",
-                        "imageMagick": true
-                    },
-                    "image": {
-                        "jpegRecompress": true,
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
-                },
-                {
-                    "rename": {
-                        "suffix": ".1600"
-                    },
                     "resize": {
                         "width": 1600,
                         "height": 1600,
@@ -36,10 +20,7 @@
                         "sharpen": "0x0.75+0.75+0.008",
                         "imageMagick": true
                     },
-                    "image": {
-                        "jpegRecompress": true,
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
+                    "image": {}
                 },
                 {
                     "rename": {
@@ -55,10 +36,7 @@
                         "sharpen": "0x0.75+0.75+0.008",
                         "imageMagick": true
                     },
-                    "image": {
-                        "jpegRecompress": true,
-                        "mozjpeg": ["-optimize", "-progressive"]
-                    }
+                    "image": {}
                 },
                 {
                     "rename": {
@@ -68,23 +46,6 @@
                         "width": 720,
                         "height": 720,
                         "crop": false,
-                        "upscale": true,
-                        "interlace": "line",
-                        "cover": true,
-                        "format": "jpeg",
-                        "sharpen": "0x0.75+0.75+0.008",
-                        "imageMagick": true
-                    },
-                    "image": {}
-                },
-                {
-                    "rename": {
-                        "suffix": ".card"
-                    },
-                    "resize": {
-                        "width": 1334,
-                        "height": 700,
-                        "crop": true,
                         "upscale": true,
                         "interlace": "line",
                         "cover": true,
