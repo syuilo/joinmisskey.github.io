@@ -32,11 +32,11 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
         li.mt-3
           span.fa-li.text-muted: +fa('surprise', 'far', {classes: 'fa-lg'})
           h4 リアクション
-          | 他のユーザーの投稿に「😆」「🤔」「👍」などの9個の絵文字を一つ選んでリアクション(反応)することができます。
+          | 「😆」「🤔」「👍」などの9個の絵文字から1つを選んで、他のユーザーの投稿にリアクション(反応)することができます。
         li.mt-3
           span.fa-li.text-muted: +fa('edit', 'fas', {classes: 'fa-lg'})
           h4 Misskey Favorited Markdown
-          | Markdown風の構文を投稿やプロフィールで使えます。テキストを<b>太字</b>にしたりリンクを貼ったりできます。
+          | 投稿やプロフィールでMarkdown風の構文を使うことができます。太字やコード、リンクなどを表現できます。
         li.mt-3
           span.fa-li.text-muted: +fa('chart-pie', 'fas', {classes: 'fa-lg'})
           h4 アンケート
@@ -44,7 +44,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
         li.mt-3
           span.fa-li.text-muted: +fa('columns', 'fas', {classes: 'fa-lg'})
           h4 ホーム・デッキ (デスクトップ)
-          | デスクトップでは、幅広い画面の「ホーム」とカラム型レイアウトの「デッキ」とを使うことができます。
+          | デスクトップでは幅広い画面の「ホーム」とカラム型レイアウトの「デッキ」とを使うことができます。
         li.mt-3
           span.fa-li.text-muted: +fa('calculator', 'fas', {classes: 'fa-lg'})
           h4 ウィジェット
@@ -56,7 +56,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
         li.mt-3
           span.fa-li.text-muted: +fa('gamepad', 'fas', {classes: 'fa-lg'})
           h4 ゲーム
-          | ゲームが遊べます。「リバーシ」は、ユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
+          | ゲームが遊べます。「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
 
     hr.my-4
 
@@ -76,7 +76,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
         li.mt-3
           span.fa-li.text-muted: +fa('download', 'fas', {classes: 'fa-lg'})
           h4 インストールが簡単
-          | Misskeyサーバーの構築は簡単です。Node.jsとMongoDBをはじめとした4～5個のソフトウェアをインストールし、いくつかの設定をし、最後にビルドするだけでセットアップが終了します。
+          | Misskeyサーバーの構築は簡単です。Node.jsとMongoDBをはじめとした4～5個のソフトウェアのインストールといくつかの設定をし、ビルドするだけでセットアップが終了します。
           br
           a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener")  → インストール方法
 
@@ -95,13 +95,15 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
           span.fa-li.text-muted: +fa('code', 'fas')
           h4 API
           | Misskeyのすべての通信はAPIとして公開されています。Misskeyの機能を活用したBotやクライアントを作ってみてください。
+          br
           a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener")  → Misskey API
         li.mt-3
           span.fa-li.text-muted: +fa('balance-scale', 'fas')
           h4 AGPLv3
-          | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で副次利用することができます。
+          | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
           br
           | AGPLv3は、個人・非商用利用はもちろん商用利用も認めますが、改変をしてサービスを提供した場合はその改変部分を含め、提供しているサービスのソースコードをAGPLv3の下で公開する義務があります。
+          br
           a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener")  → ライセンス
 
   #section_3.bg-dark.text-white.py-5: .container
@@ -109,10 +111,10 @@ description: 地球で生まれた分散マイクロブログSNS Misskey
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
     hr.my-4
     h3 インスタンス一覧
-    #instances.bg-white.list-group
-        a(href="https://misskey.xyz" target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
-          h4 misskey.xyz
-          p.m-0 syuilo氏が運営する公式インスタンス。
+    #instances.list-group
+      a(href="https://misskey.xyz" target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
+        h4 misskey.xyz
+        p.m-0 syuilo氏が運営する公式インスタンス。
 
     p.text-muted.pt-2 順次掲載します。載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
