@@ -19,7 +19,19 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "687d39cd53b7ab97b92f16e662b72644"
+    "revision": "30a427dd986b098bc41940df1bbe86e4"
+  },
+  {
+    "url": "files/fonts/GenShinGothic-Bold.woff2",
+    "revision": "2eac22b8067ebd622cc9703d73ad285a"
+  },
+  {
+    "url": "files/fonts/GenShinGothic-Light.woff2",
+    "revision": "91e472e892a59a50ad8293d947c7ffa1"
+  },
+  {
+    "url": "files/fonts/GenShinGothic-Normal.woff2",
+    "revision": "5b77e56b6e60cda244328271e6fd2200"
   },
   {
     "url": "files/fonts/mgenplus-c-bold.woff2",
@@ -59,7 +71,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "d6ec48800fc08897a7084a95561c3de7"
+    "revision": "596f6c1c455e77d7da9ddb5ba990632a"
   },
   {
     "url": "manifest.json",
