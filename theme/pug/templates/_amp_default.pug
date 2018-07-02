@@ -1,11 +1,11 @@
 doctype
 block _script
-  include ../includes/_script.pug
+  include ../includes/_amp_script.pug
 block _mixin
   include ../includes/_mixins.pug
 block preset
 
-html(lang=locale)
+html(lang=locale, amp)
   head
     block meta
       block must
@@ -23,8 +23,8 @@ html(lang=locale)
           *
       block canonical
         link(rel="canonical", href=url.href)
-        if(page.attributes.amp)
-          link(rel="amphtml", href=`${url.href}amp.html`)
+        link(rel="amphtml", href=`${url.href}amp.html`)
+
       block seo
         meta(name="author" content=site.author)
         meta(name="generator" content="maqz")
@@ -45,7 +45,6 @@ html(lang=locale)
 
       block includes_head
         link(rel="manifest" href=`${site.url.path}/manifest.json`)
-        include ../includes/_includes_head.pug
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
@@ -78,61 +77,58 @@ html(lang=locale)
           meta(name="twitter:description", content=page.attributes.description)
           meta(name="twitter:site", content=site.social_media.twitter.stalk)
 
-      block gtag
-        if(site.ga)
-          .
-            <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
-            <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '#{site.ga}');
-            </script>
+      block amp-bp
+        | <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+        script(async, src="https://cdn.ampproject.org/v0.js")
 
-      block js_head
+      block amp-c
+        if(site.social_media.share_button)
+          script(async, custom-element="amp-social-share",    src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js") 
+        if(site.disqus)
+          script(async, custom-element="amp-iframe",          src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js")
+        if(site.ga)
+          script(async, custom-element="amp-analytics"        src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
 
       block style
-        style
-          != new cleanCss().minify(fontawesome.dom.css()).styles
+        include ../includes/_amp_style.pug
 
   body
 
     block wo_footer
       block nav
-        #nav
-          include ../includes/_nav.pug
-
+        include ../includes/_amp_nav.pug
       block main
         #main
           != main_html
 
     block footer
-      #footer
-        if( site.disqus )
-          .container-fluid.py-5
-            #disqus_wrap
-              #disqus_thread
+      if( site.disqus )
+        .container.py-5
+          amp-iframe(width="600" height="140" layout="responsive" sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms" resizable
+            src=`https://tmin.cf/amp.html?shortname=${site.disqus}&url=${encodeURIComponent(`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)}&identifier=${encodeURIComponent(`${site.url.host}${site.url.path}${page.meta.permalink}`)}`)
+            div(overflow tabindex="0" role="button" aria-label="maqz")
 
-        #footer_wrap.py-3
-          .container
-            .d-flex.justify-content-between.flex-wrap
-              div Copyright (c) #{site.author} 
-              div
-                a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener")
-                  +fa_fw('github', 'fab')
-                  span.sr-only GitHub 
-                  | Misskey
-                | 
-                a(href="https://github.com/joinmisskey/joinmisskey.github.io" target="_blank" rel="noopener")
-                  +fa_fw('github', 'fab')
-                  span.sr-only GitHub 
-                  | joinmisskey
-                | 
-                a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
-                  +fa_fw('twitter', 'fab')
-                  span.sr-only Twitter
+      #footer_wrap.py-3.bg-light
+        footer.container
+          p Copyright: #{site.author}
+          p.m-0 This site built with maqz and published as AMP
 
-    block includes_foot
-      include ../includes/_includes_foot.pug
-
-    block js_foot
+    block gtag
+      if(site.ga)
+        amp-analytics(type="googleanalytics")
+          script(type="application/json")
+            .
+              {
+                "vars": {
+                  "account": "#{site.ga}"
+                },
+                "triggers": {
+                  "default pageview": {
+                    "on": "visible",
+                    "request": "pageview",
+                    "vars": {
+                      "title": "#{page.attributes.title}"
+                    }
+                  }
+                }
+              }

@@ -1,0 +1,60 @@
+extends _script.pug
+
+append script_preset
+  -
+    const amp = true
+
+  -
+    function md_better(htm){
+      let $ = cheerio.load(htm, {decodeEntities: false})
+
+      $('h2').addClass('mt-5 p-1 border border-top-0 border-right-0 border-primary')
+      $('h3, h4').addClass('mt-5 p-1 border border-left-0 border-top-0 border-right-0 border-primary')
+      $('h5, h6').addClass('mt-4 p-1 border border-left-0 border-top-0 border-right-0')
+      $('img[src]').each(function(){
+        let src    = $(this).attr('src')
+        let alt    = $(this).attr('alt')
+        let title  = $(this).attr('title')
+        let id     = $(this).attr('id')
+        let width  = $(this).attr('width')
+        let height = $(this).attr('height')
+
+          if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
+            const dims = sizeOf( src )
+            width = dims.width
+            height = dims.height
+            src = site.url.path + "/" + src
+          } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
+            const dims = sizeOf( src.slice(1) )
+            width = dims.width
+            height = dims.height
+            src = site.url.path +src
+          } else {
+            console.log( messages.amp.invalid_imageUrl )
+          }
+
+        $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+      })
+      $('img').remove()
+      $('amp-img').attr('layout','responsive')
+      $('table').addClass('table table-sm table-bordered')
+      $('a[href^="http"], a[href^="//"]').append('<span class="fa fa-external-link fa-fw" aria-hidden="true"></span>').attr({target:'_blank', rel:'noopener'})
+    
+      return $('body').html()
+    }
+
+block make_html
+  //- make main html
+  if(!is_subcall)
+    case page.meta.src.ext
+      when '.md'
+        - main_html = kramed(page.body)
+        - main_html = md_better(main_html)
+        //- main_html = maly(main_html)
+        - main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      when '.html'
+      when '.htm'
+        - main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+      when '.pug'
+        - main_html = pugit(page.body)
+

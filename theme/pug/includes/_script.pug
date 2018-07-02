@@ -1,7 +1,8 @@
 block script_preset
   -
     const permalink_split = page.meta.permalink.split("/")
-    const locale = (permalink_split.length < 3 && permalink_split[1] == "404") ? false : permalink_split[1]
+    const locale = (permalink_split.length < 3 || permalink_split[1] == "404") ? false : permalink_split[1]
+
 block requires
   -
     const URL = require('url')
@@ -19,8 +20,8 @@ block requires
     const fs = require('fs')
     const numeral = require('numeral')
     const moment = require("moment")
-    require('moment/locale/ja')
-    moment.locale('ja')
+    require(`moment/locale/${locale || "ja"}`)
+    moment.locale(locale)
     const wk = require('wanakana')
     
     const fontawesome = require("@fortawesome/fontawesome-svg-core")
@@ -37,7 +38,6 @@ block vals
       "option": option, 
       "require": require, 
       "theme_pug": theme_pug,
-      "graph_data": graph_data,
       "is_subcall": true,
       filters: require('./pugfilters.js')}
     let main_html

@@ -1,7 +1,7 @@
 script(class='pjax-reload')
   .
     var disqus_config = function() {
-      this.page.url = "#{site.url.scheme}://#{site.url.host}#{site.url.path}#{page.meta.permalink}";
+      this.page.url = "#{url.href}";
       this.page.identifier = "#{site.url.host}#{site.url.path}#{page.meta.permalink}";
     }
 

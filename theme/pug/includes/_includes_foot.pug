@@ -11,10 +11,10 @@ script.
 
   if (window.location.search.indexOf('moved') == -1){
     if (locales.indexOf(user_language) >= 0){
-      if(user_language != current_locale) Pjax.replace("/" + user_language + permalink + "?moved", {});
-    } else { Pjax.replace("/ja" + permalink + "?moved", {}); }
+      if(user_language != current_locale) Pjax.replace("/" + user_language + permalink + "?moved" + window.location.hash, {});
+    } else if (current_locale != "ja") { Pjax.replace("/ja" + permalink + "?moved" + window.location.hash, {}); }
   } else {
-    history.replaceState(null, null, window.location.href.replace(/\?.*$/,""));
+    history.replaceState(null, null, window.location.href.replace(/\?[^#]*/,""));
   }
 
 if(site.disqus)

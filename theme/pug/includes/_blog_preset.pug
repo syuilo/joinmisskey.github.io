@@ -1,7 +1,7 @@
 -
   let style, mainHeaderStyle
   if(page.meta.thumbnail) {
-    style = `background-image:url("${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}")`
+    style = `background-image:url("${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720${page.meta.thumbnail.ext}")`
     mainHeaderStyle = `#main_header{${style}}`
   } else {
     style = "background-color:#212121"
@@ -15,7 +15,7 @@
 
       return ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
     }
-  ), pagesNext = pages.filter(
+  ), pagesFuture = pages.filter(
     function(el, i, array){
       let elem_time = new Date(el.meta.mtime)
       let page_time = new Date(page.meta.mtime)
@@ -29,7 +29,7 @@
   }
 
   let pagePrev_mTime = Math.max.apply(null,pagesPast.map(mapping_pages_time))
-    , pageNext_mTime = Math.min.apply(null,pagesNext.map(mapping_pages_time))
+    , pageNext_mTime = Math.min.apply(null,pagesFuture.map(mapping_pages_time))
 
   let pagesPrev = pagesPast.filter(
         function(el, i, array){
@@ -38,7 +38,7 @@
           return (elem_time.getTime() == pagePrev_mTime)
         }
       )
-    , pagesNext = pagesNext.filter(
+    , pagesNext = pagesFuture.filter(
         function(el, i, array){
           let elem_time = new Date(el.meta.mtime)
 

@@ -10,21 +10,21 @@ const path = require('path')
 const del = require('del')
 const fm = require('front-matter')
 const crypto = require('crypto')
-const join = path.join
 const workboxBuild = require('workbox-build')
-const exec = require('child_process').exec
 const minimist = require('minimist')
 const merge2 = require('merge2')
 const mkdirp = require('mkdirp')
 const pump = require('pump')
-const moment = require('moment')
 const glob = require('glob')
 const request = require('request')
-const numeral = require('numeral')
-const inquirer = require('inquirer')
-const Twitter = require('twitter')
-const summaly = require('summaly').default
-const ss = require('simple-statistics')
+// const exec = require('child_process').exec
+// const join = path.join
+// const moment = require('moment')
+// const numeral = require('numeral')
+// const inquirer = require('inquirer')
+// const Twitter = require('twitter')
+// const summaly = require('summaly').default
+// const ss = require('simple-statistics')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -255,7 +255,7 @@ gulp.task('pug', (cb) => {
         }
 
         let layout = page.attributes.layout
-        let template = ''
+        let template = '', amptemplate = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) template += `theme/pug/templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) template += `theme/pug/templates/${site.default.template}.pug`
         else throw Error('default.pugが見つかりませんでした。')
@@ -273,6 +273,29 @@ gulp.task('pug', (cb) => {
                 })
         )
 
+        /*
+         *                            AMP処理部
+         *                                                                  */
+
+        if(page.attributes.amp){
+            if(existFile(`theme/pug/templates/_amp_${layout}.pug`)) amptemplate += `theme/pug/templates/_amp_${layout}.pug`
+            else if(existFile(`theme/pug/templates/_amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/_amp_${site.default.template}.pug`
+            else throw Error('_amp_default.pugが見つかりませんでした。')
+
+            stream.add(
+                gulp.src(amptemplate)
+                    .pipe($.pug(pugoptions))
+                    .pipe($.rename(`${page.meta.permalink}amp.html`))
+                    .pipe(gulp.dest( dests.root ))
+                    .on('end',() => {
+                        $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
+                    })
+                    .on('error', (err) => {
+                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
+                        throw err
+                    })
+            )
+        }
     }
     return stream.on('end', cb)
 })

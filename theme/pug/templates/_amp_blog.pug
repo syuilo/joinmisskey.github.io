@@ -1,0 +1,68 @@
+extends _amp_default
+
+append preset
+
+  include ../includes/_blog_preset
+
+append style-custom
+  != mainHeaderStyle
+
+append meta
+
+  include ../includes/_blog_schema
+
+block main
+  #main.pb-5.pt-0
+    article
+      header#main_header.text-light
+        .container
+          - let birthtime = new Date(page.meta.birthtime)
+          - let mtime = new Date(page.meta.mtime)
+          h1#blogheader_top= page.attributes.title
+          div.mb-1
+            ul.list-unstyled
+              li
+                +fa_fw("file-alt")
+                time(datetime=page.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
+                |  作成
+              li
+                +fa_fw("clock")
+                time(datetime=page.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
+                |  更新
+          div.mb-3
+            +fa_fw("folder-open")
+            if(page.attributes.categories !== undefined && page.attributes.categories != [])
+              each category in page.attributes.categories
+                if( pages.find( e => e.meta.permalink.toLowerCase() === `/blog/category/${category}/`.toLowerCase() ) !== undefined )
+                  a(href=`${site.url.path}/blog/category/${category}/`).badge.badge-success= category
+                else
+                  span.badge.badge-success= category
+                |  
+            else
+              | なし
+            | &emsp;
+            +fa_fw("tags")
+            if(page.attributes.tags !== undefined && page.attributes.tags !== [])
+              each tag in page.attributes.tags
+                if( pages.find( e => e.meta.permalink === `/blog/tag/${tag}/` ) !== undefined )
+                  a(href=`${site.url.path}/blog/tag/${tag}/`).badge.badge-info= tag
+                else
+                  span.badge.badge-info= tag
+                |  
+            else
+              | なし
+          div.mb-3#blogheader_description= page.attributes.description
+          
+        #blogheader_footer.d-flex.flex-wrap
+          if(pagePrev)
+            a(href=`${site.url.path}${pagePrev.meta.permalink}`)#blogheader_prev.py-3.text-light
+              .container 前: #{pagePrev.attributes.title}
+          if(pageNext) 
+            a(href=`${site.url.path}${pageNext.meta.permalink}`)#blogheader_next.py-3.text-light
+              .container 次: #{pageNext.attributes.title}
+
+      .container.pt-3
+        if(page.meta.thumbnail)
+          .text-center
+            amp-img(src=thsrc alt="アイキャッチ", width=thwidth, height=thheight, layout="responsive")
+        != getTL(main_html)
