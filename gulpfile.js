@@ -17,17 +17,17 @@ const mkdirp = require('mkdirp')
 const pump = require('pump')
 const glob = require('glob')
 const request = require('request')
+const fontawesome = require("@fortawesome/fontawesome-svg-core")
+fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
+$ = require('gulp-load-plugins')()
+
+
 // const exec = require('child_process').exec
 // const join = path.join
 // const moment = require('moment')
 // const numeral = require('numeral')
 // const inquirer = require('inquirer')
-// const Twitter = require('twitter')
 // const summaly = require('summaly').default
-// const ss = require('simple-statistics')
-const fontawesome = require("@fortawesome/fontawesome-svg-core")
-fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
-$ = require('gulp-load-plugins')()
 
 // promisify
 
