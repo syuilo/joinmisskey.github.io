@@ -14,7 +14,3 @@ window.addEventListener('pjax:load', function(){
     history.replaceState(null, null, window.location.href.replace(/\?.*$/,""))
   }
 })
-
-window.addEventListener('pjax:unload', function(){
-  $('script[src$="disqus.com/embed.js"]').remove()
-})
