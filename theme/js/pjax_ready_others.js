@@ -1,6 +1,6 @@
 var $ = require('jquery')
 
-$(window).on('pjax:load', function(){
+window.addEventListener('pjax:load', function(){
   if(window.gtag) gtag('event', 'page_view')
   if(window.DISQUS){
     // DISQUSでresetを送信します。
@@ -15,6 +15,6 @@ $(window).on('pjax:load', function(){
   }
 })
 
-$(window).on('pjax:unload', function(){
+window.addEventListener('pjax:unload', function(){
   $('script[src$="disqus.com/embed.js"]').remove()
 })
