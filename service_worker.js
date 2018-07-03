@@ -3,11 +3,11 @@ importScripts('/workbox-sw.js');
 workbox.precaching.precacheAndRoute([
   {
     "url": "assets/main.js",
-    "revision": "98ab9d6ea78ba4e2a29d4bac6db50d29"
+    "revision": "54be62652b8a70ac37092728c9d723ec"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "5c183534051a15f05d27c886e8d8ead7"
+    "revision": "986f6c4c44f911318d7492fa7df3b25e"
   },
   {
     "url": "assets/pjax-api.js",
@@ -19,7 +19,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "19768bfba92f7716271c2b99a4dfc774"
+    "revision": "36b68b695f8ee41533aaddca03a97d34"
+  },
+  {
+    "url": "assets/zepto.min.js",
+    "revision": "d37f7aa3fdda41a82b000109654352c6"
   },
   {
     "url": "files/fonts/GenShinGothic-Bold.woff2",
@@ -71,7 +75,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "8b3a37bce45e69e1b25e315cea8560f1"
+    "revision": "75f5bd2e908caaa8ebc8fb364722958f"
   },
   {
     "url": "manifest.json",
