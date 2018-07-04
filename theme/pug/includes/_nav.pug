@@ -8,7 +8,7 @@ nav#mainnav.navbar.navbar-light.flex-row.p-0.border-bottom
   a(href=`${site.url.path}/${locale}/`).navbar-brand#navbar_brand.m-0.p-0
     img(src=`${site.url.path}/files/images/title.light.svg` class="d-inline-block align-top img-fluid" alt=`${site.name}` title=`${site.name}` style="height: 48px")
   .dropleft
-    button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+    button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled)
       | A文
     .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
       a.dropdown-item(href=`/ja/?moved`) 🇯🇵 日本語

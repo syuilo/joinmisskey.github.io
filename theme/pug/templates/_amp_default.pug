@@ -33,7 +33,7 @@ html(lang=locale, amp)
         -
           let description = page.attributes.description
           if( !$$(page.attributes.description).string().range(25, 124).ok()){
-            description = page.attributes.description + site.default_meesage
+            description = page.attributes.description + site.description
           }
         meta(name="description", content=description)
 

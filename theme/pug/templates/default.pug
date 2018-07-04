@@ -12,7 +12,7 @@ html(lang=locale)
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, minimum-scale=1, initial-scale=1")
       block title
-        title #{page.attributes.title} - #{site.name}
+        title #{page.attributes.title} - #{site.names[locale] || site.name}
 
       block thankyou_seeing_sourcecode
         //
@@ -33,7 +33,7 @@ html(lang=locale)
         -
           let description = page.attributes.description
           if( !$$(page.attributes.description).string().range(25, 124).ok()){
-            description = page.attributes.description + site.default_meesage
+            description = page.attributes.description + (site.descriptions[locale] || site.description)
           }
         meta(name="description", content=description)
 
@@ -96,11 +96,6 @@ html(lang=locale)
           != new cleanCss().minify(fontawesome.dom.css()).styles
 
   body
-    block init
-    	div#ini.
-        svg(viewBox="0 0 50 50")
-          <path fill=#{themeColor} d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" />
-
     block wo_footer
       block nav
         #nav

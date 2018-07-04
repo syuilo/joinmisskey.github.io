@@ -346,7 +346,13 @@ gulp.task('copy-theme-static', (cb) => {
         gulp.dest(dests.root)
     ], cb)
 })
-gulp.task('copy-wtfpjax', (cb) => {
+gulp.task('copy-bootstrapjs', (cb) => {
+    pump([
+        gulp.src('node_modules/bootstrap/dist/js/**'),
+        gulp.dest(dests.root + '/assets')
+    ], cb)
+})
+gulp.task('copy-pjax', (cb) => {
     pump([
         gulp.src('node_modules/pjax-api/dist/**'),
         gulp.dest(dests.root + '/assets')
@@ -571,7 +577,7 @@ gulp.task('last',
         'copy-f404',
         'copy-docs',
         'clean-dist-docs',
-        (cb) => { cb() } 
+        (cb) => { cb() }
     )
 )
 
@@ -580,9 +586,9 @@ gulp.task('copy-publish',
         gulp.parallel(
             gulp.series( 'copy-files', 'copy-prebuildFiles' ),
             'copy-theme-static',
-            'copy-wtfpjax'
+            gulp.series( 'copy-pjax', 'copy-bootstrapjs' )
         ),
-        (cb) => { cb() } 
+        (cb) => { cb() }
     )
 )
 gulp.task('make-subfiles',
@@ -591,7 +597,7 @@ gulp.task('make-subfiles',
             'make-manifest',
             'make-browserconfig'
         ),
-        (cb) => { cb() } 
+        (cb) => { cb() }
     )
 )
 
