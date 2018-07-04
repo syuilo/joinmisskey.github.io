@@ -2,12 +2,28 @@ importScripts('/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([
   {
+    "url": "assets/bootstrap.bundle.js",
+    "revision": "ee08eb7f44335a3cf385e03d4406e4a5"
+  },
+  {
+    "url": "assets/bootstrap.bundle.min.js",
+    "revision": "d70c474886678aebe3e9d91965dc8b62"
+  },
+  {
+    "url": "assets/bootstrap.js",
+    "revision": "c2cdb900858c3e63ce8cd9f69171d342"
+  },
+  {
+    "url": "assets/bootstrap.min.js",
+    "revision": "eb5fac582a82f296aeb74900b01a2fa3"
+  },
+  {
     "url": "assets/main.js",
-    "revision": "54be62652b8a70ac37092728c9d723ec"
+    "revision": "bec7be2a16e744f61f32aa69768d319a"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "986f6c4c44f911318d7492fa7df3b25e"
+    "revision": "1c4efcf593a7c4143ec45c56eadbf40b"
   },
   {
     "url": "assets/pjax-api.js",
@@ -19,7 +35,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "04fc26afe7a527a5039af23abd3e5521"
+    "revision": "cc482ae7cd2ab9092af69f9502a35837"
   },
   {
     "url": "assets/zepto.min.js",
@@ -75,11 +91,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "36b578e23dd92acf36ed413e87414e6c"
+    "revision": "f178ff9ae7fc91ff4c02a847f22b87b2"
   },
   {
     "url": "manifest.json",
-    "revision": "433ffd0239bac4c5b3859a26184a8aa4"
+    "revision": "9c9385ea38ef484b745bb579ae4b414d"
   },
   {
     "url": "workbox-sw.js",
