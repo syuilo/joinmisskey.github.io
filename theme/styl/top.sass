@@ -3,8 +3,6 @@
     position: relative
     height: 70vh
     overflow: hidden
-    white-space: normal
-    word-break: keep-all
 
     @media (max-width: map-get($grid-breakpoints, sm))
       height: 60vh
@@ -16,7 +14,8 @@
       left: 6vw
       transform: translateY(-50%)
       z-index: 2
-      white-space: nowrap
+      white-space: normal
+      word-break: keep-all
 
     .scnshts
       position: absolute
