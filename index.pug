@@ -7,6 +7,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     .texts
       .slogan.h1.font-weight-bold 新しい世界で<wbr>繋がろう
       h1.h4.font-weight-normal Misskeyを<wbr>はじめよう
+      p=(site.descriptions[locale] || site.description)
     .scnshts
       img(src="/files/images/scnshts/scnsht.deck.720.jpeg" alt="Deck(Desktop)")
       img(src="/files/images/scnshts/scnsht.home.720.jpeg" alt="Home(Desktop)")
@@ -72,15 +73,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
           h4 Fediverse
           | Misskeyでは、他のサーバーのユーザーをフォローすることができます。ActivityPubという規格のサーバー間通信機能を持っているためです。
           br
-          | ActivityPubでのサーバー間通信機能を持つSNSサーバーは「インスタンス」と呼ばれます。インスタンスどうしが星々をなす宇宙のように見えるため、この連合体は「Fediverse」と呼ばれます。
-          br
-          | ActivityPubでのサーバー間通信機能を持つソフトウェアはMisskeyだけではありません。例えばMastodonやPrelomaなどがあり、Misskeyはそれらとも互換性を持っています。
+          | そのような機能を持つSNSサーバーはインスタンスと呼ばれます。インスタンスどうしが星々をなす宇宙のように見たてて、この連合体は「Fediverse [Federation(連合) + Universe(宇宙) の造語]」と呼ばれます。
+          | Fediverseを形成するソフトウェアは#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") Misskeyだけではありません]。
         li.mt-3
           span.fa-li.text-muted: +fa('download', 'fas', {classes: 'fa-lg'})
           h4 インストールが簡単
-          | Misskeyサーバーの構築は簡単です。Node.jsとMongoDBをはじめとした4～5個のソフトウェアのインストールといくつかの設定をし、ビルドするだけでセットアップが終了します。
+          | Misskeyサーバーの構築は簡単です。Node.jsをはじめとした数個のソフトウェアのインストールと、いくつかの設定をして、ビルドするだけでセットアップが終了します。
           br
-          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener")  → インストール方法
+          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener")  → セットアップ方法
 
     hr.my-4#section_2_c
 
@@ -123,7 +123,12 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
 
     p.text-muted.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
-  #section_4.pt-5.pb-4: .container
+  #section_4.py-5.bg-success: .container.text-center
+    a(href="./blog/").btn.btn-lg.btn-light.text-success
+      | ブログ
+    p.m-0.p-0 更新の内容などを随時お知らせします。
+
+  #section_5.pt-5.pb-4: .container
     h2.text-center 支援
     p.text-center
       a(href="https://github.com/syuilo/misskey#heart-backers--sponsors" target="_blank" rel="noopener").btn.btn-lg.btn-link.mr-2

@@ -1,0 +1,44 @@
+---
+title: "最近の更新 (H30/7/10)"
+description: いよいよ暑くなってまいりました。Misskeyの直近の更新をお知らせします。
+layout: blog
+date: 2018-07-10T01:00:00+09:00
+author:
+  name: aqz
+  url: https://misskey.xyz/@aqz
+  avatar: aqz
+category: 更新
+amp: true
+---
+## 最近の更新
+
+### 検索機能が復活
+
+いつのまにかMisskeyの投稿はまったく検索できないようになっていましたが、できるようになりました。
+
+#### タグ検索
+
+`//misskey.xyz/tags/<タグ>`にアクセスすることで、タグがつけられた投稿を見ることができます。[(例: #misskey)](https://misskey.xyz/tags/misskey)
+
+##### ハッシュタグウィジェット
+
+連合を含めて、直近のトレンドのハッシュタグを知ることができます。
+
+#### 全文検索
+
+[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。[(例: "misskey")](https://misskey.xyz/search?q=misskey)
+
+[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)
+
+### 🍣
+
+リアクションを、🍮のかわりに🍣にするモードができました。
+
+### ユーザーページ
+
+ユーザーページのデザインが変わりました。
+
+## これからの予定
+
+Misskeyの開発には、計画性がないんだと思います。次にどのような変更が発生するかは神様も知らないと思います。  
+あまり重要ではありませんが、麻雀で遊べるようになります。
