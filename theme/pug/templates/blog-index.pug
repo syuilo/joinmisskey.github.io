@@ -11,10 +11,16 @@ append preset
     });
 
     let queries = [], qpages = []
+    
+    let rootpath = (() => {
+      if(page.attributes.query && page.attributes.query.root) return `/${page.attributes.query.root}/`
+      else return page.meta.permalink
+    })()
 
     // 「${indexname}」として表示するページの条件を指定し、Array.filter()関数でqpagesに代入します。
 
-    qpages = pages.filter(e => e.attributes.layout == indexPrefix           // blogレイアウトが適用されている
+    qpages = pages.filter(e => e.meta.permalink.indexOf(rootpath) == 0
+                            && e.attributes.layout == indexPrefix           // blogレイアウトが適用されている
                             && e.attributes.draft != true              // 
                             && e.attributes.published == true
                           )
@@ -28,26 +34,26 @@ append preset
       }
     }
 
+    function pathFilter(q, qpages){
+      return qpages.filter(function(e,i,a){
+        if( typeof q === "string" ){
+          return e.meta.permalink.indexOf(`/${indexPrefix}/${q}/`) == 0
+        } else if (typeof q === "object" && Array.isArray(q) ){
+          for( c = 0; c < q.length; c++ ){
+            if( e.meta.permalink.indexOf(`/${indexPrefix}/${q[c]}/`) == 0 ) return true
+          }
+        }
+      })
+    }
+
     if( page.attributes.query ) {
 
       // front-matter のquery設定があれば適用します
 
-      function pathFilter(q, qpages){
-        return qpages.filter(function(e,i,a){
-          if( typeof q === "string" ){
-            return e.meta.permalink.indexOf(`/${indexPrefix}/${q}/`) == 0
-          } else if (typeof q === "object" && Array.isArray(q) ){
-            for( c = 0; c < q.length; c++ ){
-              if( e.meta.permalink.indexOf(`/${indexPrefix}/${q[c]}/`) == 0 ) return true
-            }
-          }
-        })
-      }
-
       if( page.attributes.query.path ) qpages = pathFilter(page.attributes.query.path, qpages)
       if( page.attributes.query.directory ) qpages = pathFilter(page.attributes.query.directory, qpages)
       if( page.attributes.query.directories ) qpages = pathFilter(page.attributes.query.directories, qpages)
-      
+
       if( page.attributes.query.category ) addQuery( page.attributes.query.category, "categories" )
       if( page.attributes.query.categories ) addQuery( page.attributes.query.categories, "categories" )
       if( page.attributes.query.tag ) addQuery( page.attributes.query.tag, "tags" )
@@ -79,12 +85,12 @@ append preset
     if(!page.attributes.title) page.attributes.title = headline
 
 block title
-  title #{page.attributes.title} - #{site.name}
+  title #[+i18n('blog')]: #{page.attributes.title} - #{site.name}
 
 block main
 
   #main.container
-    h1.pt-4.pb-2 ブログ
+    h1.pt-4.pb-2 #[+i18n('blog')]: #{page.attributes.title}
     div
       != getTL(main_html)
     h2.font-weight-light.h3= headline
@@ -92,37 +98,15 @@ block main
     .d-flex.flex-row.row
       each thispage in qpages
         a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
-          article.card.w-100.h-100.border.bg-light.pb-5
+          article.card.w-100.h-100.border.bg-light
             if ( thispage.meta.thumbnail )
-              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}thumb400.jpeg`)
+              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.700.jpeg`)
             h4.card-title.blog-title.mb-2.mt-3.px-3 #{thispage.attributes.title}
-            p.card-text.mb-5.px-3 #{thispage.attributes.description}
+            p.card-text.px-3 #{thispage.attributes.description}
             - let birthtime = new Date(thispage.meta.birthtime)
             - let mtime = new Date(thispage.meta.mtime)
-            footer.card-footer.py-md-2.py-1.border-light.bg-white
-              small
-                ul.list-unstyled.mb-1
-                  li
-                    +fa_fw("file-alt")
-                    time(datetime=thispage.meta.birthtime) #{birthtime.getFullYear()}年#{birthtime.getMonth()+1}月#{birthtime.getDate()}日 #{`00${birthtime.getHours()}`.slice(-2)}:#{`00${birthtime.getMinutes()}`.slice(-2)}
-                    |  作成
-                  li
-                    +fa_fw("clock")
-                    time(datetime=thispage.meta.mtime) #{mtime.getFullYear()}年#{mtime.getMonth()+1}月#{mtime.getDate()}日 #{`00${mtime.getHours()}`.slice(-2)}:#{`00${mtime.getMinutes()}`.slice(-2)}
-                    |  更新
-                p.mb-0
-                  +fa_fw("folder-open")
-                  if(thispage.attributes.categories)
-                    each category in thispage.attributes.categories
-                      span.badge.badge-success= category
-                      |  
-                  else
-                    | なし
-                  | &emsp;
-                  +fa_fw("tags")
-                  if(thispage.attributes.tags)
-                    each tag in thispage.attributes.tags
-                      span.badge.badge-secondary= tag
-                      |  
-                  else
-                    | なし
+            footer.card-footer.d-flex.flex-wrap.py-2.mt-auto.border-light.bg-white.small
+              div.mr-2
+                +fa_fw("clock")
+                time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')
+              +blog_badges(thispage)

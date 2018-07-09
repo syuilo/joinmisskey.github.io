@@ -1,13 +1,4 @@
 -
-  let style, mainHeaderStyle
-  if(page.meta.thumbnail) {
-    style = `background-image:url("${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720${page.meta.thumbnail.ext}")`
-    mainHeaderStyle = `#main_header{${style}}`
-  } else {
-    style = "background-color:#212121"
-    mainHeaderStyle = `#main_header{background-color:#212121}`
-  }
-
   let pagesPast = pages.filter(
     function(el, i, array){
       let elem_time = new Date(el.meta.mtime)
@@ -52,8 +43,8 @@
 
 if(page.meta.thumbnail)
   -
-    thsrc = `${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}`
-    thdims = sizeOf( `dist${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}720${page.meta.thumbnail.ext}` )
+    thsrc = `${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720.jpeg`
+    thdims = sizeOf( `dist${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720.jpeg` )
     thwidth = thdims.width
     thheight = thdims.height
 else

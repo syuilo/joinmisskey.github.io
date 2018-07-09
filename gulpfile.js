@@ -654,7 +654,7 @@ gulp.task('watcher',
 
 gulp.task('watch', (cb) => {
     gulp.watch(['theme/**/*', `!${temp_dir}**/*`, 'pages/**/*', './.config/**/*', './scripts/**/*'], gulp.series('watcher', 'server',(cb)=>{cb()}))
-    gulp.watch(['files/**/*', './.config/**/*'], gulp.series('watcher', 'prebuild-files',(cb)=>{cb()}))
+    gulp.watch(['files/**/*', './.config/**/*'], gulp.series('watcher',(cb)=>{cb()}))
 })
 
 gulp.task('connect', () => {

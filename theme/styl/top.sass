@@ -27,18 +27,16 @@
     height: 70vh
     overflow: hidden
 
-    @media (max-width: map-get($grid-breakpoints, sm))
-      height: 60vh
-
     .texts
       position: absolute
-      top: 33.3%
       max-width: 88vw
-      left: 6vw
-      transform: translateY(-50%)
+      transform: translateX(6vw) translateY(12vh)
       z-index: 2
       white-space: normal
       word-break: keep-all
+
+      > p
+        word-break: normal
 
     .scnshts
       position: absolute
@@ -47,21 +45,33 @@
       img
         position: absolute
         filter: drop-shadow(0px 0px 1.5px rgba(0,0,0,.25))
+        color: rgba(0,0,0,0)
 
         &:nth-child(1)
           width: 60vw
           transform: translateX(32vw) translateY(45vh)
           z-index: 1
+          background-color: #1a1b20
+
+          @media (max-width: map-get($grid-breakpoints, sm))
+            transform: translateX(32vw) translateY(55vh)
 
         &:nth-child(2)
           width: 80vw
           transform: translateX(10vw) translateY(35vh)
           z-index: 0
 
+          @media (max-width: map-get($grid-breakpoints, sm))
+            transform: translateX(10vw) translateY(45vh)
+
         &:nth-child(3)
           width: 20vw
           transform: translateX(77vw) translateY(40vh)
           z-index: 3
+          background-color: #ececec
+
+          @media (max-width: map-get($grid-breakpoints, sm))
+            transform: translateX(77vw) translateY(50vh)
 
   #section_2,
   #section_3

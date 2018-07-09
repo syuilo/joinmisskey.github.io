@@ -1,1 +1,31 @@
-extends ./article.pug
+extends ./default.pug
+append preset
+  include ../includes/_blog_preset
+
+append meta
+  include ../includes/_blog_schema
+
+block main
+  #main
+    .container.py-5.bg-white
+      article#article_maincontent.bg-white
+        header.w-100
+          h1= page.attributes.title
+          div.d-flex.flex-wrap.small
+            div.mr-2
+              +fa_fw("clock")
+              time(datetime=page.meta.mtime)=moment(page.meta.mtime).format('llll')
+            +blog_badges(page)
+          
+          .d-flex.flex-wrap.my-2.bg-light
+            if(pagePrev)
+              a(href=`${site.url.path}${pagePrev.meta.permalink}`).p-3.text-muted.flex-fill
+                .container #[+i18n('prev')]: #{pagePrev.attributes.title}
+            if(pageNext) 
+              a(href=`${site.url.path}${pageNext.meta.permalink}`).p-3.text-muted.flex-fill
+                .container #[+i18n('next')]: #{pageNext.attributes.title}
+
+        if(headings.length > 1)
+          #article_sidenav.my-2.p-3.bg-light
+            +toc( headings, 2, "ul", "list-unstyled ml-3 page-index")
+        section.pt-2.pb-4!= main_html

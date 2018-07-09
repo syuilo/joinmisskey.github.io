@@ -49,11 +49,11 @@ html(lang=locale)
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
-        link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=site.name)
+        link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=(site.names[locale] || site.name))
 
       block og
         meta(property="og:type", content="website")
-        meta(property="og:title", content=`${page.attributes.title} - ${site.name}`)
+        meta(property="og:title", content=`${page.attributes.title} - ${site.names[locale] || site.name}`)
         meta(property="og:description", content=page.attributes.description)
         if ( !!page.meta.thumbnail )
           meta(property="og:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
@@ -62,7 +62,7 @@ html(lang=locale)
         else
           meta(property="og:image", content=`/favicon.ico`)
         meta(property="og:url", content=url.href)
-        meta(property="og:site_name", content=site.name)
+        meta(property="og:site_name", content=(site.names[locale] || site.name))
 
       block twitter_card
         if ( site.social_media.twitter.card )
@@ -74,7 +74,7 @@ html(lang=locale)
             meta(name="twitter:image", content=`${urlPrefix}${site.site_card_path}`)
           else
             meta(name="twitter:card", content="summary")
-          meta(name="twitter:title", content=`${page.attributes.title} - ${site.name}`)
+          meta(name="twitter:title", content=`${page.attributes.title} - ${site.names[locale] || site.name}`)
           meta(name="twitter:description", content=page.attributes.description)
           meta(name="twitter:site", content=site.social_media.twitter.stalk)
 

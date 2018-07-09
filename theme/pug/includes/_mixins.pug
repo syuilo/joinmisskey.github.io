@@ -65,3 +65,24 @@ mixin embed_youtube_autoplay(vid)
   +embed_video(`https://www.youtube.com/embed/${vid}?autoplay=1&controls=2&modestbranding=1&rel=0`)
 
 //- https://developers.google.com/youtube/player_parameters?hl=ja
+
+mixin i18n(target)
+  | #{!!site.i18n[target] ? (site.i18n[target][locale] || site.i18n[target].ja || target) : target}
+
+mixin blog_badges(targetpage)
+  div.mr-2
+    +fa_fw("folder-open")
+    if(targetpage.attributes.categories)
+      each category in targetpage.attributes.categories
+        span.badge.badge-success= category
+        |  
+    else
+      +i18n('null')
+  div
+    +fa_fw("tags")
+    if(targetpage.attributes.tags)
+      each tag in targetpage.attributes.tags
+        span.badge.badge-secondary= tag
+        |  
+    else
+      +i18n('null')
