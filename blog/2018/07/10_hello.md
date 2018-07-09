@@ -22,7 +22,7 @@ zawazawaのChangeLogとかはこちらに移管するような気がします。
 
 jQueryはそんなに好きじゃないので、bootstrapのスクリプトは切っています。
 
-Misskeyとは何ぞや、ということについては、[トップページ](/)をご覧ください。
+Misskeyとは何ぞや、ということについては、トップページをご覧ください。
 
 [Misskey本家サーバー misskey.xyz](https://misskey.xyz)  
 [Misskey GitHub syuilo/misskey](https://github.com/syuilo/misskey)  
