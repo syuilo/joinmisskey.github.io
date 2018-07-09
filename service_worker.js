@@ -35,7 +35,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "3c02f15ec95926e054d730c80b9dd9aa"
+    "revision": "5f7c275df3afe6c6e05efa4ccee1ecab"
   },
   {
     "url": "assets/zepto.min.js",
@@ -91,7 +91,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "77b509e4f6ded25cf4c785a96d8be4bb"
+    "revision": "f48703ecdc2a7abdea2e9caac61960a5"
   },
   {
     "url": "manifest.json",
