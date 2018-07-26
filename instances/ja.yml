@@ -1,0 +1,9 @@
+- name: null
+  url: misskey.xyz
+  description: Misskeyの開発者であるsyuilo氏が運営するインスタンス。
+- name: null
+  url: misskey.m544.net
+  description: めいめい氏が運営するインスタンス。
+- name: Misskey Cafe
+  url: msky.cafe
+  description: 某PCショップのWeb担当者が運営するインスタンス。

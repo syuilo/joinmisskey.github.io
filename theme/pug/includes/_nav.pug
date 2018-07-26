@@ -1,54 +1,52 @@
 //-
   ナビゲーションバー
 
-nav#mainnav.navbar.navbar-light.flex-row.p-0.border-bottom
-  //-
-    button(class="navbar-toggler" type="button" data-toggle="collapse" aria-label="サイドバーを開く").bg-transparent.border-0.rounded-0.small.d-flex.d-lg-none.py-2.px-2.m-0.sidebar_opener
-    div MENU
-  a(href=`${site.url.path}/${locale}/`).navbar-brand#navbar_brand.m-0.p-0
-    img(src=`${site.url.path}/files/images/title.light.svg` class="d-inline-block align-top img-fluid" alt=`${site.name}` title=`${site.name}` style="height: 48px")
-  .dropleft
-    button.btn.btn-primary.m-2.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled)
-      | A文
-    .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
-      a.dropdown-item(href=`/ja/?moved`) 🇯🇵 日本語
+nav#mainnav.trigger-gototop.navbar.navbar-light.flex-row.p-0
+  if(!isAmp)
+    .dropleft.my-auto.ml-auto.mr-2
+      button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled)
+        | A文
+      .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
+        a.dropdown-item(href=`/ja/?moved`) 🇯🇵 日本語
 //-
   パンくずリスト
 
-  nav(aria-label="breadcrumb")#breadcrumb.bg-transparent.sticky-top
+nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
   .container-fulid.px-1.px-lg-5
-    ol.breadcrumb.bg-transparent.text-light.my-0.mx-md-5.mx-1.py-1.px-0
+    ol.breadcrumb.bg-transparent.text-primary.my-0.mx-md-5.mx-1.py-1.px-0
       - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""] (たとえば)
-      if( dirs.length > 2 )
+      if( dirs.length > 3 )
         li.breadcrumb-item
-          a(href=`${site.url.path}/`).py-1.text-light
+          a(href=`${site.url.path}/${locale}/`).py-1.text-primary
             +fa_fw("home","fas")
-        - let dirpl = "/"
-        - for( let i = 1; i < dirs.length - 1; i++){                // i = 3 の場合
+        - let dirpl = `/${locale}/`
+        - for( let i = 2; i < dirs.length - 1; i++){                // i = 3 の場合
         -   let nowdir = dirs[i]                                    // "bar"
         -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
         -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
         -   if( indexPage != undefined && i < dirs.length - 2 ){
-        -     if (!!indexPage.attributes.title) {  // // // // // // // // ページがあったら
+        -     const title = indexPage.attributes['title-breadcrumb'] || indexPage.attributes.title
+        -     if (!!title) {  // // // // // // // // ページがあったら
               li.breadcrumb-item
-                a(href=`${site.url.path}${dirpl}`).py-1.text-light #{indexPage.attributes.title}
+                a(href=`${site.url.path}${dirpl}`).py-1.text-primary #{title}
         -     } else {
           li.breadcrumb-item
-            a(href=`${site.url.path}${dirpl}`).py-1.text-light #{nowdir}
+            a(href=`${site.url.path}${dirpl}`).py-1.text-primary #{nowdir}
         -     }
         -   } else if( indexPage == undefined && i < dirs.length - 2 ){ // ページがなかったら
-          li.breadcrumb-item(aria-current="page").text-light #{nowdir}
+          li.breadcrumb-item(aria-current="page").text-primary #{nowdir}
         -   } else if( i == dirs.length - 2 ){  // // // // // // // // // 該当ページに到着したら
-        -     if (!!page.attributes.title) {
+        -     const title = indexPage.attributes['title-breadcrumb'] || indexPage.attributes.title
+        -     if (!!title) {
           li.breadcrumb-item.active
-            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{page.attributes.title}
+            button(aria-current="page").font-weight-bold.trigger-gototop.button-like-anchor #{title}
         -     } else {
           li.breadcrumb-item.active
-            button(aria-current="page").text-white.font-weight-bold.trigger-gototop.button-like-anchor #{nowdir}
+            button(aria-current="page").font-weight-bold.trigger-gototop.button-like-anchor #{nowdir}
         -     }
         -   }
         - }
       else
         li.breadcrumb-item.active
-          button(aria-current="page").text-light.font-weight-bold.trigger-gototop.button-like-anchor
+          button(aria-current="page").text-primary.font-weight-bold.trigger-gototop.button-like-anchor
             +fa_fw("home","fas")

@@ -19,10 +19,10 @@ block main
           
           .d-flex.flex-wrap.my-2.bg-light
             if(pagePrev)
-              a(href=`${site.url.path}${pagePrev.meta.permalink}`).p-3.text-muted.flex-fill
+              a(href=`${site.url.path}${pagePrev.meta.permalink}`)#prev.p-3.flex-fill
                 .container #[+i18n('prev')]: #{pagePrev.attributes.title}
             if(pageNext) 
-              a(href=`${site.url.path}${pageNext.meta.permalink}`).p-3.text-muted.flex-fill
+              a(href=`${site.url.path}${pageNext.meta.permalink}`)#next.p-3.flex-fill
                 .container #[+i18n('next')]: #{pageNext.attributes.title}
 
         if(headings.length > 1)

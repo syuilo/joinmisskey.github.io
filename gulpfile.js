@@ -17,6 +17,7 @@ const mkdirp = require('mkdirp')
 const pump = require('pump')
 const glob = require('glob')
 const request = require('request')
+const yaml = require('js-yaml')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -32,8 +33,8 @@ $ = require('gulp-load-plugins')()
 // promisify
 
 const writeFile = promisify(fs.writeFile)
-const readFile = promisify(fs.readFile)
-const get = promisify(request.get)
+// const readFile = promisify(fs.readFile)
+// const get = promisify(request.get)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -63,7 +64,7 @@ let theme_pug = {}
 theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
 theme_pug.mixin = fs.readFileSync('theme/pug/includes/_mixins.pug', {encoding: 'utf8'})
 
-let counts = {}
+let instances = {}
 
 let temp_dir = 'theme/pug/temp/' // 末尾のスラッシュ必要
 
@@ -211,7 +212,15 @@ gulp.task('register', async cb => {
     manifest = {}
     pages = []
     ytthumbs = []
+    instances = {}
 
+    for(locale of site.locales){
+        try {
+            instances[locale] = yaml.safeLoad(fs.readFileSync(`./instances/${locale}.yml`))
+        } catch(e) {
+            instances[locale] = []
+        }
+    }
     manifest = register_manifest()
     pages = await register_pages()
     theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
@@ -249,6 +258,7 @@ gulp.task('pug', (cb) => {
                     "messages": messages,
                     "require": require,
                     "theme_pug": theme_pug,
+                    'instances' : instances,
                     "DEBUG": DEBUG
                 },
             filters: require('./pugfilters.js')
@@ -278,9 +288,11 @@ gulp.task('pug', (cb) => {
          *                                                                  */
 
         if(page.attributes.amp){
-            if(existFile(`theme/pug/templates/_amp_${layout}.pug`)) amptemplate += `theme/pug/templates/_amp_${layout}.pug`
-            else if(existFile(`theme/pug/templates/_amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/_amp_${site.default.template}.pug`
-            else throw Error('_amp_default.pugが見つかりませんでした。')
+            if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
+            else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
+            else throw Error('amp_default.pugが見つかりませんでした。')
+
+            pugoptions.data.isAmp = true
 
             stream.add(
                 gulp.src(amptemplate)
