@@ -50,6 +50,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	__webpack_require__(1);
 	__webpack_require__(4);
+	__webpack_require__(5);
 
 	/***/
 },
@@ -900,6 +901,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/***/
 },
 /* 4 */
+/***/function (module, exports) {
+
+	function gototop() {
+		window.scroll({
+			top: 0,
+			behavior: "smooth"
+		});
+		return false;
+	}
+	function addListenerGotoTop() {
+		Array.prototype.forEach.call(document.getElementsByClassName('trigger-gototop'), function (el) {
+			el.addEventListener('click', gototop);
+		});
+	}
+	window.addEventListener('DOMContentLoaded', addListenerGotoTop);
+	window.addEventListener('pjax:load', addListenerGotoTop);
+
+	/***/
+},
+/* 5 */
 /***/function (module, exports) {
 
 	window.addEventListener('pjax:load', function () {
