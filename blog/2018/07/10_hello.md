@@ -1,6 +1,6 @@
 ---
-title: "joinmisskey (邦題: Misskeyを始めよう) 公開"
-description: joinmastodonなどに倣ってjoinmisskeyなるものをとりあえず勝手に作ってみました。
+title: "「Misskeyを始めよう」公開！"
+description: joinmastodonなどに倣って、joinmisskeyにあたるものを公開しました。
 layout: blog
 date: 2018-07-10T01:00:00+09:00
 author:

@@ -1,8 +1,8 @@
 ---
 title: "最近の更新 (H30/7/10)"
-description: いよいよ暑くなってまいりました。Misskeyの直近の更新をお知らせします。
+description: 暑くなってきました……。Misskeyの直近の更新をお知らせします。検索機能が充実しました。
 layout: blog
-date: 2018-07-10T01:00:00+09:00
+date: 2018-07-10T01:00:01+09:00
 author:
   name: aqz
   url: https://misskey.xyz/@aqz
@@ -12,9 +12,11 @@ amp: true
 ---
 ## 最近の更新
 
-### 検索機能が復活
+### ~~検索機能が復活~~
 
-いつのまにかMisskeyの投稿はまったく検索できないようになっていましたが、できるようになりました。
+~~いつのまにかMisskeyの投稿はまったく検索できないようになっていましたが、できるようになりました。~~
+
+全文検索機能は現在利用できません。
 
 #### タグ検索
 
@@ -24,11 +26,13 @@ amp: true
 
 連合を含めて、直近のトレンドのハッシュタグを知ることができます。
 
-#### 全文検索
+#### ~~全文検索~~
 
-[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。[(例: "misskey")](https://misskey.xyz/search?q=misskey)
+~~[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。[(例: "misskey")](https://misskey.xyz/search?q=misskey)~~
 
-[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)
+~~[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)~~
+
+現在、検索機能は利用できません。
 
 ### 🍣
 

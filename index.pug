@@ -5,8 +5,8 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
 #toppage
   #top
     .texts
-      .slogan.h1.font-weight-bold 新しい世界で<wbr>繋がろう
-      h1.h4.font-weight-normal Misskeyを<wbr>はじめよう
+      .slogan.h4.font-weight-bold 新しい世界で<wbr>繋がろう
+      h1.font-weight-bold Misskeyを<wbr>はじめよう
       p=(site.descriptions[locale] || site.description)
     .scnshts
       img(src="/files/images/scnshts/scnsht.deck.720.jpeg" alt="Deck(Desktop)")
@@ -30,7 +30,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
       ul.fa-ul
         li.mt-3
           span.fa-li.text-muted: +fa('comment-alt', 'fas', {classes: 'fa-lg'})
-          h4 文字数制限と公開範囲
+          h4 投稿の文字数制限と公開範囲
           | Misskeyでは１投稿につき1000文字まで書くことができます。そして、投稿の公開範囲を段階的に定めることができます。また、迷惑防止のために画像や投稿を予め隠しておくことができます。
         li.mt-3
           span.fa-li.text-muted: +fa('surprise', 'far', {classes: 'fa-lg'})
@@ -47,25 +47,27 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         li.mt-3
           span.fa-li.text-muted: +fa('columns', 'fas', {classes: 'fa-lg'})
           h4 ホーム・デッキ (デスクトップ)
-          | デスクトップでは幅広い画面の「ホーム」とカラム型レイアウトの「デッキ」とを使うことができます。
+          | デスクトップでは、幅広い画面の「ホーム」とカラム型レイアウトの「デッキ」とを使うことができます。
         li.mt-3
           span.fa-li.text-muted: +fa('calculator', 'fas', {classes: 'fa-lg'})
           h4 ウィジェット
-          | 通知、アクティビティ、カレンダー、トレンドなどをウィジェットとして利用できます。ホーム・デッキ・モバイルのそれぞれで、自由に並び替えて使えます。 
+          | 通知、アクティビティ、カレンダー、トレンドなどを、自由に並び替えられるウィジェットとして利用できます。 
         li.mt-3
           span.fa-li.text-muted: +fa('cloud', 'fas', {classes: 'fa-lg'})
           h4 ドライブ
-          | 投稿したりアイコンにしたりした画像はドライブに保存されます。ファイルをドライブに直接アップロードすることもできます。
+          | 投稿された画像はドライブに保存されます。ファイルをドライブに直接アップロードすることもできます。
         li.mt-3
           span.fa-li.text-muted: +fa('gamepad', 'fas', {classes: 'fa-lg'})
           h4 ゲーム
-          | ゲームが遊べます。「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
+          | 他のユーザーと対戦・交流できるゲームが遊べます。
+          br
+          | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
 
     hr.my-4#section_2_b
 
     .s2_item
       h3.text-center 独立性と社会性
-      p.text-center あなたの意志で運営者を選択し、もしくは自分がサーバーを運営することもできます。
+      p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
 
       ul.fa-ul
         li.mt-3
@@ -73,14 +75,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
           h4 Fediverse
           | Misskeyでは、他のサーバーのユーザーをフォローすることができます。ActivityPubという規格のサーバー間通信機能を持っているためです。
           br
-          | そのような機能を持つSNSサーバーはインスタンスと呼ばれます。インスタンスどうしが星々をなす宇宙のように見たてて、この連合体は「Fediverse [Federation(連合) + Universe(宇宙) の造語]」と呼ばれます。
+          | そのような機能を持つSNSサーバーどうしの連合体は、無数の星が輝く宇宙のように見たてて「Fediverse [Federation(連合) + Universe(宇宙) の造語]」と呼ばれます。
           | Fediverseを形成するソフトウェアは#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") Misskeyだけではありません]。
         li.mt-3
           span.fa-li.text-muted: +fa('download', 'fas', {classes: 'fa-lg'})
           h4 インストールが簡単
-          | Misskeyサーバーの構築は簡単です。Node.jsをはじめとした数個のソフトウェアのインストールと、いくつかの設定をして、ビルドするだけでセットアップが終了します。
+          | Misskeyサーバーの構築は簡単です。
           br
-          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener")  → セットアップ方法
+          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener").font-weight-bold  → セットアップ方法
 
     hr.my-4#section_2_c
 
@@ -88,38 +90,40 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
       h3.text-center オープン
       p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
       p.text-center
-        a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark
+        a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark.mr-2
           +fa_fw('github', 'fab')
           | GitHub
+        a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
+          | Crowdin(翻訳)
 
       ul.fa-ul
         li.mt-3
           span.fa-li.text-muted: +fa('code', 'fas')
           h4 API
-          | Misskeyのすべての通信はAPIとして公開されています。Misskeyの機能を活用したBotやクライアントを作ってみてください。
+          | MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。Misskeyの機能を活用したBotやクライアントを作ることができます。
           br
-          a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener")  → Misskey API
+          a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").font-weight-bold  → Misskey API
         li.mt-3
           span.fa-li.text-muted: +fa('balance-scale', 'fas')
           h4 AGPLv3
           | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
           br
-          | AGPLv3は、個人・非商用利用はもちろん商用利用も認めますが、改変をしてサービスを提供した場合はその改変部分を含め、提供しているサービスのソースコードをAGPLv3の下で公開する義務があります。
-          br
-          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener")  → ライセンス
+          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").font-weight-bold  → ライセンス
 
   #section_3.bg-dark.text-white.py-5: .container
     h2.text-center さっそくはじめよう
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
     hr.my-4
     h3 インスタンス一覧
-    #instances.list-group
-      a(href="https://misskey.xyz" target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
-        h4 misskey.xyz
-        p.m-0 syuilo氏が運営する公式インスタンス。
-      a(href="https://misskey.m544.net" target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
-        h4 misskey.m544.net
-        p.m-0 めいめい氏が運営するインスタンス。
+    if(instances[locale].length > 0)
+      #instances.list-group
+        each instance in instances[locale]
+          a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.text-dark.list-group-item.list-group-item-action.flex-column.align-items-start
+            h4!=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
+            p.m-0=instance.description
+    else
+      p.text-center
+        +i18n('none')
 
     p.text-muted.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
