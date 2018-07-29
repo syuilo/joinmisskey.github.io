@@ -18,12 +18,12 @@ block main
             +blog_badges(page)
           
           .d-flex.flex-wrap.my-2.bg-light
-            if(pagePrev)
-              a(href=`${site.url.path}${pagePrev.meta.permalink}`)#prev.p-3.flex-fill
-                .container #[+i18n('prev')]: #{pagePrev.attributes.title}
             if(pageNext) 
               a(href=`${site.url.path}${pageNext.meta.permalink}`)#next.p-3.flex-fill
                 .container #[+i18n('next')]: #{pageNext.attributes.title}
+            if(pagePrev)
+              a(href=`${site.url.path}${pagePrev.meta.permalink}`)#prev.p-3.flex-fill
+                .container #[+i18n('prev')]: #{pagePrev.attributes.title}
 
         if(headings.length > 1)
           #article_sidenav.my-2.p-3.bg-light

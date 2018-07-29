@@ -292,7 +292,7 @@ gulp.task('pug', async (cb) => {
                     ampcss += '\n'
                     ampcss += await readFile('node_modules/highlight.js/styles/github-gist.css', 'utf8')
                     ampcss += '\n'
-                    ampcss = new cleanCss().minify(ampcss.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")).styles
+                    ampcss = (new cleanCss().minify().styles).replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")
 
                     $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
                 } catch(e) {
