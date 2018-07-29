@@ -39,6 +39,7 @@ block vals
       "require": require, 
       "theme_pug": theme_pug,
       "instances": instances,
+      "ampcss": ampcss,
       "is_subcall": true,
       filters: require('./pugfilters.js')}
     let main_html
@@ -123,17 +124,6 @@ block functions
           // const uppath = path.parse(pathe.dir)
           // searchSidebar(uppath)
           return "pages/sidebar.pug"
-        }
-      }
-
-  block pantenecolers
-    -
-      function panteneColors(){
-        return {
-          class: 'info',
-          club: 'success',
-          others: 'dark',
-          staff: 'primary'
         }
       }
 

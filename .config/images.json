@@ -40,7 +40,8 @@
                 },
                 {
                     "rename": {
-                        "suffix": ".720"
+                        "suffix": ".720c",
+                        "extname": ".jpeg"
                     },
                     "resize": {
                         "width": 720,

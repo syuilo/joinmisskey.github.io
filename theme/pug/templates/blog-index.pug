@@ -100,12 +100,12 @@ block main
         a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
           article.card.w-100.h-100.border.bg-white
             if ( thispage.meta.thumbnail )
-              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.700.jpeg`)
+              img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.720${thispage.meta.thumbnail.ext}`)
             h4.card-title.blog-title.mb-2.mt-3.px-3 #{thispage.attributes.title}
             p.card-text.px-3 #{thispage.attributes.description}
             - let birthtime = new Date(thispage.meta.birthtime)
             - let mtime = new Date(thispage.meta.mtime)
-            footer.card-footer.d-flex.flex-wrap.py-2.mt-auto.small
+            footer.card-footer.bg-white.d-flex.flex-wrap.py-2.mt-auto.small
               div.mr-2
                 +fa_fw("clock")
                 time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')

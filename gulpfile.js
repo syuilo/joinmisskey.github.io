@@ -18,6 +18,8 @@ const pump = require('pump')
 const glob = require('glob')
 const request = require('request')
 const yaml = require('js-yaml')
+const cleanCss = require("clean-css")
+const sass = require("node-sass")
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -33,7 +35,7 @@ $ = require('gulp-load-plugins')()
 // promisify
 
 const writeFile = promisify(fs.writeFile)
-// const readFile = promisify(fs.readFile)
+const readFile = promisify(fs.readFile)
 // const get = promisify(request.get)
 
 // arg
@@ -90,14 +92,6 @@ let dests = {
     return fontawesome.icon({ prefix: ( prefix || "fas" ), iconName: icon },option).html[0]
 }*/
 
-function existFile(file) {
-    try {
-        fs.statSync(file)
-        return true
-    } catch(e) {
-        if(e.code === 'ENOENT') return false
-    }
-}
 
 function escape_html(val) {
     if(typeof val !== 'string'){ return val }
@@ -241,10 +235,11 @@ gulp.task('config', (cb) => {
     )
 })
 
-gulp.task('pug', (cb) => {
+gulp.task('pug', async (cb) => {
     let works = []
     mkdirp.sync(temp_dir)
     let stream = merge2()
+    let ampcss = ""
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
         const pugoptions = {
@@ -288,11 +283,30 @@ gulp.task('pug', (cb) => {
          *                                                                  */
 
         if(page.attributes.amp){
+            if(ampcss == ""){
+                try {
+                    ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
+                    ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
+                    ampcss += '\n'
+                    ampcss += fontawesome.dom.css()
+                    ampcss += '\n'
+                    ampcss += await readFile('node_modules/highlight.js/styles/github-gist.css', 'utf8')
+                    ampcss += '\n'
+                    ampcss = new cleanCss().minify(ampcss.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")).styles
+
+                    $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
+                } catch(e) {
+                    $.util.log($.util.colors.red('making amp css failed'))
+                    ampcss = "/* oops */"
+                }
+            }
+
             if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
 
             pugoptions.data.isAmp = true
+            pugoptions.data.ampcss = ampcss
 
             stream.add(
                 gulp.src(amptemplate)
@@ -411,8 +425,8 @@ gulp.task('image-prebuildFiles', () => {
         stream2.add(
             stream
             .pipe($.imageResize(sizes[i].resize || {}))
-            .pipe($.rename(sizes[i].rename || {}))
             .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+            .pipe($.rename(sizes[i].rename || {}))
             .pipe(gulp.dest('dist/files'))
         )
     }
@@ -429,23 +443,52 @@ gulp.task('image-prebuildFiles', () => {
 })
 
 gulp.task('image', () => {
-    if (!argv.i) new Error('ファイルが指定されていません。 -i <path>を付けて指定してください。')
+    if (!argv.i) new Error('ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。')
+    const parsed = path.parse(argv.i)
     const sizes = site.images.files.sizes
-    const stream = gulp.src(argv.i)
     const stream2 = merge2()
     const date = new Date()
-    for(i = 0; i < sizes.length; i++){
+    let gifsvg, others
+    const dirname = `${date.getFullYear()}/${("0" + (date.getMonth() + 1)).slice(-2)}`
+    $.util.log(`image will be saved as "files/${dirname}/${parsed.name}${parsed.ext}"`)
+    if(parsed.ext == "") {
+        gifsvg = gulp.src(argv.i + '/**/*.{gif,svg}')
+        others = gulp.src(argv.i + '/**/*.{png,jpg,jpeg}')
+    } else if(parsed.ext == "gif" || parsed.ext == "svg") {
+        gifsvg = gulp.src(argv.i)
+    } else {
+        others = gulp.src(argv.i)
+    }
+    if(gifsvg){
         stream2.add(
-            stream
-            .pipe($.imageResize(sizes[i].resize || {}))
-            .pipe($.rename(sizes[i].rename || {}))
-            .pipe($.rename({dirname: `${date.getFullYear()}/${date.getMonth() + 1}`} || {}))
-            .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+            gifsvg
+            .pipe($.image(extend(true, images_base(), {
+                "gifsicle": true,
+                "svgo": true
+            })))
+            .pipe($.rename({dirname: dirname} || {}))
             .pipe(gulp.dest('dist/files/images/imports'))
         )
         stream2.add(
-            stream
-            .pipe($.rename({dirname: `${date.getFullYear()}/${date.getMonth() + 1}`} || {}))
+            gifsvg
+            .pipe($.rename({dirname: dirname} || {}))
+            .pipe(gulp.dest('files/images/imports'))
+        )
+    }
+    if(others){
+        for(i = 0; i < sizes.length; i++){
+            stream2.add(
+                others
+                .pipe($.imageResize(sizes[i].resize || {}))
+                .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+                .pipe($.rename(sizes[i].rename || {}))
+                .pipe($.rename({dirname: dirname} || {}))
+                .pipe(gulp.dest('dist/files/images/imports'))
+            )
+        }
+        stream2.add(
+            others
+            .pipe($.rename({dirname: dirname} || {}))
             .pipe(gulp.dest('files/images/imports'))
         )
     }
