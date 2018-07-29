@@ -1,6 +1,6 @@
 ---
 title: "最近の更新 (H30/7/29)"
-description: 異例の台風に襲われています。Misskeyの直近の更新をお知らせします。
+description: 異例の台風に襲われています。Misskeyの直近の更新をお知らせします。ソーシャルタイムライン、サーバーの管理・導入性の向上など。
 layout: blog
 date: 2018-07-29T09:00:00+09:00
 thumbnail: /files/images/imports/2018/07/e2337000.jpg
