@@ -1,11 +1,12 @@
 block script_preset
-  -
-    const permalink_split = page.meta.permalink.split("/")
-    const locale = (permalink_split.length < 3 || permalink_split[1] == "404") ? false : permalink_split[1]
 
+block vals
+  -
+    const dirs = page.meta.permalink.split("/")
+    const locale = (dirs.length < 3 || dirs[1] == "404") ? false : dirs[1]
+  
 block requires
   -
-    const URL = require('url')
     const pug_api = require("pug")
     const htmlmin = require("html-minifier").minify
     const kramed = require("kramed")
@@ -25,26 +26,32 @@ block requires
     const wk = require('wanakana')
     
     const fontawesome = require("@fortawesome/fontawesome-svg-core")
-    fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
+    fontawesome.library.add(
+      require("@fortawesome/free-solid-svg-icons").fas,
+      require("@fortawesome/free-regular-svg-icons").far,
+      require("@fortawesome/free-brands-svg-icons").fab
+    )
 
-block vals
-  -
-    const pug_o = {
-      "site": site, 
-      "pages": pages, 
-      "page": page, 
-      "package": package, 
-      "messages": messages, 
-      "option": option, 
-      "require": require, 
-      "theme_pug": theme_pug,
-      "instances": instances,
-      "ampcss": ampcss,
-      "is_subcall": true,
-      filters: require('./pugfilters.js')}
+    const URL = require('url')
     let main_html
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
     const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
+
+    const pug_o = {
+        'site': site,
+        'keys': keys,
+        'pages': pages, 
+        'page': page,
+        'package': package, 
+        'messages': messages, 
+        'option': option,
+        'require': require, 
+        'theme_pug': theme_pug,
+        'instances': instances,
+        'ampcss': ampcss,
+        'is_subcall': true,
+      filters: require('./pugfilters.js')
+    }
 
 block messages
   -
@@ -93,6 +100,7 @@ block functions
         $('amp-img').attr('layout','responsive')
         return $('body').html()
       }
+
   block getTL
     -
       function getTL(val){
@@ -123,7 +131,7 @@ block functions
         } else {
           // const uppath = path.parse(pathe.dir)
           // searchSidebar(uppath)
-          return "pages/sidebar.pug"
+          return "pages/ja/sidebar.pug"
         }
       }
 
@@ -193,6 +201,7 @@ block listUp_hedings
         let heading = {},
             idmatch = []
         idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
+        classmatch = heading_html[2].match(/class=(["'])(.*?)(\1)/)
         if(idmatch == null)
           heading.id = null
         else
@@ -201,6 +210,6 @@ block listUp_hedings
         heading.number   = heading_html[1]
         heading.attr     = heading_html[2]
         heading.text     = heading_html[3]
-        headings.push(heading)
+        if (classmatch == null || classmatch.indexOf('noindex') > -1) headings.push(heading)
       }
     }

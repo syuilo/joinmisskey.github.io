@@ -51,26 +51,10 @@
         "share_button": true
     },
     "rss_url": "https://github.com/joinmisskey/joinmisskey.github.io/commits/master.atom",
+    "disqus": false,
+    "ga": "UA-121612835-1",
     "manifest": {
         "start_url": ".",
         "display": "minimal-ui"
-    },
-    "locales": ["ja"],
-    "i18n": {
-        "blog": {
-            "ja": "ブログ"
-        },
-        "prev": {
-            "ja": "前"
-        },
-        "next": {
-            "ja": "次"
-        },
-        "null": {
-            "ja": "なし"
-        },
-        "none": {
-            "ja": "ありません！"
-        }
     }
 }

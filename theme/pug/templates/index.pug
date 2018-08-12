@@ -2,8 +2,8 @@ extends ./default.pug
 
 block main
   #main
-    .container-fluid.py-5
-      h1 #{page.attributes.title} のインデックス
-      p #{page.attributes.description}
-      ul.simpleindex
-        +lis_of_dir(page.meta.permalink, {s: true})
+    .container.py-5
+      h1= page.attributes.title
+      !=main_html
+      ul.simpleindex.list-unstyled
+        +lis_of_dir(page.meta.permalink, {s: true, unstyled: true})

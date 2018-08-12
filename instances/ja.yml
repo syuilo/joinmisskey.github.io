@@ -1,9 +1,21 @@
-- name: null
-  url: misskey.xyz
-  description: Misskeyの開発者であるsyuilo氏が運営するインスタンス。
-- name: null
-  url: misskey.m544.net
-  description: めいめい氏が運営するインスタンス。
-- name: Misskey Cafe
-  url: msky.cafe
-  description: 某PCショップのWeb担当者が運営するインスタンス。
+selected:
+  - name: null
+    url: misskey.xyz
+    description: Misskeyの開発者であるsyuilo氏が運営するインスタンス。
+  - name: null
+    url: misskey.m544.net
+    description: 彼のめいめい氏が運営するインスタンス。
+  - name: Misskey Cafe
+    url: msky.cafe
+    description: 10GBのドライブ容量が売りの、某PCショップのWeb担当者が運営するインスタンス。
+others:
+  - name: Misskey.血便レッド
+    url: misskey.ketsuben.red
+    description: Mastodon/MisskeyホスティングサービスHostdonを運営するNaf氏が運営するインスタンス。
+  - name: null
+    url: misskey.tmin.ml
+    description: aqzが運営する試験サーバー。
+suspended:
+  - name: null
+    url: misskey.wtf
+    description: nzws氏が一瞬だけ開設していたインスタンス。

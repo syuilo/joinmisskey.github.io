@@ -1,10 +1,30 @@
 //-
   ナビゲーションバー
 
-nav#mainnav.trigger-gototop.navbar.navbar-light.flex-row.p-0
+nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
+  if(!isAmp)
+    button.navbar-toggler(data-toggle="collapse" data-target="#navtoggle" aria-controls="navtoggle" aria-expanded="false" aria-label="Toggle navigation")
+      +fa("bars")
+  .collapse.navbar-collapse#navtoggle
+    ul.navbar-nav.mr-auto.mt-lg-0.ml-3.ml-md-5
+      li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale}/` ? "active" : "" ))
+        a.nav-link(href=`/${locale}/`)
+          +fa_fw("home")
+          |  
+          +i18n("home")
+      li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/blog/`) == 0 ? "active" : "" ))
+        a.nav-link(href=`/${locale}/blog/`)
+          +fa_fw("broadcast-tower")
+          |  
+          +i18n("blog")
+      li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/wiki/`) == 0 ? "active" : "" ))
+        a.nav-link(href=`/${locale}/wiki/`)
+          +fa_fw("book")
+          |  
+          | Wiki
   if(!isAmp)
     .dropleft.my-auto.ml-auto.mr-2
-      button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled)
+      button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
         a.dropdown-item(href=`/ja/?moved`) 🇯🇵 日本語
@@ -14,7 +34,6 @@ nav#mainnav.trigger-gototop.navbar.navbar-light.flex-row.p-0
 nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
   .container-fulid.px-1.px-lg-5
     ol.breadcrumb.bg-transparent.text-primary.my-0.mx-md-5.mx-1.py-1.px-0
-      - let dirs = page.meta.permalink.split("/")                 // ["","foo","bar","hoge",""] (たとえば)
       if( dirs.length > 3 )
         li.breadcrumb-item
           a(href=`${site.url.path}/${locale}/`).py-1.text-primary

@@ -20,6 +20,8 @@ const request = require('request')
 const yaml = require('js-yaml')
 const cleanCss = require("clean-css")
 const sass = require("node-sass")
+const autoprefixer = require('autoprefixer')
+const postcss = require('postcss')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -58,9 +60,10 @@ let package = require('./package.json')
 let messages = require('./.config/messages.json')
 let site = extend(true,
     require('./.config/default.json'),
-    require('./.config/own.json'),
+    require('./.config/lang.json'),
     require('./.config/images.json')
 )
+const keys = require('./.config/keys.json')
 const workboxSWSrcPath = require.resolve('workbox-sw')
 let theme_pug = {}
 theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
@@ -236,26 +239,25 @@ gulp.task('config', (cb) => {
 })
 
 gulp.task('pug', async (cb) => {
-    let works = []
     mkdirp.sync(temp_dir)
     let stream = merge2()
     let ampcss = ""
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
         const pugoptions = {
-            data: 
-                {
-                    'page': page,
-                    'site' : site,
-                    'package' : package,
-                    'pages' : pages,
-                    'manifest' : manifest,
-                    "messages": messages,
-                    "require": require,
-                    "theme_pug": theme_pug,
-                    'instances' : instances,
-                    "DEBUG": DEBUG
-                },
+            data: {
+                page: page,
+                site: site,
+                keys: keys,
+                package: package,
+                pages: pages,
+                manifest: manifest,
+                messages: messages,
+                require: require,
+                theme_pug: theme_pug,
+                instances: instances,
+                DEBUG: DEBUG
+            },
             filters: require('./pugfilters.js')
         }
 
@@ -406,14 +408,14 @@ gulp.task('copy-f404', (cb) => {
 
 function images_base(){
     const images_allFalse = {
-        "optipng": false,
-        "pngquant": false,
-        "zopflipng": false,
-        "jpegRecompress": false,
-        "mozjpeg": false,
-        "guetzli": false,
-        "gifsicle": false,
-        "svgo": false
+        optipng: false,
+        pngquant: false,
+        zopflipng: false,
+        jpegRecompress: false,
+        mozjpeg: false,
+        guetzli: false,
+        gifsicle: false,
+        svgo: false
     }
     return site.images.files.all.image ? extend(true,images_allFalse,site.images.files.all.image) : images_allFalse
 }

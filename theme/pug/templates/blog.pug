@@ -16,16 +16,19 @@ block main
               +fa_fw("clock")
               time(datetime=page.meta.mtime)=moment(page.meta.mtime).format('llll')
             +blog_badges(page)
-          
-          .d-flex.flex-wrap.my-2.bg-light
-            if(pageNext) 
-              a(href=`${site.url.path}${pageNext.meta.permalink}`)#next.p-3.flex-fill
-                .container #[+i18n('next')]: #{pageNext.attributes.title}
-            if(pagePrev)
-              a(href=`${site.url.path}${pagePrev.meta.permalink}`)#prev.p-3.flex-fill
-                .container #[+i18n('prev')]: #{pagePrev.attributes.title}
+            if(page.attributes.author)
+              a(href=page.attributes.author.url target="_blank" rel="noopener") Author: #{page.attributes.author.name}
 
         if(headings.length > 1)
           #article_sidenav.my-2.p-3.bg-light
             +toc( headings, 2, "ul", "list-unstyled ml-3 page-index")
         section.pt-2.pb-4!= main_html
+
+        footer.w-100
+          .d-flex.flex-wrap.my-2.bg-light
+            if(pagePrev)
+              a(href=`${site.url.path}${pagePrev.meta.permalink}`)#prev.p-3.flex-fill
+                .container #[+i18n('prev')]: #{pagePrev.attributes.title}
+            if(pageNext) 
+              a(href=`${site.url.path}${pageNext.meta.permalink}`)#next.p-3.flex-fill
+                .container #[+i18n('next')]: #{pageNext.attributes.title}

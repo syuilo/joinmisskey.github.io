@@ -5,16 +5,8 @@ module.exports = (htm, urlprefix) => {
 
   let $ = require('cheerio').load(htm, {decodeEntities: false})
 
-  $('h2').addClass('blogstyle blogstyle-h2')
-  $('h3').addClass('blogstyle blogstyle-h3')
-  $('h4').addClass('blogstyle blogstyle-h4')
-  $('h5').addClass('blogstyle blogstyle-h5')
-  $('h6').addClass('blogstyle blogstyle-h6')
-  $('div h2').removeClass('blogstyle blogstyle-h2')
-  $('div h3').removeClass('blogstyle blogstyle-h3')
-  $('div h4').removeClass('blogstyle blogstyle-h4')
-  $('div h5').removeClass('blogstyle blogstyle-h5')
-  $('div h6').removeClass('blogstyle blogstyle-h6')
+  $('h2, h3, h4, h5, h6').addClass('blogstyle')
+  $('div h2, div h3, div h4, div h5, div h6').removeClass('blogstyle')
   $('img').addClass('img-fluid')
   $('img[src^="/"]').attr( 'src', function(i, el){ return `${urlprefix}${$(this).attr('src')}` })
   $('img[src^="files/"]').attr( 'src', function(i, el){ return `${urlprefix}/${$(this).attr('src')}` })

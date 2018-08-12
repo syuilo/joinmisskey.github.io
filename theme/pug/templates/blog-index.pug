@@ -95,7 +95,7 @@ block main
       != getTL(main_html)
     h2.font-weight-light.h3= headline
 
-    .d-flex.flex-row.row
+    .d-flex.flex-row.row.m-0
       each thispage in qpages
         a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
           article.card.w-100.h-100.border.bg-white

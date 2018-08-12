@@ -1,0 +1,15 @@
+extends ./article.pug
+
+block after_article
+  footer.w-100
+    .d-flex.flex-wrap.my-2.bg-light
+      if(page.attributes.prev)
+        - const pagePrev = pages.find(qpage => qpage.meta.permalink == `/${locale}${page.attributes.prev}`)
+          if(pagePrev)
+            a(href=`${site.url.path}${page.attributes.prev}`)#prev.p-3.flex-fill
+              .container #[+i18n('prev')]: #{pagePrev.attributes.title}
+      if(page.attributes.next)
+        - const pageNext = pages.find(qpage => qpage.meta.permalink == `/${locale}${page.attributes.next}`)
+          if(pageNext)
+            a(href=`${site.url.path}${page.attributes.next}`)#next.p-3.flex-fill
+              .container #[+i18n('next')]: #{pageNext.attributes.title}

@@ -32,7 +32,8 @@ https://github.com/syuilo/misskey
 3. `git checkout -b pages/ja`
 4. `cd ../../`
 5. `git worktree add pages/<languagecode> pages/<languagecode>`
-6. Add the language in these files: `README.md`(l13), `.config/default.json`, `theme/pug/includes/_includes_head.pug`
+6. Add the language in these files: `README.md`(l13), `.config/lang.json`, `theme/pug/includes/_includes_head.pug`
+7. Ask aqz or syuilo to add a new language as [new issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new)
 
 ## LICENSES
 

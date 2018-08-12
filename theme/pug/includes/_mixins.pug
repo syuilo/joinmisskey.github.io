@@ -46,12 +46,15 @@ mixin lis_of_dir(pathf, $option)
       })
     }
     let bpages = pathMFilter(pathf)
-    bpages.sort((a,b) => { return ( a.meta.permalink > b.meta.permalink ) ? 1 : -1 })
+    bpages.sort( (a, b) => { return ( a.meta.permalink > b.meta.permalink ) ? 1 : -1 } )
+    bpages.sort( (a, b) => a.attributes.rank - b.attributes.rank )
   each rpage in bpages
-    li
-      a(href=`${site.url.path}${rpage.meta.permalink}`)= rpage.attributes.title
+    li.mb-1
+      a.d-block(href=`${site.url.path}${rpage.meta.permalink}`)
+        div=rpage.attributes.title
+        div.small.lh-12=rpage.attributes.description
       if($option.s == true && rpage.attributes.has_child == true)
-        ul
+        ul.mt-1(clas=`${$option.unstyled ? 'list-unstyled' : ''}`)
           +lis_of_dir(rpage.meta.permalink, {s: true})
 
 mixin embed_video(url)
