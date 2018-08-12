@@ -1,6 +1,5 @@
 ---
 title: Misskeyの歴史
-title-breadcrumb: Wiki
 description: Misskeyの歴史を残すページです。
 layout: wiki
 has_child: false

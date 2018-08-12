@@ -1,5 +1,5 @@
 ---
-title: "Wiki FrontPage"
+title: Wiki FrontPage
 title-breadcrumb: Wiki
 description: Misskey(ソフトウェア)についての簡単な解説をします。
 layout: index

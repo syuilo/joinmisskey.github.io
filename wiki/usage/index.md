@@ -1,6 +1,5 @@
 ---
 title: Misskeyの使い方
-title-breadcrumb: Wiki
 description: Misskeyはとても機能が多いです。多機能なMisskeyの使い方をなんとか纏めて説明します。
 layout: index
 has_child: true

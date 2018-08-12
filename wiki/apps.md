@@ -1,6 +1,5 @@
 ---
 title: Misskeyアプリ一覧
-title-breadcrumb: Wiki
 description: Misskeyを利用するサードパーティアプリ一覧
 layout: wiki
 has_child: false
