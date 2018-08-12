@@ -18,12 +18,16 @@ workbox.precaching.precacheAndRoute([
     "revision": "67176c242e1bdc20603c878dee836df3"
   },
   {
+    "url": "assets/jquery.slim.min.js",
+    "revision": "d0c25b95f8c4fc5bfdbdb358996ea3f4"
+  },
+  {
     "url": "assets/main.js",
-    "revision": "301ac28b950a9f9b9284252b8d09cb62"
+    "revision": "5778244e16be652c52a84059d037999a"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "28ca78186f9d5716ef8e300a61a93fc0"
+    "revision": "af68fdab3d04c9aad068ba4eb7837830"
   },
   {
     "url": "assets/pjax-api.js",
@@ -35,11 +39,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "621d7fbb6f2c178cbc121b95ff604b84"
-  },
-  {
-    "url": "assets/zepto.min.js",
-    "revision": "d37f7aa3fdda41a82b000109654352c6"
+    "revision": "f239f4181d1ee1acda6a2e23cb37cd8e"
   },
   {
     "url": "files/fonts/GenShinGothic-Bold.woff2",
@@ -91,7 +91,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "d74b4a3d867f7be38ed05af0a6b37cb8"
+    "revision": "9085795f531a70d987603429ea9e64d7"
   },
   {
     "url": "manifest.json",
