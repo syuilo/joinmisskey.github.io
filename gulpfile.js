@@ -169,15 +169,15 @@ async function register_pages(){
         if( page.meta.permalink.indexOf('/') != 0 ) page.meta.permalink = '/' + page.meta.permalink
         if( page.meta.permalink.lastIndexOf('index') == page.meta.permalink.length - 5 && page.meta.permalink.indexOf('index') != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
-        if( typeof page.attributes.keywords === 'string' ) page.attributes.keywords = page.attributes.keywords.split(' ')
-        if( typeof page.attributes.players === 'string' ) page.attributes.players = page.attributes.players.split(' ')
-        if( typeof page.attributes.keyword === 'string' ){
-            page.attributes.keywords = page.attributes.keyword.split(' ')
-            delete page.attributes.keyword
+        if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(' ')
+        if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(' ')
+        if( typeof page.attributes.category === 'string' ){
+            page.attributes.categories = page.attributes.category.split(' ')
+            delete page.attributes.category
         }
-        if( typeof page.attributes.player === 'string' ){
-            page.attributes.players = page.attributes.player.split(' ')
-            delete page.attributes.player
+        if( typeof page.attributes.tag === 'string' ){
+            page.attributes.tags = page.attributes.tag.split(' ')
+            delete page.attributes.tag
         }
         return page
     }
