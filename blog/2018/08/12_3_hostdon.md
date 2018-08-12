@@ -30,9 +30,8 @@ Hostdonは、[Naf氏](https://auri.ga/naf/)および同氏が率いる[team Auri
 [Hostdon](https://hostdon.jp/)  
 [teamAuriga](https://auri.ga/)   
 [GitHub: hostdon/mastodon](https://github.com/hostdon/mastodon)  
-[記事 ITMediaNEWS 無料で広告なし、お一人様向けホスティング「Hostdon」が始動](http://www.itmedia.co.jp/news/articles/1706/13/news126.html) (現在は学生向けインスタンスのみ無料、受付停止中)
+[記事 ITMediaNEWS 無料で広告なし、お一人様向けホスティング「Hostdon」が始動](http://www.itmedia.co.jp/news/articles/1706/13/news126.html) (現在は学生向けインスタンスのみ無料、受付停止中)  
 [Naf-blog (Naf氏のブログ)](https://sodiu.me/)
 
 ## 注記
-MisskeyのコントリビューターはHostdonを利用したことがないため、Hostdonを利用したインスタンスの運営方法についてお答えすることができません。  
-この記事は
+MisskeyのコントリビューターはHostdonを利用したことがないため、Hostdonを利用したMisskey・Mastodonインスタンスの運営方法についてお答えできません。

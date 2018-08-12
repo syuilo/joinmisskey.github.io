@@ -8,7 +8,7 @@ author:
   name: aqz
   url: https://misskey.xyz/@aqz
   avatar: aqz
-category:
+category: joinmisskey
 amp: true
 ---
 当サイトの更新のお知らせです。

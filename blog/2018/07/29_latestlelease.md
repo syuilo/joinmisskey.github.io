@@ -33,16 +33,3 @@ Amazon S3互換のオブジェクトストレージを利用することがで�
 
 #### ImageMagickが不要に
 MisskeyはImageMagickに依存しなくなりました。
-
-## 近況報告
-
-### メモリリークを解決して報酬をもらおう
-misskey.xyzでメモリリークのような事象が発生しています。しかし未だ原因を特定できていません。[メモリリークを発見しかつそれを修正した場合](https://misskey.xyz/notes/5b5af1db2c880114aebf5068)、[5000円](https://misskey.xyz/notes/5b5bd2d4f76ee01c29695d26)の[報酬が支払われます。](https://misskey.xyz/notes/5b5af1792c880114aebf5053)
-
-[→ Issue on GitHub](https://github.com/syuilo/misskey/issues/1913)
-
-### 黒字
-Patreonでの支援は、おかげ様でmisskey.xyzのインスタンス運営に関わる料金を十分に補えるほどまでになりました。ありがとうございます。  
-さらなるご支援をいただければ、syuiloの部屋にエアコンが付きます。そうすれば、管理画面の設置などさらなるMisskeyの発展が期待できます(*)。よろしくお願いします。
-
-(*) エアコンとMisskeyの開発進捗との相関は未知数
