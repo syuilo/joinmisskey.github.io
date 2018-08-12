@@ -13,7 +13,7 @@ append preset
     let queries = [], qpages = []
     
     let rootpath = (() => {
-      if(page.attributes.query && page.attributes.query.root) return `/${page.attributes.query.root}/`
+      if(page.attributes.query && page.attributes.query.root) return `/${locale}${page.attributes.query.root}`
       else return page.meta.permalink
     })()
 
