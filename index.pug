@@ -114,13 +114,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     h2.text-center さっそくはじめよう
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
     hr.my-4
-    h3 インスタンス一覧
-    if(instances[locale].length > 0)
+    h3 おすすめインスタンス一覧
+    if(instances[locale].selected.length > 0)
       #instances.list-group
-        each instance in instances[locale]
+        each instance in instances[locale].selected
           a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.text-light.bg-dark.list-group-item.list-group-item-action.flex-column.align-items-start
             h4!=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
             p.m-0=instance.description
+      a(href="./wiki/instances/#others").btn.btn-link.btn-block 全てのインスタンスを見る
     else
       p.text-white-50
         +i18n('none')
@@ -129,6 +130,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
   
   #section_4.py-5.bg-success: .container.text-center.text-white
     a(href="./blog/").btn.btn-lg.btn-light.text-success
+      +fa("broadcast-tower")
       | ブログ
     p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
 
