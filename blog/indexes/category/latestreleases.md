@@ -4,4 +4,5 @@ description: Misskeyの更新内容をお知らせ
 layout: blog-index
 query:
   category: 更新
+  root: /blog/
 ---

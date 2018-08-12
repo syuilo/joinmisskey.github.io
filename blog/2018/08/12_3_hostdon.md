@@ -14,9 +14,7 @@ amp: true
 
 [詳細はHostdonのサイトにてご覧いただけます beta.hostdon.jp](https://beta.hostdon.jp/)
 
-Mastodonホスティングサービスを運営するteam Auriga(川崎市川崎区)は、8月11日、HostdonBeta Program 第一弾として、Misskeyのホスティングの募集を開始すると発表しました。
-
-
+Mastodonホスティングサービスを運営するteam Aurigaは8月11日、HostdonBeta Program 第一弾として、Misskeyのホスティングの募集を開始すると発表しました。
 
 ## Hostdon
 Hostdonは、[Naf氏](https://auri.ga/naf/)および同氏が率いる[team Auriga](https://auri.ga/)が運営するMastodonホスティングサービスです。  
