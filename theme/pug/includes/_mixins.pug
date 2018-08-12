@@ -77,15 +77,15 @@ mixin blog_badges(targetpage)
     +fa_fw("folder-open")
     if(targetpage.attributes.categories)
       each category in targetpage.attributes.categories
-        span.badge.badge-success= category
+        span.badge.badge-success.md-small= category
         |  
     else
       +i18n('null')
-  div
+  div.mr-2
     +fa_fw("tags")
     if(targetpage.attributes.tags)
       each tag in targetpage.attributes.tags
-        span.badge.badge-secondary= tag
+        span.badge.badge-secondary.md-small= tag
         |  
     else
       +i18n('null')
