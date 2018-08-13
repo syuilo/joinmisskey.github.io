@@ -39,7 +39,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "3733b3e82c53b96e34fa5d02d8f1de0a"
+    "revision": "17d09df77de9d47194d7d337d1757768"
   },
   {
     "url": "files/fonts/GenShinGothic-Bold.woff2",
@@ -91,7 +91,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "f971c65191ee08c691274cf2c5b01121"
+    "revision": "747d222cae601b6dcc4ab5d23a01f781"
   },
   {
     "url": "manifest.json",
