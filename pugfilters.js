@@ -8,7 +8,11 @@ pugfilters.md = function(str) {
     htm = require('./scripts/highl')(htm)
     htm = require('html-minifier').minify(htm, {"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
     return htm
-};
+}
+pugfilters.mfm = function(str) {
+    let htm = require('mfmf').render(str, {})
+    return htm
+}
 pugfilters.oneline = function(str) {
     return str.replace(/\r?\n/g,"")
 }

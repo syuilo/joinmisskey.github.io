@@ -39,12 +39,10 @@ https://github.com/syuilo/misskey
 
 ### CONTENTS
 
-./pages/**/*
-
-Only translation
+pages/**/*: Only translation
 
 ### SYSTEM
 
-except ./pages/**/*
+scripts/**/*: based on source of misskey, under AGPLv3
 
-"maqz" system under CC0
+the others: "maqz" system, under CC0

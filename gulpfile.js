@@ -1,4 +1,4 @@
-const openCommand = 'code-insiders'
+const syntaxHighliterUrl = 'https://raw.githubusercontent.com/syuilo/misskey/master/src/mfm/parse/core/syntax-highlighter.ts'
 
 // npm require
 const gulp = require('gulp')
@@ -20,12 +20,9 @@ const request = require('request')
 const yaml = require('js-yaml')
 const cleanCss = require("clean-css")
 const sass = require("node-sass")
-const autoprefixer = require('autoprefixer')
-const postcss = require('postcss')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
-
 
 // const exec = require('child_process').exec
 // const join = path.join
@@ -38,7 +35,7 @@ $ = require('gulp-load-plugins')()
 
 const writeFile = promisify(fs.writeFile)
 const readFile = promisify(fs.readFile)
-// const get = promisify(request.get)
+const get = promisify(request.get)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -292,8 +289,6 @@ gulp.task('pug', async (cb) => {
                     ampcss += '\n'
                     ampcss += fontawesome.dom.css()
                     ampcss += '\n'
-                    ampcss += await readFile('node_modules/highlight.js/styles/github-gist.css', 'utf8')
-                    ampcss += '\n'
                     ampcss = new cleanCss().minify(ampcss).styles.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")
 
                     $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
@@ -377,6 +372,12 @@ gulp.task('copy-theme-static', (cb) => {
 gulp.task('copy-bootstrapjs', (cb) => {
     pump([
         gulp.src('node_modules/bootstrap/dist/js/**'),
+        gulp.dest(dests.root + '/assets')
+    ], cb)
+})
+gulp.task('copy-animatecss', (cb) => {
+    pump([
+        gulp.src('node_modules/bootstrap/animate.css/animate.min.css'),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
@@ -496,6 +497,11 @@ gulp.task('image', () => {
     }
 
     return stream2
+})
+
+// todo: download and build highlighter
+gulp.task('download-highlighter', (cb) => {
+    cb()
 })
 
 gulp.task('clean-temp', (cb) => { del(temp_dir+'**/*').then(cb()) } )
