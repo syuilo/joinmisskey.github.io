@@ -11,7 +11,7 @@ Misskeyを利用するサードパーティアプリの一覧です。
 Misskeyをブラウザ以外の場所から利用できます。
 
 ### デスクトップ
-#### [The Desk](https://thedesk.top/)
+#### [TheDesk](https://thedesk.top/)
 - OS: Windows, macOS, Linux  
 - Node.js, Electron
 
