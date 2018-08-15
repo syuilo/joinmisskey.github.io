@@ -2,6 +2,14 @@ importScripts('/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([
   {
+    "url": "assets/animate.css",
+    "revision": "d96b2083b0acbb11911bb4f068158299"
+  },
+  {
+    "url": "assets/animate.min.css",
+    "revision": "c78e4003414fbf2814dc097a5e1c784a"
+  },
+  {
     "url": "assets/bootstrap.bundle.js",
     "revision": "50a98c751c19ae5ea4fc42b2ba2da89b"
   },
@@ -16,6 +24,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "assets/bootstrap.min.js",
     "revision": "67176c242e1bdc20603c878dee836df3"
+  },
+  {
+    "url": "assets/fontawesome.min.css",
+    "revision": "66792e9db1ace7288d95debe0a9b2c7f"
   },
   {
     "url": "assets/jquery.slim.min.js",
@@ -39,7 +51,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "17d09df77de9d47194d7d337d1757768"
+    "revision": "e5d246aa6e28e99d3fbeb3f1f4ea5ed6"
   },
   {
     "url": "files/fonts/GenShinGothic-Bold.woff2",
@@ -91,7 +103,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "747d222cae601b6dcc4ab5d23a01f781"
+    "revision": "24a03df82c26bec59a7678e1c311acc8"
   },
   {
     "url": "manifest.json",
