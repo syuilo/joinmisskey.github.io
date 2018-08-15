@@ -1,3 +1,3 @@
-require('./old_browsers')
+require('./old-browsers')
 require('./gototop')
-require('./pjax_ready_others')
+require('./pjax-ready-others')

@@ -14,10 +14,13 @@
           color: #fff
           border-right: solid 1px rgba(0,0,0,0.1)
 
-      .collapse
-        text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7
+      button
+        svg
+          font-size: 20px
 
-        @media (min-width: map-get($grid-breakpoints, md))
+      @media (min-width: map-get($grid-breakpoints, sm) - 0.00000001)
+        #navtoggle
+          text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7
 
           .nav-item
             height: 48px
@@ -31,19 +34,28 @@
               border-bottom: 3px solid $primary
               border-top: 3px solid transparent
 
-      @media (max-width: map-get($grid-breakpoints, md))
-        .collapse
-          text-shadow: none
-          background-color: #f7f7f7
-  
-      @media (max-width: map-get($grid-breakpoints, sm))
-        .collapse
-          background-color: #595f6f
-          .nav-item
+      @media (min-width: map-get($grid-breakpoints, lg) - 0.00000001)
+        #navtoggle
+          padding-left: calc((100% - 1300px) / 2)
 
+      @media (max-width: map-get($grid-breakpoints, sm))
+        #navtoggle
+          background-color: #595f6f
+
+          .nav-item
             a.nav-link
               color: #eee
 
             &.active
               a.nav-link
                 color: #fff
+
+    .dropleft
+      position: fixed
+      right: 4px
+      top: 4px
+      z-index: 102
+      height: 40px
+
+      button
+        height: 40px

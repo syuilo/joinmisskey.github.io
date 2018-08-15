@@ -337,6 +337,18 @@ gulp.task('css', (cb) => {
     })
 })
 
+gulp.task('fa-css', (cb) => {
+    pump([
+        gulp.src('node_modules/@fortawesome/fontawesome-svg-core/styles.css'),
+        $.cleanCss(),
+        $.rename('fontawesome.min.css'),
+        gulp.dest(dests.root + '/assets')
+    ], (e) => {
+        if(e) $.util.log("\n" + $.util.colors.red(e))
+        else $.util.log($.util.colors.green(`✔ assets/style.min.css`))
+        cb()
+    })
+})
 gulp.task('js', (cb) => {
     pump([
         gulp.src('theme/js/main.js'),
@@ -377,7 +389,7 @@ gulp.task('copy-bootstrapjs', (cb) => {
 })
 gulp.task('copy-animatecss', (cb) => {
     pump([
-        gulp.src('node_modules/bootstrap/animate.css/animate.min.css'),
+        gulp.src('node_modules/animate.css/*.css'),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
@@ -649,7 +661,7 @@ gulp.task('copy-publish',
         gulp.parallel(
             gulp.series( 'copy-files', 'copy-prebuildFiles' ),
             'copy-theme-static',
-            gulp.series( 'copy-pjax', 'copy-bootstrapjs' )
+            gulp.series( 'copy-pjax', 'copy-bootstrapjs', 'copy-animatecss' )
         ),
         (cb) => { cb() }
     )
@@ -666,7 +678,7 @@ gulp.task('make-subfiles',
 
 gulp.task('core',
     gulp.series(
-        gulp.parallel('js', 'css', 'pug'),
+        gulp.parallel('js', 'css', 'fa-css', 'pug'),
         gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
         'make-sw', 'last',
         (cb) => { cb() }

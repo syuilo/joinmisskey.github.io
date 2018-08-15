@@ -16,13 +16,13 @@ block requires
     const colors = require("colors")
     const sizeOf = require("image-size")
     const cleanCss = require("clean-css")
-    const path = require('path')
-    const fs = require('fs')
-    const numeral = require('numeral')
+    const path = require("path")
+    const fs = require("fs")
+    const numeral = require("numeral")
     const moment = require("moment")
     require(`moment/locale/${locale || "ja"}`)
     moment.locale(locale)
-    const wk = require('wanakana')
+    const wk = require("wanakana")
     
     const fontawesome = require("@fortawesome/fontawesome-svg-core")
     fontawesome.library.add(
@@ -180,6 +180,8 @@ block make_html
         - main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
       when '.pug'
         - main_html = pugit(page.body)
+        if (page.attributes.improve)
+          - main_html = require('./scripts/better_markdown')(main_html, site.url.path)
 
 block amp
   - 

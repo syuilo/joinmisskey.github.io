@@ -4,25 +4,28 @@
 nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
   if(!isAmp)
     button.navbar-toggler(data-toggle="collapse" data-target="#navtoggle" aria-controls="navtoggle" aria-expanded="false" aria-label="Toggle navigation")
-      +fa("bars")
+      +fa("bars", "fas")
     .collapse.navbar-collapse#navtoggle
-      ul.navbar-nav.mr-auto.mt-lg-0.ml-3.ml-md-5
+      ul.navbar-nav.mr-auto.mt-lg-0.ml-3.ml-md-0
         li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale}/` ? "active" : "" ))
           a.nav-link(href=`/${locale}/`)
             +fa_fw("home")
-            |  
-            +i18n("home")
+            span.d-inline.d-md-none.d-lg-inline
+              |  
+              +i18n("home")
         li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/blog/`) == 0 ? "active" : "" ))
           a.nav-link(href=`/${locale}/blog/`)
             +fa_fw("broadcast-tower")
-            |  
-            +i18n("blog")
+            span.d-inline.d-md-none.d-lg-inline
+              |  
+              +i18n("blog")
         li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/wiki/`) == 0 ? "active" : "" ))
           a.nav-link(href=`/${locale}/wiki/`)
             +fa_fw("book")
-            |  
-            | Wiki
-    .dropleft.my-auto.ml-auto.mr-2
+            span.d-inline.d-md-none.d-lg-inline
+              |  
+              | Wiki
+    .dropleft
       button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")

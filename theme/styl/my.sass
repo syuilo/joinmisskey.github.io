@@ -55,40 +55,6 @@ ul.simpleindex > li
   font-weight: 700
   margin: 0
 
-
-code
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospac
-  .comment
-    opacity: 0.5
-  .string
-    color: #e96900
-  .regexp
-    color: #e9003f
-  .keyword
-    color: #2973b7
-    &.true
-    &.false
-    &.null
-    &.nil
-    &.undefined
-      color: #ae81ff
-  .symbol
-    color: #42b983
-  .number
-  .nan
-    color: #ae81ff
-  .var:not(.keyword)
-    font-weight: bold
-    font-style: italic
-    //text-decoration underline
-  .method
-    font-style: italic
-    color: #8964c1
-  .property
-    color: #a71d5d
-  .label
-    color: #e9003f
-
 .mk-note
   @extend .border
   @extend .rounded
@@ -124,3 +90,6 @@ code
     &:focus
       border-color: rgba(246,110,79,0.5)
       transition: border-color 0s ease
+
+b
+  font-weight: 700 !important
