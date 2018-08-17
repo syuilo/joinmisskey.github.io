@@ -1,11 +1,13 @@
 ---
-title: Misskeyアプリ一覧
+title: Misskeyを利用できるアプリ
 description: Misskeyを利用するサードパーティアプリ一覧
 layout: wiki
 has_child: false
 rank: 3
 ---
 Misskeyを利用するサードパーティアプリの一覧です。
+
+あなたもアプリを作りたいですか？[開発者向け情報](../developers/)をご覧ください。
 
 ## クライアント
 Misskeyをブラウザ以外の場所から利用できます。
@@ -15,7 +17,7 @@ Misskeyをブラウザ以外の場所から利用できます。
 - OS: Windows, macOS, Linux  
 - Node.js, Electron
 
-世界で2番目のElectronで書かれたMisskeyクライアント。  
+世界で2番目のElectronで動作するMisskeyクライアント。  
 
 ### Android
 ありません！

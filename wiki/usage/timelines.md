@@ -4,6 +4,7 @@ description: 4種類あるタイムラインについて解説します。
 layout: wiki
 has_child: true
 rank: 1
+prev: /wiki/usage/first/
 next: /wiki/usage/follow/
 ---
 MisskeyはActivityPubのサーバー間通信機能によって他のインスタンスのユーザーをフォローすることができます。  

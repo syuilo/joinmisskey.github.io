@@ -1,10 +1,11 @@
 ---
-title: Wiki FrontPage
+title: Wiki
 title-breadcrumb: Wiki
 description: Misskey(ソフトウェア)についての簡単な解説をします。
 layout: index
 has_child: true
 ---
+## FrontPage
 
 Misskeyは、[syuilo](https://syuilo.com)が現在も開発を継続している、SNSをベースにした新しいミニブログソフトウェアです。2018年4月8日にサーバー間ActivityPub規格に対応し、Mastodonなどと同じ分散型SNSになりました。
 
