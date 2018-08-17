@@ -16,7 +16,7 @@ amp: true
 ### メジャーバージョンアップ
 オブジェクトストレージを使用している場合、設定ファイルの`drive.config.secure`を`drive.config.useSSL`にリネームしてください。
 
-[Migtration](https://github.com/syuilo/misskey/blob/master/CHANGELOG.md#600)
+[Migration](https://github.com/syuilo/misskey/blob/master/CHANGELOG.md#600)
 
 ### リアクションを付けやすく
 他の人がつけたリアクションをクリックすると自分もそのリアクションを付けられるようになりました。
