@@ -211,6 +211,6 @@ block listUp_hedings
         heading.number   = heading_html[1]
         heading.attr     = heading_html[2]
         heading.text     = heading_html[3]
-        if (classmatch == null || classmatch.indexOf('noindex') > -1) headings.push(heading)
+        if ( classmatch != null && classmatch.indexOf('noindex') == -1 ) headings.push(heading)
       }
     }

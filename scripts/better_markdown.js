@@ -6,10 +6,10 @@ module.exports = (htm, urlprefix) => {
   let $ = require('cheerio').load(htm, {decodeEntities: false})
 
   $('body > h2, body > h3, body > h4, body > h5, body > h6').addClass('blogstyle')
-  // $('div h2, div h3, div h4, div h5, div h6').removeClass('blogstyle')
+  $('h2, h3, h4, h5, h6').each((i, el) => { $(el).attr('id', $(el).text()) })
   $('img').addClass('img-fluid')
-  $('img[src^="/"]').attr( 'src', function(i, el){ return `${urlprefix}${$(this).attr('src')}` })
-  $('img[src^="files/"]').attr( 'src', function(i, el){ return `${urlprefix}/${$(this).attr('src')}` })
+  $('img[src^="/"]').each((i, el) => { $(el).attr('src', `${urlprefix}${$(el).attr('src')}`) })
+  $('img[src^="files/"]').each((i, el) => { $(el).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('table').addClass('table table-sm table-bordered')
   $(':not(.mfm) > blockquote').addClass('blockquote rounded px-3 px-md-4 py-3 font-weight-light')
   $(':not(.mfm) > a[href^="http"], :not(.mfm) > a[href^="//"]').append(fontawesome.icon({ prefix: "fas", iconName: "external-link-alt" },{classes:['fa-fw', 'fa-sm']}).html[0])
