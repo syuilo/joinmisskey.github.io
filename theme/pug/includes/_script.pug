@@ -31,10 +31,7 @@ block requires
       require("@fortawesome/free-brands-svg-icons").fab
     )
 
-    const URL = require('url')
     let main_html
-    const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
-    const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
 
     const pug_o = {
         'site': site,

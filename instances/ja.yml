@@ -8,9 +8,12 @@ selected:
   - name: Misskey Cafe
     url: msky.cafe
     description: 10GBのドライブ容量が特徴のインスタンス
+  - name: Brain Divers
+    url: mk.odakyu.app
+    description: きょり/わんせた氏が運営するインスタンス。
   - name: misskeyちほー
     url: mk.kemono-friends.info
-    description: 「ますとどんちほー」を運営するさばんちゃん氏が運営するインスタンス
+    description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
   - name: null
     url: misskey.m544.net
     description: 二コフレで有名なめいめい氏が運営するインスタンス

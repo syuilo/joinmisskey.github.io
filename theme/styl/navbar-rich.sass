@@ -1,24 +1,11 @@
 #nav
   nav
     &#mainnav
-      .navbar-toggler
-        height: 48px
-        width: 48px
-        border-top: none
-        border-left: none
-        border-bottom: none
-        border-radius: 0
-        border-right: 1px solid $gray-300
-        
-        @media (max-width: map-get($grid-breakpoints, sm))
-          color: #fff
-          border-right: solid 1px rgba(0,0,0,0.1)
-
       button
         svg
           font-size: 20px
 
-      @media (min-width: map-get($grid-breakpoints, sm) - 0.00000001)
+      @media (min-width: map-get($grid-breakpoints, sm) + 0.0000000001)
         #navtoggle
           text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7
 
@@ -34,7 +21,7 @@
               border-bottom: 3px solid $primary
               border-top: 3px solid transparent
 
-      @media (min-width: map-get($grid-breakpoints, lg) - 0.00000001)
+      @media (min-width: map-get($grid-breakpoints, lg) + 0.0000000001)
         #navtoggle
           padding-left: calc((100% - 1300px) / 2)
 

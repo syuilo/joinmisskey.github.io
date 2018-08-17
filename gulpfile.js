@@ -8,18 +8,11 @@ const util = require('util')
 const promisify = util.promisify
 const path = require('path')
 const del = require('del')
-const fm = require('front-matter')
 const crypto = require('crypto')
 const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
-const merge2 = require('merge2')
-const mkdirp = require('mkdirp')
 const pump = require('pump')
-const glob = require('glob')
-const request = require('request')
-const yaml = require('js-yaml')
-const cleanCss = require("clean-css")
-const sass = require("node-sass")
+// const request = require('request')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -35,7 +28,7 @@ $ = require('gulp-load-plugins')()
 
 const writeFile = promisify(fs.writeFile)
 const readFile = promisify(fs.readFile)
-const get = promisify(request.get)
+// const get = promisify(request.get)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -115,7 +108,7 @@ function getHash(data, a, b, c){
 
 async function register_pages(){
     let promises = []
-    const srcs = glob.sync(src.pages)
+    const srcs = require('glob').sync(src.pages)
     for(p = 0; p < srcs.length; p++){
         promises.push(
             doit(srcs[p], p, srcs, path.parse(site.pages_src.path))
@@ -134,7 +127,7 @@ async function register_pages(){
         if ( !subdir ) subdir = ''
 
         let file = fs.readFileSync( val, 'utf-8' )
-        page = extend(true,page,fm(file))
+        page = extend(true,page,require('front-matter')(file))
 
         page.meta = {}
         page.meta.src = src
@@ -210,7 +203,7 @@ gulp.task('register', async cb => {
 
     for(locale of site.locales){
         try {
-            instances[locale] = yaml.safeLoad(fs.readFileSync(`./instances/${locale}.yml`))
+            instances[locale] = require('js-yaml').safeLoad(fs.readFileSync(`./instances/${locale}.yml`))
         } catch(e) {
             instances[locale] = []
         }
@@ -227,7 +220,7 @@ gulp.task('config', (cb) => {
     let resultObj = { options: '' }
     resultObj.timestamp = (new Date()).toJSON()
     resultObj = extend(true,resultObj, { 'pages' : pages })
-    mkdirp.sync(path.parse(dests.info).dir)
+    require('mkdirp').sync(path.parse(dests.info).dir)
     return writeFile( dests.info, JSON.stringify( resultObj ))
     .then(
         () => { $.util.log($.util.colors.green(`✔ info.json`)) },
@@ -236,11 +229,15 @@ gulp.task('config', (cb) => {
 })
 
 gulp.task('pug', async (cb) => {
-    mkdirp.sync(temp_dir)
-    let stream = merge2()
+    require('mkdirp').sync(temp_dir)
+    let stream = require('merge2')()
     let ampcss = ""
+    const URL = require('url')
+    const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
+        const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
         const pugoptions = {
             data: {
                 page: page,
@@ -253,6 +250,8 @@ gulp.task('pug', async (cb) => {
                 require: require,
                 theme_pug: theme_pug,
                 instances: instances,
+                urlPrefix: urlPrefix,
+                url: url,
                 DEBUG: DEBUG
             },
             filters: require('./pugfilters.js')
@@ -284,8 +283,9 @@ gulp.task('pug', async (cb) => {
         if(page.attributes.amp){
             if(ampcss == ""){
                 try {
+                    const cleanCss = require("clean-css")
                     ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
-                    ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
+                    ampcss += (await promisify(require("node-sass").render)({file: 'theme/styl/amp_main.sass'})).css.toString()
                     ampcss += '\n'
                     ampcss += fontawesome.dom.css()
                     ampcss += '\n'
@@ -294,6 +294,7 @@ gulp.task('pug', async (cb) => {
                     $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
                 } catch(e) {
                     $.util.log($.util.colors.red('making amp css failed'))
+                    $.util.log($.util.colors.red(e))
                     ampcss = "/* oops */"
                 }
             }
@@ -302,16 +303,11 @@ gulp.task('pug', async (cb) => {
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
 
-            const newoptions = {
-                data: {
-                    isAmp: true,
-                    ampcss: true
-                }
-            }
+            const newoptions = extend(true, { data: { isAmp: true, ampcss: ampcss }}, pugoptions)
 
             stream.add(
                 gulp.src(amptemplate)
-                    .pipe($.pug(extend(true, pugoptions, newoptions)))
+                    .pipe($.pug(newoptions))
                     .pipe($.rename(`${page.meta.permalink}amp.html`))
                     .pipe(gulp.dest( dests.root ))
                     .on('end',() => {
@@ -439,7 +435,7 @@ function images_base(){
 gulp.task('image-prebuildFiles', () => {
     const sizes = site.images.files.sizes
     const stream = gulp.src('files/**/*.{png,jpg,jpeg}')
-    const stream2 = merge2()
+    const stream2 = require('merge2')()
     for(i = 0; i < sizes.length; i++){
         stream2.add(
             stream
@@ -465,7 +461,7 @@ gulp.task('image', () => {
     if (!argv.i) new Error('ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。')
     const parsed = path.parse(argv.i)
     const sizes = site.images.files.sizes
-    const stream2 = merge2()
+    const stream2 = require('merge2')()
     const date = new Date()
     let gifsvg, others
     const dirname = `${date.getFullYear()}/${("0" + (date.getMonth() + 1)).slice(-2)}`

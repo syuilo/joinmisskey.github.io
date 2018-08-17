@@ -83,16 +83,32 @@ html(lang=locale, amp)
 
       block amp-c
         if(site.social_media.share_button)
-          script(async, custom-element="amp-social-share",    src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js") 
+          script(async, custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js") 
         if(site.disqus)
-          script(async, custom-element="amp-iframe",          src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js")
+          script(async, custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js")
         if(site.ga)
-          script(async, custom-element="amp-analytics"        src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+          script(async, custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+        
+        script(async, custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js")
 
       block style
         style(amp-custom)!=ampcss
 
   body
+
+    amp-sidebar(id="sidebar1" layout="nodisplay" side="left")
+      ul.p-5.list-unstyled.bg-white.h-100
+        li.py-2: a(href=`/${locale}/`)
+          +fa_fw("home")
+          |  
+          +i18n("home")
+        li.py-2: a(href=`/${locale}/blog/`)
+          +fa_fw("broadcast-tower")
+          |  
+          +i18n("blog")
+        li.py-2: a(href=`/${locale}/wiki/`)
+          +fa_fw("book")
+          |  Wiki
 
     block wo_footer
       block nav
