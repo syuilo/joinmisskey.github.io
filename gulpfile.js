@@ -309,9 +309,6 @@ gulp.task('pug', async (cb) => {
                 }
             }
 
-            pugoptions.data.isAmp = true
-            pugoptions.data.ampcss = ampcss
-
             stream.add(
                 gulp.src(amptemplate)
                     .pipe($.pug(extend(true, pugoptions, newoptions)))
