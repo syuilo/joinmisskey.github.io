@@ -302,12 +302,19 @@ gulp.task('pug', async (cb) => {
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
 
+            const newoptions = {
+                data: {
+                    isAmp: true,
+                    ampcss: true
+                }
+            }
+
             pugoptions.data.isAmp = true
             pugoptions.data.ampcss = ampcss
 
             stream.add(
                 gulp.src(amptemplate)
-                    .pipe($.pug(pugoptions))
+                    .pipe($.pug(extend(true, pugoptions, newoptions)))
                     .pipe($.rename(`${page.meta.permalink}amp.html`))
                     .pipe(gulp.dest( dests.root ))
                     .on('end',() => {
