@@ -6,7 +6,7 @@ block main
         header.w-100
           h1= page.attributes.title
 
-        if(headings.length > 1)
+        if(headings.length > 2)
           #article_sidenav.my-2.p-3.bg-light
             +toc( headings, 2, "ul", "list-unstyled ml-3 page-index")
         section.pt-2.pb-4!= main_html

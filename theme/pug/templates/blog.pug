@@ -19,7 +19,7 @@ block main
             if(page.attributes.author)
               a.d-block(href=page.attributes.author.url target="_blank" rel="noopener") Author: #{page.attributes.author.name}
 
-        if(headings.length > 1)
+        if(headings.length > 2)
           #article_sidenav.my-2.p-3.bg-light
             +toc( headings, 2, "ul", "list-unstyled ml-3 page-index")
         section.pt-2.pb-4!= main_html

@@ -11,20 +11,23 @@ selected:
   - name: Brain Divers
     url: mk.odakyu.app
     description: きょり/わんせた氏が運営するインスタンス。
-  - name: misskeyちほー
-    url: mk.kemono-friends.info
-    description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
   - name: null
     url: misskey.m544.net
     description: 二コフレで有名なめいめい氏が運営するインスタンス
 others:
   - name: Misskey.血便レッド
     url: misskey.ketsuben.red
-    description: Mastodon/MisskeyホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
+    description: ActivityPub対応SNSホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
   - name: null
     url: misskey.tmin.ml
     description: aqzが運営する試験サーバー
+  - name: Misskey(Tor)
+    url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
+    description: xps2氏が運営するTor上のインスタンス
 suspended:
   - name: null
     url: misskey.wtf
     description: 神崎おにいさん氏が一瞬だけ開設していたインスタンス
+  - name: misskeyちほー
+    url: mk.kemono-friends.info
+    description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
