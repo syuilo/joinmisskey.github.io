@@ -53,7 +53,7 @@ let site = extend(true,
     require('./.config/lang.json'),
     require('./.config/images.json')
 )
-const keys = require('./.config/keys.json')
+const keys = {} /* require('./.config/keys.json') */
 const workboxSWSrcPath = require.resolve('workbox-sw')
 let theme_pug = {}
 theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
@@ -658,11 +658,12 @@ gulp.task('last',
 
 gulp.task('copy-publish',
     gulp.series(
-        gulp.parallel(
-            gulp.series( 'copy-files', 'copy-prebuildFiles' ),
-            'copy-theme-static',
-            gulp.series( 'copy-pjax', 'copy-bootstrapjs', 'copy-animatecss' )
-        ),
+        'copy-files',
+        'copy-prebuildFiles',
+        'copy-theme-static',
+        'copy-pjax',
+        'copy-bootstrapjs',
+        'copy-animatecss',
         (cb) => { cb() }
     )
 )
@@ -704,7 +705,7 @@ gulp.task('prebuild-files',
 
 gulp.task('core-with-pf',
     gulp.series(
-        gulp.parallel('js', 'css', 'pug', 'prebuild-files'),
+        gulp.parallel('js', 'css', 'fa-css', 'pug', 'prebuild-files'),
         gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
         'make-sw', 'last',
         (cb) => { cb() }
