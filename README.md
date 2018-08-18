@@ -7,10 +7,13 @@ https://github.com/syuilo/misskey
 ### Install
 
 1. Install Node.js
-2. `git checkout src`
-3. `npm install`
-4. `npm install gulp -g`
-5. `git worktree add docs master; git worktree add pages/ja pages/ja;`
+2. make a new folder
+3. `git init`
+4. `git remote add origin https://github.com/joinmisskey/joinmisskey.github.io.git`
+5. `git checkout src`
+6. `npm install`
+7. `npm install gulp -g`
+8. `git worktree add docs master; git worktree add pages/ja pages/ja;`
 
 ### Build
 
