@@ -8,7 +8,7 @@ author:
   name: aqz
   url: https://misskey.xyz/@aqz
   avatar: aqz
-category: ニュースリリース
+category: 更新
 amp: true
 ---
 ## 更新
@@ -28,6 +28,9 @@ amp: true
 
 ### サムネイル画像の生成
 Misskeyに読み込まれる画像サイズが軽くなります。表示の高速化や通信量の低減が期待できます。
+
+### 投稿の自動ウォッチの初期値
+投稿の自動ウォッチの初期値がオフになりました。
 
 ### その他
 
