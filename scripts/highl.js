@@ -5,16 +5,16 @@ function fuckescape(val){
   return val
 }
 module.exports = (htm) => {
-  htm = htm.replace(/<pre><code class="(.*?)">([\s\S]*?)<\/code><\/pre>/gi, function(a, l, b){
+  htm = htm.replace(/<code class="(.*?)">([\s\S]*?)<\/code>/gi, function(a, l, b){
     b = fuckescape(b)
     if(l.indexOf("lang-") == 0) l = l.slice(5)
     const hled = highlighter(b, l)
-    return `<pre><code class="${l}">${hled}</code></pre>`
+    return `<code class="highlighted${l ? ` ${l}` : ''}">${hled}</code>`
   } )
   htm = htm.replace(/<pre>\s*?<code>([\s\S]*?)<\/code>\s*?<\/pre>/gi, function(a, b){
     b = fuckescape(b)
     const hled = highlighter(b)
-    return `<pre><code class="highlighter border rounded">${hled}</code></pre>`
+    return `<code class="highlighted">${hled}</code>`
   }
   )
   return htm
