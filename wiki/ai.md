@@ -1,0 +1,28 @@
+---
+title: ai
+description: Misskeyに関するよくある疑問をまとめています。
+layout: wiki
+has_child: false
+rank: 97
+---
+[ai(藍)](https://github.com/syuilo/ai)とは、しゅいろが開発したBotです。
+
+## 機能
+### ゲーム
+#### オセロbot
+オセロで招待するか、「@ai リバーシしよ！」と呼びかけると遊んでくれます。  
+強さを5段階に調整して遊べます。
+
+#### 数当てゲーム
+メッセージで「数当てしよ！」と呼びかけると出題してくれます。
+
+### サーバー管理
+#### プロセス再起動
+メモリやCPUの使用量が高くなると、自動的にMisskeyのプロセスを再起動してくれます。
+
+管理者が「再起動して」と言うことで任意で再起動することもできます。
+
+## 稼働中
+- [@ai@misskey.xyz](https://misskey.xyz/@ai)
+- [@ai@msky.cafe](https://msky.cafe/@ai)
+- [@ai@misskey.jp](https://misskey.jp/@ai)
