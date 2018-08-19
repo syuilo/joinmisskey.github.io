@@ -735,6 +735,7 @@ gulp.task('watch', (cb) => {
 
 gulp.task('connect', () => {
     $.connect.server({
+        port: '8081',
         root: 'docs',
         livereload: true
     })
