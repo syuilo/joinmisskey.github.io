@@ -12,6 +12,7 @@ const crypto = require('crypto')
 const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
 const pump = require('pump')
+
 // const request = require('request')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -85,7 +86,7 @@ let dests = {
     return fontawesome.icon({ prefix: ( prefix || "fas" ), iconName: icon },option).html[0]
 }*/
 
-
+/*
 function escape_html(val) {
     if(typeof val !== 'string'){ return val }
     return val.replace(/[&'`"<>]/g, function(match) {
@@ -99,7 +100,7 @@ function escape_html(val) {
         }[match]
     })
 }
-
+*/
 function getHash(data, a, b, c){
     const hashv = crypto.createHash(a)
     hashv.update(data, b)
@@ -234,26 +235,29 @@ gulp.task('pug', async (cb) => {
     let ampcss = ""
     const URL = require('url')
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+    const base = {
+        site: site,
+        keys: keys,
+        package: package,
+        pages: pages,
+        manifest: manifest,
+        messages: messages,
+        require: require,
+        theme_pug: theme_pug,
+        instances: instances,
+        urlPrefix: urlPrefix,
+        DEBUG: DEBUG
+    }
 
     for (let i = 0; i < pages.length; i++) {
         const page = pages[i]
         const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
-        const pugoptions = {
-            data: {
+        const data = extend(false, {
                 page: page,
-                site: site,
-                keys: keys,
-                package: package,
-                pages: pages,
-                manifest: manifest,
-                messages: messages,
-                require: require,
-                theme_pug: theme_pug,
-                instances: instances,
-                urlPrefix: urlPrefix,
-                url: url,
-                DEBUG: DEBUG
-            },
+                url: url
+            }, base)
+        const pugoptions = {
+            data: data,
             filters: require('./pugfilters.js')
         }
 
@@ -272,10 +276,9 @@ gulp.task('pug', async (cb) => {
                 })
                 .on('error', (err) => {
                     $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
-                    throw err
+                    $.util.log($.util.colors.red(err))
                 })
         )
-
         /*
          *                            AMP処理部
          *                                                                  */
@@ -303,7 +306,7 @@ gulp.task('pug', async (cb) => {
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
 
-            const newoptions = extend(true, { data: { isAmp: true, ampcss: ampcss }}, pugoptions)
+            const newoptions = extend(false, { data: { isAmp: true, ampcss: ampcss }}, pugoptions)
 
             stream.add(
                 gulp.src(amptemplate)
@@ -315,7 +318,7 @@ gulp.task('pug', async (cb) => {
                     })
                     .on('error', (err) => {
                         $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
-                        throw err
+                        $.util.log($.util.colors.red(err))
                     })
             )
         }
@@ -331,7 +334,7 @@ gulp.task('css', (cb) => {
         $.rename('style.min.css'),
         gulp.dest(dests.root + '/assets')
     ], (e) => {
-        if(e) $.util.log("\n" + $.util.colors.red(e))
+        if(e) $.util.log($.util.colors.red("Error(css)\n" + e))
         else $.util.log($.util.colors.green(`✔ assets/style.min.css`))
         cb()
     })
@@ -344,7 +347,7 @@ gulp.task('fa-css', (cb) => {
         $.rename('fontawesome.min.css'),
         gulp.dest(dests.root + '/assets')
     ], (e) => {
-        if(e) $.util.log("\n" + $.util.colors.red(e))
+        if(e) $.util.log($.util.colors.red("Error(fa-css)\n" + e))
         else $.util.log($.util.colors.green(`✔ assets/style.min.css`))
         cb()
     })
@@ -360,7 +363,7 @@ gulp.task('js', (cb) => {
         $.rename('main.min.js'),
         gulp.dest(dests.root + '/assets')
     ], (e) => {
-        if(e) { $.util.log("\n" + $.util.colors.red(e)) }
+        if(e) { $.util.log($.util.colors.red("Error(js)\n" + e)) }
         else {
             $.util.log($.util.colors.green(`✔ assets/main.js`))
             $.util.log($.util.colors.green(`✔ assets/main.min.js`))
@@ -735,7 +738,7 @@ gulp.task('watch', (cb) => {
 
 gulp.task('connect', () => {
     $.connect.server({
-        port: '8081',
+        port: '8080',
         root: 'docs',
         livereload: true
     })

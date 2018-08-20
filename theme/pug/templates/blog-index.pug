@@ -7,7 +7,7 @@ append preset
     const indexHeadline = "記事一覧"
   -
     pages.sort(function(a,b) {
-      if( a.meta.birthtime < b.meta.birthtime ) { return 1 } else { return -1 }
+      if(( a.meta.mtime || a.meta.birthtime ) < ( b.meta.mtime || b.meta.birthtime )) { return 1 } else { return -1 }
     });
 
     let queries = [], qpages = []
@@ -88,6 +88,7 @@ block title
   title #[+i18n('blog')]: #{page.attributes.title} - #{site.name}
 
 block main
+  - const app = 15
 
   #main.container
     h1.pt-4.pb-2 #[+i18n('blog')]: #{page.attributes.title}
@@ -95,9 +96,10 @@ block main
       != getTL(main_html)
     h2.font-weight-light.h3= headline
 
-    .d-flex.flex-row.row.m-0
+    #blog_index_find.d-flex.flex-row.row.m-0
+      - let xn = 0
       each thispage in qpages
-        a(href=`${site.url.path}${thispage.meta.permalink}`).col-xl-4.col-md-6.p-2.text-dark
+        a(href=`${site.url.path}${thispage.meta.permalink}` class=(xn >= app ? 'd-none' : 'd-block')).col-xl-4.col-md-6.p-2.text-dark
           article.card.w-100.h-100.border.bg-white
             if ( thispage.meta.thumbnail )
               img.card-img-top.blog-indexthumb(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.720${thispage.meta.thumbnail.ext}`)
@@ -110,3 +112,15 @@ block main
                 +fa_fw("clock")
                 time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')
               +blog_badges(thispage)
+        - xn = xn + 1
+    nav
+      ul.pagination.justify-content-center#blog_index_pagination
+        li.page-item.active
+          button.page-link 1
+        if (qpages.length > 15)
+          - yn = 2
+          - for (let s = 15; s < qpages.length; s = s + app ){
+          li.page-item
+            button.page-link #{yn.toString()}
+          - yn = yn + 1
+          - }
