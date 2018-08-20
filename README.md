@@ -29,14 +29,21 @@ https://github.com/syuilo/misskey
 ### Translation
 
 #### Add new language
+First, folk this repository, set yours as 'origin' on git and set this one as 'upstream'.
 
 1. `cd pages/ja`
 2. `git checkout -b pages/<languagecode>`
-3. `git checkout -b pages/ja`
-4. `cd ../../`
+3. `git checkout pages/ja`
+4. `cd ../..`
 5. `git worktree add pages/<languagecode> pages/<languagecode>`
-6. Add the language in these files: `README.md`(l13), `.config/lang.json`, `theme/pug/includes/_includes_head.pug`
-7. Ask aqz or syuilo to add a new language as [new issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new)
+6. `cd pages/<languagecode>`
+7. `git push --set-upstream origin pages/<languagecode>`
+8. `cd ../..`
+9. Add the language in these files: `README.md`(l13), `.config/lang.json`, `theme/pug/includes/_includes_head.pug`.
+10. Commit these changes to your folk.
+11. Make [new issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new) to ask aqz or syuilo to add a new language.
+    We will make branch `pages/<languagecode>`
+12. Make pull requests of 2 branches, `pages/<languagecode>` and `src`.
 
 ## LICENSES
 
