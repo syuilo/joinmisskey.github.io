@@ -1029,7 +1029,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}
 	}
 	function b(i, num) {
-		return num * 15 < i && i <= (num + 1) * 15;
+		return num * 15 <= i && i < (num + 1) * 15;
 	}
 
 	window.addEventListener('DOMContentLoaded', addListenerBlogIndexpagination);
