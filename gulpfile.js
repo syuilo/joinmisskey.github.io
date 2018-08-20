@@ -206,7 +206,7 @@ gulp.task('register', async cb => {
         try {
             instances[locale] = require('js-yaml').safeLoad(fs.readFileSync(`./instances/${locale}.yml`))
         } catch(e) {
-            instances[locale] = []
+            instances[locale] = require('js-yaml').safeLoad(fs.readFileSync(`./instances/ja.yml`))
         }
     }
     manifest = register_manifest()

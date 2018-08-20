@@ -1,5 +1,5 @@
 {
-    "locales": ["ja"],
+    "locales": ["ja", "en"],
     "i18n": {
         "home": {
             "ja": "ホーム"

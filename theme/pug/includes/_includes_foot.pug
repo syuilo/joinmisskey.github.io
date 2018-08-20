@@ -11,7 +11,7 @@ script.
 
   function move_locale(targetlang){
     if(targetlang != current_locale) {
-      window.addEventListener('load', function(){
+      window.addEventListener('DOMContentLoaded', function(){
         Pjax.replace("/" + targetlang + permalink + "?moved" + window.location.hash, {});
       })
     }
@@ -23,7 +23,7 @@ script.
     } else if (locales.indexOf(user_language.slice(0, 2)) >= 0) {
       move_locale(user_language.slice(0, 2))
     } else if (current_locale != "ja") {
-      window.addEventListener('load', function(){
+      window.addEventListener('DOMContentLoaded', function(){
         Pjax.replace("/ja" + permalink + "?moved" + window.location.hash, {});
       })
     }
