@@ -33,7 +33,7 @@ function addListenerBlogIndexpagination(){
         }
     }
 }
-function b(i, num){ return num * 15 <= i && i < (num + 1) * 15 }
+function b(i, num){ return num * 15 < i && i <= (num + 1) * 15 }
 
 
 window.addEventListener('DOMContentLoaded', addListenerBlogIndexpagination)

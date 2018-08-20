@@ -20,8 +20,7 @@ block requires
     const fs = require("fs")
     const numeral = require("numeral")
     const moment = require("moment")
-    if (locale == 'en') require(`moment/locale/en-US`)
-    else require(`moment/locale/${locale || "ja"}`)
+    require(`moment/locale/${locale || "ja"}`)
     moment.locale(locale)
     const wk = require("wanakana")
     
