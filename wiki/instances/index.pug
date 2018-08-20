@@ -8,16 +8,25 @@ rank: 2
 p 更新は手動です。追加依頼は@aqz@misskey.xyzまたはプルリクエストにて受け付ています。
 p 日本語が使われているインスタンスのみ掲載しています。ほかの言語のインスタンスは、右上の言語選択から他国語版のページからご覧いただけます。
 p: a(href="./suspended/") 除外されたインスタンスを見る
+p
+  +fa_fw('lock')
+  | : 招待制のインスタンス
 
 #selected
   h2.blogstyle おすすめ
   each instance in instances[locale].selected
     a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.list-group-item.list-group-item-action.flex-column.align-items-start
-      h4.jm-h4.noindex!=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
+      h4.jm-h4.noindex
+        if(instance.invitationOnly)
+          +fa_fw('lock')
+        !=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
       p.m-0=instance.description
 #others
   h2.blogstyle 全て
   each instance in instances[locale].others
     a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.list-group-item.list-group-item-action.flex-column.align-items-start
-      h4.jm-h4.noindex!=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
+      h4.jm-h4.noindex
+        if(instance.invitationOnly)
+          +fa_fw('lock')
+        !=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
       p.m-0=instance.description

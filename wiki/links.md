@@ -5,6 +5,12 @@ layout: index
 has_child: false
 rank: 99
 ---
+## Misskey入門
+- [Misskey入門](https://gist.github.com/xreiju/6d89261941f5cd66e70942dfe6d4af33)
+  * Reiju氏によるMisskey入門。設定、APIの叩き方。
+- [Misskey-tutor](http://akausii.hatenadiary.com/entry/2018/08/11/025852)
+  * Akawshi氏によるMisskeyのガイダンス。Misskey全般の情報を利用者目線で伝える。
+
 ## Wiki･辞典
 
 - [マストドン日本語Wiki](https://ja.mstdn.wiki/Misskey)
@@ -14,14 +20,13 @@ rank: 99
 ## ブログ・活用
 
 - [【misskey】情強向け超上位互換Twitterを紹介する](https://kotodu.tumblr.com/post/172146962776/misskey%E6%83%85%E5%BC%B7%E5%90%91%E3%81%91%E8%B6%85%E4%B8%8A%E4%BD%8D%E4%BA%92%E6%8F%9Btwitter%E3%82%92%E7%B4%B9%E4%BB%8B%E3%81%99%E3%82%8B)
-- [Misskey-tutor](http://akausii.hatenadiary.com/entry/2018/08/11/025852)
-  * Akawshi氏によるMisskeyのガイダンス。
 
 ## 報道
 
 - [国産SNS「Misskey」がマストドンとの連携に対応](https://masto.news/2018/04/15/misskey/?utm_campaign=twitter&utm_medium=twitter&utm_source=twitter) - マストドン速報(BETA)
 - [ActivityPub対応国産SNS「Misskey」、LTLも実装](http://www.itmedia.co.jp/news/articles/1804/17/news124.html) - ITmedia
 - [Misskey - 分散型マイクロブログサービス](https://www.moongift.jp/2018/07/misskey-%E5%88%86%E6%95%A3%E5%9E%8B%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/) - MOONGIFT
+- [マストドン、再びTwitterトレンドに](http://www.itmedia.co.jp/news/articles/1808/16/news082.html)
 
 ## 技術情報
 

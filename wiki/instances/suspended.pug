@@ -5,5 +5,8 @@ layout: wiki
 ---
 each instance in instances[locale].suspended
   a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.list-group-item.list-group-item-action.flex-column.align-items-start
-    h4.jm-h4.noindex!=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
+    h4.jm-h4.noindex
+      if(instance.invitationOnly)
+        +fa_fw('lock')
+      !=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
     p.m-0=instance.description

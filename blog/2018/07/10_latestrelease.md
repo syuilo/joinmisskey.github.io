@@ -28,12 +28,12 @@ amp: true
 
 連合を含めて、直近のトレンドのハッシュタグを知ることができます。
 
-#### ~~全文検索~~
+#### 全文検索
 
-~~[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
-[例: "misskey"](https://misskey.xyz/search?q=misskey)~~
+[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
+[例: "misskey"](https://misskey.xyz/search?q=misskey)
 
-~~[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)~~
+[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)
 
 全文検索機能は現在利用できません。
 
