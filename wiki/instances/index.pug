@@ -5,15 +5,28 @@ layout: wiki
 has_child: false
 rank: 2
 ---
+h2.blogstyle インスタンスとは？
+p.
+  有志の方々がインターネットにMisskeyがインストールされたサーバーを公開しています。このサーバーをインスタンスと呼びます。<br>
+  ユーザーは、どこかのインスタンスに登録することでMisskeyを利用することができます。
+p.
+  Misskeyでは別のインスタンスのユーザーをフォローすることができます。<br>
+  さらに、ActivityPubという世界標準の規格を利用しているため、MisskeyだけでなくMastodonやPleromaなど他のソフトウェアのインスタンスのユーザーもフォローすることができます。
+p ちなみに、インスタンスどうしが繋がっている世界はFediverseと呼ばれます。
+
+h2.blogstyle このリストについて
+
 p 更新は手動です。追加依頼は@aqz@misskey.xyzまたはプルリクエストにて受け付ています。
-p 日本語が使われているインスタンスのみ掲載しています。ほかの言語のインスタンスは、右上の言語選択から他国語版のページからご覧いただけます。
-p: a(href="./suspended/") 除外されたインスタンスを見る
+p 日本語が使われているインスタンスのみ掲載しています。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページからご覧いただけます。
+p: a(href="./suspended/") 終了などで除外されたインスタンスはこちら
 p
   +fa_fw('lock')
-  | : 招待制のインスタンス
+  | : 招待制のインスタンス (インスタンス管理者の許可が必要です)
+
+h2.blogstyle インスタンス一覧
 
 #selected
-  h2.blogstyle おすすめ
+  h3.blogstyle おすすめ
   each instance in instances[locale].selected
     a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.list-group-item.list-group-item-action.flex-column.align-items-start
       h4.jm-h4.noindex
