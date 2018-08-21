@@ -1,19 +1,15 @@
 selected:
   - name: null
-    url: misskey.jp
-    description: 浜さん氏が運営するインスタンス
-    invitationOnly: false
-  - name: Misskey Cafe
-    url: msky.cafe
-    description: 10GBのドライブ容量が特徴のインスタンス
+    url: misskey.m544.net
+    description: 二コフレで有名なめいめい氏が運営するインスタンス
     invitationOnly: false
   - name: Brain Divers
     url: mk.odakyu.app
-    description: きょり/わんせた氏が運営するインスタンス。
+    description: きょり/わんせた氏が運営するインスタンス
     invitationOnly: false
   - name: null
-    url: misskey.m544.net
-    description: 二コフレで有名なめいめい氏が運営するインスタンス
+    url: misskey.jp
+    description: 浜さん氏が運営するインスタンス
     invitationOnly: false
 others:
   - name: null
@@ -39,3 +35,7 @@ suspended:
   - name: misskeyちほー
     url: mk.kemono-friends.info
     description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
+  - name: Misskey Cafe
+    url: msky.cafe
+    description: 10GBのドライブ容量が特徴のインスタンス
+    invitationOnly: false
