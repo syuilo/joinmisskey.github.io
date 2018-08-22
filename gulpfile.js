@@ -56,6 +56,7 @@ const keys = (() => {
     try {
         return require('./.config/keys.json')
     } catch(e) {
+        $.util.log(`There is no './.config/keys.json'.`) 
         return null
     }
 })()
@@ -767,7 +768,6 @@ gulp.task('core',
 
 gulp.task('default',
     gulp.series(
-        () => { if(keys == null) throw Error(`Include './.config/keys.json' to build!`) },
         'register',
         'config',
         'core',
