@@ -240,23 +240,75 @@ gulp.task('pug', async (cb) => {
     const URL = require('url')
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
 
-    /* get patrons from Patreon API */
+    const contributors = await getContributors()
 
-    let patrons = []
-    if (keys != null && keys.patreon){
-        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
-        while (patreonUrl) {
-            const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
-            const n = JSON.parse(res.body)
-            n.data.forEach((e) => {
-                if(e.relationships.currently_entitled_tiers.data.length > 0 && e.relationships.currently_entitled_tiers.data.some((f) => f.type == 'tier')){
-                    patrons.push(n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user'))
+    async function getContributors(){
+        try {
+            const res = await get(
+                'https://api.github.com/repos/syuilo/misskey/contributors',
+                {
+                    headers: {
+                        'User-Agent': 'LuckyBeast'
+                    },
+                    json: true
                 }
-            })
-            if (n.links) patreonUrl = n.links.next
-            else patreonUrl = null
+            )
+            return res.body
+        } catch(e) {
+            console.log('Cannot get GitHub contributors')
+            console.log(e)
+            return null
         }
     }
+
+    /* get patrons from Patreon API */
+
+    let patrons = null
+    if (keys != null && keys.patreon){
+        patrons = []
+        patrons.push(
+            {
+                title: "the Others",
+                titles: site.i18n.little_backer,
+                lv: 0,
+                members: []
+            }
+        )
+        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
+        while (patreonUrl) {
+            const n = await getPatrons(patreonUrl)
+            if(n){
+                n.data.forEach((e) => {
+                    const cet = e.relationships.currently_entitled_tiers
+                    const tierLv = cet.data.length
+                    for (i = patrons.length - 1; i < tierLv; i++) {
+                        const tier = n.included.find((g) => g.id == cet.data[i].id && g.type == 'tier')
+                        patrons.push({
+                            title: tier.attributes.title,
+                            lv: tierLv,
+                            members: []
+                        })
+                    }
+                    patrons[tierLv].members.push(n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user'))
+                })
+                if (n.links) patreonUrl = n.links.next; else patreonUrl = null
+            } else {
+                patreonUrl = null
+            }
+        }
+        patrons = patrons.reverse()
+    }
+    async function getPatrons(patreonUrl){
+        try {
+            const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
+            return JSON.parse(res.body)
+        } catch(e) {
+            console.log('Cannot get Patreon patrons')
+            console.log(e)
+            return null
+        }
+    }
+
     const base = {
         site: site,
         keys: keys,
@@ -268,6 +320,7 @@ gulp.task('pug', async (cb) => {
         theme_pug: theme_pug,
         instances: instances,
         patrons: patrons,
+        contributors: contributors,
         urlPrefix: urlPrefix,
         DEBUG: DEBUG
     }

@@ -1,19 +1,24 @@
 selected:
+  - name: Misskey Cafe
+    url: msky.cafe
+    description: 10GBのドライブ容量が特徴のインスタンス
+    invitationOnly: false
   - name: null
     url: misskey.m544.net
     description: 二コフレで有名なめいめい氏が運営するインスタンス
     invitationOnly: false
   - name: Brain Divers
     url: mk.odakyu.app
-    description: きょり/わんせた氏が運営するインスタンス
+    description: 'きょり/わんせた氏が運営するインスタンス'
     invitationOnly: false
   - name: null
     url: misskey.jp
     description: 浜さん氏が運営するインスタンス
     invitationOnly: false
   - name: null
-    url: mi-chan.work
-    description: みーちゃそ氏が運営するインスタンス
+    url: msk.kirigakure.net
+    description: 霧隠懐希氏が運営するインスタンス
+    invitationOnly: false
 others:
   - name: null
     url: misskey.xyz
@@ -24,10 +29,14 @@ others:
     description: ActivityPub対応SNSホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
     invitationOnly: false
   - name: null
+    url: mi-chan.work
+    description: みーちゃそ氏が運営するインスタンス
+    invitationOnly: false
+  - name: null
     url: misskey.tmin.ml
     description: aqzが運営する試験サーバー
     invitationOnly: true
-  - name: Misskey(Tor)
+  - name: 'Misskey(Tor)'
     url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
     description: xps2氏が運営するTor上のインスタンス
     invitationOnly: false
@@ -35,10 +44,8 @@ suspended:
   - name: null
     url: misskey.wtf
     description: 神崎おにいさん氏が一瞬だけ開設していたインスタンス
+    invitationOnly: false
   - name: misskeyちほー
     url: mk.kemono-friends.info
     description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
-  - name: Misskey Cafe
-    url: msky.cafe
-    description: 10GBのドライブ容量が特徴のインスタンス
     invitationOnly: false

@@ -13,7 +13,7 @@ https://github.com/syuilo/misskey
 5. `git checkout src`
 6. `npm install`
 7. `npm install gulp -g`
-8. `git worktree add docs master; git worktree add pages/ja pages/ja;`
+8. `git worktree add docs master; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en;`
 
 ### Build
 
@@ -34,6 +34,17 @@ https://github.com/syuilo/misskey
 ### Test
 
 `gulp local-server`
+
+### Add images
+
+```
+gulp image -i <path>
+```
+
+This command compresses bitmap images and produces:
+- `/files/images/imports/yyyy/mm/<name>.<ext>` - The long side is **equal or less than** 1600px
+- `/files/images/imports/yyyy/mm/<name>.720.<ext>` - The long side is **equal or less than** 720px
+- `/files/images/imports/yyyy/mm/<name>.720c.jpeg` - The short side is **equal to** 720px
 
 ### Translation
 
@@ -57,11 +68,8 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 ## LICENSES
 
 ### CONTENTS
-
-`pages/**/*`: Only translation
+`pages/**/*`: Translation Only
+`files/**/*`, `dist/files/**/*`: No Liscense
 
 ### SYSTEM
-
-`scripts/**/*`: based on source of misskey, under AGPLv3
-
 the others: "maqz" system, under CC0
