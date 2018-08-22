@@ -3,17 +3,6 @@ title: 新しい世界で繋がろう
 description: 地球で生まれた分散マイクロブログSNS Misskey ―― 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
 ---
 #toppage
-  a(href="#section_7")#section_0.d-block.bg-white.py-5: .container
-    - const random = Math.random()
-    if(random < 0.5)
-      h3.text-center ユーザーの皆さま
-      p.text-center 今日は、ユーザーの皆さまにお知らせがあります。Misskeyへの寄付をお願いいたします。Misskeyは個人で開発・運営しており、広告は付けられていません。サーバーを維持するために少なくない支出が発生しています。
-      p.small.pb-0 クリックで詳細をご覧ください。
-    else
-      p.h4.m-0.text-primary.
-        Misskey創設者<br>
-        しゅいろからの<br>
-        メッセージをお読みください
   #top
     .texts
       .slogan.h4.font-weight-bold 新しい世界で<wbr>繋がろう
@@ -138,14 +127,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
   #section_4.py-5.bg-success: .container.text-center.text-white
     a(href="./blog/").btn.btn-lg.btn-light.text-success
       +fa("broadcast-tower")
-      | ブログ
+      |  ブログ
     p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
 
-  #section_5.py-5.bg-success: .container.text-center.text-white
-    a(href="./blog/").btn.btn-lg.btn-light.text-success
-      +fa("broadcast-tower")
-      | ブログ
-    p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
+  #section_5.py-5.bg-danger: .container.text-center.text-white
+    a(href="./credit/").btn.btn-lg.btn-light.text-danger
+      +fa("users")
+      |  クレジット
+    p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
 
   #section_6.bg-white.py-5: .container.text-center.text-black
     h2 記事になりました
@@ -158,7 +147,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
   #section_7.pt-5.pb-4: .container
     h2.text-center 支援
     p.text-center
-      a(href="https://github.com/syuilo/misskey/blob/master/README.md#heart-backers--sponsors" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.mr-2
+      a(href="./credit/#patrons" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.mr-2
         | 協賛者一覧
       a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary
         | 寄付者一覧

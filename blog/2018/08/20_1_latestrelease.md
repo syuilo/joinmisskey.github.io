@@ -11,8 +11,8 @@ author:
 category: 更新
 amp: true
 ---
-## Migration
-[CHANGELOG]()に従いMigrationを実行してください。
+## 【管理者向け】Migration
+[CHANGELOG](https://github.com/syuilo/misskey/blob/master/CHANGELOG.md#700)に従いMigrationを実行してください。
 
 ## 更新
 ### 関西弁

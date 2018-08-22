@@ -13,7 +13,7 @@ amp: true
 ---
 ## 更新
 
-### メジャーバージョンアップ
+### 【管理者向け】Migration
 オブジェクトストレージを使用している場合、設定ファイルの`drive.config.secure`を`drive.config.useSSL`にリネームしてください。
 
 [Migration](https://github.com/syuilo/misskey/blob/master/CHANGELOG.md#600)
