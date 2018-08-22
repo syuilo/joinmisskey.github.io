@@ -11,7 +11,7 @@ author:
 category: ニュースリリース
 amp: true
 ---
-2018年8月20日、misskey.xyz
+2018年8月20日、misskey.xyzが長時間にわたり停止しました。
 
 ## 経過
 - [**02:19**](https://misskey.m544.net/notes/5b79a6b87c920841f66547a0) misskey.xyzに接続できないことを認識
