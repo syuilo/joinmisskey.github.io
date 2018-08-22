@@ -16,6 +16,10 @@ selected:
     description: 浜さん氏が運営するインスタンス
     invitationOnly: false
   - name: null
+    url: misskey.xps2.net
+    description: Tor, I2P上のインスタンスと疎通可能なインスタンス。xps2氏が運営する
+    invitationOnly: false
+  - name: null
     url: msk.kirigakure.net
     description: 霧隠懐希氏が運営するインスタンス
     invitationOnly: false
