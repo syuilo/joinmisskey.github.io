@@ -20,7 +20,9 @@ Misskeyをブラウザ以外の場所から利用できます。
 世界で2番目のElectronで動作するMisskeyクライアント。  
 
 ### Android
-ありません！
+
+##### [Subway Tooter: WIP](https://github.com/tateisu/SubwayTooter/releases/tag/v2.6.7)
+18/8/22現在、開発途中の試験リリースです。Playストアには公開されていません。
 
 ### iOS
 ないです！

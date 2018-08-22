@@ -14,7 +14,8 @@ Misskeyを自力で運営するには、VPSを借りるか自分でサーバー�
 ### ホスティングサービスを利用する
 Misskeyのセットアップを省き、Misskeyのインスタンスを貸し出すサービスを利用できるかもしれません。
 
-現在、ベータテストとして[Hostdon Beta ProgramでMisskeyのインスタンスを借りることができます。](https://beta.hostdon.jp/)[(ブログ記事)](../../blog/2018/08/12_3_hostdon/)
+ベータテストとして[Hostdon Beta ProgramでMisskeyのインスタンスを借りることができます。](https://beta.hostdon.jp/)[(ブログ記事)](../../blog/2018/08/12_3_hostdon/)  
+申し込みは18/8/25まで。
 
 ## Misskey本体開発
 MisskeyはGitHub上でソースコードを公開しており、自分で改造したりMisskeyに改善の提案を行ったりすることができます。  
