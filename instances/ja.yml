@@ -11,6 +11,9 @@ selected:
     url: misskey.jp
     description: 浜さん氏が運営するインスタンス
     invitationOnly: false
+  - name: null
+    url: mi-chan.work
+    description: みーちゃそ氏が運営するインスタンス
 others:
   - name: null
     url: misskey.xyz
