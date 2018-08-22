@@ -1,5 +1,3 @@
-const syntaxHighliterUrl = 'https://raw.githubusercontent.com/syuilo/misskey/master/src/mfm/parse/core/syntax-highlighter.ts'
-
 // npm require
 const gulp = require('gulp')
 const extend = require('extend')
@@ -12,8 +10,8 @@ const crypto = require('crypto')
 const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
 const pump = require('pump')
+const request = require('request')
 
-// const request = require('request')
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
 $ = require('gulp-load-plugins')()
@@ -28,8 +26,8 @@ $ = require('gulp-load-plugins')()
 // promisify
 
 const writeFile = promisify(fs.writeFile)
-const readFile = promisify(fs.readFile)
-// const get = promisify(request.get)
+// const readFile = promisify(fs.readFile)
+const get = promisify(request.get)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -54,7 +52,13 @@ let site = extend(true,
     require('./.config/lang.json'),
     require('./.config/images.json')
 )
-const keys = {} /* require('./.config/keys.json') */
+const keys = (() => {
+    try {
+        return require('./.config/keys.json')
+    } catch(e) {
+        return null
+    }
+})()
 const workboxSWSrcPath = require.resolve('workbox-sw')
 let theme_pug = {}
 theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
@@ -235,6 +239,24 @@ gulp.task('pug', async (cb) => {
     let ampcss = ""
     const URL = require('url')
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+
+    /* get patrons from Patreon API */
+
+    let patrons = []
+    if (keys != null && keys.patreon){
+        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
+        while (patreonUrl) {
+            const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
+            const n = JSON.parse(res.body)
+            n.data.forEach((e) => {
+                if(e.relationships.currently_entitled_tiers.data.length > 0 && e.relationships.currently_entitled_tiers.data.some((f) => f.type == 'tier')){
+                    patrons.push(n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user'))
+                }
+            })
+            if (n.links) patreonUrl = n.links.next
+            else patreonUrl = null
+        }
+    }
     const base = {
         site: site,
         keys: keys,
@@ -245,6 +267,7 @@ gulp.task('pug', async (cb) => {
         require: require,
         theme_pug: theme_pug,
         instances: instances,
+        patrons: patrons,
         urlPrefix: urlPrefix,
         DEBUG: DEBUG
     }
@@ -691,6 +714,7 @@ gulp.task('core',
 
 gulp.task('default',
     gulp.series(
+        () => { if(keys == null) throw Error(`Include './.config/keys.json' to build!`) },
         'register',
         'config',
         'core',

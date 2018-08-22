@@ -17,6 +17,15 @@ https://github.com/syuilo/misskey
 
 ### Build
 
+1. Get campaign number and barer token of Patreon and make `./.config/keys.json`: 
+  ```
+  {
+      "patreon": {
+          "campaign": "xxxxxxx"
+          "barer": "_……"
+      }
+  }
+  ```
 1. `gulp prebuild-files`  
    Run whenever you append images.  
    If you work on a forked repository, you never have to run this command, probably.
@@ -49,10 +58,10 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 
 ### CONTENTS
 
-pages/**/*: Only translation
+`pages/**/*`: Only translation
 
 ### SYSTEM
 
-scripts/**/*: based on source of misskey, under AGPLv3
+`scripts/**/*`: based on source of misskey, under AGPLv3
 
 the others: "maqz" system, under CC0

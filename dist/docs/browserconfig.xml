@@ -1,0 +1,15 @@
+() => {
+    return `<?xml version='1.0' encoding='utf-8'?>
+    <browserconfig>
+      <msapplication>
+        <tile>
+          <square70x70logo src='${site.url.path}${site.mstiles.s70x70.path}'/>
+          <square144x144logo src='${site.url.path}${site.mstiles.s144x144.path}'/>
+          <square150x150logo src='${site.url.path}${site.mstiles.s150x150.path}'/>
+          <square310x310logo src='${site.url.path}${site.mstiles.s310x310.path}'/>
+          <wide310x150logo src='${site.url.path}${site.mstiles.w310x150.path}'/>
+          <TileColor>${site.theme_color.secondary}</TileColor>
+        </tile>
+      </msapplication>
+    </browserconfig>`
+}
