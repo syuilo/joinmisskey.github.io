@@ -3,7 +3,7 @@ title: 最近の更新 ～8.5.1
 description: 特に目立った変更はないです
 layout: blog
 date: 2018-08-24T07:30:00+09:00
-thumbnail: /files/images/imports/2018/08/e7.jpg
+thumbnail: /files/images/imports/2018/08/home.jpg
 author:
   name: aqz
   url: https://misskey.xyz/@aqz
