@@ -105,7 +105,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
   #section_3.bg-dark.text-white.py-5: .container
     h2.text-center さっそくはじめよう
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
-    p.text-center インスタンスはMisskeyのサービスの単位です。他のインスタンスのユーザーもフォローできます。
+    p.text-center Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
     hr.my-4
     h3 おすすめインスタンス一覧
     if(instances[locale].selected.length > 0)
@@ -117,7 +117,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
                 +fa_fw('lock')
               !=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
             p.m-0=instance.description
-      a(href="./wiki/instances/#others").btn.btn-link.btn-block 全てのインスタンスを見る
+      a(href="./wiki/instances/#others").btn.btn-link.btn-block インスタンスをもっと見る
     else
       p.text-white-50
         +i18n('none')
@@ -125,16 +125,17 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     p.text-white-50.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
   #section_4.py-5.bg-success: .container.text-center.text-white
-    a(href="./blog/").btn.btn-lg.btn-light.text-success
-      +fa("broadcast-tower")
-      |  ブログ
-    p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
-
-  #section_5.py-5.bg-danger: .container.text-center.text-white
-    a(href="./credit/").btn.btn-lg.btn-light.text-danger
-      +fa("users")
-      |  クレジット
-    p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
+    .row
+      .col-12.col-md-6
+        a(href="./blog/").btn.btn-lg.btn-light.text-success
+          +fa("broadcast-tower")
+          |  ブログ
+        p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
+      .col-12.col-md-6
+        a(href="./credit/").btn.btn-lg.btn-light.text-success
+          +fa("users")
+          |  クレジット
+        p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
 
   #section_6.bg-white.py-5: .container.text-center.text-black
     h2 記事になりました

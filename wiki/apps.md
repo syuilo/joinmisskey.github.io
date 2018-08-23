@@ -21,8 +21,16 @@ Misskeyをブラウザ以外の場所から利用できます。
 
 ### Android
 
-##### [Subway Tooter: WIP](https://github.com/tateisu/SubwayTooter/releases/tag/v2.6.7)
-18/8/22現在、開発途中の試験リリースです。Playストアには公開されていません。
+#### [Subway Tooter](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter&hl=ja)
+[tateisu](https://mastodon.juggler.jp/@tateisu)氏が開発する、2.7.0よりMisskeyに対応(ストア公開)。
+
+[#SubwayTooter](https://mastodon.juggler.jp/tags/subwaytooter)
+
+[Subway Tooter (マストドン日本語Wiki)](https://ja.mstdn.wiki/Subway_Tooter)  
+[Subway Tooter @SubwayTooter@mastodon.juggler.jp](https://mastodon.juggler.jp/@SubwayTooter)  
+[Subway Tooter Blog](http://subwaytooter.hatenadiary.jp/)  
+[tateisu/SubwayTooter (GitHub)](https://github.com/tateisu/SubwayTooter)  
+[tateisu @tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)
 
 ### iOS
 ないです！
