@@ -124,18 +124,20 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
 
     p.text-white-50.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
-  #section_4.py-5.bg-success: .container.text-center.text-white
+  #section_4.py-4.bg-success: .container.text-center.text-white
     .row
       .col-12.col-md-6
-        a(href="./blog/").btn.btn-lg.btn-light.text-success
-          +fa("broadcast-tower")
-          |  ブログ
-        p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
+        .py-3
+          a(href="./blog/").btn.btn-lg.btn-light.text-success
+            +fa("broadcast-tower")
+            |  ブログ
+          p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
       .col-12.col-md-6
-        a(href="./credit/").btn.btn-lg.btn-light.text-success
-          +fa("users")
-          |  クレジット
-        p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
+        .py-3
+          a(href="./credit/").btn.btn-lg.btn-light.text-success
+            +fa("users")
+            |  クレジット
+          p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
 
   #section_6.bg-white.py-5: .container.text-center.text-black
     h2 記事になりました
