@@ -1,0 +1,9 @@
+git fetch
+cd pages/ja
+git pull
+cd ../en
+git pull
+cd ../..
+git pull
+cd docs
+git pull
