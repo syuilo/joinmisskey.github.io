@@ -11,6 +11,12 @@ const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
 const pump = require('pump')
 const request = require('request')
+const download = require('download')
+const fileType = require('file-type')
+const es = require('event-stream')
+const glob = require('glob')
+const sass = require("node-sass")
+const cleanCss = require("clean-css")
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -26,7 +32,7 @@ $ = require('gulp-load-plugins')()
 // promisify
 
 const writeFile = promisify(fs.writeFile)
-// const readFile = promisify(fs.readFile)
+const readFile = promisify(fs.readFile)
 const get = promisify(request.get)
 
 // arg
@@ -67,7 +73,7 @@ theme_pug.mixin = fs.readFileSync('theme/pug/includes/_mixins.pug', {encoding: '
 
 let instances = {}
 
-let temp_dir = 'theme/pug/temp/' // 末尾のスラッシュ必要
+let temp_dir = 'dist/cache/credit/' // 末尾のスラッシュ必要
 
 let src = {
    'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
@@ -234,34 +240,69 @@ gulp.task('config', (cb) => {
     )
 })
 
+async function getContributors(){
+    try {
+        const res = await get(
+            'https://api.github.com/repos/syuilo/misskey/contributors',
+            {
+                headers: {
+                    'User-Agent': 'LuckyBeast'
+                },
+                json: true
+            }
+        )
+        return res.body
+    } catch(e) {
+        console.log('Cannot get GitHub contributors')
+        console.log(e)
+        return null
+    }
+}
+
+async function makeAvatarTemp(target, url){
+    const files = glob.sync(`${temp_dir}${target}.{png,jpg,jpeg,gif}`)
+    if(files.length > 0){
+        const remote = await download(url)
+        const local = await readFile(files[0])
+        if (getHash(remote, 'sha384', 'binary', 'base64') != getHash(local, 'sha384', 'binary', 'base64')) {
+            const ext = fileType(remote).ext
+            await writeFile(`${temp_dir}${target}.${ext}`, remote)
+            return { target: target, ext: ext }
+        } else { return false }
+    } else {
+        return download(url).then(async data => {
+            const ext = fileType(data).ext
+            await writeFile(`${temp_dir}${target}.${ext}`, data)
+            return { target: target, ext: ext }
+        })
+    }
+}
+
+async function getPatrons(patreonUrl){
+    try {
+        const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
+        return JSON.parse(res.body)
+    } catch(e) {
+        console.log('Cannot get Patreon patrons')
+        console.log(e)
+        return null
+    }
+}
+
 gulp.task('pug', async (cb) => {
-    require('mkdirp').sync(temp_dir)
-    let stream = require('merge2')()
+    require('mkdirp').sync(temp_dir + 'patreon/')
+    require('mkdirp').sync(temp_dir + 'github/')
+    // let stream = require('merge2')()
+    let stream = []
     let ampcss = ""
     const URL = require('url')
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
-
+    let promises = []
     const contributors = await getContributors()
 
-    async function getContributors(){
-        try {
-            const res = await get(
-                'https://api.github.com/repos/syuilo/misskey/contributors',
-                {
-                    headers: {
-                        'User-Agent': 'LuckyBeast'
-                    },
-                    json: true
-                }
-            )
-            return res.body
-        } catch(e) {
-            console.log('Cannot get GitHub contributors')
-            console.log(e)
-            return null
-        }
-    }
-
+    contributors.forEach((v, i, arr) => {
+        promises.push(makeAvatarTemp(`github/${v.id}`, v.avatar_url))
+    })
     /* get patrons from Patreon API */
 
     let patrons = null
@@ -275,11 +316,12 @@ gulp.task('pug', async (cb) => {
                 members: []
             }
         )
-        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
+        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Bmember%5D=currently_entitled_amount_cents&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
         while (patreonUrl) {
             const n = await getPatrons(patreonUrl)
             if(n){
                 n.data.forEach((e) => {
+                    if (e.attributes.currently_entitled_amount_cents == 0) return void(0)
                     const cet = e.relationships.currently_entitled_tiers
                     const tierLv = cet.data.length
                     for (i = patrons.length - 1; i < tierLv; i++) {
@@ -290,26 +332,62 @@ gulp.task('pug', async (cb) => {
                             members: []
                         })
                     }
-                    patrons[tierLv].members.push(n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user'))
+                    const patron = n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user')
+                    patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
+                    patrons[tierLv].members.push(patron)
+                    return void(0)
                 })
                 if (n.links) patreonUrl = n.links.next; else patreonUrl = null
             } else {
                 patreonUrl = null
             }
         }
+        for (let tier of patrons) {
+            tier.members.forEach((v, i, all) => {
+                promises.push(makeAvatarTemp(`patreon/${v.id}`, v.attributes.thumb_url))
+            })
+            tier.members.sort((a, b) => {
+                return b.currently_entitled_amount_cents - a.currently_entitled_amount_cents
+            })
+        }
         patrons = patrons.reverse()
     }
-    async function getPatrons(patreonUrl){
-        try {
-            const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
-            return JSON.parse(res.body)
-        } catch(e) {
-            console.log('Cannot get Patreon patrons')
-            console.log(e)
-            return null
+    const filesResults = await Promise.all(promises)
+    filesResults.forEach(v => {
+        if (v) {
+            stream.push(
+                gulp.src(`${temp_dir}${v.target}.${v.ext}`)
+                .pipe($.imageResize({
+                    "background": "#fff",
+                    "width": 200,
+                    "height": 200,
+                    "crop": true,
+                    "upscale": false,
+                    "interlace": "line",
+                    "cover": true,
+                    "sharpen": "0x0.75+0.75+0.008",
+                    "format": "png",
+                    "imageMagick": true
+                }))
+                .pipe($.image({
+                    optipng: false,
+                    pngquant: ["--speed=3"],
+                    zopflipng: false,
+                    "concurrent": 10
+                }))
+                .pipe($.rename({
+                    "dirname": v.target.split('/')[0],
+                    "basename": v.target.split('/')[1]
+                }))
+                .pipe(gulp.dest('dist/files/images/credit'))
+                .on('end',() => {
+                })
+                .on('error', (err) => {
+                    $.util.log($.util.colors.red(err))
+                })
+            )
         }
-    }
-
+    })
     const base = {
         site: site,
         keys: keys,
@@ -343,7 +421,8 @@ gulp.task('pug', async (cb) => {
         if(existFile(`theme/pug/templates/${layout}.pug`)) template += `theme/pug/templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) template += `theme/pug/templates/${site.default.template}.pug`
         else throw Error('default.pugが見つかりませんでした。')
-        stream.add(
+        stream.push(
+        // stream.add(
             gulp.src(template)
                 .pipe($.pug(pugoptions))
                 .pipe($.rename(`${page.meta.permalink}index.html`))
@@ -363,9 +442,8 @@ gulp.task('pug', async (cb) => {
         if(page.attributes.amp){
             if(ampcss == ""){
                 try {
-                    const cleanCss = require("clean-css")
                     ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
-                    ampcss += (await promisify(require("node-sass").render)({file: 'theme/styl/amp_main.sass'})).css.toString()
+                    ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
                     ampcss += '\n'
                     ampcss += fontawesome.dom.css()
                     ampcss += '\n'
@@ -384,8 +462,8 @@ gulp.task('pug', async (cb) => {
             else throw Error('amp_default.pugが見つかりませんでした。')
 
             const newoptions = extend(false, { data: { isAmp: true, ampcss: ampcss }}, pugoptions)
-
-            stream.add(
+            stream.push(
+            // stream.add(
                 gulp.src(amptemplate)
                     .pipe($.pug(newoptions))
                     .pipe($.rename(`${page.meta.permalink}amp.html`))
@@ -400,7 +478,12 @@ gulp.task('pug', async (cb) => {
             )
         }
     }
-    return stream.on('end', cb)
+    await new Promise((res, rej) => {
+        es.merge.apply(this, stream)
+            .on('end', res)
+            .on('error', rej)
+    })
+    return void(0)
 })
 
 gulp.task('css', (cb) => {
@@ -596,7 +679,6 @@ gulp.task('download-highlighter', (cb) => {
     cb()
 })
 
-gulp.task('clean-temp', (cb) => { del(temp_dir+'**/*').then(cb()) } )
 gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git']).then(cb()) } )
 gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*').then(cb()) } )
 gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*').then(cb()) } )
@@ -760,7 +842,7 @@ gulp.task('make-subfiles',
 gulp.task('core',
     gulp.series(
         gulp.parallel('js', 'css', 'fa-css', 'pug'),
-        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        gulp.parallel('copy-publish', 'make-subfiles'),
         'make-sw', 'last',
         (cb) => { cb() }
     )
@@ -786,7 +868,7 @@ gulp.task('prebuild-files',
 gulp.task('core-with-pf',
     gulp.series(
         gulp.parallel('js', 'css', 'fa-css', 'pug', 'prebuild-files'),
-        gulp.parallel('clean-temp', 'copy-publish', 'make-subfiles'),
+        gulp.parallel('copy-publish', 'make-subfiles'),
         'make-sw', 'last',
         (cb) => { cb() }
     )
