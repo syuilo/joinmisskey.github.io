@@ -4,24 +4,28 @@ selected:
     description: 10GBのドライブ容量が特徴のインスタンス
     invitationOnly: false
   - name: null
-    url: misskey.m544.net
-    description: 二コフレで有名なめいめい氏が運営するインスタンス
-    invitationOnly: false
-  - name: Brain Divers
-    url: mk.odakyu.app
-    description: 'きょり/わんせた氏が運営するインスタンス'
+    url: msk.kirigakure.net
+    description: 霧隠懐希氏が運営するインスタンス
     invitationOnly: false
   - name: null
     url: misskey.jp
     description: 浜さん氏が運営するインスタンス
     invitationOnly: false
   - name: null
-    url: misskey.xps2.net
-    description: Tor, I2P上のインスタンスと疎通可能なインスタンス。xps2氏が運営する
+    url: msky.tokyo
+    description: 梅ちゃん氏が運営する、Misskeyの東京インスタンス
     invitationOnly: false
   - name: null
-    url: msk.kirigakure.net
-    description: 霧隠懐希氏が運営するインスタンス
+    url: misskey.m544.net
+    description: めいめい氏が運営するインスタンス
+    invitationOnly: false
+  - name: Brain Divers
+    url: mk.odakyu.app
+    description: 'きょり/わんせた氏が運営するインスタンス'
+    invitationOnly: false
+  - name: null
+    url: misskey.xps2.net
+    description: Tor, I2P上のインスタンスと疎通可能なインスタンス。xps2氏が運営する
     invitationOnly: false
 others:
   - name: null
