@@ -17,41 +17,52 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
       a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
-      a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener").btn.btn-lg.btn-primary 運営する
+      a(href="wiki/developers/").btn.btn-lg.btn-primary 運営する
   #section_2.py-5.bg-white: .container
     h2.text-center Misskeyをはじめる理由
 
     hr.my-4#section_2_a
 
     .s2-item
-      h3.text-center 多機能
-      p.text-center Misskeyは多機能です。
+      h3.text-center 多くの機能
+      p.text-center Misskeyでできること
+      p.text-center
+        a(href="wiki/usage/").btn.btn-lg.btn-primary
+          +fa_fw('book')
+          | Wikiで使い方を見る
 
-      ul.fa-ul
-        li.mt-3
-          span.fa-li.text-muted: +fa('comment-alt', 'fas', {classes: 'fa-lg'})
-          h4 投稿の文字数制限と公開範囲
-          | Misskeyでは１投稿につき1000文字まで書くことができます。そして、投稿の公開範囲を段階的に定められます。また、迷惑防止のために画像や投稿を隠せます。
-        li.mt-3
-          span.fa-li.text-muted: +fa('surprise', 'far', {classes: 'fa-lg'})
+      ul.fa-ul.row.ml-md-0
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('comment-alt', 'fas')
+          h4
+            +fa_fw('i-cursor')
+            | 1投稿 1000文字まで
+          h4
+            +fa_fw('unlock')
+            | 公開範囲を投稿ごとに細かく設定
+          h4
+            +fa_fw('eye-slash')
+            | 本文や画像に閲覧注意を設定
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('edit', 'fas')
+          h4 文字装飾
+          | Misskeu Flavored Markdownで投稿やプロフィールを装飾しよう。
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('surprise', 'far')
           h4 リアクション
-          | 他のユーザーの投稿に10個の絵文字でリアクション(反応)することができます。
-        li.mt-3
-          span.fa-li.text-muted: +fa('edit', 'fas', {classes: 'fa-lg'})
-          h4 Misskey Flavored Markdown
-          | 投稿やプロフィールをMarkdown風の構文を使って装飾できます。太字やコード、検索ボックスなどを表現できます。
-        li.mt-3
-          span.fa-li.text-muted: +fa('chart-pie', 'fas', {classes: 'fa-lg'})
+          | 投稿への共感を簡単に表現できます。投稿に10個の絵文字から選んでリアクションを送れます。
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('chart-pie', 'fas')
           h4 アンケート
-          | 最大10個の選択肢を作成しアンケートを取れます。 
-        li.mt-3
-          span.fa-li.text-muted: +fa('cloud', 'fas', {classes: 'fa-lg'})
+          | みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('cloud', 'fas')
           h4 ドライブ
-          | 投稿に添付された画像はドライブに保存され、繰り返し投稿に添付できます。
-        li.mt-3
-          span.fa-li.text-muted: +fa('gamepad', 'fas', {classes: 'fa-lg'})
+          | 画像を保存して共有しよう。投稿に添付した画像はドライブで管理できます。
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
+          span.fa-li.text-muted.font-size-16: +fa('gamepad', 'fas')
           h4 ゲーム
-          | 他のユーザーとゲームが遊べます。
+          | みんなで遊ぼう。他のユーザーと対戦できます。
           br
           | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
 
@@ -61,20 +72,18 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
       h3.text-center 独立性と社会性
       p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
 
-      ul.fa-ul
-        li.mt-3
-          span.fa-li.text-muted: +fa('globe', 'fas', {classes: 'fa-lg'})
+      ul.fa-ul.row.ml-md-0
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1
+          span.fa-li.text-muted.font-size-16: +fa('globe', 'fas')
           h4 Fediverse
           | Misskeyでは、他のサーバーのユーザーをフォローすることができます。ActivityPubという規格のサーバー間通信機能を持っているためです。
-          br
-          | そのような機能を持つSNSサーバーどうしの連合体は、無数の星が輝く宇宙のように見たてて「Fediverse [Federation(連合) + Universe(宇宙) の造語]」と呼ばれます。
-          | Fediverseを形成するソフトウェアは#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") Misskeyだけではありません]。
-        li.mt-3
-          span.fa-li.text-muted: +fa('download', 'fas', {classes: 'fa-lg'})
-          h4 インストールが簡単
+          | Misskeyだけでなく#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1
+          span.fa-li.text-muted.font-size-16: +fa('server', 'fas')
+          h4 簡単なインスタンス構築
           | Misskeyサーバーの構築は簡単です。
           br
-          a(href="https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md" target="_blank" rel="noopener").font-weight-bold  → セットアップ方法
+          a(href="wiki/developers/").font-weight-bold  → インスタンスを立てる
 
     hr.my-4#section_2_c
 
@@ -88,15 +97,15 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
           | Crowdin(翻訳)
 
-      ul.fa-ul
-        li.mt-3
-          span.fa-li.text-muted: +fa('code', 'fas')
+      ul.fa-ul.row.ml-md-0
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1
+          span.fa-li.text-muted.font-size-16: +fa('code', 'fas')
           h4 API
-          | MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。Misskeyの機能を活用したBotやクライアントを作ることができます。
+          | アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。
           br
           a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").font-weight-bold  → Misskey API
-        li.mt-3
-          span.fa-li.text-muted: +fa('balance-scale', 'fas')
+        li.px-0.mt-3.col-12.col-md-5.offset-md-1
+          span.fa-li.text-muted.font-size-16: +fa('balance-scale', 'fas')
           h4 AGPLv3
           | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
           br

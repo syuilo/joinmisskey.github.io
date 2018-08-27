@@ -1,5 +1,5 @@
 ---
-title: "「Misskeyを始めよう」公開！"
+title: "「Misskeyをはじめよう」公開！"
 description: joinmastodonなどに倣って、joinmisskeyにあたるものを公開しました。
 layout: blog
 date: 2018-07-10T01:00:00+09:00
