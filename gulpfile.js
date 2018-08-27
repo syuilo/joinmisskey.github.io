@@ -289,10 +289,9 @@ async function getPatrons(patreonUrl){
     }
 }
 
-gulp.task('pug', async (cb) => {
+gulp.task('pug', async () => {
     require('mkdirp').sync(temp_dir + 'patreon/')
     require('mkdirp').sync(temp_dir + 'github/')
-    // let stream = require('merge2')()
     let stream = []
     let ampcss = ""
     const URL = require('url')
@@ -300,9 +299,11 @@ gulp.task('pug', async (cb) => {
     let promises = []
     const contributors = await getContributors()
 
-    contributors.forEach((v, i, arr) => {
-        promises.push(makeAvatarTemp(`github/${v.id}`, v.avatar_url))
-    })
+
+    for (let contributor of contributors) {
+        promises.push(makeAvatarTemp(`github/${contributor.id}`, contributor.avatar_url))
+    }
+
     /* get patrons from Patreon API */
 
     let patrons = null
@@ -316,12 +317,14 @@ gulp.task('pug', async (cb) => {
                 members: []
             }
         )
+    
         let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Bmember%5D=currently_entitled_amount_cents&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
         while (patreonUrl) {
             const n = await getPatrons(patreonUrl)
+            
             if(n){
-                n.data.forEach((e) => {
-                    if (e.attributes.currently_entitled_amount_cents == 0) return void(0)
+                for (let e of n.data) {
+                    if (e.attributes.currently_entitled_amount_cents == 0) continue
                     const cet = e.relationships.currently_entitled_tiers
                     const tierLv = cet.data.length
                     for (i = patrons.length - 1; i < tierLv; i++) {
@@ -335,25 +338,28 @@ gulp.task('pug', async (cb) => {
                     const patron = n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user')
                     patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
                     patrons[tierLv].members.push(patron)
-                    return void(0)
-                })
+                }
                 if (n.links) patreonUrl = n.links.next; else patreonUrl = null
             } else {
                 patreonUrl = null
             }
         }
+    
         for (let tier of patrons) {
-            tier.members.forEach((v, i, all) => {
-                promises.push(makeAvatarTemp(`patreon/${v.id}`, v.attributes.thumb_url))
-            })
+            for (let member of tier.members) {
+                promises.push(makeAvatarTemp(`patreon/${member.id}`, member.attributes.thumb_url))
+            }
             tier.members.sort((a, b) => {
                 return b.currently_entitled_amount_cents - a.currently_entitled_amount_cents
             })
         }
+    
         patrons = patrons.reverse()
     }
+
     const filesResults = await Promise.all(promises)
-    filesResults.forEach(v => {
+
+    for (let v of filesResults) {
         if (v) {
             stream.push(
                 gulp.src(`${temp_dir}${v.target}.${v.ext}`)
@@ -387,7 +393,8 @@ gulp.task('pug', async (cb) => {
                 })
             )
         }
-    })
+    }
+
     const base = {
         site: site,
         keys: keys,
@@ -404,8 +411,8 @@ gulp.task('pug', async (cb) => {
         DEBUG: DEBUG
     }
 
-    for (let i = 0; i < pages.length; i++) {
-        const page = pages[i]
+
+    for (let page of pages) {
         const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
         const data = extend(false, {
                 page: page,
@@ -478,6 +485,7 @@ gulp.task('pug', async (cb) => {
             )
         }
     }
+
     await new Promise((res, rej) => {
         es.merge.apply(this, stream)
             .on('end', res)
