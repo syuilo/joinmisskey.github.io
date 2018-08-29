@@ -7,6 +7,8 @@ rank: 97
 ---
 [ai(藍)](https://github.com/syuilo/ai)とは、しゅいろが開発したBotです。
 
+[**公式の取扱説明書はこちら**](https://github.com/syuilo/ai/blob/master/torisetu.md)
+
 ## 機能
 ### ゲーム
 #### オセロbot
