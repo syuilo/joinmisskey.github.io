@@ -289,11 +289,30 @@ async function getPatrons(patreonUrl){
     }
 }
 
+async function getAmpCss(){
+    let ampcss = ''
+    try {
+        ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
+        ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
+        ampcss += '\n'
+        ampcss += fontawesome.dom.css()
+        ampcss += '\n'
+        ampcss = new cleanCss().minify(ampcss).styles.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")
+
+        $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
+    } catch(e) {
+        $.util.log($.util.colors.red('making amp css failed'))
+        $.util.log($.util.colors.red(e))
+        ampcss = "/* oops */"
+    }
+    return ampcss
+}
+
 gulp.task('pug', async () => {
     require('mkdirp').sync(temp_dir + 'patreon/')
     require('mkdirp').sync(temp_dir + 'github/')
     let stream = []
-    let ampcss = ""
+
     const URL = require('url')
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
     let promises = []
@@ -364,12 +383,10 @@ gulp.task('pug', async () => {
             stream.push(
                 gulp.src(`${temp_dir}${v.target}.${v.ext}`)
                 .pipe($.imageResize({
-                    "background": "#fff",
-                    "width": 200,
-                    "height": 200,
+                    "width": 140,
+                    "height": 140,
                     "crop": true,
                     "upscale": false,
-                    "interlace": "line",
                     "cover": true,
                     "sharpen": "0x0.75+0.75+0.008",
                     "format": "png",
@@ -408,13 +425,13 @@ gulp.task('pug', async () => {
         patrons: patrons,
         contributors: contributors,
         urlPrefix: urlPrefix,
+        ampcss: (await getAmpCss()),
         DEBUG: DEBUG
     }
 
-
     for (let page of pages) {
         const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
-        const data = extend(false, {
+        const data = extend(true, {
                 page: page,
                 url: url
             }, base)
@@ -447,28 +464,11 @@ gulp.task('pug', async () => {
          *                                                                  */
 
         if(page.attributes.amp){
-            if(ampcss == ""){
-                try {
-                    ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
-                    ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
-                    ampcss += '\n'
-                    ampcss += fontawesome.dom.css()
-                    ampcss += '\n'
-                    ampcss = new cleanCss().minify(ampcss).styles.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")
-
-                    $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
-                } catch(e) {
-                    $.util.log($.util.colors.red('making amp css failed'))
-                    $.util.log($.util.colors.red(e))
-                    ampcss = "/* oops */"
-                }
-            }
-
             if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
 
-            const newoptions = extend(false, { data: { isAmp: true, ampcss: ampcss }}, pugoptions)
+            const newoptions = extend(true, { data: { isAmp: true }}, pugoptions)
             stream.push(
             // stream.add(
                 gulp.src(amptemplate)
