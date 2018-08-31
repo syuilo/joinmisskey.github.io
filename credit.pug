@@ -15,11 +15,11 @@ description: Misskeyに貢献してくださった方を掲載しています。
     .container
       hr.my-5.bg-primary
     h2#contributors.text-center.pb-2 コントリビューター
-    p.text-center #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]でソースコードを編集してくださった方々
+    p.text-center #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]でMisskeyのコードを編集した人
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
-          if(contributor.login != 'syuilo' && contributor.login != 'AyaMorisawa' && contributor.login != 'greenkeeper[bot]' && contributor.login != 'tamaina')
+          if(contributor.login != 'greenkeeper[bot]' && contributor.login != 'tamaina')
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
               img(src=`/files/images/credit/github/${contributor.id}.png`)
               p=contributor.login
