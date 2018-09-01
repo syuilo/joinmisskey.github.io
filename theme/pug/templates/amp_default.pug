@@ -125,10 +125,28 @@ html(lang=locale, amp)
             src=`https://tmin.cf/amp.html?shortname=${site.disqus}&url=${encodeURIComponent(`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)}&identifier=${encodeURIComponent(`${site.url.host}${site.url.path}${page.meta.permalink}`)}`)
             div(overflow tabindex="0" role="button" aria-label="maqz")
 
-      #footer_wrap.py-3.bg-light
-        footer.container
-          p Copyright: #{site.author}
-          p.m-0 This site built with maqz and published as AMP
+      #footer_wrap.py-3
+        .container
+          .d-flex.justify-content-between.flex-wrap
+            div Copyright (c) #{site.author} 
+
+            .text-muted
+              +i18n('update%0', [updateMoment.format('lll')])
+
+            div
+              a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener")
+                +fa_fw('github', 'fab')
+                span.sr-only GitHub 
+                | Misskey
+              | 
+              a(href="https://github.com/joinmisskey/joinmisskey.github.io" target="_blank" rel="noopener")
+                +fa_fw('github', 'fab')
+                span.sr-only GitHub 
+                | joinmisskey
+              | 
+              a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
+                +fa_fw('twitter', 'fab')
+                span.sr-only Twitter
 
     block gtag
       if(site.ga)

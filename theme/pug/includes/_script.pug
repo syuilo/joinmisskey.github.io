@@ -10,7 +10,6 @@ block requires
     const pug_api = require("pug")
     const htmlmin = require("html-minifier").minify
     const kramed = require("kramed")
-    const summaly = require("sync-summaly").default
     const $$ = require("cafy").default
     const cheerio = require("cheerio")
     const colors = require("colors")
@@ -22,7 +21,9 @@ block requires
     const moment = require("moment")
     if (locale != 'en') require(`moment/locale/${locale || "ja"}`)
     moment.locale(locale)
-    const wk = require("wanakana")
+
+    const updateMoment = moment(update)
+    const mfmf = require("mfmf")
     
     const fontawesome = require("@fortawesome/fontawesome-svg-core")
     fontawesome.library.add(
@@ -34,20 +35,22 @@ block requires
     let main_html
 
     const pug_o = {
-        'site': site,
-        'keys': keys,
-        'pages': pages, 
-        'page': page,
-        'package': package, 
-        'messages': messages, 
-        'option': option,
-        'require': require, 
-        'theme_pug': theme_pug,
-        'instances': instances,
-        'patrons': patrons,
-        'contributors': contributors,
-        'ampcss': ampcss,
-        'is_subcall': true,
+        update,
+        site,
+        keys,
+        pages, 
+        page,
+        package, 
+        messages, 
+        option,
+        require, 
+        theme_pug,
+        instances,
+        instancesInfos,
+        patrons,
+        contributors,
+        ampcss,
+        'isSubcall': true,
       filters: require('./pugfilters.js')
     }
 
@@ -62,7 +65,13 @@ block functions
   block pugit
     -
       function pugit(val){
-        return pug_api.render(`${theme_pug.script}\n${theme_pug.mixin}\n${val}`, pug_o)
+        try {
+          const res = pug_api.render(`${theme_pug.script}\n${theme_pug.mixin}\n${val}`, pug_o)
+          return res
+        } catch(e) {
+          console.log(`Error: ${page.meta.permalink}`)
+          throw Error(e)
+        }
       }
 
   block toamp
@@ -133,41 +142,9 @@ block functions
         }
       }
 
-block summary
-  //-
-    function img_weserv(src){
-      const t = URL.parse(src)
-      return `https://images.weserv.nl/?url=${t.auth || ""}${t.hostname}${t.path}${t.hash || ""}`
-    }
-
-    function suma(href){
-      try {
-        if( href.indexOf("//") == 0 ) href = "http:" + href
-        let summ = summaly(href)
-        let thumbnail = "", icon = ""
-        if(!amp){
-          if(summ.thumbnail)thumbnail = `<div style="background-image:url('${img_weserv(summ.thumbnail)}')" alt="THUMBNAIL" class="thumbnail">`
-          if(summ.icon) icon = `<img src="${img_weserv(summ.icon)}" alt="ICON" class="icon">`
-        }
-        return `<a href=${summ.url} class="summary">${thumbnail}<article><header><h1>${summ.title}</h1></header><p>${summ.description}</p><footer>${icon}${summ.sitename}</footer></article></a>`
-      } catch(e) {
-        messenger("INVALID_URL", messages.invalid_link.replace(/%s/,href), `Invalid URL ${href} is written in your article.`)
-        return false
-      }
-    }
-    function maly(htm){
-      let $ = cheerio.load(htm, {decodeEntities: false})
-      $('a[href^="http"], a[href^="//"]').each(function(){
-        const aftag = suma($(this).attr('href'))
-        if(aftag) $(this).parent().append(aftag)
-        else $(this).addClass("text-danger")
-      })
-      return $('body').html()
-    }
-
 block make_html
   //- make main html
-  if(!is_subcall)
+  if(!isSubcall)
     case page.meta.src.ext
       when '.md'
         - main_html = kramed(page.body)
@@ -184,19 +161,19 @@ block make_html
 
 block amp
   - 
-    if(amp && !is_subcall){
+    if(amp && !isSubcall){
       main_html = toamp(main_html)
     }
 
 block highlight
   -
-    if(!is_subcall) main_html = require('./scripts/highl')(main_html)
+    if(!isSubcall) main_html = require('./scripts/highl')(main_html)
 
 block listUp_hedings
   -
     let heading_html, headings = []
     const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
-    if(!is_subcall){
+    if(!isSubcall){
       while((heading_html = reg_heading.exec(main_html)) !== null){
         let heading = {},
             idmatch = []

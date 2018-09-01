@@ -1,7 +1,7 @@
 {
     "url":{
         "path": "",
-        "host": "localhost:8080",
+        "host": "localhost:8088",
         "scheme": "http"
     }
 }

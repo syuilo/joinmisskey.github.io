@@ -109,6 +109,10 @@ html(lang=locale)
           .container
             .d-flex.justify-content-between.flex-wrap
               div Copyright (c) #{site.author} 
+
+              .text-muted
+                +i18n('update%0', [updateMoment.format('lll')])
+
               div
                 a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener")
                   +fa_fw('github', 'fab')
@@ -122,7 +126,7 @@ html(lang=locale)
                 | 
                 a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
                   +fa_fw('twitter', 'fab')
-                  span.sr-only Twitter
+                span.sr-only Twitter
 
     block includes_foot
       include ../includes/_includes_foot.pug

@@ -17,6 +17,7 @@ const es = require('event-stream')
 const glob = require('glob')
 const sass = require("node-sass")
 const cleanCss = require("clean-css")
+const htmlToText = require("html-to-text")
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -24,7 +25,7 @@ $ = require('gulp-load-plugins')()
 
 // const exec = require('child_process').exec
 // const join = path.join
-// const moment = require('moment')
+const moment = require('moment')
 // const numeral = require('numeral')
 // const inquirer = require('inquirer')
 // const summaly = require('summaly').default
@@ -34,6 +35,7 @@ $ = require('gulp-load-plugins')()
 const writeFile = promisify(fs.writeFile)
 const readFile = promisify(fs.readFile)
 const get = promisify(request.get)
+const post = promisify(request.post)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -71,7 +73,7 @@ let theme_pug = {}
 theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
 theme_pug.mixin = fs.readFileSync('theme/pug/includes/_mixins.pug', {encoding: 'utf8'})
 
-let instances = {}
+let instances = require('js-yaml').safeLoad(fs.readFileSync(`./data/instances.yml`))
 
 let temp_dir = 'dist/cache/credit/' // 末尾のスラッシュ必要
 
@@ -211,15 +213,6 @@ gulp.task('register', async cb => {
     manifest = {}
     pages = []
     ytthumbs = []
-    instances = {}
-
-    for(locale of site.locales){
-        try {
-            instances[locale] = require('js-yaml').safeLoad(fs.readFileSync(`./instances/${locale}.yml`))
-        } catch(e) {
-            instances[locale] = require('js-yaml').safeLoad(fs.readFileSync(`./instances/ja.yml`))
-        }
-    }
     manifest = register_manifest()
     pages = await register_pages()
     theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
@@ -308,6 +301,38 @@ async function getAmpCss(){
     return ampcss
 }
 
+async function safePost(url, options){
+    try {
+        let res = await post(url, options)
+        if (res && res.statusCode == 200) return res
+        else return false
+    } catch(e) {
+        return false
+    }
+}
+
+async function getInstancesInfos(instances){
+    let metasPromises = [], statsPromises = [], result = []
+    for (let instance of instances) {
+        metasPromises.push(safePost(`https://${instance.url}/api/meta`, { json: true }))
+        statsPromises.push(safePost(`https://${instance.url}/api/stats`, { json: true }))
+    }
+    const metas = await Promise.all(metasPromises)
+    const stats = await Promise.all(statsPromises)
+    for (let i = 0; i < instances.length; i++) {
+        if(metas[i] && stats[i]){
+            result.push({
+                meta: metas[i].body,
+                stats: stats[i].body,
+                description: metas[i].body.description ? htmlToText.fromString(metas[i].body.description).replace(/\n/g, '<br>') : false
+            })
+        } else {
+            result.push(false)
+        }
+    }
+    return result
+}
+
 gulp.task('pug', async () => {
     require('mkdirp').sync(temp_dir + 'patreon/')
     require('mkdirp').sync(temp_dir + 'github/')
@@ -317,7 +342,6 @@ gulp.task('pug', async () => {
     const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
     let promises = []
     const contributors = await getContributors()
-
 
     for (let contributor of contributors) {
         promises.push(makeAvatarTemp(`github/${contributor.id}`, contributor.avatar_url))
@@ -411,35 +435,37 @@ gulp.task('pug', async () => {
             )
         }
     }
-
+    const instancesInfos = await getInstancesInfos(instances)
+    const ampcss = await getAmpCss()
     const base = {
-        site: site,
-        keys: keys,
-        package: package,
-        pages: pages,
-        manifest: manifest,
-        messages: messages,
-        require: require,
-        theme_pug: theme_pug,
-        instances: instances,
-        patrons: patrons,
-        contributors: contributors,
-        urlPrefix: urlPrefix,
-        ampcss: (await getAmpCss()),
-        DEBUG: DEBUG
+        update: (new Date()),
+        site,
+        keys,
+        package,
+        pages,
+        manifest,
+        messages,
+        require,
+        theme_pug,
+        instances,
+        instancesInfos,
+        patrons,
+        contributors,
+        urlPrefix,
+        ampcss,
+        DEBUG
     }
 
     for (let page of pages) {
         const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
         const data = extend(true, {
-                page: page,
-                url: url
+                page,
+                url
             }, base)
         const pugoptions = {
             data: data,
             filters: require('./pugfilters.js')
         }
-
         let layout = page.attributes.layout
         let template = '', amptemplate = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) template += `theme/pug/templates/${layout}.pug`
@@ -905,7 +931,7 @@ gulp.task('watch', (cb) => {
 
 gulp.task('connect', () => {
     $.connect.server({
-        port: '8080',
+        port: '8088',
         root: 'docs',
         livereload: true
     })

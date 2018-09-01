@@ -1,0 +1,61 @@
+- url: msky.cafe
+  selected: true
+  langs:
+    - ja
+- url: msk.kirigakure.net
+  selected: true
+  langs:
+    - ja
+- url: misskey.jp
+  selected: true
+  langs:
+    - ja
+- url: msky.tokyo
+  selected: true
+  langs:
+    - ja
+- url: misskey.m544.net
+  selected: true
+  langs:
+    - ja
+- url: mk.odakyu.app
+  selected: true
+  langs:
+    - ja
+- url: misskey.site
+  selected: true
+  langs:
+    - ja
+- url: misskey.xps2.net
+  selected: true
+  langs:
+    - ja
+- url: misskey.xyz
+  langs:
+    - ja
+- url: mi-chan.work
+  langs:
+    - ja
+- url: misskey.tmin.ml
+  langs:
+    - ja
+- name: 'Misskey(Tor)'
+  url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
+  description: xps2氏が運営するTor上のインスタンス
+  suspended: false
+  langs:
+    - ja
+- url: misskey.wtf
+  description: 神崎おにいさん氏が一瞬だけ開設していたインスタンス
+  langs:
+    - ja
+- name: misskeyちほー
+  url: mk.kemono-friends.info
+  description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
+  langs:
+    - ja
+- name: Misskey.血便レッド
+  url: misskey.ketsuben.red
+  description: ActivityPub対応SNSホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
+  langs:
+    - ja
