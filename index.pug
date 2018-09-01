@@ -32,13 +32,13 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
           span.fa-li.text-muted.font-size-16: +fa('comment-alt', 'fas')
           h4
             +fa_fw('i-cursor')
-            | 1投稿 1000文字まで
+            |  1投稿1000文字まで
           h4
             +fa_fw('unlock')
-            | 公開範囲を投稿ごとに細かく設定
+            |  公開範囲を投稿ごとに細かく設定
           h4
             +fa_fw('eye-slash')
-            | 本文や画像に閲覧注意を設定
+            |  不適切な本文や画像を隠す
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('edit', 'fas')
           h4 文字装飾
@@ -72,7 +72,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
       h3.text-center 独立性と社会性
       p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
 
-      ul.fa-ul.row.ml-md-0
+      ul.fa-ul.row.mr-0.ml-md-0
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('globe', 'fas')
           h4 Fediverse
@@ -97,7 +97,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
           | Crowdin(翻訳)
 
-      ul.fa-ul.row.ml-md-0
+      ul.fa-ul.row.mr-0.ml-md-0
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('code', 'fas')
           h4 API
@@ -116,20 +116,9 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
     p.text-center Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
     hr.my-4
-    h3 おすすめインスタンス一覧
-    if(instances[locale].selected.length > 0)
-      #instances.list-group
-        each instance in instances[locale].selected
-          a(href=`https://${instance.url}` target="_blank" rel="noopener").instance.text-light.bg-dark.list-group-item.list-group-item-action.flex-column.align-items-start
-            h4
-              if(instance.invitationOnly)
-                +fa_fw('lock')
-              !=instance.name ? `${instance.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url
-            p.m-0=instance.description
-      a(href="./wiki/instances/#others").btn.btn-link.btn-block インスタンスをもっと見る
-    else
-      p.text-white-50
-        +i18n('none')
+    h3#instances おすすめインスタンス一覧
+    +instancesList('selected', ['light', 'dark'])
+    a(href="./wiki/instances/#others").btn.btn-link.btn-block インスタンスをもっと見る
 
     p.text-white-50.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
