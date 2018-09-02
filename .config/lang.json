@@ -2,31 +2,40 @@
     "locales": ["ja", "en"],
     "i18n": {
         "home": {
-            "ja": "ホーム"
+            "ja": "ホーム",
+            "en": "Home"
         },
         "blog": {
-            "ja": "ブログ"
+            "ja": "ブログ",
+            "en": "Blog"
         },
         "prev": {
-            "ja": "前"
+            "ja": "前",
+            "en": "Previous"
         },
         "next": {
-            "ja": "次"
+            "ja": "次",
+            "en": "Next"
         },
         "null": {
-            "ja": "なし"
+            "ja": "なし",
+            "en": "Null"
         },
         "none": {
-            "ja": "ありません！"
+            "ja": "ありません！",
+            "en": "None"
         },
         "nobody": {
-            "ja": "いません！"
+            "ja": "いません！",
+            "en": "Nobody"
         },
         "little_backer": {
-            "ja": "少額支援"
+            "ja": "少額支援",
+            "en": "Little backer"
         },
         "update%0": {
-            "ja": "%0 更新"
+            "ja": "%0 更新",
+            "en": "%0 updates"
         }
     }
 }
