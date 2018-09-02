@@ -1,7 +1,7 @@
 script(src=`${site.url.path}/assets/pjax-api.min.js`)
 script.
   var Pjax = require('pjax-api').Pjax;
-  new Pjax({  areas: ['#main, #breadcrumb, #navtoggle, #updateTime', 'body'], update: { head: 'meta' }  });
+  new Pjax({  areas: ['#main, #breadcrumb, #mainnav, #updateTime', 'body'], update: { head: 'meta' }  });
 
 script.
   var current_locale = "#{locale}";
