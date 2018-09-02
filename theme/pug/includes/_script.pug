@@ -24,7 +24,7 @@ block requires
 
     const updateMoment = moment(update)
     const mfmf = require("mfmf")
-    
+
     const fontawesome = require("@fortawesome/fontawesome-svg-core")
     fontawesome.library.add(
       require("@fortawesome/free-solid-svg-icons").fas,
@@ -172,8 +172,8 @@ block highlight
 block listUp_hedings
   -
     let heading_html, headings = []
-    const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
     if(!isSubcall){
+      const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
       while((heading_html = reg_heading.exec(main_html)) !== null){
         let heading = {},
             idmatch = []
