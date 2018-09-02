@@ -945,73 +945,33 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 6 */
 /***/function (module, exports) {
 
-	function addListenerBlogIndexpagination() {
-		var paginationsParent = document.getElementById('blog_index_pagination');
-		var articlesParent = document.getElementById('blog_index_find');
-		if (!paginationsParent || !articlesParent) return void 0;
-		var paginations = paginationsParent.children;
-		var articles = articlesParent.children;
-		if (articles.length < 2) return void 0;
-
-		var _loop = function _loop(pagination) {
-			pagination.onclick = togglePage;
-			function togglePage() {
-				console.log('はっか');
-				var _iteratorNormalCompletion2 = true;
-				var _didIteratorError2 = false;
-				var _iteratorError2 = undefined;
-
-				try {
-					for (var _iterator2 = paginations[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-						var pa = _step2.value;
-
-						if (pa.classList.contains('active')) pa.classList.remove('active');
-					}
-				} catch (err) {
-					_didIteratorError2 = true;
-					_iteratorError2 = err;
-				} finally {
-					try {
-						if (!_iteratorNormalCompletion2 && _iterator2.return) {
-							_iterator2.return();
-						}
-					} finally {
-						if (_didIteratorError2) {
-							throw _iteratorError2;
-						}
-					}
-				}
-
-				pagination.classList.add('active');
-				var num = Number(pagination.textContent) - 1;
-				for (i = 0; i < articles.length; i++) {
-					if (!b(i, num)) {
-						articles[i].classList.remove('d-block');
-						articles[i].classList.add('d-none');
-					}
-				}
-				for (i = 0; i < articles.length; i++) {
-					if (b(i, num)) {
-						articles[i].classList.remove('d-none');
-						articles[i].classList.add('d-block');
-					}
-				}
-				window.scroll({
-					top: 0,
-					behavior: "smooth"
-				});
+	function b(i, num) {
+		return (num - 1) * 15 <= i && i < num * 15;
+	}
+	function toggleArticles(num, articles, paginations, push) {
+		for (i = 0; i < articles.length; i++) {
+			if (!b(i, num)) {
+				articles[i].classList.remove('d-block');
+				articles[i].classList.add('d-none');
 			}
-		};
-
+			if (b(i, num)) {
+				articles[i].classList.remove('d-none');
+				articles[i].classList.add('d-block');
+			}
+		}
+		window.scroll({
+			top: 0,
+			behavior: "smooth"
+		});
 		var _iteratorNormalCompletion = true;
 		var _didIteratorError = false;
 		var _iteratorError = undefined;
 
 		try {
 			for (var _iterator = paginations[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-				var pagination = _step.value;
+				var pa = _step.value;
 
-				_loop(pagination);
+				if (pa.classList.contains('active')) pa.classList.remove('active');
 			}
 		} catch (err) {
 			_didIteratorError = true;
@@ -1027,11 +987,57 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				}
 			}
 		}
-	}
-	function b(i, num) {
-		return num * 15 <= i && i < (num + 1) * 15;
-	}
 
+		paginations[num - 1].classList.add('active');
+		if (push) history.pushState({ state: 'jmk', page: num }, null, '?page=' + num);
+	}
+	function addListenerBlogIndexpagination() {
+		var paginationsParent = document.getElementById('blog_index_pagination');
+		var articlesParent = document.getElementById('blog_index_find');
+		if (!paginationsParent || !articlesParent) return void 0;
+		var paginations = paginationsParent.children;
+		var articles = articlesParent.children;
+		if (articles.length < 2) return void 0;
+
+		var _loop = function _loop(pagination) {
+			pagination.onclick = togglePage;
+			function togglePage() {
+				var num = Number(pagination.textContent);
+				toggleArticles(num, articles, paginations, true);
+			}
+		};
+
+		var _iteratorNormalCompletion2 = true;
+		var _didIteratorError2 = false;
+		var _iteratorError2 = undefined;
+
+		try {
+			for (var _iterator2 = paginations[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+				var pagination = _step2.value;
+
+				_loop(pagination);
+			}
+		} catch (err) {
+			_didIteratorError2 = true;
+			_iteratorError2 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion2 && _iterator2.return) {
+					_iterator2.return();
+				}
+			} finally {
+				if (_didIteratorError2) {
+					throw _iteratorError2;
+				}
+			}
+		}
+
+		var search = RegExp(/page=([0-9]+)/i).exec(window.location.search);
+		if (search) toggleArticles(search[1], articles, paginations, false);
+		window.onpopstate = function (e) {
+			if (e.state.state == 'jmk') toggleArticles(e.state.page, articles, paginations, false);
+		};
+	}
 	window.addEventListener('DOMContentLoaded', addListenerBlogIndexpagination);
 	window.addEventListener('pjax:load', addListenerBlogIndexpagination);
 

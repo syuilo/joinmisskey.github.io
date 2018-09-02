@@ -35,11 +35,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/main.js",
-    "revision": "9bffd8f788d280324f8ef398d8c2ed52"
+    "revision": "f0b1d3812219ba82fd7c8fabc622ea3d"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "7f88d1efc2cc83662554e24841b0c965"
+    "revision": "e11d9c12f7cf0835f1b26a69a9439d08"
   },
   {
     "url": "assets/pjax-api.js",
@@ -103,7 +103,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "info.json",
-    "revision": "02bbb5c1fc9203335c1da6af80bbc817"
+    "revision": "7f5fd7fe2c0b6b6c8a024335ac082ea6"
   },
   {
     "url": "manifest.json",
