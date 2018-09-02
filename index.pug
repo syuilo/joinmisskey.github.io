@@ -1,126 +1,126 @@
 ---
-title: 新しい世界で繋がろう
-description: 地球で生まれた分散マイクロブログSNS Misskey ―― 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
+title: Let's connect in the new world!
+description: Misskey, a distributed microblogging from the Earth ―― Why don't you leave from a noisy city for a while, and dive into the new network?
 ---
 #toppage
   #top
     .texts
-      .slogan.h4.font-weight-bold 新しい世界で<wbr>繋がろう
-      h1.font-weight-bold Misskeyを<wbr>はじめよう
+      .slogan.h4.font-weight-bold Let's connect in the new world!
+      h1.font-weight-bold Begin<wbr>Misskey
       p=(site.descriptions[locale] || site.description)
     .scnshts
       img(src="/files/images/scnshts/scnsht.deck.720c.jpeg" alt="Deck(Desktop)")
       img(src="/files/images/scnshts/scnsht.home.720c.jpeg" alt="Home(Desktop)")
       img(src="/files/images/scnshts/scnsht.mobile.720c.jpeg" alt="Mobile")
   #section_1.pt-5.pb-4.bg-primary.text-white: .container
-    p.text-center Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
-    p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
+    p.text-center Thank you for finding Misskey! Misskey is a #[span.font-weight-bold distributed microblogging] from the Earth. Misskey and other SNS connect each other because it exists in Fediverse (universe composed of various SNS.)
+    p.text-center Why don't you leave from a noisy city for a while, and dive into the new network?
     p.mt-1.text-center
-      a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
-      a(href="wiki/developers/").btn.btn-lg.btn-primary 運営する
+      a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 Getting started
+      a(href="wiki/developers/").btn.btn-lg.btn-primary Manage and develop
   #section_2.py-5.bg-white: .container
-    h2.text-center Misskeyをはじめる理由
+    h2.text-center A reason to begin Misskey
 
     hr.my-4#section_2_a
 
     .s2-item
-      h3.text-center 多くの機能
-      p.text-center Misskeyでできること
+      h3.text-center Many features
+      p.text-center Abilities of Misskey
 
       ul.fa-ul.row.mr-0.ml-md-0
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('comment-alt', 'fas')
           h4
             +fa_fw('i-cursor')
-            |  1投稿1000文字まで
+            |  1 posts can contain 1000 characters
           h4
             +fa_fw('unlock')
-            |  公開範囲を投稿ごとに細かく設定
+            |  You can configure privaty range of your post finely
           h4
             +fa_fw('eye-slash')
-            |  不適切な本文や画像を隠す
+            |  You can hide your improper messages or images
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('edit', 'fas')
-          h4 文字装飾
-          | 投稿やプロフィールを装飾しよう。Misskey Flavored Markdownによる装飾構文を利用できます。
+          h4 Text Formatting
+          | Let's decorate your posts and profile! Formatting by Misskey Flavored Markdown is available.
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('surprise', 'far')
-          h4 リアクション
-          | 投稿への共感を簡単に表現しよう。投稿に10個の絵文字から選んでリアクションを送れます。
+          h4 Reaction
+          | Let's express your sympathy for posts easily! You can choose 10 kinds of emoticon and attach to posts.
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('chart-pie', 'fas')
-          h4 アンケート
-          | みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
+          h4 Poll
+          | Let's ask opinions! Let's ask opinions to everyone. You can create up to 10 choices.
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('cloud', 'fas')
-          h4 ドライブ
-          | 画像を保存して共有しよう。投稿に添付した画像はドライブで管理できます。
+          h4 Drive
+          | Save your photos and share it! You can manage pictures you attached to posts in your drive.
         li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
           span.fa-li.text-muted.font-size-16: +fa('gamepad', 'fas')
-          h4 ゲーム
-          | みんなで遊ぼう。他のユーザーと対戦できます。
+          h4 Gaming
+          | Let's play together! You can battle with other users.
           br
-          | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
+          | In Reversi, users' icon show as stones and you can play with #[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") customed rule].
 
       p.text-center
         a(href="wiki/usage/").btn.btn-lg.btn-primary
           +fa_fw('book')
-          | Wikiで使い方を見る
+          | See the usage in wiki
     hr.my-4#section_2_b
 
     .s2_item
-      h3.text-center 独立性と社会性
-      p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
+      h3.text-center Independence and Sociality
+      p.text-center You can determine a owner by your intention, or you can manage your own instance.
 
       ul.fa-ul.row.mr-0.ml-md-0
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('globe', 'fas')
           h4 Fediverse
-          | Misskeyでは、他のサーバーのユーザーをフォローすることができます。ActivityPubという規格のサーバー間通信機能を持っているためです。
-          | Misskeyだけでなく#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
+          | In misskey, you can follow users in other server because Misskey implements ActivityPub.
+          | Not only misskey, you can follow users in #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") other service].
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('server', 'fas')
-          h4 簡単なインスタンス構築
-          | Misskeyサーバーの構築は簡単です。
+          h4 Easy server building
+          | It's easy to construct a Misskey server.
           br
-          a(href="wiki/developers/").font-weight-bold  → インスタンスを立てる
+          a(href="wiki/developers/").font-weight-bold  → Make your instance
 
     hr.my-4#section_2_c
 
     .s2_item
-      h3.text-center オープン
-      p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
+      h3.text-center Open source
+      p.text-center Misskey is a open-source software. You can join in development and translation. You can add your own extension.
       p.text-center
         a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark.mr-2
           +fa_fw('github', 'fab')
           | GitHub
         a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
-          | Crowdin(翻訳)
+          | Crowdin(to translate)
 
       ul.fa-ul.row.mr-0.ml-md-0
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('code', 'fas')
           h4 API
-          | アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。
+          | Make your apps and clients to make your life better. You can use almost all features of Misskey in your apps.
           br
           a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").font-weight-bold  → Misskey API
         li.px-0.mt-3.col-12.col-md-5.offset-md-1
           span.fa-li.text-muted.font-size-16: +fa('balance-scale', 'fas')
           h4 AGPLv3
-          | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
+          | Misskey is licensed under GNU Affero General Public License v3.0 (AGPLv3).
           br
-          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").font-weight-bold  → ライセンス
+          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").font-weight-bold  → License
 
   #section_3.bg-dark.text-white.py-5: .container
-    h2.text-center さっそくはじめよう
-    p.text-center まずはどこか既存のインスタンスに登録してみてください！
-    p.text-center Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
+    h2.text-center Getting started
+    p.text-center Let's register your account in any instance!
+    p.text-center You can talk with users in other instances. Instance URL is part of your ID.
     hr.my-4
-    h3#instances おすすめインスタンス一覧
+    h3#instances List of recommended instances
     +instancesList('selected', ['light', 'dark'])
-    a(href="./wiki/instances/#others").btn.btn-link.btn-block インスタンスをもっと見る
+    a(href="./wiki/instances/#others").btn.btn-link.btn-block Watch more...
 
-    p.text-white-50.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
+    p.text-white-50.pt-2 We will add new instances continuously. If you want us to add instances to list, please send to @aqz@misskey.xyz.
   
   #section_4.py-4.bg-success: .container.text-center.text-white
     .row
@@ -128,17 +128,17 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         .py-3
           a(href="./blog/").btn.btn-lg.btn-light.text-success
             +fa("broadcast-tower")
-            |  ブログ
-          p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
+            |  Blog
+          p.mt-1.mb-0.p-0 Notify release notes at any time.
       .col-12.col-md-6
         .py-3
           a(href="./credit/").btn.btn-lg.btn-light.text-success
             +fa("users")
-            |  クレジット
-          p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
+            |  Credits
+          p.mt-1.mb-0.p-0 People who join in Misskey development.
 
   #section_6.bg-white.py-5: .container.text-center.text-black
-    h2 記事になりました
+    h2 Misskey is now in internet news! (In Japanese)
     p.m-0
       a(href="http://www.itmedia.co.jp/news/articles/1804/17/news124.html" target="_blank" rel="noopener" title="ActivityPub対応国産SNS「Misskey」、LTLも実装 ―― ITmedia NEWS").p-1.mr-2
         img(src="/files/images/imports/2018/07/ITmediaNEWS.png" style="height: 33px" alt="ITmedia NEWS")
@@ -146,21 +146,21 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         img(src="/files/images/imports/2018/07/MOONGIFT.png" style="height: 33px" alt="MOONGIFT")
 
   #section_7.pt-5.pb-4: .container
-    h2.text-center 支援
+    h2.text-center Support contributors
     p.text-center
       a(href="./credit/#patrons" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.mr-2
-        | 協賛者一覧
+        | List of sponsers
       a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary
-        | 寄付者一覧
+        | List of donators
 
     hr.my-4
-    h3.text-center Misskeyを支援する
-    p.text-center Misskeyがお気に入りですか？Misskeyは個人で開発しており、自由でオープンソースです。Misskeyの開発にご支援ください。
-    p.text-center Misskeyに広告は付けられていません。また、サーバーを維持するために少なくない支出が発生しています。
+    h3.text-center Support misskey
+    p.text-center Do you like misskey? Misskey is developed by individuals. It's free and open-source. Please support misskey development.
+    p.text-center Misskey has no ads. We pay so much money.
     a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('patreon', 'fab')
-      | パトロンになる
+      | To be a patron
     a(href="http://amzn.asia/7O1LEI5" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('amazon', 'fab')
-      | ほしいものリスト
-    p.text-center または#[a(href="https://misskey.xyz/@syuilo" target="_blank" rel="noopener") 開発者]に問い合わせる
+      | Wish list
+    p.text-center ... or contact #[a(href="https://misskey.xyz/@syuilo" target="_blank" rel="noopener") developers]
