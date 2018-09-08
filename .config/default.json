@@ -4,9 +4,9 @@
         "ja": "Misskeyをはじめよう"
     },
     "short_name": "joinmisskey",
-    "description": "Misskey is an advanced, redefined, and ultimately sophisticated microblogging platform.",
+    "description": "Sophisticated microblogging platform, evolving forever. Misskey",
     "descriptions": {
-        "ja": "全てがオープンソースの、効率的で究極に洗練された分散マイクロブログSNS"
+        "ja": "いつまでも進化する、先進的なミニブログSNS Misskey(ミスキー)"
     },
     "author": "Misskey",
     "url": {
