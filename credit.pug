@@ -30,7 +30,7 @@ description: We post people who contributed to Misskey.
     h2#contributors.text-center.pb-2 Patrons
     p.text-center People who donates continuously in #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]
     #patrons_list
-      if(patrons || patrons.length == 0)
+      if(patrons || patrons.length != 0)
         each tier in patrons
           div(id=`patrons_list_${tier.lv}`).patrons-list-tier
             h3.text-center.pt-4.pb-2=(!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title)
