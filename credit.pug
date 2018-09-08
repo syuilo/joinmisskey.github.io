@@ -30,7 +30,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
     h2#contributors.text-center.pb-2 パトロン
     p.text-center #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]でパトロンとして継続的に寄付してくださっている方々
     #patrons_list
-      if(patrons || patrons.length == 0)
+      if(patrons || patrons.length != 0)
         each tier in patrons
           div(id=`patrons_list_${tier.lv}`).patrons-list-tier
             h3.text-center.pt-4.pb-2=(!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title)
