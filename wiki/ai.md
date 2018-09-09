@@ -6,9 +6,9 @@ has_child: false
 rank: 97
 ---
 
-![Ai]()
-
 [Ai(藍)](https://github.com/syuilo/ai)とは、syuiloが開発したBotです。
+
+<img src="https://github.com/syuilo/misskey/blob/develop/assets/ai-orig.png?raw=true" align="right" height="320px"/>
 
 [**取扱説明書はこちら**](https://github.com/syuilo/ai/blob/master/torisetu.md)
 
