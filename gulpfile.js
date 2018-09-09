@@ -478,7 +478,7 @@ gulp.task('pug', async () => {
                 .pipe($.rename(`${page.meta.permalink}index.html`))
                 .pipe(gulp.dest( dests.root ))
                 .on('end',() => {
-                    $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
+                    // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
                 })
                 .on('error', (err) => {
                     $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
@@ -502,7 +502,7 @@ gulp.task('pug', async () => {
                     .pipe($.rename(`${page.meta.permalink}amp.html`))
                     .pipe(gulp.dest( dests.root ))
                     .on('end',() => {
-                        $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
+                        // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
                     })
                     .on('error', (err) => {
                         $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
@@ -517,6 +517,7 @@ gulp.task('pug', async () => {
             .on('end', res)
             .on('error', rej)
     })
+    $.util.log($.util.colors.green(`✔ all html produced`))
     return void(0)
 })
 
