@@ -38,13 +38,15 @@ https://github.com/syuilo/misskey
 ### Add images
 
 ```
-gulp image -i <path>
+gulp image -i <glob-readable-path>
 ```
 
 This command compresses bitmap images and produces:
-- `/files/images/imports/yyyy/mm/<name>.<ext>` - The long side is **equal or less than** 1600px
-- `/files/images/imports/yyyy/mm/<name>.720.<ext>` - The long side is **equal or less than** 720px
-- `/files/images/imports/yyyy/mm/<name>.720c.jpeg` - The short side is **equal to** 720px
+- `/files/images/imports/yyyy/mm/<name>.<ext>` - The **long side** is **equal or less than** 1600px
+- `/files/images/imports/yyyy/mm/<name>.720.<ext>` - The **long side** is **equal or less than** 720px
+- `/files/images/imports/yyyy/mm/<name>.720c.jpeg` - The **short side** is **equal to** 720px
+
+Also compresses bector images.
 
 ### Translation
 
