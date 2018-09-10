@@ -730,7 +730,7 @@ gulp.task('make-sw', (cb) => {
     const config = {
         'globDirectory': './dist/docs/',
         'globPatterns': [
-          // '**/*.{css,js,json,woff2}'
+          '**/*.{css,js}'
         ],
         'globIgnores': [],
         'swSrc': 'theme/js/sw.js',
