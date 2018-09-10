@@ -70,7 +70,7 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 ## LICENSES
 
 ### CONTENTS
-`pages/**/*`: Translation Only
+`pages/**/*`: All rights reserved
 `files/**/*`, `dist/files/**/*`: No Liscense
 
 ### SYSTEM

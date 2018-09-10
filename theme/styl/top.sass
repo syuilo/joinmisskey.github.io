@@ -43,7 +43,7 @@
       position: absolute
       z-index: 1
 
-      img
+      *
         position: absolute
         filter: drop-shadow(0px 0px 1.5px rgba(0,0,0,.25))
         color: rgba(0,0,0,0)
@@ -73,6 +73,27 @@
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(77vw) translateY(50vh)
+
+        &:nth-child(4)
+          height: 70vh
+          transform: translateX(63vw)
+          z-index: 4
+
+          @media (max-width: map-get($grid-breakpoints, sm))
+            transform: translateX(48vw)
+
+        &:nth-child(5)
+          transform: translateX(67vw) translateY(calc(70vh - 1.6em))
+          transform-origin: bottom
+          z-index: 5
+          filter: none
+          color: #000000
+          word-break: keep-all
+          white-space: nowrap
+          text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7,0px 1px 0 #f7f7f7, 0px -1px 0 #f7f7f7,-1px 0px 0 #f7f7f7,1px 0px 0 #f7f7f7
+
+          @media (max-width: map-get($grid-breakpoints, sm))
+            transform: translateX(52.5vw) translateY(calc(70vh - 1.6em))
 
   #section_2
     h4

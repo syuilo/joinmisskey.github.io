@@ -667,7 +667,7 @@ gulp.task('image', () => {
     if(parsed.ext == "") {
         gifsvg = gulp.src(argv.i + '/**/*.{gif,svg}')
         others = gulp.src(argv.i + '/**/*.{png,jpg,jpeg}')
-    } else if(parsed.ext == "gif" || parsed.ext == "svg") {
+    } else if(parsed.ext == ".gif" || parsed.ext == ".svg") {
         gifsvg = gulp.src(argv.i)
     } else {
         others = gulp.src(argv.i)
