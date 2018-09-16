@@ -70,7 +70,7 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 ## LICENSES
 
 ### CONTENTS
-Files in `pages/**/*`: All rights reserved
+Files in `pages/**/*`: All rights reserved  
 Files in `files/**/*` or `dist/files/**/*`: No Liscense or the liscense that the file has in metadata
 
 ### SYSTEM
