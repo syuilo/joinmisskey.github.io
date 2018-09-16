@@ -70,8 +70,8 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 ## LICENSES
 
 ### CONTENTS
-`pages/**/*`: All rights reserved
-`files/**/*`, `dist/files/**/*`: No Liscense
+Files in `pages/**/*`: All rights reserved
+Files in `files/**/*` or `dist/files/**/*`: No Liscense or the liscense that the file has in metadata
 
 ### SYSTEM
 the others: "maqz" system, under CC0
