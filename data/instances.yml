@@ -1,3 +1,7 @@
+- url: misskey.saibou.work
+  selected: true
+  langs:
+    - ja
 - url: msky.cafe
   selected: true
   langs:
