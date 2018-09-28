@@ -1,4 +1,5 @@
-- url: misskey.saibou.work
+
+- url: misskey.xyz
   selected: true
   langs:
     - ja
@@ -23,18 +24,21 @@
   langs:
     - ja
 - url: mk.odakyu.app
-  selected: true
   langs:
     - ja
 - url: misskey.site
   selected: true
   langs:
     - ja
-- url: misskey.xps2.net
+- url: m.kigurumi.fun
+  selected: true
+  langs: ja
+- url: misskey.saibou.work
   selected: true
   langs:
     - ja
-- url: misskey.xyz
+- url: misskey.xps2.net
+  selected: true
   langs:
     - ja
 - url: mi-chan.work
