@@ -32,7 +32,8 @@
     - ja
 - url: m.kigurumi.fun
   selected: true
-  langs: ja
+  langs:
+    - ja
 - url: misskey.saibou.work
   selected: true
   langs:

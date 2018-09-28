@@ -255,7 +255,8 @@ async function getContributors(){
 async function makeAvatarTemp(target, url){
     const files = glob.sync(`${temp_dir}${target}.{png,jpg,jpeg,gif}`)
     if(files.length > 0){
-        const remote = await download(url)
+        const remote = await download(url).then(r => r).catch(e => false)
+        if(!remote) return false
         const local = await readFile(files[0])
         if (getHash(remote, 'sha384', 'binary', 'base64') != getHash(local, 'sha384', 'binary', 'base64')) {
             const ext = fileType(remote).ext
@@ -263,10 +264,14 @@ async function makeAvatarTemp(target, url){
             return { target: target, ext: ext }
         } else { return false }
     } else {
+        console.log('Getting image: ' + url)
         return download(url).then(async data => {
             const ext = fileType(data).ext
             await writeFile(`${temp_dir}${target}.${ext}`, data)
             return { target: target, ext: ext }
+        }).catch(reason => {
+            console.log('Cannot get the image: ' + reason)
+            return false
         })
     }
 }
@@ -346,6 +351,7 @@ gulp.task('pug', async () => {
     for (let contributor of contributors) {
         promises.push(makeAvatarTemp(`github/${contributor.id}`, contributor.avatar_url))
     }
+    console.log('Got contributors from GitHub')
 
     /* get patrons from Patreon API */
 
@@ -387,7 +393,7 @@ gulp.task('pug', async () => {
                 patreonUrl = null
             }
         }
-    
+        console.log('Got patrons from Patreon')
         for (let tier of patrons) {
             for (let member of tier.members) {
                 promises.push(makeAvatarTemp(`patreon/${member.id}`, member.attributes.thumb_url))
