@@ -27,7 +27,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/fontawesome.min.css",
-    "revision": "66792e9db1ace7288d95debe0a9b2c7f"
+    "revision": "68ee62db13e0ab881b065e170e1ebbe1"
   },
   {
     "url": "assets/jquery.slim.min.js",
