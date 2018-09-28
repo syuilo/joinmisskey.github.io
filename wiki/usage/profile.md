@@ -5,7 +5,7 @@ layout: wiki
 has_child: true
 rank: 10
 prev: /wiki/usage/drive/
-#next: /wiki/usage/drive/
+next: /wiki/usage/theme/
 ---
 ## ユーザーページ
 ユーザーページ(URL: `/@user`)で自分や他のユーザーのプロフィールを見られます。
