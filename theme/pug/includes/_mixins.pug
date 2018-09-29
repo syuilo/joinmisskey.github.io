@@ -130,20 +130,20 @@ mixin instancesList(o, colors)
           p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description : '')}
           .instance-infos.d-flex.flex-wrap.text-muted.small
             if(iinfo)
-              if(iinfo.stats.driveCapacityPerLocalUserMb)
-                .instance-infos-item.mr-2
-                  +fa_fw('hdd')
-                  | #{numeral(iinfo.stats.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
               if(iinfo.stats.originalUsersCount)
                 - const users = iinfo.stats.originalUsersCount
                 .instance-infos-item.mr-2
-                  +fa_fw('user')
+                  +fa_fw('users')
                   | #{numeral(users).format(users >= 10000 ? '0.0a' : '0,0')}
               if(iinfo.stats.originalNotesCount)
                 - const notes = iinfo.stats.originalNotesCount
                 .instance-infos-item.mr-2
                   +fa_fw('pencil-alt')
                   | #{numeral(notes).format(notes >= 10000 ? '0.0a' : '0,0')}
+              if(iinfo.meta.driveCapacityPerLocalUserMb)
+                .instance-infos-item.mr-2
+                  +fa_fw('hdd')
+                  | #{numeral(iinfo.stats.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
               if(iinfo.meta.version)
                 .instance-infos-item.mr-2 v#{iinfo.meta.version}
               if(iinfo.meta.maintainer)
