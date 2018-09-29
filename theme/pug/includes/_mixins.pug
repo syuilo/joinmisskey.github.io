@@ -143,7 +143,7 @@ mixin instancesList(o, colors)
               if(iinfo.meta.driveCapacityPerLocalUserMb)
                 .instance-infos-item.mr-2
                   +fa_fw('hdd')
-                  | #{numeral(iinfo.stats.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
+                  | #{numeral(iinfo.meta.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
               if(iinfo.meta.version)
                 .instance-infos-item.mr-2 v#{iinfo.meta.version}
               if(iinfo.meta.maintainer)
