@@ -26,14 +26,14 @@
         function(el, i, array){
           let elem_time = new Date(el.meta.mtime)
 
-          return (elem_time.getTime() == pagePrev_mTime)
+          return (elem_time.getTime() == pagePrev_mTime && el.meta.permalink.startsWith(`/${locale}/`))
         }
       )
     , pagesNext = pagesFuture.filter(
         function(el, i, array){
           let elem_time = new Date(el.meta.mtime)
 
-          return (elem_time.getTime() == pageNext_mTime)
+          return (elem_time.getTime() == pageNext_mTime && el.meta.permalink.startsWith(`/${locale}/`))
         }
       )
   const pagePrev = pagesPrev[0]
