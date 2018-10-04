@@ -127,8 +127,8 @@ mixin instancesList(o, colors)
           p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
           .instance-infos.d-flex.flex-wrap.text-muted.small
             if( iinfo && iinfo.meta.features )
-              if( !iinfo.meta.features.registeration )
-                abbr(title=i18n('instance_registerationDisabled'))
+              if( !iinfo.meta.features.registration )
+                abbr(title=i18n('instance_registrationDisabled'))
                   +fa_fw('lock')
               if( !iinfo.meta.features.localTimeLine )
                 abbr(title=i18n('instance_localTimeLineDisabled'))
@@ -150,7 +150,7 @@ mixin instancesList(o, colors)
                   +fa_fw('bell')
             else
               if( iinfo && iinfo.meta.disableRegistration )
-                abbr(title=i18n('instance_registerationDisabled'))
+                abbr(title=i18n('instance_registrationDisabled'))
                   +fa_fw('lock')
           .instance-infos.d-flex.flex-wrap.text-muted.small
             if(iinfo)
