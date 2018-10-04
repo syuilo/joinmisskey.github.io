@@ -6,18 +6,15 @@ const util = require('util')
 const promisify = util.promisify
 const path = require('path')
 const del = require('del')
-const crypto = require('crypto')
 const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
 const pump = require('pump')
 const request = require('request')
-const download = require('download')
-const fileType = require('file-type')
 const es = require('event-stream')
-const glob = require('glob')
-const sass = require("node-sass")
-const cleanCss = require("clean-css")
-const htmlToText = require("html-to-text")
+const htmlmin = require("html-minifier").minify
+const pug = require('pug')
+const mkdirp = require('mkdirp')
+const betterMarkdown = require('./scripts/better_markdown')
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -25,7 +22,7 @@ $ = require('gulp-load-plugins')()
 
 // const exec = require('child_process').exec
 // const join = path.join
-const moment = require('moment')
+// const moment = require('moment')
 // const numeral = require('numeral')
 // const inquirer = require('inquirer')
 // const summaly = require('summaly').default
@@ -33,9 +30,6 @@ const moment = require('moment')
 // promisify
 
 const writeFile = promisify(fs.writeFile)
-const readFile = promisify(fs.readFile)
-const get = promisify(request.get)
-const post = promisify(request.post)
 
 // arg
 const argv = minimist(process.argv.slice(2))
@@ -69,13 +63,12 @@ const keys = (() => {
     }
 })()
 const workboxSWSrcPath = require.resolve('workbox-sw')
-let theme_pug = {}
-theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
-theme_pug.mixin = fs.readFileSync('theme/pug/includes/_mixins.pug', {encoding: 'utf8'})
 
 let instances = require('js-yaml').safeLoad(fs.readFileSync(`./data/instances.yml`))
 
-let temp_dir = 'dist/cache/credit/' // 末尾のスラッシュ必要
+let temp_dir = 'dist/cache/' // 末尾のスラッシュ必要
+
+const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
 
 let src = {
    'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
@@ -114,112 +107,47 @@ function escape_html(val) {
     })
 }
 */
-function getHash(data, a, b, c){
-    const hashv = crypto.createHash(a)
-    hashv.update(data, b)
-    return hashv.digest(c)
-}
 
-async function register_pages(){
-    let promises = []
-    const srcs = require('glob').sync(src.pages)
-    for(p = 0; p < srcs.length; p++){
-        promises.push(
-            doit(srcs[p], p, srcs, path.parse(site.pages_src.path))
-        )
-    }
-    let result = await Promise.all(promises)
-    result = result.filter( (el, i, arr) => !!el )
-    return result
-    async function doit(val, i, arr, srcpath){
-        let page = {}
-        const src = path.parse(val)
 
-        if(src.name == "sidebar") return false   // - - - - - - - -  名前がsidebarのとき弾く */ 
-        let subdir = src.dir.replace(srcpath.base, '')
-        if(subdir.indexOf('/') == 0) subdir = subdir.slice(1)
-        if ( !subdir ) subdir = ''
-
-        let file = fs.readFileSync( val, 'utf-8' )
-        page = extend(true,page,require('front-matter')(file))
-
-        page.meta = {}
-        page.meta.src = src
-        page.meta.src.subdir = subdir
-
-        let md5hash = crypto.createHash('md5')
-        md5hash.update(file, 'binary')
-        page.meta.md5 = getHash(file, 'md5', 'binary', 'hex')
-        page.meta.sha384 = getHash(file, 'sha384', 'binary', 'base64')
-        page.stats = fs.statSync( val )
-
-        page.body = page.body.replace(/\r\n?/gi,"\n") // 文字コードをLFにそろえる
-        delete page.frontmatter
-
-        page.attributes.title = page.attributes.title || page.meta.srcname || null
-        page.attributes.description = page.attributes.description || ""
-        page.meta.mtime = (new Date(page.attributes.mtime || page.attributes.date || page.stats.mtime)).toJSON()
-        page.meta.birthtime = (new Date(page.attributes.birthtime || page.stats.birthtime)).toJSON()
-
-        page.meta.thumbnail = page.attributes.thumbnail ? path.parse(page.attributes.thumbnail) : null
-
-        if( page.attributes.permalink === undefined || page.attributes.permalink === null ) {
-            if(subdir != '') page.meta.permalink = `/${subdir}/${page.meta.src.name}`
-            else page.meta.permalink = `/${page.meta.src.name}`
-        } else { page.meta.permalink = page.attributes.permalink }
-        if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = 'default'
-        if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = true
-        if( page.attributes.draft === undefined || page.attributes.draft === null ) page.attributes.draft = false
-        if( page.meta.permalink.indexOf('/') != 0 ) page.meta.permalink = '/' + page.meta.permalink
-        if( page.meta.permalink.lastIndexOf('index') == page.meta.permalink.length - 5 && page.meta.permalink.indexOf('index') != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
-        else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
-        if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(' ')
-        if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(' ')
-        if( typeof page.attributes.category === 'string' ){
-            page.attributes.categories = page.attributes.category.split(' ')
-            delete page.attributes.category
-        }
-        if( typeof page.attributes.tag === 'string' ){
-            page.attributes.tags = page.attributes.tag.split(' ')
-            delete page.attributes.tag
-        }
-        return page
-    }
-}
-
-function register_manifest(){
-    let icons = []
-    for (let i = 0 ; i < site.icons.length ; i++) {
-        let icon = site.icons[i]
-        icon.src = site.url.path + icon.path
-        icons.push(icon)
-    }
-    let manifest = {
-        'name': site.name,
-        'short_name': site.short_name,
-        'icons': icons,
-        'start_url': site.url.path,
-        'theme_color': site.theme_color.primary,
-        'background_color': site.theme_color.primary
-    }
-    manifest = extend(true,manifest,site.manifest)
-    return manifest
-}
-
-let manifest = {}
-let pages = []
+let manifest = {},
+    pages = [],
+    base,
+    pugfilters
 
 gulp.task('register', async cb => {
+    const rf = promisify(fs.readFile)
     manifest = {}
     pages = []
     ytthumbs = []
-    manifest = register_manifest()
-    pages = await register_pages()
-    theme_pug.script = fs.readFileSync('theme/pug/includes/_script.pug', {encoding: 'utf8'})
-    theme_pug.mixin = fs.readFileSync('theme/pug/includes/_mixins.pug', {encoding: 'utf8'})
+    pugfilters = require('./pugfilters.js')
+    manifest = require('./scripts/builder/registerer/manifest')(site)
+    pages = await require('./scripts/builder/registerer/pages')(site, src, urlPrefix)
+    const theme_pug = {
+            script: await rf('theme/pug/includes/_script.pug', {encoding: 'utf8'}),
+            mixin: await rf('theme/pug/includes/_mixins.pug', {encoding: 'utf8'})
+        }
+    const base_p = await require('./scripts/builder/registerer/base')(site, keys, temp_dir, instances)
+
+    base = extend(true,
+        base_p, 
+        {
+            update: (new Date()),
+            site,
+            keys,
+            package,
+            pages,
+            manifest,
+            messages,
+            require,
+            theme_pug,
+            instances,
+            urlPrefix,
+            DEBUG
+        }
+    )
+
     cb()
 })
-
 
 gulp.task('config', (cb) => {
     let resultObj = { options: '' }
@@ -233,185 +161,12 @@ gulp.task('config', (cb) => {
     )
 })
 
-async function getContributors(){
-    try {
-        const res = await get(
-            'https://api.github.com/repos/syuilo/misskey/contributors',
-            {
-                headers: {
-                    'User-Agent': 'LuckyBeast'
-                },
-                json: true
-            }
-        )
-        return res.body
-    } catch(e) {
-        console.log('Cannot get GitHub contributors')
-        console.log(e)
-        return null
-    }
-}
-
-async function makeAvatarTemp(target, url){
-    const files = glob.sync(`${temp_dir}${target}.{png,jpg,jpeg,gif}`)
-    if(files.length > 0){
-        const remote = await download(url).then(r => r).catch(e => false)
-        if(!remote) return false
-        const local = await readFile(files[0])
-        if (getHash(remote, 'sha384', 'binary', 'base64') != getHash(local, 'sha384', 'binary', 'base64')) {
-            const ext = fileType(remote).ext
-            await writeFile(`${temp_dir}${target}.${ext}`, remote)
-            return { target: target, ext: ext }
-        } else { return false }
-    } else {
-        console.log('Getting image: ' + url)
-        return download(url).then(async data => {
-            const ext = fileType(data).ext
-            await writeFile(`${temp_dir}${target}.${ext}`, data)
-            return { target: target, ext: ext }
-        }).catch(reason => {
-            console.log('Cannot get the image: ' + reason)
-            return false
-        })
-    }
-}
-
-async function getPatrons(patreonUrl){
-    try {
-        const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
-        return JSON.parse(res.body)
-    } catch(e) {
-        console.log('Cannot get Patreon patrons')
-        console.log(e)
-        return null
-    }
-}
-
-async function getAmpCss(){
-    let ampcss = ''
-    try {
-        ampcss += '/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n'
-        ampcss += (await promisify(sass.render)({file: 'theme/styl/amp_main.sass'})).css.toString()
-        ampcss += '\n'
-        ampcss += fontawesome.dom.css()
-        ampcss += '\n'
-        ampcss = new cleanCss().minify(ampcss).styles.replace(/!important/g,"").replace(/@charset "UTF-8";/g,"").replace(/@-ms-viewport{width:device-width}/g,"")
-
-        $.util.log(`making amp css: ${Buffer.byteLength(ampcss)}Byte`)
-    } catch(e) {
-        $.util.log($.util.colors.red('making amp css failed'))
-        $.util.log($.util.colors.red(e))
-        ampcss = "/* oops */"
-    }
-    return ampcss
-}
-
-async function safePost(url, options){
-    try {
-        let res = await post(url, options)
-        if (res && res.statusCode == 200) return res
-        else return false
-    } catch(e) {
-        return false
-    }
-}
-
-async function getInstancesInfos(instances){
-    let metasPromises = [], statsPromises = [], result = []
-    for (let instance of instances) {
-        metasPromises.push(safePost(`https://${instance.url}/api/meta`, { json: true }))
-        statsPromises.push(safePost(`https://${instance.url}/api/stats`, { json: true }))
-    }
-    const metas = await Promise.all(metasPromises)
-    const stats = await Promise.all(statsPromises)
-    for (let i = 0; i < instances.length; i++) {
-        if(metas[i] && stats[i]){
-            result.push({
-                meta: metas[i].body,
-                stats: stats[i].body,
-                description: metas[i].body.description ? htmlToText.fromString(metas[i].body.description).replace(/\n/g, '<br>') : false
-            })
-        } else {
-            result.push(false)
-        }
-    }
-    return result
-}
-
-gulp.task('pug', async () => {
-    require('mkdirp').sync(temp_dir + 'patreon/')
-    require('mkdirp').sync(temp_dir + 'github/')
+gulp.task('credit-icons', async () => {
     let stream = []
-
-    const URL = require('url')
-    const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
-    let promises = []
-    const contributors = await getContributors()
-
-    for (let contributor of contributors) {
-        promises.push(makeAvatarTemp(`github/${contributor.id}`, contributor.avatar_url))
-    }
-    console.log('Got contributors from GitHub')
-
-    /* get patrons from Patreon API */
-
-    let patrons = null
-    if (keys != null && keys.patreon){
-        patrons = []
-        patrons.push(
-            {
-                title: "the Others",
-                titles: site.i18n.little_backer,
-                lv: 0,
-                members: []
-            }
-        )
-    
-        let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Bmember%5D=currently_entitled_amount_cents&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
-        while (patreonUrl) {
-            const n = await getPatrons(patreonUrl)
-            
-            if(n){
-                for (let e of n.data) {
-                    if (e.attributes.currently_entitled_amount_cents == 0) continue
-                    const cet = e.relationships.currently_entitled_tiers
-                    const tierLv = cet.data.length
-                    for (i = patrons.length - 1; i < tierLv; i++) {
-                        const tier = n.included.find((g) => g.id == cet.data[i].id && g.type == 'tier')
-                        patrons.push({
-                            title: tier.attributes.title,
-                            lv: tierLv,
-                            members: []
-                        })
-                    }
-                    const patron = n.included.find((g) => g.id == e.relationships.user.data.id && g.type == 'user')
-                    patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
-                    patrons[tierLv].members.push(patron)
-                }
-                if (n.links) patreonUrl = n.links.next; else patreonUrl = null
-            } else {
-                patreonUrl = null
-            }
-        }
-        console.log('Got patrons from Patreon')
-        for (let tier of patrons) {
-            for (let member of tier.members) {
-                promises.push(makeAvatarTemp(`patreon/${member.id}`, member.attributes.thumb_url))
-            }
-            tier.members.sort((a, b) => {
-                return b.currently_entitled_amount_cents - a.currently_entitled_amount_cents
-            })
-        }
-    
-        patrons = patrons.reverse()
-    }
-
-    const filesResults = await Promise.all(promises)
-
-    for (let v of filesResults) {
+    for (let v of base.creditIcons) {
         if (v) {
             stream.push(
-                gulp.src(`${temp_dir}${v.target}.${v.ext}`)
+                gulp.src(`${temp_dir}${v.name}.${v.ext}`)
                 .pipe($.imageResize({
                     "width": 140,
                     "height": 140,
@@ -429,8 +184,8 @@ gulp.task('pug', async () => {
                     "concurrent": 10
                 }))
                 .pipe($.rename({
-                    "dirname": v.target.split('/')[0],
-                    "basename": v.target.split('/')[1]
+                    "dirname": v.name.split('/')[0],
+                    "basename": v.name.split('/')[1]
                 }))
                 .pipe(gulp.dest('dist/files/images/credit'))
                 .on('end',() => {
@@ -441,42 +196,138 @@ gulp.task('pug', async () => {
             )
         }
     }
-    const instancesInfos = await getInstancesInfos(instances)
-    const ampcss = await getAmpCss()
-    const base = {
-        update: (new Date()),
-        site,
-        keys,
-        package,
-        pages,
-        manifest,
-        messages,
-        require,
-        theme_pug,
-        instances,
-        instancesInfos,
-        patrons,
-        contributors,
-        urlPrefix,
-        ampcss,
-        DEBUG
-    }
+    await new Promise((res, rej) => {
+        es.merge.apply(this, stream)
+            .on('end', res)
+            .on('error', rej)
+    })
+    $.util.log($.util.colors.green(`✔ all credit icons processed`))
+    return void(0)
+})
 
+function pugit(val, options){
+    options.isSubcall = true
+    const res = pug.render(`${base.theme_pug.script}\n${base.theme_pug.mixin}\n${val}`, options)
+    return res
+}
+
+function toamp(htm, base){
+    const sizeOf = require('image-size')
+    let $ = require('cheerio').load(htm, {decodeEntities: false})
+    let promises = []
+    $('img[src]').each(function(){
+        const $el = $(this)
+        // todo
+        /*promises.push(new Promise(async (resolve) => {*/
+            let src    = $el.attr('src')
+            let alt    = $el.attr('alt')
+            let title  = $el.attr('title')
+            let id     = $el.attr('id')
+            let width  = $el.attr('width')
+            let height = $el.attr('height')
+            if( ( width === undefined || height === undefined ) && src.startsWith("files/") ){
+                const dims = sizeOf( src )
+                width = dims.width
+                height = dims.height
+                src = base.site.url.path + "/" + src
+            } else if ( ( width === undefined || height === undefined ) && src.startsWith("/files/") ){
+                const dims = sizeOf( src.slice(1) )
+                width = dims.width
+                height = dims.height
+                src = base.site.url.path + src
+                /*
+            } else if ( ( width === undefined || height === undefined ) && ( src.startsWith('http') || src.startsWith('//') ) ){
+                const url = require('url').parse(src)
+                const filename = `${url.pathname.slice(1).replace(/\//g,'-')}`.slice(-36)
+                const temppath = `${temp_dir}amp/${url.hostname}/`
+                mkdirp.sync(temppath)
+                const v = await require('./scripts/downloadTemp')(filename, src, temppath)
+                console.log(v)
+                if (!v) {
+                    console.log( `${messages.amp.invalid_imageUrl}:\n${src}` )
+                    return resolve()
+                }
+                if (!existFile(`${temppath}${filename}.${v.ext}`)) return resolve()
+                const dims = sizeOf( `${temppath}${filename}.${v.ext}` )
+                width = dims.width
+                height = dims.height
+            */
+            } else {
+                console.log( `${messages.amp.invalid_imageUrl}:\n${src}` )
+            }
+            $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
+            // return resolve()
+        /*}))*/
+    })
+    /*await Promise.all(promises)*/
+    $('img').remove()
+    $('amp-img').attr('layout','responsive')
+    return $('body').html()
+}
+
+function regheadings(htm){
+    let heading_html, headings = []
+    const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
+    while((heading_html = reg_heading.exec(htm)) !== null){
+        let heading = {},
+            idmatch = []
+        idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
+        classmatch = heading_html[2].match(/class=(["'])(.*?)(\1)/)
+        if(idmatch == null)
+            heading.id = null
+        else
+            heading.id = idmatch[2]
+        heading.html     = heading_html[0]
+        heading.number   = heading_html[1]
+        heading.attr     = heading_html[2]
+        heading.text     = heading_html[3]
+        if ( classmatch == null || classmatch[2].indexOf('noindex') == -1 ) headings.push(heading)
+    }
+    return headings
+}
+
+gulp.task('pug', async () => {
+    const stream = []
     for (let page of pages) {
-        const url = URL.parse(`${urlPrefix}${page.meta.permalink}`)
         const data = extend(true, {
-                page,
-                url
+                page
             }, base)
         const pugoptions = {
             data: data,
-            filters: require('./pugfilters.js')
+            filters: pugfilters
         }
         let layout = page.attributes.layout
         let template = '', amptemplate = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) template += `theme/pug/templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) template += `theme/pug/templates/${site.default.template}.pug`
         else throw Error('default.pugが見つかりませんでした。')
+
+        let main_html
+        switch(page.meta.src.ext){
+            case '.md':
+                main_html = require("kramed")(page.body)
+                main_html = betterMarkdown(main_html, site.url.path)
+                // main_html = maly(main_html)
+                main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+                break
+            case '.html':
+            case '.htm':
+                main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
+                break
+            case '.pug':
+                try {
+                    main_html = pugit(page.body, extend(true, {filter: pugfilters}, data))
+                } catch(e) {
+                    console.log(`Error: ${page.meta.permalink}`)
+                    throw Error(e)
+                }
+                if (page.attributes.improve) main_html = betterMarkdown(main_html, site.url.path)
+                break
+        }
+        main_html = require('./scripts/highl')(main_html)
+        pugoptions.data.main_html = main_html
+        pugoptions.data.headings = regheadings(main_html)
+
         stream.push(
         // stream.add(
             gulp.src(template)
@@ -499,8 +350,7 @@ gulp.task('pug', async () => {
             if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
-
-            const newoptions = extend(true, { data: { isAmp: true }}, pugoptions)
+            const newoptions = extend(true, { data: { isAmp: true, main_html: toamp(main_html, base) }}, pugoptions)
             stream.push(
             // stream.add(
                 gulp.src(amptemplate)
@@ -882,7 +732,7 @@ gulp.task('make-subfiles',
 
 gulp.task('core',
     gulp.series(
-        gulp.parallel('js', 'css', 'fa-css', 'pug'),
+        gulp.parallel('js', 'css', 'fa-css', 'pug', 'credit-icons'),
         gulp.parallel('copy-publish', 'make-subfiles'),
         'make-sw', 'last',
         (cb) => { cb() }

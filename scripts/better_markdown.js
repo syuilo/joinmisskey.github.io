@@ -12,7 +12,7 @@ module.exports = (htm, urlprefix) => {
   let $ = require('cheerio').load(htm, {decodeEntities: false})
 
   $('body > h2, body > h3, body > h4, body > h5, body > h6').addClass('blogstyle')
-  $('h2, h3, h4, h5, h6').each((i, el) => { $(el).attr('id', i )})
+  $('h2, h3, h4, h5, h6').each((i, el) => { $(el).attr('id', encodeURIComponent($(el).text()) )})
   $('img').addClass('img-fluid')
   $('img[src^="/"]').each((i, el) => { $('img[src^="/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('img[src^="files/"]').each((i, el) => { $('img[src^="files/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })

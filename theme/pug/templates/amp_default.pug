@@ -22,8 +22,8 @@ html(lang=locale, amp)
           *
           *
       block canonical
-        link(rel="canonical", href=url.href)
-        link(rel="amphtml", href=`${url.href}amp.html`)
+        link(rel="canonical", href=page.meta.url.href)
+        link(rel="amphtml", href=`${page.meta.url.href}amp.html`)
 
       block seo
         meta(name="author" content=site.author)
@@ -60,7 +60,7 @@ html(lang=locale, amp)
           meta(property="og:image", content=`${urlPrefix}${site.site_card_path}`)
         else
           meta(property="og:image", content=`/favicon.ico`)
-        meta(property="og:url", content=url.href)
+        meta(property="og:url", content=page.meta.url.href)
         meta(property="og:site_name", content=(site.names[locale] || site.name))
 
       block twitter_card

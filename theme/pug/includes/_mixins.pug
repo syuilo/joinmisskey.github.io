@@ -1,14 +1,21 @@
 //- pug mixins
 
 mixin fa( $icon, $prefix, $option )
-  i(class=`fa ${ $prefix || "fas" } ${$icon}`)!= fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },( $option || {} )).html[0]
+  -
+    let fahtml = ''
+    try {
+      fahtml = fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },( $option || {} )).html[0]
+    } catch(e) {
+      console.log(`Can't pick up icon: ${$icon}, ${$prefix ? $prefix : 'type not set (fas)'}`)
+    }
+  i(class=`fa ${ $prefix || "fas" } ${$icon}`)!=fahtml
 
 mixin fa_fw( $icon, $prefix )
   +fa( $icon, $prefix, {classes: ['fa-fw']})
 
 mixin toc( headings, n, tag, cl)
   -
-    let lv = function(a, b, ht){
+    function lv(a, b, ht){
       let r = a - b
       for(let j=0; r > j; j++){
         o += ht
@@ -70,15 +77,7 @@ mixin embed_youtube_autoplay(vid)
 //- https://developers.google.com/youtube/player_parameters?hl=ja
 
 mixin i18n(target, strs)
-  -
-    const text = !!site.i18n[target] ? (site.i18n[target][locale] || site.i18n[target].ja || target) : target
-    let res = text
-    if (strs && strs.length > 0) {
-      for (i = 0; i < strs.length; i++){
-        res = res.replace(`%${i}`, strs[0])
-      }
-    }
-  | #{res}
+  | #{i18n(target, strs)}
 
 mixin blog_badges(targetpage)
   div.mr-2
@@ -124,10 +123,35 @@ mixin instancesList(o, colors)
       if(ilang && itype)
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
-            if(iinfo && iinfo.meta && iinfo.meta.disableRegistration)
-               +fa_fw('lock')
             | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url}
-          p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description : '')}
+          p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
+          .instance-infos.d-flex.flex-wrap.text-muted.small
+            if( iinfo && iinfo.meta.features )
+              if( !iinfo.meta.features.registeration )
+                abbr(title=i18n('instance_registerationDisabled'))
+                  +fa_fw('lock')
+              if( !iinfo.meta.features.localTimeLine )
+                abbr(title=i18n('instance_localTimeLineDisabled'))
+                  +fa_fw('home')
+              if( iinfo.meta.features.elasticsearch )
+                abbr(title=i18n('instance_elasticsearchEnabled'))
+                  +fa_fw('search')
+              if( iinfo.meta.features.recaptcha )
+                abbr(title=i18n('instance_recaptchaEnabled'))
+                  +fa_fw('shield-alt')
+              if( iinfo.meta.features.objectStorage )
+                abbr(title=i18n('instance_objectStorageEnabled'))
+                  +fa_fw('cube')
+              if( iinfo.meta.features.twitter )
+                abbr(title=i18n('instance_twitterEnabled'))
+                  +fa_fw('twitter', 'fab')
+              if( iinfo.meta.features.serviceWorker )
+                abbr(title=i18n('instance_serviceWorkerEnabled'))
+                  +fa_fw('bell')
+            else
+              if( iinfo && iinfo.meta.disableRegistration )
+                abbr(title=i18n('instance_registerationDisabled'))
+                  +fa_fw('lock')
           .instance-infos.d-flex.flex-wrap.text-muted.small
             if(iinfo)
               if(iinfo.stats.originalUsersCount)
@@ -150,5 +174,6 @@ mixin instancesList(o, colors)
                 .instance-infos-item
                   +fa_fw('user-cog')
                   |  #{iinfo.meta.maintainer.name}
+    
     else
       +i18n('none')
