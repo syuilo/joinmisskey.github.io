@@ -19,9 +19,55 @@ h2.blogstyle このリストについて
 p 更新は手動です。追加依頼は@aqz@misskey.xyzまたはプルリクエストにて受け付ています。
 p 日本語が使われているインスタンスのみ掲載しています。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページからご覧いただけます。
 p: a(href="./suspended/") 閉鎖しているインスタンスの一覧
-p
-  +fa_fw('lock')
-  | : 招待制のインスタンス (登録にはインスタンス管理者の許可が必要です)
+
+h3.blogstyle 凡例
+
+ul.fa-ul
+  li
+    span.fa-li
+      +fa_fw('lock')
+    | : 招待制のインスタンス (登録にはインスタンス管理者の許可が必要)
+  li
+    span.fa-li
+      +fa_fw('home')
+    | : ローカルタイムラインが無効
+  li
+    span.fa-li
+      +fa_fw('search')
+    | : 検索が有効
+  li
+    span.fa-li
+      +fa_fw('shield-alt')
+    | : reCAPTCHAによるボット防御が有効
+  li
+    span.fa-li
+      +fa_fw('cube')
+    | : ドライブのファイルはオブジェクトストレージで管理されています
+  li
+    span.fa-li
+      +fa_fw('twitter', 'fab')
+    | : Twitter連携可能
+  li
+    span.fa-li
+      +fa_fw('bell')
+    | : 通知を常時配信可能 (iOSなど、利用環境によっては利用不可)
+ul.fa-ul
+  li
+    span.fa-li
+      +fa_fw('users')
+    | : インスタンスに登録されたユーザー数
+  li
+    span.fa-li
+      +fa_fw('pencil-alt')
+    | : インスタンス内のユーザーが投稿した数
+  li
+    span.fa-li
+      +fa_fw('hdd')
+    | : 1ユーザーが利用できるドライブ容量
+  li
+    span.fa-li
+      +fa_fw('user-cog')
+    | : インスタンス管理者名
 
 h2.blogstyle インスタンス一覧
 
