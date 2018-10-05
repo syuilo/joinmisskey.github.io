@@ -97,18 +97,21 @@ html(lang=locale, amp)
   body
 
     amp-sidebar(id="sidebar1" layout="nodisplay" side="left")
-      ul.p-5.list-unstyled.bg-white.h-100
-        li.py-2: a(href=`/${locale}/`)
+      ul.py-5.list-unstyled.bg-white.h-100
+        li: a(href=`/${locale}/`).d-block.py-2.px-4
           +fa_fw("home")
           |  
           +i18n("home")
-        li.py-2: a(href=`/${locale}/blog/`)
+        li: a(href=`/${locale}/blog/`).d-block.py-2.px-4
           +fa_fw("broadcast-tower")
           |  
           +i18n("blog")
-        li.py-2: a(href=`/${locale}/wiki/`)
+        li: a(href=`/${locale}/wiki/`).d-block.py-2.px-4
           +fa_fw("book")
           |  Wiki
+        li: a(href="https://assets.msky.cafe/").d-block.py-2.px-4
+          +fa_fw("store-alt")
+          |  Assets Store
 
     block wo_footer
       block nav
