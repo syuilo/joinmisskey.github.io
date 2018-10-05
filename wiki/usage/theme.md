@@ -24,5 +24,5 @@ prev: /wiki/usage/profile/
 「インストールされたテーマ」を展開すると、インストールしたテーマや自分が作成したテーマのコードを確認できます。
 
 ## Misskey Assets Store
-[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)では、このテーマを共有するサイトです。  
+[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)は、このテーマを共有するサイトです。  
 他の人が作ったテーマを探したり、自分で作ったテーマをアップロードすることができます。
