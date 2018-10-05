@@ -3,7 +3,7 @@ title: "Misskey Assets Store公開"
 description: Arksoftより、Misskeyテーマを手軽に共有できるサービスが公開されました。
 layout: blog
 date: 2018-10-05T20:00:00+09:00
-thumbnail: /files/images/imports/2018/09/yurikamome.jpg
+thumbnail: /files/images/imports/2018/08/yurikamome.jpg
 author:
   name: aqz
   url: https://misskey.xyz/@aqz
