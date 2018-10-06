@@ -586,9 +586,10 @@ gulp.task('make-sw', (cb) => {
     const config = {
         'globDirectory': './dist/docs/',
         'globPatterns': [
-          '**/*.{css,js}'
+          '**/*.{css,js,png,jpeg,jpg,svg,gif}'
         ],
         'globIgnores': [],
+        'runtimeCaching': [],
         'swSrc': 'theme/js/sw.js',
         'swDest': 'dist/docs/service_worker.js'
      }
@@ -739,11 +740,26 @@ gulp.task('core',
     )
 )
 
+
+
 gulp.task('default',
     gulp.series(
         'register',
         'config',
         'core',
+        (cb) => { cb() }
+    )
+)
+
+gulp.task('pages',
+    gulp.series(
+        'register',
+        'config',
+        gulp.parallel('pug', 'credit-icons'),
+        gulp.parallel('copy-publish', 'make-subfiles'),
+        'copy-f404',
+        'copy-docs',
+        'clean-dist-docs',
         (cb) => { cb() }
     )
 )
