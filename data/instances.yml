@@ -1,13 +1,4 @@
-
 - url: misskey.xyz
-  selected: true
-  langs:
-    - ja
-- url: msky.cafe
-  selected: true
-  langs:
-    - ja
-- url: msk.kirigakure.net
   selected: true
   langs:
     - ja
@@ -15,7 +6,7 @@
   selected: true
   langs:
     - ja
-- url: msky.tokyo
+- url: 7.distdn.org
   selected: true
   langs:
     - ja
@@ -23,18 +14,7 @@
   selected: true
   langs:
     - ja
-- url: mk.odakyu.app
-  langs:
-    - ja
-- url: misskey.site
-  selected: true
-  langs:
-    - ja
-- url: m.kigurumi.fun
-  selected: true
-  langs:
-    - ja
-- url: misskey.saibou.work
+- url: msk.kirigakure.net
   selected: true
   langs:
     - ja
@@ -42,16 +22,37 @@
   selected: true
   langs:
     - ja
-- url: mi-chan.work
+- url: misskey.site
+  selected: true
   langs:
     - ja
-- url: misskey.tmin.ml
+########################################
+- url: mk.kigurumi.fun
+  langs:
+    - ja
+- url: misskey.saibou.work
+  langs:
+    - ja
+- url: mi-chan.work
   langs:
     - ja
 - name: 'Misskey(Tor)'
   url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
   description: xps2氏が運営するTor上のインスタンス
   suspended: false
+  langs:
+    - ja
+- url: misskey.tmin.ml
+  langs:
+    - ja
+########################################
+- url: msky.tokyo
+  langs:
+    - ja
+- url: msky.cafe
+  langs:
+    - ja
+- url: mk.odakyu.app
   langs:
     - ja
 - url: misskey.wtf

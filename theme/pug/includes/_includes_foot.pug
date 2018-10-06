@@ -1,4 +1,5 @@
-script(src=`${site.url.path}/assets/pjax-api.min.js`)
+//- script(src=`${site.url.path}/assets/pjax-api.min.js`)
+script(src="https://cdn.jsdelivr.net/npm/pjax-api@3.23.0/dist/pjax-api.min.js")
 script.
   var Pjax = require('pjax-api').Pjax;
   new Pjax({  areas: ['#main, #breadcrumb, #mainnav, #updateTime', 'body'], update: { head: 'meta' }  });

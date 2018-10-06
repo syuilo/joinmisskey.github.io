@@ -157,22 +157,26 @@ mixin instancesList(o, colors)
               if(iinfo.stats.originalUsersCount)
                 - const users = iinfo.stats.originalUsersCount
                 .instance-infos-item.mr-2
-                  +fa_fw('users')
-                  | #{numeral(users).format(users >= 10000 ? '0.0a' : '0,0')}
+                  abbr(title=i18n('instance_users'))
+                    +fa_fw('users')
+                  |  #{numeral(users).format(users >= 10000 ? '0.0a' : '0,0')}
               if(iinfo.stats.originalNotesCount)
                 - const notes = iinfo.stats.originalNotesCount
                 .instance-infos-item.mr-2
-                  +fa_fw('pencil-alt')
-                  | #{numeral(notes).format(notes >= 10000 ? '0.0a' : '0,0')}
+                  abbr(title=i18n('instance_notes'))
+                    +fa_fw('pencil-alt')
+                  |  #{numeral(notes).format(notes >= 10000 ? '0.0a' : '0,0')}
               if(iinfo.meta.driveCapacityPerLocalUserMb)
                 .instance-infos-item.mr-2
-                  +fa_fw('hdd')
-                  | #{numeral(iinfo.meta.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
+                  abbr(title=i18n('instance_driveCapacityPerLocalUser'))
+                    +fa_fw('hdd')
+                  |  #{numeral(iinfo.meta.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
               if(iinfo.meta.version)
                 .instance-infos-item.mr-2 v#{iinfo.meta.version}
               if(iinfo.meta.maintainer)
                 .instance-infos-item
-                  +fa_fw('user-cog')
+                  abbr(title=i18n('instance_maintainer'))
+                    +fa_fw('user-cog')
                   |  #{iinfo.meta.maintainer.name}
     
     else

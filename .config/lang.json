@@ -64,6 +64,22 @@
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
             "en": "Service worker is working."
+        },
+        "instance_users": {
+            "ja": "登録アカウント数",
+            "en": "Accounts count"
+        },
+        "instance_notes": {
+            "ja": "投稿数",
+            "en": "Notes count"
+        },
+        "instance_driveCapacityPerLocalUser": {
+            "ja": "一人当たりドライブ容量",
+            "en": "Drive capacity per a local user"
+        },
+        "instance_maintainer": {
+            "ja": "管理者",
+            "en": "Maintainer"
         }
     }
 }

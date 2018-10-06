@@ -714,9 +714,9 @@ gulp.task('copy-publish',
         'copy-files',
         'copy-prebuildFiles',
         'copy-theme-static',
-        'copy-pjax',
-        'copy-bootstrapjs',
-        'copy-animatecss',
+//        'copy-pjax',
+//        'copy-bootstrapjs',
+//        'copy-animatecss',
         (cb) => { cb() }
     )
 )
