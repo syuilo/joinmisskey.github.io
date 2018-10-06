@@ -6,3 +6,4 @@ git push
 cd ../en
 git pull origin pages/ja
 git push
+cd ../..
