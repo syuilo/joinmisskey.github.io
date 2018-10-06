@@ -586,7 +586,7 @@ gulp.task('make-sw', (cb) => {
     const config = {
         'globDirectory': './dist/docs/',
         'globPatterns': [
-          '**/*.{css,js,png,jpeg,jpg,svg,gif}'
+          '**/*.{css,js}'
         ],
         'globIgnores': [],
         'swSrc': 'theme/js/sw.js',
@@ -755,7 +755,7 @@ gulp.task('pages',
         'register',
         'config',
         gulp.parallel('pug', 'credit-icons'),
-        gulp.parallel('copy-publish', 'make-subfiles'),
+        'make-subfiles',
         'copy-f404',
         'copy-docs',
         'clean-dist-docs',
