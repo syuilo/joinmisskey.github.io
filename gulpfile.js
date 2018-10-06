@@ -589,7 +589,6 @@ gulp.task('make-sw', (cb) => {
           '**/*.{css,js,png,jpeg,jpg,svg,gif}'
         ],
         'globIgnores': [],
-        'runtimeCaching': [],
         'swSrc': 'theme/js/sw.js',
         'swDest': 'dist/docs/service_worker.js'
      }
