@@ -19,7 +19,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/style.min.css",
-    "revision": "9f9efc79f90f773d7901513b6c17a0a2"
+    "revision": "83d0ec7475426a303550a21e94e6b8df"
   },
   {
     "url": "workbox-sw.js",
