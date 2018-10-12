@@ -1,3 +1,7 @@
+########################################
+###### インスタンスリスト        #######
+###### The List of Instances     #######
+########################################
 - url: misskey.xyz
   selected: true
   langs:
@@ -69,3 +73,16 @@
   description: ActivityPub対応SNSホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
   langs:
     - ja
+#
+##
+#########################################
+##
+#
+- url: social.galaxy.cat
+  selected: true
+  langs:
+    - en
+- url: tri.cash
+  selected: true
+  langs:
+    - en
