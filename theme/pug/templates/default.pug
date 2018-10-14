@@ -29,6 +29,8 @@ html(lang=locale)
       block seo
         meta(name="author" content=site.author)
         meta(name="generator" content="maqz")
+        if(page.attributes.noindex)
+          meta(name="robots" content="noindex,follow")
 
       block description
         -
