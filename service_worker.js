@@ -11,11 +11,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/main.js",
-    "revision": "f0b1d3812219ba82fd7c8fabc622ea3d"
+    "revision": "e9f94a8a4bf2e38ca8a2bca15946595d"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "e11d9c12f7cf0835f1b26a69a9439d08"
+    "revision": "6e73da7daf1e5bcd3d7bbd32961c02ee"
   },
   {
     "url": "assets/style.min.css",

@@ -937,7 +937,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		if (window.location.search.indexOf('moved') >= 0) {
 			history.replaceState(null, null, window.location.href.replace(/\?.*$/, ""));
 		}
-		$('.collapse').collapse('hide');
 	});
 
 	/***/
