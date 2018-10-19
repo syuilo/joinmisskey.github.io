@@ -79,13 +79,19 @@ module.exports = async (site, src, urlPrefix) => {
             if(subdir != '') page.meta.permalink = `/${subdir}/${page.meta.src.name}`
             else page.meta.permalink = `/${page.meta.src.name}`
         } else { page.meta.permalink = page.attributes.permalink }
-        page.meta.url = require('url').parse(`${urlPrefix}${page.meta.permalink}`)
-        if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = 'default'
-        if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = true
-        if( page.attributes.draft === undefined || page.attributes.draft === null ) page.attributes.draft = false
         if( page.meta.permalink.indexOf('/') != 0 ) page.meta.permalink = '/' + page.meta.permalink
         if( page.meta.permalink.lastIndexOf('index') == page.meta.permalink.length - 5 && page.meta.permalink.indexOf('index') != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
+
+
+        page.meta.dirs = page.meta.permalink.split("/")
+        page.meta.locale = (page.meta.dirs.length < 3 || page.meta.dirs[1] == "404") ? false : page.meta.dirs[1]
+        page.meta.url = require('url').parse(`${urlPrefix}${page.meta.permalink}`)
+
+        if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = 'default'
+        if( page.attributes.published === undefined || page.attributes.published === null ) page.attributes.published = true
+        if( page.attributes.draft === undefined || page.attributes.draft === null ) page.attributes.draft = false
+
         if( typeof page.attributes.categories === 'string' ) page.attributes.categories = page.attributes.categories.split(' ')
         if( typeof page.attributes.tags === 'string' ) page.attributes.tags = page.attributes.tags.split(' ')
         if( typeof page.attributes.category === 'string' ){
@@ -96,9 +102,6 @@ module.exports = async (site, src, urlPrefix) => {
             page.attributes.tags = page.attributes.tag.split(' ')
             delete page.attributes.tag
         }
-
-        page.meta.dirs = page.meta.permalink.split("/")
-        page.meta.locale = (page.meta.dirs.length < 3 || page.meta.dirs[1] == "404") ? false : page.meta.dirs[1]
 
         return page
     }
