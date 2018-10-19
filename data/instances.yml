@@ -86,3 +86,7 @@
   selected: true
   langs:
     - en
+- url: misskey.nl
+  selected: true
+  langs:
+    - en

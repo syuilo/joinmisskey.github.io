@@ -11,5 +11,4 @@ window.addEventListener('pjax:load', function(){
   if (window.location.search.indexOf('moved') >= 0) {
     history.replaceState(null, null, window.location.href.replace(/\?.*$/,""))
   }
-  $('.collapse').collapse('hide')
 })
