@@ -3,7 +3,7 @@ importScripts('/workbox-sw.js');
 workbox.precaching.precacheAndRoute([
   {
     "url": "assets/fontawesome.min.css",
-    "revision": "68ee62db13e0ab881b065e170e1ebbe1"
+    "revision": "f0b1890618292b4c829eb3e9c9493ef5"
   },
   {
     "url": "assets/jquery.slim.min.js",
@@ -11,15 +11,15 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/main.js",
-    "revision": "e9f94a8a4bf2e38ca8a2bca15946595d"
+    "revision": "92b17c994b8dcc24747a64d90f5904ec"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "6e73da7daf1e5bcd3d7bbd32961c02ee"
+    "revision": "b946d64429a30c3ab0547f3c0219f4ed"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "976e4655e702b9cccd0f525c7ce131d4"
+    "revision": "e24f29347b9a8a19db7afdf85ba15943"
   },
   {
     "url": "workbox-sw.js",
