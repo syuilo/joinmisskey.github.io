@@ -2,7 +2,7 @@
 title: "最近の更新 ～10.11.1"
 description: 
 layout: blog
-date: 2018-10-27T04:30:00+09:00
+date: 2018-10-27T07:00:00+09:00
 thumbnail: /files/images/imports/2018/08/115.jpg
 author:
   name: aqz
