@@ -136,7 +136,7 @@ mixin instancesList(o, colors)
         - let s = iinfo && iinfo.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .6), rgba(${lgrgb}, .9)), url('${iinfo.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
-            | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url}
+            | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="${c2} font-weight-normal"> - ${instance.url}</span>` : instance.url}
           p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
           .instance-infos.d-flex.flex-wrap.small(class=c2)
             if(iinfo)
