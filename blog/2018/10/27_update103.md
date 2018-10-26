@@ -27,7 +27,7 @@ amp: true
 - オブジェクトストレージのファイル名を変更 [*](https://github.com/syuilo/misskey/commit/cfbb6e8092e7579385d0e31dfe44e8dab57f2add), [*](https://github.com/syuilo/misskey/commit/704e217dbbcd30a75667670d99bb1a01eaee2442)
 - HSTSをオプションに [*](https://github.com/syuilo/misskey/commit/61f86dcb2b9cec8d55cf6a77f592ba359ff8b52b)
 - デッキでユーザーなどのオブジェクトをクリックしたとき、新しいカラムに表示するように [#2930](https://github.com/syuilo/misskey/pull/2933), [*](https://github.com/syuilo/misskey/commit/77ddd778be3346dac0decf60c1156fde636416cb)
-  * 設定で無効化可能。*デッキを幅いっぱいに使っている私にとっては個人的に大嫌いな機能。*
+  * 設定で無効化可能。
 - 未読の投稿をすべて既読にできるように [*](https://github.com/syuilo/misskey/commit/fb5f6fdc103e83652415a3f1379a01f1fb487585)
 - デッキのカラムを左揃えか中央揃えか選択できるように [*](https://github.com/syuilo/misskey/commit/6c1f1ffdb1f0af467def794025f09eb5b75b2546)
 - デッキをデフォルトのUIにできるように [*](https://github.com/syuilo/misskey/commit/f14c372f5e051c4d1520776a8d306bf673900477)
@@ -42,7 +42,6 @@ amp: true
 - ユニークインクリメント(統計) [*](https://github.com/syuilo/misskey/commit/6cccd9d2885af94277070056c8f00cb7a87c3a05)
 - ユーザーごとの統計
 - **…という感じで統計がよりパワーアップした**
-  * *統計より先にブロック機能やアカウント削除機能を実装してほしいんだけどなぁ……*
 - ドライブファイルをオブジェクトストレージ保存時にファイル名が提供されていなくても、MIMEから拡張子を付ける [#2979](https://github.com/syuilo/misskey/pull/2979)
 - ドライブ内の特定のファイルが使われている投稿を一覧する機能(APIのみ) [*](https://github.com/syuilo/misskey/commit/19af2d7a7ba3b582fd321bd202701d07d2e12f03)
 - ドライブのフォルダーの削除 [*](https://github.com/syuilo/misskey/commit/9f981d875afef35329268e6a7dc5d35d8a854c72), [*](https://github.com/syuilo/misskey/commit/fc372496da7925887667dcc51236e52490bbe3ae)
