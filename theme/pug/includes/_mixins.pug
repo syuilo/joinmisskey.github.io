@@ -108,8 +108,9 @@ mixin mfm_example(src)
 mixin instancesList(o, colors)
   .instances-list.list-group
     -
-      let c = colors ? `text-${colors[0]} bg-${colors[1]}` : ''
-      let lgrgb = colors && colors[2] == 'dark' ? '52, 58, 64' : '255, 255, 255'
+      let c = colors ? `text-${colors[0]} bg-${colors[2]}` : ''
+      let c2 = colors ? `text-${colors[1]}` : 'text-muted'
+      let lgrgb = colors && colors[3] == 'dark' ? '52, 58, 64' : '255, 255, 255'
     each instance, r in instances
       -
         let iinfo = instancesInfos[r]
@@ -137,7 +138,7 @@ mixin instancesList(o, colors)
           h4.jm-h4.noindex
             | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url}
           p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
-          .instance-infos.d-flex.flex-wrap.text-muted.small
+          .instance-infos.d-flex.flex-wrap.small(class=c2)
             if(iinfo)
               if(!iregi)
                 abbr(title=i18n('instance_registrationDisabled'))
@@ -182,7 +183,7 @@ mixin instancesList(o, colors)
                 else
                   abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
                     +fa_fw('bell')
-          .instance-infos.d-flex.flex-wrap.text-muted.small
+          .instance-infos.d-flex.flex-wrap.small(class=c2)
             if(iinfo)
               if(iinfo.stats.originalUsersCount)
                 - const users = iinfo.stats.originalUsersCount
