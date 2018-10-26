@@ -41,29 +41,57 @@
             "ja": "新規登録拒否",
             "en": "Registration is disabled."
         },
+        "instance_registrationEnabled": {
+            "ja": "新規登録可",
+            "en": "Registration is enabled."
+        },
         "instance_localTimeLineDisabled": {
             "ja": "ローカルタイムライン無効",
             "en": "Local time line is disabled."
+        },
+        "instance_localTimeLineEnabled": {
+            "ja": "ローカルタイムライン有効",
+            "en": "Local time line is enabled."
         },
         "instance_elasticsearchEnabled": {
             "ja": "検索機能を利用可能",
             "en": "Search functition is enabled."
         },
+        "instance_elasticsearchDisabled": {
+            "ja": "検索機能は利用不可",
+            "en": "Search functition is disabled."
+        },
         "instance_recaptchaEnabled": {
             "ja": "reCAPTCHAが有効",
             "en": "reCAPTCHA is enabled."
+        },
+        "instance_recaptchaDisabled": {
+            "ja": "reCAPTCHAが無効",
+            "en": "reCAPTCHA is disabled."
         },
         "instance_objectStorageEnabled": {
             "ja": "オブジェクトストレージを利用",
             "en": "This instance using object storage."
         },
+        "instance_objectStorageDisabled": {
+            "ja": "オブジェクトストレージを不使用",
+            "en": "This instance not using object storage."
+        },
         "instance_twitterEnabled": {
             "ja": "Twitter連携を利用可能",
             "en": "Twitter connection is enabled."
         },
+        "instance_twitterDisabled": {
+            "ja": "Twitter連携を利用負荷",
+            "en": "Twitter connection is disabled."
+        },
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
             "en": "Service worker is working."
+        },
+        "instance_serviceWorkerDisabled": {
+            "ja": "通知を常時配信負荷",
+            "en": "Service worker is not working."
         },
         "instance_users": {
             "ja": "登録アカウント数",

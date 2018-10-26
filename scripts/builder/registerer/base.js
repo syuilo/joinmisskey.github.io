@@ -159,10 +159,12 @@ module.exports = async (site, keys, temp_dir, instances) => {
         patrons = patrons.reverse()
     }
 
-    const creditIcons = await Promise.all(promises)
+    const promises2 = await Promise.all([Promise.all(promises), getInstancesInfos(instances), getAmpCss()])
 
-    const instancesInfos = await getInstancesInfos(instances)
-    const ampcss = await getAmpCss()
+    const creditIcons = promises2[0]
+    const instancesInfos = promises2[1]
+    const ampcss = promises2[2]
+
     return {
         instancesInfos,
         patrons,

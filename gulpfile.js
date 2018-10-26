@@ -286,27 +286,43 @@ function regheadings(htm){
     return headings
 }
 
+function searchSidebar(pathe){
+    let searchin
+    if(pathe.dir == "") searchin = `${pathe.dir}sidebar.pug`
+    else searchin = `${pathe.dir}/sidebar.pug`
+    if(existFile(searchin)){
+        return searchin
+    } else {
+        // const uppath = path.parse(pathe.dir)
+        // searchSidebar(uppath)
+        return "pages/sidebar.pug"
+    }
+}
+
 gulp.task('pug', async () => {
     const stream = []
     for (let page of pages) {
-        const data = extend(true, {
-                page
+        const puglocals = extend(true,
+            {
+                page,
+                filters: pugfilters
             }, base)
-        const pugoptions = {
-            data: data,
-            filters: pugfilters
-        }
         let layout = page.attributes.layout
         let template = '', amptemplate = ''
         if(existFile(`theme/pug/templates/${layout}.pug`)) template += `theme/pug/templates/${layout}.pug`
         else if(existFile(`theme/pug/templates/${site.default.template}.pug`)) template += `theme/pug/templates/${site.default.template}.pug`
         else throw Error('default.pugが見つかりませんでした。')
 
+        if(site.sidebar){
+            let sidebarHTML = pug.renderFile( searchSidebar(page.meta.src), puglocals)
+            puglocals.sidebarHTML = sidebarHTML
+        }
+
         let main_html
         switch(page.meta.src.ext){
             case '.md':
                 main_html = require("kramed")(page.body)
-                main_html = betterMarkdown(main_html, site.url.path)
+                main_html = betterMarkdown(main_html, urlPrefix)
                 // main_html = maly(main_html)
                 main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
                 break
@@ -316,22 +332,22 @@ gulp.task('pug', async () => {
                 break
             case '.pug':
                 try {
-                    main_html = pugit(page.body, extend(true, {filter: pugfilters}, data))
+                    main_html = pugit(page.body, puglocals)
                 } catch(e) {
                     console.log(`Error: ${page.meta.permalink}`)
                     throw Error(e)
                 }
-                if (page.attributes.improve) main_html = betterMarkdown(main_html, site.url.path)
+                if (page.attributes.improve) main_html = betterMarkdown(main_html, urlPrefix)
                 break
         }
         main_html = require('./scripts/highl')(main_html)
-        pugoptions.data.main_html = main_html
-        pugoptions.data.headings = regheadings(main_html)
+        puglocals.main_html = main_html
+        puglocals.headings = regheadings(main_html)
 
         stream.push(
         // stream.add(
             gulp.src(template)
-                .pipe($.pug(pugoptions))
+                .pipe($.pug({ locals: puglocals }))
                 .pipe($.rename(`${page.meta.permalink}index.html`))
                 .pipe(gulp.dest( dests.root ))
                 .on('end',() => {
@@ -350,18 +366,21 @@ gulp.task('pug', async () => {
             if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
-            const newoptions = extend(true, { data: { isAmp: true, main_html: toamp(main_html, base) }}, pugoptions)
+            const newoptions = extend(true,
+                {isAmp: true, main_html: toamp(puglocals.main_html, base)},
+                puglocals
+            )
             stream.push(
             // stream.add(
                 gulp.src(amptemplate)
-                    .pipe($.pug(newoptions))
+                    .pipe($.pug({ locals: newoptions }))
                     .pipe($.rename(`${page.meta.permalink}amp.html`))
                     .pipe(gulp.dest( dests.root ))
                     .on('end',() => {
                         // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
                     })
                     .on('error', (err) => {
-                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
+                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink} (amp)`))
                         $.util.log($.util.colors.red(err))
                     })
             )
@@ -803,7 +822,7 @@ gulp.task('watch', (cb) => {
 
 gulp.task('connect', () => {
     $.connect.server({
-        port: '8088',
+        port: '8084',
         root: 'docs',
         livereload: true
     })

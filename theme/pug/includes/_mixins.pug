@@ -107,51 +107,81 @@ mixin mfm_example(src)
 
 mixin instancesList(o, colors)
   .instances-list.list-group
-    - let c = colors ? `text-${colors[0]} bg-${colors[1]}` : ''
+    -
+      let c = colors ? `text-${colors[0]} bg-${colors[1]}` : ''
+      let lgrgb = colors && colors[2] == 'dark' ? '52, 58, 64' : '255, 255, 255'
     each instance, r in instances
       -
         let iinfo = instancesInfos[r]
         let ilang = instance.langs ? instance.langs.some(e => e == locale) : true
+        let iregi = iinfo && (iinfo.meta.features ? iinfo.meta.features.registration : !iinfo.meta.disableRegistration)
         let itype = true
-        if (o == 'selected') {
-          itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && !!instance.selected
-        } else if (o =='nonselected'){
-          itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && !instance.selected
-        } else if (o == 'suspended'){
-          itype = (instance.suspended !== undefined ? instance.suspended : !iinfo)
+        switch(o){
+          case 'selected':
+            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && iregi && !!instance.selected
+            break
+          case 'nonselected':
+            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && iregi && !instance.selected
+            break
+          case 'suspended':
+            itype = (instance.suspended !== undefined ? instance.suspended : !iinfo)
+            break
+          case 'registration-closed':
+            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && !iregi
+            break
         }
+
       if(ilang && itype)
-        a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c).instance.list-group-item.list-group-item-action.flex-column.align-items-start
+        - let s = iinfo && iinfo.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .6), rgba(${lgrgb}, .9)), url('${iinfo.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
+        a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
             | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="text-muted font-weight-normal"> - ${instance.url}</span>` : instance.url}
           p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
           .instance-infos.d-flex.flex-wrap.text-muted.small
-            if( iinfo && iinfo.meta.features )
-              if( !iinfo.meta.features.registration )
+            if(iinfo)
+              if(!iregi)
                 abbr(title=i18n('instance_registrationDisabled'))
                   +fa_fw('lock')
-              if( !iinfo.meta.features.localTimeLine )
-                abbr(title=i18n('instance_localTimeLineDisabled'))
-                  +fa_fw('home')
-              if( iinfo.meta.features.elasticsearch )
-                abbr(title=i18n('instance_elasticsearchEnabled'))
-                  +fa_fw('search')
-              if( iinfo.meta.features.recaptcha )
-                abbr(title=i18n('instance_recaptchaEnabled'))
-                  +fa_fw('shield-alt')
-              if( iinfo.meta.features.objectStorage )
-                abbr(title=i18n('instance_objectStorageEnabled'))
-                  +fa_fw('cube')
-              if( iinfo.meta.features.twitter )
-                abbr(title=i18n('instance_twitterEnabled'))
-                  +fa_fw('twitter', 'fab')
-              if( iinfo.meta.features.serviceWorker )
-                abbr(title=i18n('instance_serviceWorkerEnabled'))
-                  +fa_fw('bell')
-            else
-              if( iinfo && iinfo.meta.disableRegistration )
-                abbr(title=i18n('instance_registrationDisabled'))
-                  +fa_fw('lock')
+              else
+                abbr(title=i18n('instance_registrationEnabled'))
+                  +fa_fw('lock-open')
+              if(iinfo.meta.features)
+                if( !iinfo.meta.features.localTimeLine )
+                  abbr(title=i18n('instance_localTimeLineDisabled')).opacity-050
+                    +fa_fw('comments')
+                else
+                  abbr(title=i18n('instance_localTimeLineEnabled'))
+                    +fa_fw('comments')
+                if( iinfo.meta.features.elasticsearch )
+                  abbr(title=i18n('instance_elasticsearchEnabled'))
+                    +fa_fw('search')
+                else
+                  abbr(title=i18n('instance_elasticsearchDisabled')).opacity-050
+                    +fa_fw('search')
+                if( iinfo.meta.features.recaptcha )
+                  abbr(title=i18n('instance_recaptchaEnabled'))
+                    +fa_fw('shield-alt')
+                else
+                  abbr(title=i18n('instance_recaptchaDisabled')).opacity-050
+                    +fa_fw('shield-alt')
+                if( iinfo.meta.features.objectStorage )
+                  abbr(title=i18n('instance_objectStorageEnabled'))
+                    +fa_fw('cube')
+                else
+                  abbr(title=i18n('instance_objectStorageDisabled')).opacity-050
+                    +fa_fw('cube')
+                if( iinfo.meta.features.twitter )
+                  abbr(title=i18n('instance_twitterEnabled'))
+                    +fa_fw('twitter', 'fab')
+                else
+                  abbr(title=i18n('instance_twitterDisabled')).opacity-050
+                    +fa_fw('twitter', 'fab')
+                if( iinfo.meta.features.serviceWorker )
+                  abbr(title=i18n('instance_serviceWorkerEnabled'))
+                    +fa_fw('bell')
+                else
+                  abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
+                    +fa_fw('bell')
           .instance-infos.d-flex.flex-wrap.text-muted.small
             if(iinfo)
               if(iinfo.stats.originalUsersCount)

@@ -1,9 +1,9 @@
 #nav
   nav
     &#mainnav
-      @media (min-width: map-get($grid-breakpoints, sm) + 0.0000000001)
+      @media (min-width: map-get($grid-breakpoints, md) + 0.0000000001)
         #navtoggle
-          text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7
+          text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 
           .nav-item
             height: 48px
@@ -22,17 +22,18 @@
         #navtoggle
           padding-left: calc((100% - 1300px) / 2)
 
-      @media (max-width: map-get($grid-breakpoints, sm))
+      @media (max-width: map-get($grid-breakpoints, md))
         #navtoggle
-          background-color: #595f6f
+          background-color: #fff
+          box-shadow: 0 1px 0 rgba(0, 0, 0, .075)
 
           .nav-item
             a.nav-link
-              color: #eee
+              color: rgba(0, 0, 0, 0.5)
 
             &.active
               a.nav-link
-                color: #fff
+                color: rgba(0, 0, 0, 0.9)
 
     .dropleft
       position: fixed

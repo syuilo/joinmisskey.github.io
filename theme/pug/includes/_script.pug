@@ -2,6 +2,7 @@ block script_preset
 
 block vals
   -
+    //console.log(`${isAmp}, ${!!page}, ${!!page.meta}, ${page.meta.permalink}`)
     const dirs = page.meta.dirs
     const locale = page.meta.locale
 
@@ -32,28 +33,6 @@ block requires
       require("@fortawesome/free-brands-svg-icons").fab
     )
 
-    //- let main_html
-//-
-    const pug_o = {
-        update,
-        site,
-        keys,
-        pages, 
-        page,
-        package, 
-        messages, 
-        option,
-        require, 
-        theme_pug,
-        instances,
-        instancesInfos,
-        patrons,
-        contributors,
-        ampcss,
-        'isSubcall': true,
-      filters: require('./pugfilters.js')
-    }
-
 block messages
   -
     function messenger(type, text, fallback){
@@ -61,53 +40,6 @@ block messages
       console.log(`in ${page.meta.permalink}`.gray)
     }
 block functions
-  //-
-    block pugit
-    -
-      function pugit(val){
-        try {
-          const res = pug_api.render(`${theme_pug.script}\n${theme_pug.mixin}\n${val}`, pug_o)
-          return res
-        } catch(e) {
-          console.log(`Error: ${page.meta.permalink}`)
-          throw Error(e)
-        }
-      }
-
-    block toamp
-    -
-      function toamp(htm){
-        let $ = cheerio.load(htm, {decodeEntities: false})
-
-        $('img[src]').each(function(){
-          let src    = $(this).attr('src')
-          let alt    = $(this).attr('alt')
-          let title  = $(this).attr('title')
-          let id     = $(this).attr('id')
-          let width  = $(this).attr('width')
-          let height = $(this).attr('height')
-
-            if( ( width === undefined || height === undefined ) && src.indexOf("files/") === 0 ){
-              const dims = sizeOf( src )
-              width = dims.width
-              height = dims.height
-              src = site.url.path + "/" + src
-            } else if( ( width === undefined || height === undefined ) && src.indexOf("/files/") === 0 ){
-              const dims = sizeOf( src.slice(1) )
-              width = dims.width
-              height = dims.height
-              src = site.url.path +src
-            } else {
-              console.log( messages.amp.invalid_imageUrl )
-            }
-
-          $(this).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
-        })
-        $('img').remove()
-        $('amp-img').attr('layout','responsive')
-        return $('body').html()
-      }
-
   block getTL
     -
       function getTL(val){
@@ -154,55 +86,3 @@ block functions
         }
         return res
       }
-
-//-
-  block make_html
-  //- make main html
-  if(!isSubcall)
-    case page.meta.src.ext
-      when '.md'
-        - main_html = kramed(page.body)
-        - main_html = require('./scripts/better_markdown')(main_html, site.url.path)
-        //- main_html = maly(main_html)
-        - main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-      when '.html'
-      when '.htm'
-        - main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-      when '.pug'
-        - main_html = pugit(page.body)
-        if (page.attributes.improve)
-          - main_html = require('./scripts/better_markdown')(main_html, site.url.path)
-
-
-
-//-block amp
-  - 
-    if(amp && !isSubcall){
-      main_html = toamp(main_html)
-    }
-
-//-block highlight
-  -
-    if(!isSubcall) main_html = require('./scripts/highl')(main_html)
-
-//-block listUp_hedings
-  -
-    let heading_html, headings = []
-    if(!isSubcall){
-      const reg_heading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi
-      while((heading_html = reg_heading.exec(main_html)) !== null){
-        let heading = {},
-            idmatch = []
-        idmatch = heading_html[2].match(/id=(["'])(.*?)(\1)/)
-        classmatch = heading_html[2].match(/class=(["'])(.*?)(\1)/)
-        if(idmatch == null)
-          heading.id = null
-        else
-          heading.id = idmatch[2]
-        heading.html     = heading_html[0]
-        heading.number   = heading_html[1]
-        heading.attr     = heading_html[2]
-        heading.text     = heading_html[3]
-        if ( classmatch == null || classmatch[2].indexOf('noindex') == -1 ) headings.push(heading)
-      }
-    }

@@ -4,35 +4,7 @@ const promisify = require('util').promisify
 const extend = require('extend')
 
 const getHash = require('../../gethash')
-/*
-function getTL(val){
-    let result
-    eval("result = `" + val + "`")
-    return result
-}
 
-function existFile(file) {
-    try {
-        fs.statSync(file)
-        return true
-    } catch(e) {
-        if(e.code === 'ENOENT') return false
-    }
-}
-
-function searchSidebar(pathe){
-    let searchin
-    if(pathe.dir == "") searchin = `${pathe.dir}sidebar.pug`
-    else searchin = `${pathe.dir}/sidebar.pug`
-    if(existFile(searchin)){
-        return searchin
-    } else {
-        const uppath = path.parse(pathe.dir)
-        searchSidebar(uppath)
-        return "pages/ja/sidebar.pug"
-    }
-}
-*/
 module.exports = async (site, src, urlPrefix) => {
     let promises = []
     const srcs = require('glob').sync(src.pages)
@@ -82,7 +54,6 @@ module.exports = async (site, src, urlPrefix) => {
         if( page.meta.permalink.indexOf('/') != 0 ) page.meta.permalink = '/' + page.meta.permalink
         if( page.meta.permalink.lastIndexOf('index') == page.meta.permalink.length - 5 && page.meta.permalink.indexOf('index') != -1 ) page.meta.permalink = page.meta.permalink.slice(0,-5)
         else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
-
 
         page.meta.dirs = page.meta.permalink.split("/")
         page.meta.locale = (page.meta.dirs.length < 3 || page.meta.dirs[1] == "404") ? false : page.meta.dirs[1]

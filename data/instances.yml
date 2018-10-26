@@ -4,75 +4,75 @@
 ########################################
 - url: misskey.xyz
   selected: true
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.jp
   selected: true
-  langs:
-    - ja
-- url: 7.distdn.org
-  selected: true
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.m544.net
   selected: true
-  langs:
-    - ja
+  langs: ['ja']
 - url: msk.kirigakure.net
   selected: true
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.xps2.net
   selected: true
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.site
   selected: true
-  langs:
-    - ja
+  langs: ['ja']
 ########################################
 - url: msky.tokyo
-  langs:
-    - ja
+  langs: ['ja']
 - url: mk.kigurumi.fun
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.saibou.work
-  langs:
-    - ja
+  langs: ['ja']
 - url: mi-chan.work
-  langs:
-    - ja
+  langs: ['ja']
 - name: 'Misskey(Tor)'
   url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
   description: xps2氏が運営するTor上のインスタンス
   suspended: false
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.tmin.ml
-  langs:
-    - ja
+  langs: ['ja']
+- url: misskey.wairanokoya.com
+  langs: ['ja']
+- url: misskey.nokotaro.com
+  langs: ['ja']
+- url: 7.distsn.org
+  langs: ['ja']
+- url: yuzulia.xyz
+  langs: ['ja']
+- url: msky.jnsk.info
+  langs: ['ja']
+- url: re.kirishima.cloud
+  langs: ['ja']
+- url: diary.yukimochi.jp
+  langs: ['ja']
+- url: misskey.barippi.com
+  langs: ['ja']
+- url: xn--6r8h.tk
+  langs: ['ja']
+- url: misskey.nana.sh
+  langs: ['ja']
+- url: mewl.me
+  langs: ['ja']
+- url: misskey.love
+  langs: ['ja']
 ########################################
 - url: msky.cafe
-  langs:
-    - ja
+  langs: ['ja']
 - url: mk.odakyu.app
-  langs:
-    - ja
+  langs: ['ja']
 - url: misskey.wtf
-  description: 神崎おにいさん氏が一瞬だけ開設していたインスタンス
-  langs:
-    - ja
+  langs: ['ja']
 - name: misskeyちほー
   url: mk.kemono-friends.info
-  description: 「ますとどんちほー」のさばんちゃん氏が運営するインスタンス
-  langs:
-    - ja
+  langs: ['ja']
 - name: Misskey.血便レッド
   url: misskey.ketsuben.red
-  description: ActivityPub対応SNSホスティングサービスHostdonを運営するNaf氏が運営するインスタンス
-  langs:
-    - ja
+  langs: ['ja']
 #
 ##
 #########################################
@@ -80,13 +80,25 @@
 #
 - url: social.galaxy.cat
   selected: true
-  langs:
-    - en
+  langs: ['en']
 - url: tri.cash
   selected: true
-  langs:
-    - en
+  langs: ['en']
 - url: misskey.nl
   selected: true
-  langs:
-    - en
+  langs: ['en']
+- url: kawaii.social
+  selected: true
+  langs: ['en']
+- url: lifeisabug.com
+  selected: true
+  langs: ['en']
+- url: tri.cash
+  selected: true
+  langs: ['en']
+- url: trillion.city
+  selected: true
+  langs: ['en']
+- url: bongocats.town
+  selected: true
+  langs: ['en']
