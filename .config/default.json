@@ -20,7 +20,7 @@
     },
     "page_namingrule": "name",
     "theme_color": {
-        "primary": "#313a42",
+        "primary": "#f6584f",
         "secondary": "#888"
     },
     "default": {
@@ -55,6 +55,6 @@
     "ga": "UA-121612835-1",
     "manifest": {
         "start_url": "/",
-        "display": "standalone"
+        "display": "fullscreen"
     }
 }
