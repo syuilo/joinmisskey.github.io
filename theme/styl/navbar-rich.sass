@@ -1,7 +1,7 @@
 #nav
   nav
     &#mainnav
-      @media (min-width: map-get($grid-breakpoints, md) + 0.0000000001)
+      @media (min-width: map-get($grid-breakpoints, md))
         #navtoggle
           text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff
 
@@ -18,11 +18,11 @@
               border-bottom: 3px solid $primary
               border-top: 3px solid transparent
 
-      @media (min-width: map-get($grid-breakpoints, lg) + 0.0000000001)
+      @media (min-width: map-get($grid-breakpoints, lg))
         #navtoggle
           padding-left: calc((100% - 1300px) / 2)
 
-      @media (max-width: map-get($grid-breakpoints, md))
+      @media (max-width: map-get($grid-breakpoints, md) - 0.02)
         #navtoggle
           background-color: #fff
           box-shadow: 0 1px 0 rgba(0, 0, 0, .075)

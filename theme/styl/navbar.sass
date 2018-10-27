@@ -8,7 +8,7 @@
   box-shadow: rgba(0, 0, 0, .2) 0 0 8px
   border: none
 
-  @media (max-width: map-get($grid-breakpoints, md))
+  @media (max-width: map-get($grid-breakpoints, md) - 0.02)
     box-shadow: 0 1px 0 rgba(0, 0, 0, .075)
 
   nav
@@ -28,7 +28,7 @@
         border-right: 1px solid $gray-300
         background: transparent
 
-        @media (max-width: map-get($grid-breakpoints, md))
+        @media (max-width: map-get($grid-breakpoints, md) - 0.02)
           border-right: solid 1px rgba(0,0,0,0.1)
 
           svg
@@ -63,8 +63,10 @@
             color: rgba(0,0,0,0.9)
 
 #main
-  margin-top: calc(81px + 1.6rem)
-  margin-bottom: 1.6rem
+  margin: 81px 0 0 0
+  @media (min-width: map-get($grid-breakpoints, sm))
+    margin-top: calc(81px + 1.6rem)
+    margin-bottom: 1.6rem
 
 #footer
   box-shadow: rgba(0,0,0,0.2) 0 0 8px
