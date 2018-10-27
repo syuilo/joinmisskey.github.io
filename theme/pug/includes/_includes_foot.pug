@@ -18,7 +18,7 @@ script.
     }
   }
 
-  if(current_locale != "false"){
+  if(current_locale != "false" || window.location.pathname == "/#{site.url.path}"){
     if (window.location.search.indexOf('moved') == -1){
       if (locales.indexOf(user_language) >= 0){
         move_locale(user_language)

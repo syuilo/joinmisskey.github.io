@@ -29,9 +29,9 @@
             "ja": "いません！",
             "en": "Nobody"
         },
-        "little_backer": {
-            "ja": "少額支援",
-            "en": "Little backer"
+        "the_other_backers": {
+            "ja": "ティア外",
+            "en": "Out of Tiers"
         },
         "update%0": {
             "ja": "%0 更新",

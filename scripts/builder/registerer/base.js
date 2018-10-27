@@ -114,7 +114,7 @@ module.exports = async (site, keys, temp_dir, instances) => {
         patrons.push(
             {
                 title: "the Others",
-                titles: site.i18n.little_backer,
+                titles: site.i18n.the_other_backers,
                 lv: 0,
                 members: []
             }
@@ -152,7 +152,7 @@ module.exports = async (site, keys, temp_dir, instances) => {
                 promises.push(downloadTemp(`patreon/${member.id}`, member.attributes.thumb_url, temp_dir))
             }
             tier.members.sort((a, b) => {
-                return b.currently_entitled_amount_cents - a.currently_entitled_amount_cents
+                return b.lifetime_support_cents - a.lifetime_support_cents
             })
         }
     

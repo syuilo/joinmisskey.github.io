@@ -7,20 +7,20 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
       +fa("bars", "fas")
     .collapse.navbar-collapse#navtoggle
       ul.navbar-nav.mr-auto.mt-lg-0.ml-3.ml-md-0
-        li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale}/` ? "active" : "" ))
-          a.nav-link(href=`/${locale}/`)
+        li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale ? locale : 'ja'}/` ? "active" : "" ))
+          a.nav-link(href=`/${locale ? locale : 'ja'}/`)
             +fa_fw("home")
             span.d-inline.d-md-none.d-lg-inline
               |  
               +i18n("home")
-        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/blog/`) == 0 ? "active" : "" ))
-          a.nav-link(href=`/${locale}/blog/`)
+        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale ? locale : 'ja'}/blog/`) == 0 ? "active" : "" ))
+          a.nav-link(href=`/${locale ? locale : 'ja'}/blog/`)
             +fa_fw("broadcast-tower")
             span.d-inline.d-md-none.d-lg-inline
               |  
               +i18n("blog")
-        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale}/wiki/`) == 0 ? "active" : "" ))
-          a.nav-link(href=`/${locale}/wiki/`)
+        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale ? locale : 'ja'}/wiki/`) == 0 ? "active" : "" ))
+          a.nav-link(href=`/${locale ? locale : 'ja'}/wiki/`)
             +fa_fw("book")
             span.d-inline.d-md-none.d-lg-inline
               |  
@@ -49,9 +49,9 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
     ol.breadcrumb.bg-transparent.text-primary.my-0.mx-md-5.mx-1.py-1.px-0
       if( dirs.length > 3 )
         li.breadcrumb-item
-          a(href=`${site.url.path}/${locale}/`).py-1.text-primary
+          a(href=`${site.url.path}/${locale ? locale : 'ja'}/`).py-1.text-primary
             +fa_fw("home","fas")
-        - let dirpl = `/${locale}/`
+        - let dirpl = `/${locale ? locale : 'ja'}/`
         - for( let i = 2; i < dirs.length - 1; i++){                // i = 3 の場合
         -   let nowdir = dirs[i]                                    // "bar"
         -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/

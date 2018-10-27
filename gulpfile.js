@@ -574,9 +574,9 @@ gulp.task('download-highlighter', (cb) => {
     cb()
 })
 
-gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git']).then(cb()) } )
-gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*').then(cb()) } )
-gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*').then(cb()) } )
+gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git'], {dot: true}).then(cb()) } )
+gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*', {dot: true}).then(cb()) } )
+gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*', {dot: true}).then(cb()) } )
 
 gulp.task( 'debug-override', (cb) => {
     site = extend(true,site,require('./.config/debug_override.json'))
