@@ -59,14 +59,13 @@
           width: -webkit-max-content
           width: -moz-max-content
 
-          button
-            color: rgba(0,0,0,0.9)
-
 #main
   margin: 81px 0 0 0
-  @media (min-width: map-get($grid-breakpoints, sm))
-    margin-top: calc(81px + 1.6rem)
-    margin-bottom: 1.6rem
+
+  &.padding
+    @media (min-width: map-get($grid-breakpoints, sm))
+      margin-top: calc(81px + 1.6rem)
+      margin-bottom: 1.6rem
 
 #footer
   box-shadow: rgba(0,0,0,0.2) 0 0 8px
