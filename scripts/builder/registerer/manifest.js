@@ -12,6 +12,7 @@ module.exports = (site) => {
         'start_url': site.url.path,
         'background_color': site.theme_color.primary
     }
-    manifest = require('extend')(true,manifest,site.manifest)
+    let push7man = site.push7 ? site.push7.manifest : {}
+    manifest = require('extend')(true,push7man,manifest,site.manifest)
     return manifest
 }

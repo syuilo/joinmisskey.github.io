@@ -584,52 +584,26 @@ gulp.task( 'debug-override', (cb) => {
 })
 
 gulp.task('make-sw', (cb) => {
-    // twbs/bootstrapより借用
-
-    const buildPrefix = 'dist/docs/'
-    const config = {
-        'globDirectory': './dist/docs/',
-        'globPatterns': [
-          '**/*.{css,js}'
-        ],
-        'globIgnores': [],
-        'swSrc': 'theme/js/sw.js',
-        'swDest': 'dist/docs/service_worker.js'
-     }
-
-    const wbFileName = path.basename(workboxSWSrcPath)
-    const workboxSWDestDir = `${buildPrefix}/`
-    const workboxSWDestPath = `${workboxSWDestDir}${wbFileName}`
-    const workboxSWWrite = `${site.url.path}/${wbFileName}`
-    const workboxSWSrcMapPath = `${workboxSWSrcPath}.map`
-    const workboxSWDestMapPath = `${workboxSWDestPath}.map`
-
-    fs.createReadStream(workboxSWSrcPath).pipe(fs.createWriteStream(workboxSWDestPath))
-    fs.createReadStream(workboxSWSrcMapPath).pipe(fs.createWriteStream(workboxSWDestMapPath))
-    /*
-    const updateUrl = (manifestEntries) => manifestEntries.map((entry) => {
-    if (entry.url.startsWith(buildPrefix)) {
-        const regex = new RegExp(buildPrefix, 'g')
-        entry.url = entry.url.replace(regex, '')
-    }
-    return entry
+    const destName = site.push7 ? "push7-worker" : "service_worker"
+        let res =
+`/* workbox */
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+workbox.routing.registerRoute(
+    /.*\.(?:js|css)/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'assets-cache',
     })
-
-    config.manifestTransforms = [updateUrl]
-    */
-    workboxBuild.injectManifest(config).then(() => {
-        const wbSwRegex = /{path}/g
-        fs.readFile(config.swDest, 'utf8', (err, data) => {
-            if (err) {
-                throw err
-            }
-            const swFileContents = data.replace(wbSwRegex, workboxSWWrite)
-            fs.writeFile(config.swDest, swFileContents, () => {
-                $.util.log($.util.colors.green(`✔ service_worker.js`)); cb()
-                cb()
-            })
+);`
+        if(site.push7){
+            res +=
+`
+/* push7 */
+importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");`
+        }
+        fs.writeFile(`${dests.root}/${destName}.js`, res, () => {
+            $.util.log($.util.colors.green(`✔ ${destName}.js`))
+            cb()
         })
-    })
 })
 
 gulp.task('make-manifest', (cb) => {
