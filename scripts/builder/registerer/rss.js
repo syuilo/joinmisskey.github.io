@@ -20,13 +20,13 @@ module.exports = (base, lang) => {
         <description><![CDATA[${base.site.descriptions ? base.site.descriptions[lang] : base.site.description}]]></description>
         <dc:language>${lang}</dc:language>
         <dc:rights>Copyright (c) ${base.site.author}</dc:rights>
-        <dc:date>${base.update}</dc:date>
+        <dc:date>${base.update.toJSON()}</dc:date>
         <items>
             <rdf:Seq>
 `
     for(let qp of qpages){
         res +=
-`               <rdf:li rdf:resource="${base.urlPrefix}/${lang}${qp.meta.permalink}?ref=rss"/>
+`               <rdf:li rdf:resource="${base.urlPrefix}${qp.meta.permalink}?ref=rss"/>
 `
     }
     res +=
@@ -36,11 +36,11 @@ module.exports = (base, lang) => {
 `
     for(let qp of qpages){
         res +=
-`   <item rdf:about="${base.urlPrefix}/${lang}${qp.meta.permalink}?ref=rss">
+`   <item rdf:about="${base.urlPrefix}${qp.meta.permalink}?ref=rss">
         <title><![CDATA[${qp.attributes.title}]]></title>
-        <link>${base.urlPrefix}/${lang}${qp.meta.permalink}?ref=rss</link>
+        <link>${base.urlPrefix}${qp.meta.permalink}?ref=rss</link>
         <dc:date>${qp.meta.mtime}</dc:date>
-        <description><![CDATA[${qp.meta.description}]]></description>
+        <description><![CDATA[${qp.attributes.description}]]></description>
     </item>
 `
     }
