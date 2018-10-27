@@ -4,6 +4,13 @@ script.
   var Pjax = require('pjax-api').Pjax;
   new Pjax({  areas: ['#main, #breadcrumb, #mainnav, #updateTime', 'body'], update: { head: 'meta' }  });
 
+script(src="https://sdk.push7.jp/v2/p7sdk.js")
+script.
+  p7.init("b299cef0c1344d01bd04376429903362",{
+    mode:"native",
+    subscribe:"auto"
+  });
+
 script.
   var current_locale = "#{locale}";
   var user_language = window.navigator.language;

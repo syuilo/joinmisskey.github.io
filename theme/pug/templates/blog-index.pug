@@ -89,24 +89,25 @@ block title
 
 block main
 
-  #main.container.py-5.bg-white.main-shadow
-    h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
-    div
-      != getTL(main_html)
-    h2.font-weight-light.h3= headline
+  #main
+    .container.py-5.bg-white.main-shadow
+      h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
+      div
+        != getTL(main_html)
+      h2.font-weight-light.h3= headline
 
-    #blog_index.d-flex.flex-row.row.m-0
-      each thispage in qpages
-        a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
-          article.card
-            if ( thispage.meta.thumbnail )
-              img.card-img-top(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.720${thispage.meta.thumbnail.ext}`)
-            h4.card-title #{thispage.attributes.title}
-            p.card-text.px-3 #{thispage.attributes.description}
-            - let birthtime = new Date(thispage.meta.birthtime)
-            - let mtime = new Date(thispage.meta.mtime)
-            footer.card-footer
-              div.mr-2
-                +fa_fw("clock")
-                time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')
-              +blog_badges(thispage)
+      #blog_index.d-flex.flex-row.row.m-0
+        each thispage in qpages
+          a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
+            article.card
+              if ( thispage.meta.thumbnail )
+                img.card-img-top(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.720${thispage.meta.thumbnail.ext}`)
+              h4.card-title #{thispage.attributes.title}
+              p.card-text.px-3 #{thispage.attributes.description}
+              - let birthtime = new Date(thispage.meta.birthtime)
+              - let mtime = new Date(thispage.meta.mtime)
+              footer.card-footer
+                div.mr-2
+                  +fa_fw("clock")
+                  time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')
+                +blog_badges(thispage)
