@@ -151,13 +151,13 @@ gulp.task('credit-icons', async () => {
             stream.push(
                 gulp.src(`${temp_dir}${v.name}.${v.ext}`)
                 .pipe($.imageResize({
+                    "format": "png",
                     "width": 140,
                     "height": 140,
                     "crop": true,
                     "upscale": false,
                     "cover": true,
                     "sharpen": "0x0.75+0.75+0.008",
-                    "format": "png",
                     "imageMagick": true
                 }))
                 .pipe($.image({
@@ -173,6 +173,7 @@ gulp.task('credit-icons', async () => {
                 }))
                 .pipe(gulp.dest('dist/files/images/credit'))
                 .on('end',() => {
+                    $.util.log($.util.colors.green(`✔ ${v.name}.${v.ext}`))
                 })
                 .on('error', (err) => {
                     $.util.log($.util.colors.red(err))
