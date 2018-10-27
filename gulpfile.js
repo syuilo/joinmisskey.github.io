@@ -589,7 +589,7 @@ gulp.task('make-sw', (cb) => {
 `/* workbox */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 workbox.routing.registerRoute(
-    /.*\.(?:js|css)/,
+    /.*\.(?:js|css|png|jpeg|jpg|svg|svgz|woff2)/,
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'assets-cache',
     })
