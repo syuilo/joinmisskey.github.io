@@ -10,7 +10,6 @@ module.exports = (site) => {
         'short_name': site.short_name,
         'icons': icons,
         'start_url': site.url.path,
-        'theme_color': site.theme_color.primary,
         'background_color': site.theme_color.primary
     }
     manifest = require('extend')(true,manifest,site.manifest)
