@@ -92,23 +92,6 @@ let dests = {
     return fontawesome.icon({ prefix: ( prefix || "fas" ), iconName: icon },option).html[0]
 }*/
 
-/*
-function escape_html(val) {
-    if(typeof val !== 'string'){ return val }
-    return val.replace(/[&'`"<>]/g, function(match) {
-        return {
-            '&': '&amp;',
-            "'": '&#x27;',
-            '`': '&#x60;',
-            '"': '&quot;',
-            '<': '&lt;',
-            '>': '&gt;'
-        }[match]
-    })
-}
-*/
-
-
 let manifest = {},
     pages = [],
     base,
@@ -149,7 +132,7 @@ gulp.task('register', async cb => {
     cb()
 })
 
-gulp.task('config', (cb) => {
+gulp.task('config', () => {
     let resultObj = { options: '' }
     resultObj.timestamp = (new Date()).toJSON()
     resultObj = extend(true,resultObj, { 'pages' : pages })
@@ -185,7 +168,8 @@ gulp.task('credit-icons', async () => {
                 }))
                 .pipe($.rename({
                     "dirname": v.name.split('/')[0],
-                    "basename": v.name.split('/')[1]
+                    "basename": v.name.split('/')[1],
+                    "extname": ".png"
                 }))
                 .pipe(gulp.dest('dist/files/images/credit'))
                 .on('end',() => {
