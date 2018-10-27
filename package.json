@@ -6,7 +6,8 @@
   "scripts": {
     "build-files": "gulp prebuild-files",
     "build2deploy": "gulp",
-    "build-all": "gulp prebuild-files && gulp"
+    "build-all": "gulp prebuild-files && gulp",
+    "build-pages": "gulp "
   },
   "repository": {
     "type": "git",

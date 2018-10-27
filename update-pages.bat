@@ -1,0 +1,1 @@
+.\copy-ja %1 && npm run build-pages && .\push-ja %1
