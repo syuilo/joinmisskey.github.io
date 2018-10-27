@@ -1,6 +1,6 @@
 ---
 title: "最近の更新 ～10.33.0"
-description: 
+description: デッキ及び統計を中心に、様々な機能追加と不具合修正が行われました。
 layout: blog
 date: 2018-10-27T07:00:00+09:00
 thumbnail: /files/images/imports/2018/08/115.jpg

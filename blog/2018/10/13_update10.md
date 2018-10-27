@@ -1,6 +1,6 @@
 ---
 title: "最近の更新 ～10.11.1"
-description: 
+description: パフォーマンスの向上やサーバー設定の改良がメインです。
 layout: blog
 date: 2018-10-13T03:00:00+09:00
 thumbnail: /files/images/imports/2018/08/kiha110-3.jpg
