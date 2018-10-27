@@ -640,6 +640,14 @@ gulp.task('make-manifest', (cb) => {
     )
 })
 
+gulp.task('make-rss', (cb) => {
+    return writeFile( `dist/docs/feed.rdf`, require('./scripts/builder/registerer/rss')(base, 'ja'))
+    .then(
+        () => { $.util.log($.util.colors.green(`✔ feed.rdf`)) },
+        (err) => { $.util.log($.util.colors.red(`✖ feed.rdf`)); $.util.log(err) }
+    )
+})
+
 const browserconfigXml = () => {
     return `<?xml version='1.0' encoding='utf-8'?>
     <browserconfig>
@@ -728,6 +736,7 @@ gulp.task('make-subfiles',
     gulp.series(
         gulp.parallel(
             'make-manifest',
+            'make-rss',
             'make-browserconfig'
         ),
         (cb) => { cb() }

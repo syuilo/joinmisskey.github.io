@@ -45,10 +45,10 @@ html(lang=locale, amp)
 
       block includes_head
         link(rel="manifest" href=`${site.url.path}/manifest.json`)
+        link(rel="alternate" type="application/rss+xml" title=`${site.name} RSS` href=`${urlPrefix}/feed.rdf`)
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
-        link(rel="alternate", href=site.rss_url, type="application/atom+xml", title=(site.names[locale] || site.name))
 
       block og
         meta(property="og:type", content="website")

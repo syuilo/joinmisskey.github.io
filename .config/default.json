@@ -50,7 +50,7 @@
         },
         "share_button": true
     },
-    "rss_url": "https://github.com/joinmisskey/joinmisskey.github.io/commits/master.atom",
+    "rss": true,
     "disqus": false,
     "ga": "UA-121612835-1",
     "manifest": {
