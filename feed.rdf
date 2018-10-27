@@ -6,9 +6,10 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-10-27T13:05:14.366Z</dc:date>
+        <dc:date>2018-10-27T13:52:35.014Z</dc:date>
         <items>
             <rdf:Seq>
+               <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/28_jmupdate/?ref=rss"/>
                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/27_update103/?ref=rss"/>
                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/13_update10/?ref=rss"/>
                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/05_mias/?ref=rss"/>
@@ -52,17 +53,23 @@
            </rdf:Seq>
         </items>
     </channel>
+   <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/28_jmupdate/?ref=rss">
+        <title><![CDATA[joinmisskey更新]]></title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/10/28_jmupdate/?ref=rss</link>
+        <dc:date>2018-10-27T13:45:00.000Z</dc:date>
+        <description><![CDATA[見た目を新しいMisskeyと同じにしたり、RSSフィードを設置したりしました。]]></description>
+    </item>
    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/27_update103/?ref=rss">
         <title><![CDATA[最近の更新 ～10.33.0]]></title>
         <link>https://joinmisskey.github.io/ja/blog/2018/10/27_update103/?ref=rss</link>
         <dc:date>2018-10-26T22:00:00.000Z</dc:date>
-        <description><![CDATA[]]></description>
+        <description><![CDATA[デッキ及び統計を中心に、様々な機能追加と不具合修正が行われました。]]></description>
     </item>
    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/13_update10/?ref=rss">
         <title><![CDATA[最近の更新 ～10.11.1]]></title>
         <link>https://joinmisskey.github.io/ja/blog/2018/10/13_update10/?ref=rss</link>
         <dc:date>2018-10-12T18:00:00.000Z</dc:date>
-        <description><![CDATA[]]></description>
+        <description><![CDATA[パフォーマンスの向上やサーバー設定の改良がメインです。]]></description>
     </item>
    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/05_mias/?ref=rss">
         <title><![CDATA[Misskey Assets Store公開]]></title>

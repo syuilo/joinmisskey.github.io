@@ -1,5 +1,5 @@
+/* workbox */
 importScripts('/workbox-sw.js');
-
 workbox.precaching.precacheAndRoute([
   {
     "url": "assets/fontawesome.min.css",
@@ -26,3 +26,6 @@ workbox.precaching.precacheAndRoute([
     "revision": "d41d8cd98f00b204e9800998ecf8427e"
   }
 ]);
+
+/* push7 */
+importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");
