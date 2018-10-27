@@ -21,7 +21,7 @@
     "page_namingrule": "name",
     "theme_color": {
         "primary": "#f6584f",
-        "secondary": "#888"
+        "secondary": "#ffffff"
     },
     "default": {
         "template": "default"
