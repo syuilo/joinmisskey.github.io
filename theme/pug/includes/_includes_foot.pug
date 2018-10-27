@@ -18,18 +18,20 @@ script.
     }
   }
 
-  if (window.location.search.indexOf('moved') == -1){
-    if (locales.indexOf(user_language) >= 0){
-      move_locale(user_language)
-    } else if (locales.indexOf(user_language.slice(0, 2)) >= 0) {
-      move_locale(user_language.slice(0, 2))
-    } else if (current_locale != "ja") {
-      window.addEventListener('DOMContentLoaded', function(){
-        Pjax.replace("/ja" + permalink + "?moved" + window.location.hash, {});
-      })
+  if(current_locale != "false"){
+    if (window.location.search.indexOf('moved') == -1){
+      if (locales.indexOf(user_language) >= 0){
+        move_locale(user_language)
+      } else if (locales.indexOf(user_language.slice(0, 2)) >= 0) {
+        move_locale(user_language.slice(0, 2))
+      } else if (current_locale != "ja") {
+        window.addEventListener('DOMContentLoaded', function(){
+          Pjax.replace("/ja" + permalink + "?moved" + window.location.hash, {});
+        })
+      }
+    } else {
+      history.replaceState(null, null, window.location.href.replace(/\?[^#]*/,""));
     }
-  } else {
-    history.replaceState(null, null, window.location.href.replace(/\?[^#]*/,""));
   }
 
 if(site.disqus)

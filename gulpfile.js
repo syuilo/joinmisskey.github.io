@@ -428,49 +428,49 @@ gulp.task('js', (cb) => {
 
 gulp.task('copy-docs', (cb) => {
     pump([
-        gulp.src('dist/docs/**/*'),
+        gulp.src('dist/docs/**/*', {dot: true}),
         gulp.dest('./docs')
     ], cb)
 })
 gulp.task('copy-theme-static', (cb) => {
     pump([
-        gulp.src('theme/static/**/*'),
+        gulp.src('theme/static/**/*', {dot: true}),
         gulp.dest(dests.root)
     ], cb)
 })
 gulp.task('copy-bootstrapjs', (cb) => {
     pump([
-        gulp.src('node_modules/bootstrap/dist/js/**'),
+        gulp.src('node_modules/bootstrap/dist/js/**', {dot: true}),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
 gulp.task('copy-animatecss', (cb) => {
     pump([
-        gulp.src('node_modules/animate.css/*.css'),
+        gulp.src('node_modules/animate.css/*.css', {dot: true}),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
 gulp.task('copy-pjax', (cb) => {
     pump([
-        gulp.src('node_modules/pjax-api/dist/**'),
+        gulp.src('node_modules/pjax-api/dist/**', {dot: true}),
         gulp.dest(dests.root + '/assets')
     ], cb)
 })
 gulp.task('copy-prebuildFiles', (cb) => {
     pump([
-        gulp.src('dist/files/**/*'),
+        gulp.src('dist/files/**/*', {dot: true}),
         gulp.dest(dests.root + '/files')
     ], cb)
 })
 gulp.task('copy-files', (cb) => {
     pump([
-        gulp.src(src.files),
+        gulp.src(src.files, {dot: true}),
         gulp.dest(dests.root + '/files')
     ], cb)
 })
 gulp.task('copy-f404', (cb) => {
     pump([
-        gulp.src('dist/docs/404/index.html'),
+        gulp.src('dist/docs/404/index.html', {dot: true}),
         $.rename('404.html'),
         gulp.dest('./docs')
     ], cb)
