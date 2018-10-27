@@ -726,8 +726,6 @@ gulp.task('core',
     )
 )
 
-
-
 gulp.task('default',
     gulp.series(
         'register',
