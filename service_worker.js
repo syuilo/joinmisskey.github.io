@@ -11,15 +11,15 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "assets/main.js",
-    "revision": "92b17c994b8dcc24747a64d90f5904ec"
+    "revision": "aacf31f175ecaf5dbc375dfa618483b0"
   },
   {
     "url": "assets/main.min.js",
-    "revision": "b946d64429a30c3ab0547f3c0219f4ed"
+    "revision": "c6c83a831d236125f38e79dea4029c94"
   },
   {
     "url": "assets/style.min.css",
-    "revision": "6dc9ea0fe906c84f7ed1ecdfa40d6de5"
+    "revision": "5b34888ecd1df043a37c2ba2adfc15b5"
   },
   {
     "url": "workbox-sw.js",
