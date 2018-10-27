@@ -1,5 +1,5 @@
 ---
-title: "最近の更新 ～10.11.1"
+title: "最近の更新 ～10.33.0"
 description: 
 layout: blog
 date: 2018-10-27T07:00:00+09:00
