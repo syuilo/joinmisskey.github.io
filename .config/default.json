@@ -63,5 +63,6 @@
             "gcm_sender_id": "781205625909",
             "gcm_user_visible_only": true
         }
-    }
+    },
+    "sw": "js|css|png|jpeg|jpg|svg|svgz|woff2"
 }

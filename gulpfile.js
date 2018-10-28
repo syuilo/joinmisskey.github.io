@@ -569,35 +569,33 @@ gulp.task('image', () => {
     return stream2
 })
 
-// todo: download and build highlighter
-gulp.task('download-highlighter', (cb) => {
-    cb()
-})
-
 gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git'], {dot: true}).then(cb()) } )
 gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*', {dot: true}).then(cb()) } )
 gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*', {dot: true}).then(cb()) } )
 
-gulp.task( 'debug-override', (cb) => {
+gulp.task('debug-override', (cb) => {
     site = extend(true,site,require('./.config/debug_override.json'))
     cb()
 })
 
 gulp.task('make-sw', (cb) => {
+    if(!site.sw && !site.push7) cb()
     const destName = site.push7 ? "push7-worker" : "service_worker"
-        let res =
+    let res = ''
+        if(site.sw){
+            res =
 `/* workbox */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
 workbox.routing.registerRoute(
-    /.*\.(?:js|css|png|jpeg|jpg|svg|svgz|woff2)/,
+    /.*\.(?:${site.sw})/,
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'assets-cache',
     })
-);`
+);
+`       }
         if(site.push7){
             res +=
-`
-/* push7 */
+`/* push7 */
 importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");`
         }
         fs.writeFile(`${dests.root}/${destName}.js`, res, () => {
@@ -643,7 +641,6 @@ gulp.task('make-browserconfig', (cb) => {
         $.util.log($.util.colors.green(`✔ browserconfig.xml`)); cb()
     })
 })
-
 
 gulp.task('notify-failure', () => {
     const options = {

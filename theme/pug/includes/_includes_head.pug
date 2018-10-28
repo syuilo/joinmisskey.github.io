@@ -1,34 +1,3 @@
-script(class='pjax-reload')
-  .
-    var disqus_config = function() {
-      this.page.url = "#{page.meta.url.href}";
-      this.page.identifier = "#{site.url.host}#{site.url.path}#{page.meta.permalink}";
-    }
-  if(!site.push7)
-    .
-      // twbs/bootstrap build/sw.jsより借用
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('#{site.url.scheme}://#{site.url.host}#{site.url.path}/service_worker.js').then(function(registration) {
-          console.log('Service Workerは正常に登録されました: ', registration.scope);
-            registration.onupdatefound = function () {
-            var installingWorker = registration.installing
-            installingWorker.onstatechange = function () {
-              switch (installingWorker.state) {
-                case 'installed':
-                  if (navigator.serviceWorker.controller) {
-                    console.log('ページの更新があります……')
-                    location.reload(true)
-                  }
-                  break
-                default:
-              }
-            }
-          }
-        }).catch(function(err) {
-          console.log('Service Workerを登録できませんでした: ', err);
-        });
-      }
-
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)
 //- script(src=`${site.url.path}/assets/bootstrap.bundle.min.js` defer)

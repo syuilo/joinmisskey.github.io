@@ -4,14 +4,6 @@ script.
   var Pjax = require('pjax-api').Pjax;
   new Pjax({  areas: ['#main, #breadcrumb, #mainnav, #updateTime', 'body'], update: { head: 'meta' }  });
 
-if(site.push7)
-  script(src="https://sdk.push7.jp/v2/p7sdk.js")
-  script.
-    p7.init("#{site.push7.appNo}",{
-      mode:"native",
-      subscribe:"auto"
-    });
-
 script.
   var current_locale = "#{locale}";
   var user_language = window.navigator.language;
@@ -41,7 +33,46 @@ script.
       history.replaceState(null, null, window.location.href.replace(/\?[^#]*/,""));
     }
   }
-
 if(site.disqus)
+  script.pjax-reload
+    .
+      var disqus_config = function() {
+        this.page.url = "#{page.meta.url.href}";
+        this.page.identifier = "#{site.url.host}#{site.url.path}#{page.meta.permalink}";
+      }
   script
     | (function() {var d = document, s = d.createElement('script');s.src = 'https://#{site.disqus}.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();
+
+if(site.push7)
+  script(src="https://sdk.push7.jp/v2/p7sdk.js")
+  script.
+    p7.init("#{site.push7.appNo}",{
+      mode:"native",
+      subscribe:"auto"
+    });
+else if(site.sw)
+  script.pjax-reload
+    .
+      // twbs/bootstrap build/sw.jsより借用
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('#{urlPrefix}/service_worker.js').then(function(registration) {
+          console.log('Service Workerの登録: ', registration.scope);
+            registration.onupdatefound = function(){
+            var installingWorker = registration.installing
+            installingWorker.onstatechange = function(){
+              switch (installingWorker.state) {
+                case 'installed':
+                  if (navigator.serviceWorker.controller) {
+                    console.log('ページの更新があります……')
+                    location.reload(true)
+                  }
+                  break
+                default:
+              }
+            }
+          }
+        }).catch(function(err) {
+          console.log('Service Worker登録時にエラー発生しました: ', err);
+        });
+      }
+
