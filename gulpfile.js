@@ -61,12 +61,21 @@ console.log(argv._.some(e => e == 'local-server'))
 console.log(argv._.some(e => e == 'netlify'))
 
 const keys = (() => {
-    try {
-        return require('./.config/keys.json')
-    } catch(e) {
-        $.util.log(`There is no './.config/keys.json'.`) 
-        return null
-    }
+    if(existFile('./.config/keys.json')){
+        try {
+            return require('./.config/keys.json')
+        } catch(e) {
+            $.util.log(`There is no './.config/keys.json'.`) 
+            return null
+        }
+    } else if (PATREON_CAMPAIGN in provess.env && PATREON_BARER in process.env) {
+        return {
+            patreon: {
+                campaign: process.env.PATREON_CAMPAIGN,
+                barer: process.env.PATREON_BARER
+            }
+        }
+    } else { return {} }
 })()
 
 let instances = require('js-yaml').safeLoad(fs.readFileSync(`./data/instances.yml`))
