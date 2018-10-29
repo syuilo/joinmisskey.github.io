@@ -72,7 +72,7 @@ const keys = (() => {
         return {
             patreon: {
                 campaign: process.env.PATREON_CAMPAIGN,
-                barer: process.env.PATREON_BARER
+                bearer: process.env.PATREON_BEARER
             }
         }
     } else { return {} }
