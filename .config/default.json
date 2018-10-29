@@ -55,7 +55,7 @@
     "ga": "UA-121612835-1",
     "manifest": {
         "start_url": "/",
-        "display": "fullscreen"
+        "display": "standalone"
     },
     "push7": {
         "appNo": "b299cef0c1344d01bd04376429903362",
