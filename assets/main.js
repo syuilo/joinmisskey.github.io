@@ -51,6 +51,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	__webpack_require__(1);
 	__webpack_require__(4);
 	__webpack_require__(5);
+	__webpack_require__(6);
 
 	/***/
 },
@@ -945,6 +946,69 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			history.replaceState(null, null, window.location.href.replace(/\?.*$/, ""));
 		}
 	});
+
+	/***/
+},
+/* 6 */
+/***/function (module, exports) {
+
+	if (jm_pathToWorker in window) {
+		// twbs/bootstrap build/sw.jsより借用
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register(window.jm_pathToWorker).then(function (registration) {
+				console.log('Service Workerの登録: ', registration.scope);
+				registration.onupdatefound = function () {
+					var installingWorker = registration.installing;
+					installingWorker.onstatechange = function () {
+						switch (installingWorker.state) {
+							case 'installed':
+								if (navigator.serviceWorker.controller) {
+									console.log('Service Workerの更新があります…');
+									location.reload(true);
+								}
+								break;
+							default:
+						}
+					};
+				};
+			}).catch(function (err) {
+				console.log('Service Worker登録時にエラー発生しました: ', err);
+			});
+		}
+	} else if (jm_p7AppNo in window && p7) {
+		p7.init(window.jm_p7AppNo, {
+			mode: "native",
+			subscribe: "manual"
+		});
+		p7.ready().then(function () {
+			return p7.isSubscribed();
+		}).then(function (isSubscribed) {
+			Array.prototype.forEach.call(document.getElementsByClassName('p7-subscribe'), function (el) {
+				if (isSubscribed) {
+					el.textContent = window.jm_p7Unsubscribe;
+					el.addEventListener('click', function () {
+						p7.unsubscribe().then(function () {
+							el.textContent = window.jm_p7Subscribe;
+							alert('購読が解除されました。');
+							console.log('Push Notification Unsubscribed!');
+						});
+					});
+				} else {
+					el.addEventListener('click', function () {
+						p7.subscribe().then(function (res) {
+							if (success in res && res.success == 'subscribe') {
+								console.log('Push Notification Subscribed!');
+							} else {
+								alert('購読に失敗しました。');
+								console.log('Push Notification Subscribing is Failed');
+							}
+						});
+					});
+					el.textContent = window.jm_p7Unsubscribe;
+				}
+			});
+		});
+	}
 
 	/***/
 }]
