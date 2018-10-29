@@ -8,7 +8,7 @@
     "build2deploy": "gulp",
     "build-all": "gulp prebuild-files && gulp",
     "build-pages": "gulp pages",
-    "netlify": "npm install; git worktree add docs master; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en; gulp netlify"
+    "netlify": "npm install; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en; gulp netlify"
   },
   "repository": {
     "type": "git",

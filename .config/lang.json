@@ -108,6 +108,14 @@
         "instance_maintainer": {
             "ja": "管理者",
             "en": "Maintainer"
+        },
+        "p7_subscribe": {
+            "ja": "ブラウザで購読",
+            "en": "Subscribe in browser"
+        },
+        "p7_unsubscribe": {
+            "ja": "購読を解除",
+            "en": "Unsubscribe"
         }
     }
 }

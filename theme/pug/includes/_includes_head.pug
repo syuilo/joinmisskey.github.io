@@ -1,46 +1,14 @@
 if(site.push7)
-  script(src="https://sdk.push7.jp/v2/p7sdk.js")
-  script.
-    p7.init("#{site.push7.appNo}",{
-      mode:"native",
-      subscribe:"manual"
-    });
-    Array.prototype.forEach.call(
-      document.getElementsByClassName('p7-subscribe'),
-      function(el){el.addEventListener('click',
-        function(){
-          p7.ready().then(()=>{
-            p7.subscribe()
-          })
-        }
-      )}
-    )
-else if(site.sw)
-  script.pjax-reload
+  script(src="https://sdk.push7.jp/v2/p7sdk.js" defer)
+  script
     .
-      // twbs/bootstrap build/sw.jsより借用
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('#{urlPrefix}/service_worker.js').then(function(registration) {
-          console.log('Service Workerの登録: ', registration.scope);
-            registration.onupdatefound = function(){
-            var installingWorker = registration.installing
-            installingWorker.onstatechange = function(){
-              switch (installingWorker.state) {
-                case 'installed':
-                  if (navigator.serviceWorker.controller) {
-                    console.log('ページの更新があります……')
-                    location.reload(true)
-                  }
-                  break
-                default:
-              }
-            }
-          }
-        }).catch(function(err) {
-          console.log('Service Worker登録時にエラー発生しました: ', err);
-        });
-      }
-
+      window.jm_p7AppNo = '#{site.push7.appNo}'
+      window.jm_p7Unsubscribe = '#{i18n('p7Unsubscribe')}'
+      window.jm_p7Subscribe = '#{i18n('p7Subscribe')}'
+else if(site.sw)
+  script
+    .
+      window.jm_pathToWorker = '#{urlPrefix}/service_worker.js'
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)
