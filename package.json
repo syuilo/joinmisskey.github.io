@@ -7,7 +7,8 @@
     "build-files": "gulp prebuild-files",
     "build2deploy": "gulp",
     "build-all": "gulp prebuild-files && gulp",
-    "build-pages": "gulp "
+    "build-pages": "gulp pages",
+    "netlify": "netlify"
   },
   "repository": {
     "type": "git",
@@ -72,7 +73,7 @@
     "load-gulp-tasks": "^0.1.0",
     "merge-stream": "^1.0.1",
     "merge2": "^1.2.3",
-    "mfmf": "^1.3.2",
+    "mfmf": "^1.3.3",
     "minimist": "^1.2.0",
     "mississippi2": "^1.0.5",
     "mkdirp": "^0.5.1",

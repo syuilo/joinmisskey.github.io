@@ -40,16 +40,16 @@ html(lang=locale)
           }
         meta(name="description", content=description)
 
+      block includes_head
+        link(rel="manifest" href=`${site.url.path}/manifest.json`)
+        link(rel="alternate" type="application/rss+xml" title=`${site.name} RSS` href=`${urlPrefix}/feed.rdf`)
+        include ../includes/_includes_head.pug
+
       block icons
         link(rel="icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
         each icon in site.icons
           link(rel="apple-touch-icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes)
           link(rel="icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
-
-      block includes_head
-        link(rel="manifest" href=`${site.url.path}/manifest.json`)
-        link(rel="alternate" type="application/rss+xml" title=`${site.name} RSS` href=`${urlPrefix}/feed.rdf`)
-        include ../includes/_includes_head.pug
 
       block theme_color
         meta(name="theme-color", content=site.theme_color.primary)
@@ -128,7 +128,14 @@ html(lang=locale)
                 | 
                 a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
                   +fa_fw('twitter', 'fab')
-                span.sr-only Twitter
+                  span.sr-only Twitter
+                | 
+                a(href="/feed.rdf" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span.sr-only RSS
+                | 
+                a(href="javascript:void(0)").p7-subscribe
+                  | ブラウザで購読
 
     block includes_foot
       include ../includes/_includes_foot.pug

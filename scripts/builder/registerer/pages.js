@@ -56,7 +56,7 @@ module.exports = async (site, src, urlPrefix) => {
         else if( page.meta.permalink.lastIndexOf('/') != page.meta.permalink.length - 1 ) page.meta.permalink = page.meta.permalink + '/'
 
         page.meta.dirs = page.meta.permalink.split("/")
-        page.meta.locale = (page.meta.dirs.length < 3 || page.meta.dirs[1] == "404") ? false : page.meta.dirs[1]
+        page.meta.locale = (page.meta.dirs.length < 3 || page.meta.dirs[1] == "404" || page.meta.dirs[1] == "offline") ? false : page.meta.dirs[1]
         page.meta.url = require('url').parse(`${urlPrefix}${page.meta.permalink}`)
 
         if( page.attributes.layout === undefined || page.attributes.layout === null ) page.attributes.layout = 'default'

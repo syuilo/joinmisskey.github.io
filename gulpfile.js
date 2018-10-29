@@ -54,6 +54,12 @@ let site = extend(true,
     require('./.config/lang.json'),
     require('./.config/images.json')
 )
+
+if(argv._.some(e => e == 'netlify')) site = extend(this,site,require('./.config/netlify-override.json'))
+if(argv._.some(e => e == 'local-server')) site = extend(this,site,require('./.config/debug-override.json'))
+console.log(argv._.some(e => e == 'local-server'))
+console.log(argv._.some(e => e == 'netlify'))
+
 const keys = (() => {
     try {
         return require('./.config/keys.json')
@@ -62,7 +68,6 @@ const keys = (() => {
         return null
     }
 })()
-const workboxSWSrcPath = require.resolve('workbox-sw')
 
 let instances = require('js-yaml').safeLoad(fs.readFileSync(`./data/instances.yml`))
 
@@ -135,7 +140,7 @@ gulp.task('register', async cb => {
 gulp.task('config', () => {
     let resultObj = { options: '' }
     resultObj.timestamp = (new Date()).toJSON()
-    resultObj = extend(true,resultObj, { 'pages' : pages })
+    resultObj = extend(true,resultObj, {'pages' : pages})
     require('mkdirp').sync(path.parse(dests.info).dir)
     return writeFile( dests.info, JSON.stringify( resultObj ))
     .then(
@@ -573,11 +578,6 @@ gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git'], {dot: true}).
 gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*', {dot: true}).then(cb()) } )
 gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*', {dot: true}).then(cb()) } )
 
-gulp.task('debug-override', (cb) => {
-    site = extend(true,site,require('./.config/debug_override.json'))
-    cb()
-})
-
 gulp.task('make-sw', (cb) => {
     if(!site.sw && !site.push7) cb()
     const destName = site.push7 ? "push7-worker" : "service_worker"
@@ -732,6 +732,13 @@ gulp.task('default',
     )
 )
 
+gulp.task('netlify',
+    gulp.series(
+        'default',
+        (cb) => { cb() }
+    )
+)
+
 gulp.task('pages',
     gulp.series(
         'register',
@@ -773,7 +780,7 @@ gulp.task('travis_ci',
 
 gulp.task('watcher',
     gulp.series(
-        'wait-5sec', 'register', 'config', 'debug-override',
+        'wait-5sec', 'register', 'config',
         (cb) => { cb() } 
     )
 )
@@ -794,7 +801,7 @@ gulp.task('connect', () => {
 gulp.task('server',
     gulp.series(
         'register',
-        'config', 'debug-override',
+        'config',
         'core',
         (cb) => { cb() } 
     )
@@ -803,7 +810,7 @@ gulp.task('server',
 gulp.task('local-server',
     gulp.series(
         'register',
-        'config', 'debug-override',
+        'config',
         'core',
         gulp.parallel('connect', 'watch'),
         (cb) => { cb() } 
