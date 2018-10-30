@@ -593,7 +593,7 @@ gulp.task('make-sw', (cb) => {
     let res = ''
         if(site.sw){
             res =
-`/* workbox */
+`/* workbox ${base.update.toJSON()} */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,
