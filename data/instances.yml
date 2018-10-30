@@ -96,9 +96,6 @@
 - url: lifeisabug.com
   selected: true
   langs: ['en']
-- url: tri.cash
-  selected: true
-  langs: ['en']
 - url: trillion.city
   selected: true
   langs: ['en']

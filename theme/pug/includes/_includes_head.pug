@@ -1,14 +1,14 @@
 if(site.push7)
   script(src="https://sdk.push7.jp/v2/p7sdk.js" defer)
-  script
-    .
-      jm_p7AppNo = '#{site.push7.appNo}'
-      jm_p7Unsubscribe = '#{i18n('p7_unsubscribe')}'
-      jm_p7Subscribe = '#{i18n('p7_subscribe')}'
+  script.
+    jm_p7AppNo = '#{site.push7.appNo}'
+    jm_p7Unsubscribe = '#{i18n('p7_unsubscribe')}'
+    jm_p7Subscribe = '#{i18n('p7_subscribe')}'
+    jm_p7Unsubscribed = '#{i18n('p7_unsubscribed')}'
+    jm_p7SubscribeFailed = '#{i18n('p7_subscribeFailed')}'
 else if(site.sw)
-  script
-    .
-      jm_pathToWorker = '#{urlPrefix}/service_worker.js'
+  script.
+    jm_pathToWorker = '#{urlPrefix}/service_worker.js'
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)

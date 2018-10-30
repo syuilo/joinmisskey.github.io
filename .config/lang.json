@@ -116,6 +116,14 @@
         "p7_unsubscribe": {
             "ja": "購読を解除",
             "en": "Unsubscribe"
+        },
+        "p7_unsubscribed": {
+            "ja": "購読を解除しました。",
+            "en": "Unsubscribed."
+        },
+        "p7_subscribeFailed": {
+            "ja": "購読に失敗しました。",
+            "en": "Subscribe is failed."
         }
     }
 }
