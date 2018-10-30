@@ -952,7 +952,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 6 */
 /***/function (module, exports) {
 
-	if (jm_pathToWorker) {
+	if (jm_pathToWorker !== undefined) {
 		// twbs/bootstrap build/sw.jsより借用
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register(jm_pathToWorker).then(function (registration) {
@@ -975,7 +975,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				console.log('Service Worker登録時にエラー発生しました: ', err);
 			});
 		}
-	} else if (jm_p7AppNo && p7) {
+	} else if (jm_p7AppNo !== undefined && p7 !== undefined) {
 		p7.init(jm_p7AppNo, {
 			mode: "native",
 			subscribe: "manual"

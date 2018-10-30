@@ -6,7 +6,7 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-10-30T09:24:11.505Z</dc:date>
+        <dc:date>2018-10-30T09:51:20.476Z</dc:date>
         <items>
             <rdf:Seq>
                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/29_update103400/?ref=rss"/>
