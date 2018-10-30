@@ -27,40 +27,55 @@ if(typeof jm_pathToWorker === 'string') {
     subscribe:"manual"
   })
   p7.ready().then(() => p7.isSubscribed()).then(isSubscribed => {
-    Array.prototype.forEach.call(
-      document.getElementsByClassName('p7-subscribe'),
-      function(el){
-        if(isSubscribed){
-          el.textContent = jm_p7Unsubscribe
-          el.addEventListener(
-            'click',
-            function(){
-              p7.unsubscribe()
-              .then(() => {
-                el.textContent = jm_p7Subscribe
-                alert('購読が解除されました。')
-                console.log('Push Notification Unsubscribed!')
-              })
+    const els = document.getElementsByClassName('p7-subscribe')
+    function unsubscribe(){
+      p7.unsubscribe()
+      .then(() => {
+        el.textContent = jm_p7Subscribe
+        alert('購読が解除されました。')
+        console.log('Push Notification Unsubscribed.')
+        Array.prototype.forEach.call(
+          els,
+          function(el){
+            el.removeEventListener('click', unsubscribe)
+            el.addEventListener('click', subscribe)
+            el.textContent = jm_p7Subscribe
+          }
+        )
+      })
+    }
+    function subscribe(){
+      p7.subscribe()
+      .then((res) => {
+        if(success in res && res.success == 'subscribe'){
+          console.log('Push Notification Subscribed!')
+          Array.prototype.forEach.call(
+            els,
+            function(el){
+              el.removeEventListener('click',subscribe)
+              el.addEventListener('click',unsubscribe)
+              el.textContent = jm_p7Unsubscribe
             }
           )
         } else {
-          el.addEventListener(
-            'click',
-            function(){
-              p7.subscribe()
-              .then((res) => {
-                if(success in res && res.success == 'subscribe'){
-                  console.log('Push Notification Subscribed!')
-                } else {
-                  alert('購読に失敗しました。')
-                  console.log('Push Notification Subscribing is Failed')
-                }
-              })
-            }
-          )
+          alert('購読に失敗しました。')
+          console.log('Push Notification Subscribing is Failed')
+        }
+      })
+    }
+    Array.prototype.forEach.call(
+      els,
+      function(el){
+        if(isSubscribed){
+          el.addEventListener('click',unsubscribe)
           el.textContent = jm_p7Unsubscribe
+        } else {
+          el.addEventListener('click',subscribe)
+          el.textContent = jm_p7Subscribe
         }
       }
     )
   })
+
+  
 }
