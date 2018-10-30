@@ -51,6 +51,8 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
         li.breadcrumb-item
           a(href=`${site.url.path}/${locale ? locale : 'ja'}/`).py-1.text-primary
             +fa_fw("home","fas")
+            span.sr-only
+              +i18n('home')
         - let dirpl = `/${locale ? locale : 'ja'}/`
         - for( let i = 2; i < dirs.length - 1; i++){                // i = 3 の場合
         -   let nowdir = dirs[i]                                    // "bar"
@@ -77,3 +79,5 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
         li.breadcrumb-item.active
           a(aria-current="page" href=`${urlPrefix}${page.meta.permalink}`).text-primary.font-weight-bold.trigger-gototop.button-like-anchor
             +fa_fw("home","fas")
+              span.sr-only
+                +i18n('home')
