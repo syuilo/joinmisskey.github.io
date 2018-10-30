@@ -45,21 +45,20 @@ if(typeof jm_pathToWorker === 'string') {
     }
     function subscribe(){
       p7.subscribe()
-      .then((res) => {
-        if(success in res && res.success == 'subscribe'){
-          console.log('Push Notification Subscribed!')
-          Array.prototype.forEach.call(
-            els,
-            function(el){
-              el.removeEventListener('click',subscribe)
-              el.addEventListener('click',unsubscribe)
-              el.textContent = jm_p7Unsubscribe
-            }
-          )
-        } else {
-          alert('購読に失敗しました。')
-          console.log('Push Notification Subscribing is Failed')
-        }
+      .then(() => {
+        console.log('Push Notification Subscribed!')
+        Array.prototype.forEach.call(
+          els,
+          function(el){
+            el.removeEventListener('click',subscribe)
+            el.addEventListener('click',unsubscribe)
+            el.textContent = jm_p7Unsubscribe
+          }
+        )
+      }).catch(e => {
+        alert('購読に失敗しました。')
+        console.log('Push Notification Subscribing is Failed')
+        console.log(e)
       })
     }
     Array.prototype.forEach.call(
