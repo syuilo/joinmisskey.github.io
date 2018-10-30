@@ -952,10 +952,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 6 */
 /***/function (module, exports) {
 
-	if (jm_pathToWorker in window) {
+	if (jm_pathToWorker) {
 		// twbs/bootstrap build/sw.jsより借用
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register(window.jm_pathToWorker).then(function (registration) {
+			navigator.serviceWorker.register(jm_pathToWorker).then(function (registration) {
 				console.log('Service Workerの登録: ', registration.scope);
 				registration.onupdatefound = function () {
 					var installingWorker = registration.installing;
@@ -975,8 +975,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				console.log('Service Worker登録時にエラー発生しました: ', err);
 			});
 		}
-	} else if (jm_p7AppNo in window && p7) {
-		p7.init(window.jm_p7AppNo, {
+	} else if (jm_p7AppNo && p7) {
+		p7.init(jm_p7AppNo, {
 			mode: "native",
 			subscribe: "manual"
 		});
@@ -985,10 +985,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}).then(function (isSubscribed) {
 			Array.prototype.forEach.call(document.getElementsByClassName('p7-subscribe'), function (el) {
 				if (isSubscribed) {
-					el.textContent = window.jm_p7Unsubscribe;
+					el.textContent = jm_p7Unsubscribe;
 					el.addEventListener('click', function () {
 						p7.unsubscribe().then(function () {
-							el.textContent = window.jm_p7Subscribe;
+							el.textContent = jm_p7Subscribe;
 							alert('購読が解除されました。');
 							console.log('Push Notification Unsubscribed!');
 						});
@@ -1004,7 +1004,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 							}
 						});
 					});
-					el.textContent = window.jm_p7Unsubscribe;
+					el.textContent = jm_p7Unsubscribe;
 				}
 			});
 		});
