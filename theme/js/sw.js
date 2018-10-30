@@ -1,32 +1,32 @@
-if(jm_pathToWorker !== undefined) {
+if(typeof jm_pathToWorker === 'string') {
   // twbs/bootstrap build/sw.jsより借用
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register(jm_pathToWorker).then(function(registration) {
+    navigator.serviceWorker.register(jm_pathToWorker).then(registration => {
       console.log('Service Workerの登録: ', registration.scope);
         registration.onupdatefound = function(){
-        var installingWorker = registration.installing
-        installingWorker.onstatechange = function(){
-          switch(installingWorker.state){
-            case 'installed':
-              if (navigator.serviceWorker.controller) {
-                console.log('Service Workerの更新があります…')
-                location.reload(true)
-              }
-              break
-            default:
+          const installingWorker = registration.installing
+          installingWorker.onstatechange = function(){
+            switch(installingWorker.state){
+              case 'installed':
+                if (navigator.serviceWorker.controller) {
+                  console.log('Service Workerの更新があります…')
+                  location.reload(true)
+                }
+                break
+              default:
+            }
           }
-        }
       }
-    }).catch(function(err) {
+    }).catch(err => {
       console.log('Service Worker登録時にエラー発生しました: ', err)
     })
   }
-} else if(jm_p7AppNo !== undefined && p7 !== undefined) {
+} else if(typeof jm_p7AppNo === 'string' && typeof p7 !== 'undefined') {
   p7.init(jm_p7AppNo,{
     mode:"native",
     subscribe:"manual"
   })
-  p7.ready().then(() => p7.isSubscribed()).then((isSubscribed) => {
+  p7.ready().then(() => p7.isSubscribed()).then(isSubscribed => {
     Array.prototype.forEach.call(
       document.getElementsByClassName('p7-subscribe'),
       function(el){

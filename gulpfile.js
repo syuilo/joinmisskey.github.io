@@ -623,7 +623,16 @@ self.addEventListener('fetch', function(event) {
     );
 });
 `
-            }
+            }/*
+            if(site.ga){
+                res +=
+`workbox.googleAnalytics.initialize({
+    parameterOverrides: {
+        cd1: 'offline',
+    },
+});
+`
+            }*/
         }
         if(site.push7){
             res +=
