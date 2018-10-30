@@ -986,9 +986,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			return p7.isSubscribed();
 		}).then(function (isSubscribed) {
 			var els = document.getElementsByClassName('p7-subscribe');
-			function unsubscribe() {
+			function unsubscribe(el) {
 				p7.unsubscribe().then(function () {
-					el.textContent = jm_p7Subscribe;
 					alert('購読が解除されました。');
 					console.log('Push Notification Unsubscribed.');
 					Array.prototype.forEach.call(els, function (el) {
