@@ -87,6 +87,9 @@
 - url: misskey.nl
   selected: true
   langs: ['en']
+- url: misskey.social
+  selected: true
+  langs: ['en']
 - url: kawaii.social
   selected: true
   langs: ['en']

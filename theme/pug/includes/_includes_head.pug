@@ -2,13 +2,13 @@ if(site.push7)
   script(src="https://sdk.push7.jp/v2/p7sdk.js" defer)
   script
     .
-      window.jm_p7AppNo = '#{site.push7.appNo}'
-      window.jm_p7Unsubscribe = '#{i18n('p7Unsubscribe')}'
-      window.jm_p7Subscribe = '#{i18n('p7Subscribe')}'
+      jm_p7AppNo = '#{site.push7.appNo}'
+      jm_p7Unsubscribe = '#{i18n('p7Unsubscribe')}'
+      jm_p7Subscribe = '#{i18n('p7Subscribe')}'
 else if(site.sw)
   script
     .
-      window.jm_pathToWorker = '#{urlPrefix}/service_worker.js'
+      jm_pathToWorker = '#{urlPrefix}/service_worker.js'
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)
