@@ -602,7 +602,7 @@ workbox.routing.registerRoute(
     })
 );
 `
-            const offline = pages.some((e) => {e.meta.permalink == '/offline/'})
+            const offline = pages.some((e) => e.meta.permalink == '/offline/')
             if(offline){
                 res +=
 `workbox.precaching.precacheAndRoute([
