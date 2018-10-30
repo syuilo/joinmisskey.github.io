@@ -998,18 +998,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				});
 			}
 			function subscribe() {
-				p7.subscribe().then(function (res) {
-					if (success in res && res.success == 'subscribe') {
-						console.log('Push Notification Subscribed!');
-						Array.prototype.forEach.call(els, function (el) {
-							el.removeEventListener('click', subscribe);
-							el.addEventListener('click', unsubscribe);
-							el.textContent = jm_p7Unsubscribe;
-						});
-					} else {
-						alert('購読に失敗しました。');
-						console.log('Push Notification Subscribing is Failed');
-					}
+				p7.subscribe().then(function () {
+					console.log('Push Notification Subscribed!');
+					Array.prototype.forEach.call(els, function (el) {
+						el.removeEventListener('click', subscribe);
+						el.addEventListener('click', unsubscribe);
+						el.textContent = jm_p7Unsubscribe;
+					});
+				}).catch(function (e) {
+					alert('購読に失敗しました。');
+					console.log('Push Notification Subscribing is Failed');
+					console.log(e);
 				});
 			}
 			Array.prototype.forEach.call(els, function (el) {
