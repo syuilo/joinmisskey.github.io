@@ -594,14 +594,37 @@ gulp.task('make-sw', (cb) => {
         if(site.sw){
             res =
 `/* workbox */
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'assets-cache',
     })
 );
-`       }
+`
+            const offline = pages.some((e) => {e.meta.permalink == '/offline/'})
+            if(offline){
+                res +=
+`workbox.precaching.precacheAndRoute([
+    {
+        url: '/offline/',
+        revision: '${base.update.getTime()}',
+    }
+]);
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(response) {
+            return response || fetch(event.request);
+        })
+        .catch(function() {
+            return caches.match('/offline/');
+        })
+    );
+});
+`
+            }
+        }
         if(site.push7){
             res +=
 `/* push7 */
