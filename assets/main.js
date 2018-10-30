@@ -954,74 +954,78 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 6 */
 /***/function (module, exports) {
 
-	if (typeof jm_pathToWorker === 'string') {
-		// twbs/bootstrap build/sw.jsより借用
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register(jm_pathToWorker).then(function (registration) {
-				console.log('Service Workerの登録: ', registration.scope);
-				registration.onupdatefound = function () {
-					var installingWorker = registration.installing;
-					installingWorker.onstatechange = function () {
-						switch (installingWorker.state) {
-							case 'installed':
-								if (navigator.serviceWorker.controller) {
-									console.log('Service Workerの更新があります…');
-									location.reload(true);
-								}
-								break;
-							default:
-						}
+	function sw() {
+		if (typeof jm_pathToWorker === 'string') {
+			// twbs/bootstrap build/sw.jsより借用
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register(jm_pathToWorker).then(function (registration) {
+					console.log('Service Workerの登録: ', registration.scope);
+					registration.onupdatefound = function () {
+						var installingWorker = registration.installing;
+						installingWorker.onstatechange = function () {
+							switch (installingWorker.state) {
+								case 'installed':
+									if (navigator.serviceWorker.controller) {
+										console.log('Service Workerの更新があります…');
+										location.reload(true);
+									}
+									break;
+								default:
+							}
+						};
 					};
-				};
-			}).catch(function (err) {
-				console.log('Service Worker登録時にエラー発生しました: ', err);
-			});
-		}
-	} else if (typeof jm_p7AppNo === 'string' && typeof p7 !== 'undefined') {
-		p7.init(jm_p7AppNo, {
-			mode: "native",
-			subscribe: "manual"
-		});
-		p7.ready().then(function () {
-			return p7.isSubscribed();
-		}).then(function (isSubscribed) {
-			var els = document.getElementsByClassName('p7-subscribe');
-			function unsubscribe(el) {
-				p7.unsubscribe().then(function () {
-					alert('購読が解除されました。');
-					console.log('Push Notification Unsubscribed.');
-					Array.prototype.forEach.call(els, function (el) {
-						el.removeEventListener('click', unsubscribe);
-						el.addEventListener('click', subscribe);
-						el.textContent = jm_p7Subscribe;
-					});
+				}).catch(function (err) {
+					console.log('Service Worker登録時にエラー発生しました: ', err);
 				});
 			}
-			function subscribe() {
-				p7.subscribe().then(function () {
-					console.log('Push Notification Subscribed!');
-					Array.prototype.forEach.call(els, function (el) {
-						el.removeEventListener('click', subscribe);
+		} else if (typeof jm_p7AppNo === 'string' && typeof p7 !== 'undefined') {
+			p7.init(jm_p7AppNo, {
+				mode: "native",
+				subscribe: "manual"
+			});
+			p7.ready().then(function () {
+				return p7.isSubscribed();
+			}).then(function (isSubscribed) {
+				var els = document.getElementsByClassName('p7-subscribe');
+				function unsubscribe(el) {
+					p7.unsubscribe().then(function () {
+						alert(jm_p7Unsubscribed);
+						console.log('Push Notification Unsubscribed.');
+						Array.prototype.forEach.call(els, function (el) {
+							el.removeEventListener('click', unsubscribe);
+							el.addEventListener('click', subscribe);
+							el.textContent = jm_p7Subscribe;
+						});
+					});
+				}
+				function subscribe() {
+					p7.subscribe().then(function () {
+						console.log('Push Notification Subscribed!');
+						Array.prototype.forEach.call(els, function (el) {
+							el.removeEventListener('click', subscribe);
+							el.addEventListener('click', unsubscribe);
+							el.textContent = jm_p7Unsubscribe;
+						});
+					}).catch(function (e) {
+						alert(jm_p7SubscribeFailed);
+						console.log('Push Notification Subscribing is Failed');
+						console.log(e);
+					});
+				}
+				Array.prototype.forEach.call(els, function (el) {
+					if (isSubscribed) {
 						el.addEventListener('click', unsubscribe);
 						el.textContent = jm_p7Unsubscribe;
-					});
-				}).catch(function (e) {
-					alert('購読に失敗しました。');
-					console.log('Push Notification Subscribing is Failed');
-					console.log(e);
+					} else {
+						el.addEventListener('click', subscribe);
+						el.textContent = jm_p7Subscribe;
+					}
 				});
-			}
-			Array.prototype.forEach.call(els, function (el) {
-				if (isSubscribed) {
-					el.addEventListener('click', unsubscribe);
-					el.textContent = jm_p7Unsubscribe;
-				} else {
-					el.addEventListener('click', subscribe);
-					el.textContent = jm_p7Subscribe;
-				}
 			});
-		});
+		}
 	}
+	window.addEventListener('DOMContentLoaded', sw);
+	window.addEventListener('pjax:ready', sw);
 
 	/***/
 }]
