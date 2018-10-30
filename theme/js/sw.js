@@ -28,10 +28,9 @@ if(typeof jm_pathToWorker === 'string') {
   })
   p7.ready().then(() => p7.isSubscribed()).then(isSubscribed => {
     const els = document.getElementsByClassName('p7-subscribe')
-    function unsubscribe(){
+    function unsubscribe(el){
       p7.unsubscribe()
       .then(() => {
-        el.textContent = jm_p7Subscribe
         alert('購読が解除されました。')
         console.log('Push Notification Unsubscribed.')
         Array.prototype.forEach.call(
