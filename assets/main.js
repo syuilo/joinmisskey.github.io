@@ -933,7 +933,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /***/function (module, exports) {
 
 	window.addEventListener('pjax:load', function () {
-		if (window.gtag) gtag('event', 'page_view');
+		if (window.gtag) {
+			gtag('event', 'page_view');
+		}
 		if (window.DISQUS) {
 			// DISQUSでresetを送信します。
 			// disqus_configはページ内に別に定義されています。
@@ -952,7 +954,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* 6 */
 /***/function (module, exports) {
 
-	if (jm_pathToWorker !== undefined) {
+	if (typeof jm_pathToWorker === 'string') {
 		// twbs/bootstrap build/sw.jsより借用
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register(jm_pathToWorker).then(function (registration) {
@@ -975,7 +977,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				console.log('Service Worker登録時にエラー発生しました: ', err);
 			});
 		}
-	} else if (jm_p7AppNo !== undefined && p7 !== undefined) {
+	} else if (typeof jm_p7AppNo === 'string' && typeof p7 !== 'undefined') {
 		p7.init(jm_p7AppNo, {
 			mode: "native",
 			subscribe: "manual"
