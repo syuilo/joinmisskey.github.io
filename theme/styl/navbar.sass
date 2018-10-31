@@ -61,11 +61,13 @@
 
 #main
   margin: 81px 0 0 0
+  min-height: calc(100vh - 136.53px)
 
   &.padding
     @media (min-width: map-get($grid-breakpoints, sm))
       margin-top: calc(81px + 1.6rem)
       margin-bottom: 1.6rem
+      min-height: calc(100vh - 3.2rem - 136.53px)
 
 #footer
   box-shadow: rgba(0,0,0,0.2) 0 0 8px
