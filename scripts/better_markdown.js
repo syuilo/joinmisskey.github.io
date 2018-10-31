@@ -15,7 +15,7 @@ module.exports = (htm, urlprefix) => {
   let hs = []
   $('h2, h3, h4, h5, h6').each((i, el) => { hs.push(encodeURIComponent($(el).text())) })
   $('h2, h3, h4, h5, h6').each((i, el) => { $('h2, h3, h4, h5, h6').eq(i).attr('id', hs[i] )})
-  $('img').addClass('img-fluid')
+  //$('img').addClass('img-fluid')
   $('img[src^="/"]').each((i, el) => { $('img[src^="/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('img[src^="files/"]').each((i, el) => { $('img[src^="files/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('table').addClass('table table-sm table-bordered')
