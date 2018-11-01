@@ -6,7 +6,7 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-11-01T12:02:40.447Z</dc:date>
+        <dc:date>2018-11-01T12:38:34.230Z</dc:date>
         <items>
             <rdf:Seq>
                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/01_update10370/?ref=rss"/>
@@ -70,7 +70,7 @@
    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/28_jmupdate/?ref=rss">
         <title><![CDATA[joinmisskey更新]]></title>
         <link>https://joinmisskey.github.io/ja/blog/2018/10/28_jmupdate/?ref=rss</link>
-        <dc:date>null</dc:date>
+        <dc:date>2018-10-28T13:45:00.000Z</dc:date>
         <description><![CDATA[見た目を新しいMisskeyと同じにしたり、RSSフィードを設置したりしました。]]></description>
     </item>
    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/10/27_update103/?ref=rss">
