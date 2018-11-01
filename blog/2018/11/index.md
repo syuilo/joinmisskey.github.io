@@ -1,5 +1,6 @@
 ---
-title: 2018年
+title: 2018年11月
+title-breadcrumb: 11月
 description: Misskeyに関するブログポストです。
-layout: index
+layout: blog-index
 ---
