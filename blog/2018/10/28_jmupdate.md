@@ -2,7 +2,7 @@
 title: "joinmisskey更新"
 description: 見た目を新しいMisskeyと同じにしたり、RSSフィードを設置したりしました。
 layout: blog
-date: 2018-10-287T22:45:00+09:00
+date: 2018-10-28T22:45:00+09:00
 thumbnail: /files/images/imports/2018/08/resortview.jpg
 author:
   name: aqz
