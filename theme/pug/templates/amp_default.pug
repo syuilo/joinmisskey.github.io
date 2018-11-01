@@ -126,7 +126,7 @@ html(lang=locale, amp)
         if( site.disqus )
           .container.py-5
             amp-iframe(width="600" height="140" layout="responsive" sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms" resizable
-              src=`https://tmin.cf/amp.html?shortname=${site.disqus}&url=${encodeURIComponent(`${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`)}&identifier=${encodeURIComponent(`${site.url.host}${site.url.path}${page.meta.permalink}`)}`)
+              src=`https://tmin.cf/amp.html?shortname=${site.disqus}&url=${encodeURIComponent(`${urlPrefix}${page.meta.permalink}`)}&identifier=${encodeURIComponent(`${site.url.host}${site.url.path}${page.meta.permalink}`)}`)
               div(overflow tabindex="0" role="button" aria-label="maqz")
 
         #footer_wrap.py-3
