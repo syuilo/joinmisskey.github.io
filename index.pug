@@ -3,7 +3,7 @@ title: 新しい世界で繋がろう
 description: 地球で生まれた分散マイクロブログSNS Misskey ―― 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
 ---
 #toppage
-  #top
+  section#top
     .texts
       .slogan.h4.font-weight-normal 新しい世界で<wbr>繋がろう
       h1.font-weight-normal Misskeyを<wbr>はじめよう
@@ -14,102 +14,136 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
       img(src="/files/images/imports/2018/10/v10ui-mobile.720c.jpeg" alt="Mobile")
       img(src="/files/images/imports/2018/09/ai_svg.svg" alt="Ai")
       div.small Misskeyマスコット 藍(Ai)
-  #section_1.pt-5.pb-4.bg-primary.text-white: .container
+  section#section_1.pt-5.pb-4.bg-primary.text-white: .container
     p.text-center Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
     p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
       a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
       a(href="wiki/developers/").btn.btn-lg.btn-primary 運営する
-  #section_2.py-5.bg-white: .container
-    h2.text-center Misskeyをはじめる理由
+  section#section_2.py-5.bg-white: .container
+    h2.text-center.mt-3 Misskeyをはじめる理由
 
-    hr.my-4#section_2_0
+    hr.my-5#section_2_0
 
-    .s2-item
-      h3.text-center 先進的で馴染みある操作
-      p.text-center 
+    section.s2-item
+      h3.text-center カスタマイズ性の高い画面
+      p.text-center
 
-      ul.fa-ul.row.mr-0.ml-md-0
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('th-large', 'fas')
-          h4 ホームとデッキ(デスクトップ)
-          | デスクトップでは、お好みで大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを利用できます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('calculator', 'fas')
-          h4 ウィジェット
-          | 小さなウィジェットは様々な情報を表示し、自由に並べ替えることができます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('cogs', 'fas')
-          h4 高いカスタマイズ性
-          | 多岐にわたるオプションがあり、操作や表示を細かく変更できます。
+      .row
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
+              .s2-card-text
+                h4 ホームとデッキ (デスクトップ)
+                p.mb-0 大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを利用できます。
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('calculator', 'fas')
+              .s2-card-text
+                h4 ウィジェット
+                p.mb-0 小さなウィジェットは様々な情報を表示し、自由に並べ替えることができます。
+        article.col-12.col-md-12.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('cogs', 'fas')
+              .s2-card-text
+                h4 自分好みに調整
+                p.mb-0 多岐にわたるオプションがあり、操作や表示を細かく変更できます。
 
-    hr.my-4#section_2_a
+    hr.my-5#section_2_a
 
-    .s2-item
+    section.s2-item
       h3.text-center 多くの機能
       p.text-center Misskeyでできること
-
-      ul.fa-ul.row.mr-0.ml-md-0
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('comment-alt', 'fas')
-          h4
-            +fa_fw('i-cursor')
-            |  1投稿1000文字まで
-          h4
-            +fa_fw('unlock')
-            |  公開範囲を投稿ごとに細かく設定
-          h4
-            +fa_fw('eye-slash')
-            |  不適切な本文や画像を隠す
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('edit', 'fas')
-          h4 文字装飾
-          | 投稿やプロフィールを装飾しよう。Misskey Flavored Markdownによる装飾構文を利用できます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('surprise', 'far')
-          h4 リアクション
-          | 投稿への共感を簡単に表現しよう。投稿に10個の絵文字から選んでリアクションを送れます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('chart-pie', 'fas')
-          h4 アンケート
-          | みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('cloud', 'fas')
-          h4 ドライブ
-          | 画像を保存して共有しよう。投稿に添付した画像はドライブで管理できます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1.col-xl-3
-          span.fa-li.text-muted.font-size-16: +fa('gamepad', 'fas')
-          h4 ゲーム
-          | みんなで遊ぼう。他のユーザーと対戦できます。
-          br
-          | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
-
       p.text-center
         a(href="wiki/usage/").btn.btn-lg.btn-primary
           +fa_fw('book')
           | Wikiで使い方を見る
-    hr.my-4#section_2_b
 
-    .s2_item
+      .row
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('comment-alt', 'fas')
+              .s2-card-text
+                p.mb-0
+                  +fa_fw('i-cursor')
+                  |  1投稿#[b 1000文字]まで
+                p.mb-0
+                  +fa_fw('unlock')
+                  |  #[b 公開範囲]を投稿ごとに細かく設定
+                p.mb-0
+                  +fa_fw('eye-slash')
+                  |  長い文章や不適切な画像を#[b 隠して公開]
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('edit', 'fas')
+              .s2-card-text
+                h4 文字装飾
+                p.mb-0 投稿やプロフィールを装飾しよう。装飾構文(Misskey Flavored Markdown)を利用できます。
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('surprise', 'far')
+              .s2-card-text
+                h4 リアクション
+                p.mb-0 投稿への共感を簡単に表現しよう。投稿に10個の絵文字から選んでリアクションを送れます。
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('chart-pie', 'fas')
+              .s2-card-text
+                h4 アンケート
+                p.mb-0 みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('cloud', 'fas')
+              .s2-card-text
+                h4 ドライブ
+                p.mb-0 画像を保存して何回も共有しよう。投稿に添付した画像はドライブで管理できます。
+        article.col-12.col-md-6.col-xl-4
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('gamepad', 'fas')
+              .s2-card-text
+                h4 ゲーム
+                p.mb-0
+                  | みんなで遊ぼう。他のユーザーとゲームを対戦できます。
+                  br
+                  | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
+
+    hr.my-5#section_2_b
+
+    section.s2-item
       h3.text-center 独立性と社会性
       p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
 
-      ul.fa-ul.row.mr-0.ml-md-0
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1
-          span.fa-li.text-muted.font-size-16: +fa('globe', 'fas')
-          h4 Fediverse
-          | MisskeyはActivityPubという規格のサーバー間通信機能を持っているため、
-          | #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1
-          span.fa-li.text-muted.font-size-16: +fa('server', 'fas')
-          h4 簡単なインスタンス構築
-          | Misskeyサーバーの構築は簡単です。
-          br
-          a(href="wiki/developers/").font-weight-bold  → インスタンスを立てる
+      .row
+        article.col-12.col-md-6
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('globe', 'fas')
+              .s2-card-text
+                h4 Fediverse
+                p.mb-0
+                  | MisskeyはActivityPubという規格のサーバー間通信機能を持っているため、
+                  | #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
+        article.col-12.col-md-6
+          .card
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('server', 'fas')
+              .s2-card-text
+                h4 簡単なインスタンス構築
+                p.mb-0 Misskeyサーバーの構築は簡単です。
+            a(href="wiki/developers/").s2-card-link.font-weight-bold インスタンスを立てる
 
-    hr.my-4#section_2_c
+    hr.my-5#section_2_c
 
-    .s2_item
+    section.s2-item
       h3.text-center オープン
       p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
       p.text-center
@@ -119,19 +153,23 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
         a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
           | Crowdin(翻訳)
 
-      ul.fa-ul.row.mr-0.ml-md-0
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1
-          span.fa-li.text-muted.font-size-16: +fa('code', 'fas')
-          h4 API
-          | アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。
-          br
-          a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").font-weight-bold  → Misskey API
-        li.px-0.mt-3.col-12.col-md-5.offset-md-1
-          span.fa-li.text-muted.font-size-16: +fa('balance-scale', 'fas')
-          h4 AGPLv3
-          | MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
-          br
-          a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").font-weight-bold  → ライセンス
+      .row
+        article.col-12.col-md-6
+          .card
+            .s2-card-grid
+              .font-size-16: +fa_fw('code', 'fas')
+              .s2-card-text
+                h4 API
+                p.mb-0 アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。          
+            a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
+        article.col-12.col-md-6
+          .card
+            .s2-card-grid
+              .font-size-16: +fa_fw('balance-scale', 'fas')
+              .s2-card-text
+                h4 AGPLv3
+                p.mb-0 MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
+            a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").s2-card-link.font-weight-bold  ライセンス
 
   #section_3.bg-dark.text-white.py-5: .container
     h2.text-center さっそくはじめよう
