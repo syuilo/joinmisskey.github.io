@@ -425,7 +425,7 @@ gulp.task('js', (cb) => {
     pump([
         gulp.src('theme/js/main.js'),
         $.webpack(),
-        $.babel({presets: ['babel-preset-env'], plugins: ['transform-remove-strict-mode'], compact: false}),
+        $.babel({presets: ['@babel/env'], plugins: ['transform-remove-strict-mode'], compact: false}),
         $.rename('main.js'),
         gulp.dest(dests.root + '/assets'),
         $.uglify(),

@@ -33,12 +33,7 @@ html(lang=locale)
           meta(name="robots" content="noindex,follow")
 
       block description
-        -
-          let description = page.attributes.description
-          if( !$$(page.attributes.description).string().range(25, 124).ok()){
-            description = page.attributes.description + (site.descriptions[locale] || site.description)
-          }
-        meta(name="description", content=description)
+        meta(name="description", content=page.attributes.description)
 
       block includes_head
         link(rel="manifest" href=`${site.url.path}/manifest.json`)

@@ -30,12 +30,7 @@ html(lang=locale, amp)
         meta(name="generator" content="maqz")
 
       block description
-        -
-          let description = page.attributes.description
-          if( !$$(page.attributes.description).string().range(25, 124).ok()){
-            description = page.attributes.description + site.description
-          }
-        meta(name="description", content=description)
+        meta(name="description", content=page.meta.description)
 
       block icons
         link(rel="icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
