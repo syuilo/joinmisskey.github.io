@@ -3,49 +3,49 @@ title: 新しい世界で繋がろう
 description: 地球で生まれた分散マイクロブログSNS Misskey ―― 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
 ---
 #toppage
-  section#top
+  section#top.scrollts
     .texts
-      .slogan.h4.font-weight-normal 新しい世界で<wbr>繋がろう
-      h1.font-weight-normal Misskeyを<wbr>はじめよう
-      p=(site.descriptions[locale] || site.description)
+      .slogan.h4.font-weight-normal.scrollts.scrollts-fadeInLeftBig.scrollts-e-2 新しい世界で<wbr>繋がろう
+      h1.font-weight-normal.scrollts.scrollts-fadeInLeftBig.scrollts-e-2 Misskeyを<wbr>はじめよう
+      p.scrollts.scrollts-fadeInLeftBig.scrollts-e-4=(site.descriptions[locale] || site.description)
     .scnshts
-      img(src="/files/images/imports/2018/10/v10ui-home.720c.jpeg" alt="Home(Desktop)")
-      img(src="/files/images/imports/2018/10/v10ui-deck.720c.jpeg" alt="Deck(Desktop)")
-      img(src="/files/images/imports/2018/10/v10ui-mobile.720c.jpeg" alt="Mobile")
-      img(src="/files/images/imports/2018/09/ai_svg.svg" alt="Ai")
-      div.small Misskeyマスコット 藍(Ai)
+      img(src="/files/images/imports/2018/10/v10ui-home.720c.jpeg" alt="Home(Desktop)").scrollts.scrollts-e-1
+      img(src="/files/images/imports/2018/10/v10ui-deck.720c.jpeg" alt="Deck(Desktop)").scrollts.scrollts-e-1
+      img(src="/files/images/imports/2018/10/v10ui-mobile.720c.jpeg" alt="Mobile").scrollts.scrollts-e-1
+      img(src="/files/images/imports/2018/09/ai_svg.svg" alt="Ai").scrollts.scrollts-fadeIn.scrollts-e-3
+      div.small.scrollts.scrollts-fadeIn.scrollts-e-3 Misskeyマスコット 藍(Ai)
   section#section_1.pt-5.pb-4.bg-primary.text-white: .container
-    p.text-center Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
-    p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
+    p.text-center.scrollts.scrollts-fadeIn Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse(様々なSNSで構成される宇宙)の中に存在するため、他のSNSと相互に繋がっています。
+    p.text-center.scrollts.scrollts-fadeIn 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
-      a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2 はじめる
-      a(href="wiki/developers/").btn.btn-lg.btn-primary 運営する
+      a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2.scrollts.scrollts-flipInX はじめる
+      a(href="wiki/developers/").btn.btn-lg.btn-primary.scrollts.scrollts-flipInX 運営する
   section#section_2.py-5.bg-white: .container
-    h2.text-center.mt-3 Misskeyをはじめる理由
+    h2.text-center.mt-3.scrollts.scrollts-rotateIn Misskeyをはじめる理由
 
     hr.my-5#section_2_0
 
     section.s2-item
-      h3.text-center カスタマイズ性の高い画面
-      p.text-center
+      h3.text-center.scrollts.scrollts-fadeIn カスタマイズ性の高い画面
+      p.text-center.scrollts.scrollts-fadeIn MisskeyのWebクライアントはあなたの好みに合わせて自在に設定できます。
 
       .row
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
               .s2-card-text
                 h4 ホームとデッキ (デスクトップ)
                 p.mb-0 大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを利用できます。
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('calculator', 'fas')
               .s2-card-text
                 h4 ウィジェット
                 p.mb-0 小さなウィジェットは様々な情報を表示し、自由に並べ替えることができます。
         article.col-12.col-md-12.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('cogs', 'fas')
               .s2-card-text
@@ -55,16 +55,16 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     hr.my-5#section_2_a
 
     section.s2-item
-      h3.text-center 多くの機能
-      p.text-center Misskeyでできること
+      h3.text-center.scrollts.scrollts-fadeIn 多くの機能
+      p.text-center.scrollts.scrollts-fadeIn Misskeyでできることはたくさんあります。
       p.text-center
-        a(href="wiki/usage/").btn.btn-lg.btn-primary
+        a(href="wiki/usage/").btn.btn-lg.btn-primary.scrollts.scrollts-jackInTheBox
           +fa_fw('book')
           | Wikiで使い方を見る
 
       .row
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('comment-alt', 'fas')
               .s2-card-text
@@ -78,35 +78,35 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
                   +fa_fw('eye-slash')
                   |  長い文章や不適切な画像を#[b 隠して公開]
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('edit', 'fas')
               .s2-card-text
                 h4 文字装飾
                 p.mb-0 投稿やプロフィールを装飾しよう。装飾構文(Misskey Flavored Markdown)を利用できます。
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('surprise', 'far')
               .s2-card-text
                 h4 リアクション
                 p.mb-0 投稿への共感を簡単に表現しよう。投稿に10個の絵文字から選んでリアクションを送れます。
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('chart-pie', 'fas')
               .s2-card-text
                 h4 アンケート
                 p.mb-0 みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('cloud', 'fas')
               .s2-card-text
                 h4 ドライブ
                 p.mb-0 画像を保存して何回も共有しよう。投稿に添付した画像はドライブで管理できます。
         article.col-12.col-md-6.col-xl-4
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('gamepad', 'fas')
               .s2-card-text
@@ -119,21 +119,21 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     hr.my-5#section_2_b
 
     section.s2-item
-      h3.text-center 独立性と社会性
-      p.text-center あなたの意志で運営者を選択し、もしくはあなた自身でサーバーを運営することもできます。
+      h3.text-center.scrollts.scrollts-fadeIn 独立性と社会性
+      p.text-center.scrollts.scrollts-fadeIn あなたの意志で運営者を選択する、もしくはなた自身でサーバーを運営することもできます。
 
       .row
         article.col-12.col-md-6
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('globe', 'fas')
               .s2-card-text
                 h4 Fediverse
                 p.mb-0
-                  | MisskeyはActivityPubという規格のサーバー間通信機能を持っているため、
+                  | MisskeyはActivityPubというWeb標準規格のサーバー間通信機能を持っているため、
                   | #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
         article.col-12.col-md-6
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('server', 'fas')
               .s2-card-text
@@ -144,18 +144,18 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
     hr.my-5#section_2_c
 
     section.s2-item
-      h3.text-center オープン
-      p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張も追加することができます。
+      h3.text-center.scrollts.scrollts-rotateIn オープン
+      p.text-center.scrollts.scrollts-fadeIn Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張を追加することもできます。
       p.text-center
-        a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark.mr-2
+        a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark.mr-2.scrollts.scrollts-zoomIn
           +fa_fw('github', 'fab')
           | GitHub
-        a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning
+        a(href="https://crowdin.com/project/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-warning.scrollts.scrollts-zoomIn
           | Crowdin(翻訳)
 
       .row
         article.col-12.col-md-6
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .font-size-16: +fa_fw('code', 'fas')
               .s2-card-text
@@ -163,7 +163,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
                 p.mb-0 アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。          
             a(href="https://misskey.xyz/docs/ja/api" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
         article.col-12.col-md-6
-          .card
+          .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .font-size-16: +fa_fw('balance-scale', 'fas')
               .s2-card-text
@@ -172,25 +172,25 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
             a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").s2-card-link.font-weight-bold  ライセンス
 
   #section_3.bg-dark.text-white.py-5: .container
-    h2.text-center さっそくはじめよう
-    p.text-center まずはどこか既存のインスタンスに登録してみてください！
-    p.text-center Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
+    h2.text-center.scrollts.scrollts-fadeIn さっそくはじめよう
+    p.text-center.scrollts.scrollts-fadeIn まずはどこか既存のインスタンスに登録してみてください！
+    p.text-center.scrollts.scrollts-fadeIn Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
     hr.my-4
-    h3#instances おすすめインスタンス一覧
-    +instancesList('selected', ['light', 'white-50', 'dark', 'dark'])
-    a(href="./wiki/instances/#others").btn.btn-link.btn-block インスタンスをもっと見る
+    h3#instances.scrollts.scrollts-fadeIn おすすめインスタンス一覧
+    +instancesList('selected', ['light', 'white-50', 'dark', 'dark'], 'fadeInUp')
+    a(href="./wiki/instances/").btn.btn-link.btn-block.scrollts.scrollts-fadeIn インスタンスをもっと見る
 
-    p.text-white-50.pt-2 順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
+    p.text-white-50.pt-2 インスタンスは順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
   #section_4.py-4.bg-success: .container.text-center.text-white
     .row
-      .col-12.col-md-6
+      .col-12.col-md-6.scrollts.scrollts-flipInX
         .py-3
           a(href="./blog/").btn.btn-lg.btn-light.text-success
             +fa("broadcast-tower")
             |  ブログ
           p.mt-1.mb-0.p-0 更新の内容などを随時お知らせします。
-      .col-12.col-md-6
+      .col-12.col-md-6.scrollts.scrollts-flipInX.scrollts-e-1
         .py-3
           a(href="./credit/").btn.btn-lg.btn-light.text-success
             +fa("users")
@@ -198,29 +198,33 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
           p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
 
   #section_6.bg-white.py-5: .container.text-center.text-black
-    h2 記事になりました
-    p.m-0
+    h2.scrollts.scrollts-rotateIn 記事になりました
+    p.scrollts.scrollts-fadeIn.m-0
       a(href="http://www.itmedia.co.jp/news/articles/1804/17/news124.html" target="_blank" rel="noopener" title="ActivityPub対応国産SNS「Misskey」、LTLも実装 ―― ITmedia NEWS").p-1.mr-2
         img(src="/files/images/imports/2018/07/ITmediaNEWS.png" style="height: 33px" alt="ITmedia NEWS")
       a(href="https://www.moongift.jp/2018/07/misskey-%e5%88%86%e6%95%a3%e5%9e%8b%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%96%e3%83%ad%e3%82%b0%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/" target="_blank" rel="noopener" title="Misskey - 分散型マイクロブログサービス ―― MOONGIFT").p-1
         img(src="/files/images/imports/2018/07/MOONGIFT.png" style="height: 33px" alt="MOONGIFT")
 
   #section_7.pt-5.pb-4: .container
-    h2.text-center 支援
+    h2.text-center.scrollts.scrollts-fadeIn 支援
     p.text-center
-      a(href="./credit/#patrons" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.mr-2
+      a(href="./credit/#patrons" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.mr-2.scrollts.scrollts-fadeInDownSmall
         | 協賛者一覧
-      a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary
+      a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary.scrollts.scrollts-fadeInDownSmall.scrollts-e-1
         | 寄付者一覧
 
     hr.my-4
-    h3.text-center Misskeyを支援する
-    p.text-center Misskeyがお気に入りですか？Misskeyは個人で開発しており、自由でオープンソースです。Misskeyの開発にご支援ください。
-    p.text-center Misskeyに広告は付けられていません。また、サーバーを維持するために少なくない支出が発生しています。
-    a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+    h3.text-center.scrollts.scrollts-fadeIn Misskeyを支援する
+    p.text-center.scrollts.scrollts-fadeIn
+      | Misskeyがお気に入りですか？Misskeyは個人で開発しており、自由でオープンソースです。
+      br
+      | サーバーを維持するために少なくない支出が発生しています。しかし、Misskeyに広告は付けられていません。
+      br
+      | Misskeyの開発にご支援ください。
+    a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2.scrollts.scrollts-zoomIn
       +fa_fw('patreon', 'fab')
       | パトロンになる
-    a(href="http://amzn.asia/7O1LEI5" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+    a(href="http://amzn.asia/7O1LEI5" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2.scrollts.scrollts-zoomIn
       +fa_fw('amazon', 'fab')
       | ほしいものリスト
-    p.text-center または#[a(href="https://misskey.xyz/@syuilo" target="_blank" rel="noopener") 開発者]に問い合わせる
+    p.text-center.scrollts.scrollts-lightSpeedIn または#[a(href="https://misskey.xyz/@syuilo" target="_blank" rel="noopener") 開発者]に問い合わせる
