@@ -3,7 +3,7 @@ title: よくある質問
 description: Misskeyに関するよくある疑問をまとめています。
 layout: wiki
 has_child: false
-rank: 0
+rank: 1
 ---
 Misskeyに関するよくある質問をまとめています。  
 [用語の解説はこちら](../first/)
