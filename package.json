@@ -93,7 +93,7 @@
     "sync-request": "^6.0.0",
     "sync-summaly": "^2.0.3-sync.2",
     "tether": "^1.4.5",
-    "typescript": "^3.1.5",
+    "typescript": "^3.1.6",
     "ua-parser-js": "^0.7.19",
     "wanakana": "^4.0.2",
     "webpack": "^4.23.1",
