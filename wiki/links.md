@@ -41,6 +41,7 @@ rank: 99
 - https://blog.jnsk.info/post/174494432587/misskey%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92wslubuntu1804%E3%81%8B%E3%82%89localhost%E3%81%AB%E7%94%9F%E3%82%84%E3%81%99
 - https://blog.jnsk.info/post/174592458087/misskey%E3%81%AEapi%E3%82%92%E5%8F%A9%E3%81%84%E3%81%A6%E6%8A%95%E7%A8%BF%E3%81%99%E3%82%8B
 - https://sodiu.me/post/how-to-create-misskey/
+- https://mojizuri.jp/2018/10/28/misskey%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E7%AB%8B%E3%81%A6%E3%81%A6%E3%81%BF%E3%81%9F%E3%80%82%EF%BC%88%E5%82%99%E5%BF%98%E9%8C%B2%EF%BC%89/
 
 ## ブログでの言及
 - https://blog.joinmastodon.org/2018/06/why-activitypub-is-the-future/
