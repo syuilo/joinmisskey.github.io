@@ -28,6 +28,9 @@
     overflow: hidden
     background: linear-gradient(#f6584f3f, #f6584f0f)
 
+    &:not(.show)
+      background: #f6584f
+
     .texts
       position: absolute
       max-width: 88vw
@@ -62,26 +65,38 @@
           transform: translateX(32vw) translateY(45vh)
           z-index: 3
           background-color: #1a1b20
+          &:not(.show)
+            transform: translateX(32vw) translateY(95vh)
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(32vw) translateY(55vh)
+            &:not(.show)
+              transform: translateX(32vw) translateY(105vh)
 
         &:nth-child(2)
           width: 80vw
           transform: translateX(10vw) translateY(35vh)
           z-index: 0
+          &:not(.show)
+            transform: translateX(10vw) translateY(85vh)
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(10vw) translateY(45vh)
+            &:not(.show)
+              transform: translateX(10vw) translateY(95vh)
 
         &:nth-child(1)
           width: 60vw
           transform: translateX(37vw) translateY(40vh)
           z-index: 1
           background-color: #ececec
+          &:not(.show)
+            transform: translateX(37vw) translateY(90vh)
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(37vw) translateY(50vh)
+            &:not(.show)
+              transform: translateX(37vw) translateY(100vh)
 
         &:nth-child(4)
           height: 70vh
@@ -129,8 +144,8 @@
               
               > a.s2-card-link
                 @extend .border-top
-                @extend .py-2
-                @extend .px-3
+                @extend .p-2
+                @extend .text-center
                 display: block
                 transition: background-color .3s
 
@@ -140,8 +155,3 @@
 
     h4
       @extend .jm-h4
-
-  #section_3
-    .instances-list
-      max-height: 80vh
-      overflow-y: auto

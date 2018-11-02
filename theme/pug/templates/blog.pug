@@ -14,7 +14,7 @@ block main
           div.d-flex.flex-wrap.small
             div.mr-2
               +fa_fw("clock")
-              time(datetime=page.meta.mtime)=moment(page.meta.mtime).format('llll')
+              time(datetime=page.meta.mtime)=moment(page.meta.mtime).tz('Asia/Tokyo').format('llll z')
             +blog_badges(page)
             if(page.attributes.author)
               address.mb-0: a.d-block(href=page.attributes.author.url target="_blank" rel="noopener") Author: #{page.attributes.author.name}

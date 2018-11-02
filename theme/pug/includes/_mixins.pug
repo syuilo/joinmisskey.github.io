@@ -105,8 +105,8 @@ mixin mfm_example(src)
       p.m-0.p-0.small.font-weight-bold Preview
       .mk-note.bg-white!=mfmf.render(src, {baseUrl: '?'})
 
-mixin instancesList(o, colors)
-  .instances-list.list-group
+mixin instancesList(o, colors, sctrollts)
+  .instances-list.list-group(class=(scrollts ? `scrollts scrollts-${scrollts}` : ''))
     -
       let c = colors ? `text-${colors[0]} bg-${colors[2]}` : ''
       let c2 = colors ? `text-${colors[1]}` : 'text-muted'

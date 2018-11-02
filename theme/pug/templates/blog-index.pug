@@ -109,5 +109,5 @@ block main
               footer.card-footer
                 div.mr-2
                   +fa_fw("clock")
-                  time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).format('llll')
+                  time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
                 +blog_badges(thispage)
