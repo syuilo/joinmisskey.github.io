@@ -10,7 +10,7 @@ function scrollts(){
             }
         }, {
             threshold: 0,
-            rootMargin: '85px 0px'
+            rootMargin: '95px 0px'
         })
         Array.prototype.forEach.call(els, el => {
             observer.observe(el)
