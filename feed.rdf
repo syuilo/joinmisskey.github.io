@@ -6,10 +6,9 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-11-03T20:20:44.894Z</dc:date>
+        <dc:date>2018-11-03T20:31:35.178Z</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/wiki/usage/post/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/04_update10380/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/01_update10370/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/10/29_update103400/?ref=rss"/>
@@ -57,12 +56,6 @@
             </rdf:Seq>
         </items>
     </channel>
-    <item rdf:about="https://joinmisskey.github.io/ja/wiki/usage/post/?ref=rss">
-        <title>プッシュ通知が壊れています…</title>
-        <link>https://joinmisskey.github.io/ja/wiki/usage/post/?ref=rss</link>
-        <dc:date>2018-11-03T21:00:00.000Z</dc:date>
-        <description><![CDATA[プッシュ通知が文字化けして届くようです。RSSから更新していますが、何か問題があるのでしょうか？]]></description>
-    </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/11/04_update10380/?ref=rss">
         <title>最近の更新 ～10.38.1</title>
         <link>https://joinmisskey.github.io/ja/blog/2018/11/04_update10380/?ref=rss</link>
