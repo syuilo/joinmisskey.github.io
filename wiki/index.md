@@ -1,8 +1,11 @@
 ---
 title: Wiki
 title-breadcrumb: Wiki
-description: Misskeyについてありとあらゆる情報を纏める予定です。
+description: Misskeyについて多くの情報を纏める予定です。
 layout: index
 has_child: true
 ---
-上から順番に読んでみてほしい。
+Misskeyについての半公式Wiki。多くの情報をまとめる予定。  
+上から順番に読むと理解しやすいように構成されている(と思う)。
+
+インスタンスごとのドキュメント`/docs/ja-JP/about`も参照されたい。

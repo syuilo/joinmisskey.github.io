@@ -28,6 +28,12 @@ MisskeyはGitHub上でソースコードを公開しており、自分で改造�
 
 Pull RequestやIssueをお待ちしている。
 
+## APIを利用してアプリを作成する
+MisskeyはAPIを公開している。(というよりは、Webクライアント自体がAPIを利用している。)  
+APIの使い方についてはインスタンスごとのドキュメント`/docs/ja-JP/about`を参照されたい。
+
+APIに限らず、ActivityPubで接続して投稿を管理するやり方もあるだろう(ActivityPubもAPIの一種類だが)。
+
 ## 翻訳
 Crowdin上でMisskeyの翻訳に参加できる。  
 [→ Misskeyの翻訳](https://github.com/syuilo/misskey/blob/master/docs/translate.ja.md)
