@@ -1,10 +1,8 @@
 ---
 title: Wiki
 title-breadcrumb: Wiki
-description: Misskey(ソフトウェア)についての簡単な解説をします。
+description: Misskeyについてありとあらゆる情報を纏める予定です。
 layout: index
 has_child: true
 ---
-## FrontPage
-
-## ページ一覧
+上から順番に読んでみてほしい。

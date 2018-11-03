@@ -6,8 +6,8 @@ has_child: false
 rank: 4
 ---
 
-Misskeyの歴史について簡単に紹介します。
-開発者はしゅいろ(@syuilo)で、これまで数多の機能や技術を取り入れ、また数多の失敗を繰り返し今のMisskeyがあります。
+Misskeyの歴史について簡単に紹介する。  
+開発者はしゅいろ(@syuilo)で、これまで数多の機能や技術を取り入れ、また数多の失敗を繰り返し今のMisskeyがある。
 
 ## nighthike以前
 
@@ -36,11 +36,11 @@ Misskeyの歴史について簡単に紹介します。
 ## nighthike
 
 - 2018年4月8日 nighthike[*](https://twitter.com/misskey_xyz/status/982910410461343745)
-  - [ActivityPubに対応](https://zawazawa.jp/misskey/topic/2/30)。バージョンをnighthikeと改称。分散型SNSとしての道を歩み始める。これをきっかけに、Mastodon開発・運営者に知られ、Misskeyの知名度が急上昇した。
+  - [ActivityPubに対応](https://zawazawa.jp/misskey/topic/2/30)。バージョンをnighthikeと改称。分散型SNSとしての道を歩み始める。これをきっかけに、Mastodon開発・運営者に知られ、Misskeyの知名度が急上昇した
 - 同10日 himasaku.netに避難[*](https://twitter.com/syuilo/status/983634753977909253)
-  - CloudFlareのCDNが未知の理由で破壊され、misskey.xyzがダウン。翌日、CloudFlareを外して復活。
-  - 原因は@aqzによるリモートの大量フォローであると思われる。
-- このころ、i18nなどの多言語化や、インスタンスの立て方などのユーザーコンテンツが整備され始める。
+  - CloudFlareのCDNが未知の理由で破壊され、misskey.xyzがダウン。翌日、CloudFlareを外して復活
+  - 原因は@aqzによるリモートの大量フォローであると思われる
+- このころ、i18nなどの多言語化や、インスタンスの立て方などのユーザーコンテンツが整備され始める
 - 同15日
   - ~~[OpenCollective](https://opencollective.com/misskey)~~と[Patreon](https://www.patreon.com/syuilo)のアカウント開設
   - misskey.wtf開設
