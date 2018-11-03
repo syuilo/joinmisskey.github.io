@@ -9,7 +9,8 @@ function scrollts(){
                 }
             }
         }, {
-            threshold: 0
+            threshold: 0,
+            rootMargin: '85px 0px'
         })
         Array.prototype.forEach.call(els, el => {
             observer.observe(el)
