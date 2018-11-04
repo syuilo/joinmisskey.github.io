@@ -177,6 +177,12 @@ mixin instancesList(o, colors, sctrollts)
                 else
                   abbr(title=i18n('instance_twitterDisabled')).opacity-050
                     +fa_fw('twitter', 'fab')
+                if( iinfo.meta.features.github )
+                  abbr(title=i18n('instance_githubEnabled'))
+                    +fa_fw('github', 'fab')
+                else
+                  abbr(title=i18n('instance_githubDisabled')).opacity-050
+                    +fa_fw('github', 'fab')
                 if( iinfo.meta.features.serviceWorker )
                   abbr(title=i18n('instance_serviceWorkerEnabled'))
                     +fa_fw('bell')
