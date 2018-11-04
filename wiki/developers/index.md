@@ -1,7 +1,7 @@
 ---
 title: 開発者・運営者向け情報
 description: インスタンス運営方法 / Misskey本体開発 / API など
-layout: wiki
+layout: index
 has_child: false
 rank: 98
 ---
@@ -37,3 +37,5 @@ APIに限らず、ActivityPubで接続して投稿を管理するやり方もあ
 ## 翻訳
 Crowdin上でMisskeyの翻訳に参加できる。  
 [→ Misskeyの翻訳](https://github.com/syuilo/misskey/blob/master/docs/translate.ja.md)
+
+## その他の個別記事
