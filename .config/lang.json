@@ -82,7 +82,7 @@
             "en": "Twitter connection is enabled."
         },
         "instance_twitterDisabled": {
-            "ja": "Twitter連携を利用負荷",
+            "ja": "Twitter連携は利用不可",
             "en": "Twitter connection is disabled."
         },
         "instance_githubEnabled": {
@@ -90,7 +90,7 @@
             "en": "GitHub connection is enabled."
         },
         "instance_githubDisabled": {
-            "ja": "GitHub連携を利用負荷",
+            "ja": "GitHub連携は利用不可",
             "en": "GitHub connection is disabled."
         },
         "instance_serviceWorkerEnabled": {
