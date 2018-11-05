@@ -1003,10 +1003,42 @@ function (module, exports) {
         }
       }, {
         threshold: 0,
-        rootMargin: '95px 0px'
+        rootMargin: '-30% 0px'
+      });
+      var observer_nomargin = new IntersectionObserver(function (entries, observer) {
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+          for (var _iterator2 = entries[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var entry = _step2.value;
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              observer.unobserve(entry.target);
+            }
+          }
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+              _iterator2.return();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
+        }
+      }, {
+        threshold: 0,
+        rootMargin: '0px'
       });
       Array.prototype.forEach.call(els, function (el) {
-        observer.observe(el);
+        if (el.classList.contain('scrollts-nomargin')) observer_nomargin.observe(el);else observer.observe(el);
       });
     } else {
       console.log('v');
