@@ -10,10 +10,22 @@ function scrollts(){
             }
         }, {
             threshold: 0,
-            rootMargin: '95px 0px'
+            rootMargin: '-30% 0px'
+        })
+        const observer_nomargin = new IntersectionObserver((entries, observer) => {
+            for (let entry of entries) {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show')
+                    observer.unobserve(entry.target)
+                }
+            }
+        }, {
+            threshold: 0,
+            rootMargin: '0px'
         })
         Array.prototype.forEach.call(els, el => {
-            observer.observe(el)
+            if(el.classList.contain('scrollts-nomargin')) observer_nomargin.observe(el)
+            else observer.observe(el)
         })
     } else {
         console.log('v')
