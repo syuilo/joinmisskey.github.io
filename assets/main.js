@@ -1038,7 +1038,7 @@ function (module, exports) {
         rootMargin: '0px'
       });
       Array.prototype.forEach.call(els, function (el) {
-        if (el.classList.contain('scrollts-nomargin')) observer_nomargin.observe(el);else observer.observe(el);
+        if (el.classList.contains('scrollts-nomargin')) observer_nomargin.observe(el);else observer.observe(el);
       });
     } else {
       console.log('v');
