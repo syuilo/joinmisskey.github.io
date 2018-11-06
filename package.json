@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.7",
     "@fortawesome/free-brands-svg-icons": "^5.4.2",
-    "@fortawesome/free-regular-svg-icons": "^5.4.2",
+    "@fortawesome/free-regular-svg-icons": "^5.5.0",
     "@fortawesome/free-solid-svg-icons": "^5.4.2",
     "animate.css": "^3.7.0",
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
