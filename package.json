@@ -28,7 +28,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-brands-svg-icons": "^5.5.0",
     "@fortawesome/free-regular-svg-icons": "^5.4.2",
-    "@fortawesome/free-solid-svg-icons": "^5.4.2",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "animate.css": "^3.7.0",
     "babel-plugin-transform-remove-strict-mode": "0.0.2",
     "bootstrap": "^4.1.3",
