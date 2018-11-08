@@ -99,7 +99,7 @@
     "typescript": "^3.1.6",
     "ua-parser-js": "^0.7.19",
     "wanakana": "^4.0.2",
-    "webpack": "^4.23.1",
+    "webpack": "^4.24.0",
     "workbox-sw": "^3.6.3"
   },
   "dependencies": {
