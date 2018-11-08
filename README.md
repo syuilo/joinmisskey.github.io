@@ -1,9 +1,7 @@
 # joinmisskey.github.io
-
-https://github.com/syuilo/misskey
+The introdction site of [Misskey](https://github.com/syuilo/misskey)
 
 ## Usage
-
 ### Install
 
 1. Install Node.js
@@ -32,7 +30,6 @@ https://github.com/syuilo/misskey
 2. `gulp`
 
 ### Test
-
 `gulp local-server`
 
 ### Add images
@@ -49,7 +46,6 @@ This command compresses bitmap images and produces:
 Also compresses bector images.
 
 ### Translation
-
 #### Add new language
 First, folk this repository, set yours as 'origin' on git and set this one as 'upstream'.
 
@@ -68,7 +64,6 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 12. Make pull requests of 2 branches, `pages/<languagecode>` and `src`.
 
 ## LICENSES
-
 ### CONTENTS
 Files in `pages/**/*`: All rights reserved  
 Files in `files/**/*` or `dist/files/**/*`: No Liscense or the liscense that the file has in metadata

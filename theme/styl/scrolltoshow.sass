@@ -1,0 +1,177 @@
+$dulation: .9s
+$delay: .6s
+
+.scrollts
+  &#{&}-linear
+    transition-timing-function: linear !important
+  &#{&}-ease
+    transition-timing-function: ease !important
+  &#{&}-ease-in
+    transition-timing-function: ease-in !important
+  &#{&}-ease-out
+    transition-timing-function: ease-out !important
+  &#{&}-ease-in-out
+    transition-timing-function: ease-in-out !important
+
+  &#{&}-u-0
+    transition-duration: 0 !important
+    animation-duration:  0 !important
+  &#{&}-u-1
+    transition-duration: $dulation * .5 !important
+    animation-duration:  $dulation * .5 !important
+  &#{&}-u-2
+    transition-duration: $dulation * .75 !important
+    animation-duration:  $dulation * .75 !important
+  &#{&}-u-3
+    transition-duration: $dulation !important
+    animation-duration:  $dulation !important
+  &#{&}-u-4
+    transition-duration: $dulation * 1.25 !important
+    animation-duration:  $dulation * 1.25 !important
+  &#{&}-u-5
+    transition-duration: $dulation * 1.5 !important
+    animation-duration:  $dulation * 1.5 !important
+
+  &#{&}-e-0
+    transition-delay: 0 !important
+    animation-delay:  0 !important
+  &#{&}-e-1
+    transition-delay: $delay * .5 !important
+    animation-delay: $delay * .5 !important
+  &#{&}-e-2
+    transition-delay: $delay * .75 !important
+    animation-delay:  $delay * .75 !important
+  &#{&}-e-3
+    transition-delay: $delay !important
+    animation-delay:  $delay !important
+  &#{&}-e-4
+    transition-delay: $delay * 1.25 !important
+    animation-delay:  $delay * 1.25 !important
+  &#{&}-e-5
+    transition-delay: $delay * 1.5 !important
+    animation-delay:  $delay * 1.5 !important
+
+/*!
+ * keyframes and transforms from animate.css -http://daneden.me/animate
+ * Version - 3.7.0
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2018 Daniel Eden
+ */
+@import './scrolltoshow/fadeIn'
+@import './scrolltoshow/flipin'
+@import './scrolltoshow/theOthers'
+
+.scrollts
+  transition-property: all
+  transition-duration: $dulation
+  animation-duration:  $dulation
+
+  &[class*="scrollts-fadeIn"]:not(.show)
+    @extend .invisible
+  &#{&}-fadeIn
+    &.show
+      animation-name: fadeIn
+  &#{&}-fadeInUp
+    &.show
+      animation-name: fadeIn, fadeInUp
+  &#{&}-fadeInUpSmall
+    &.show
+      animation-name: fadeIn, fadeInUpSmall
+  &#{&}-fadeInUpMedium
+    &.show
+      animation-name: fadeIn, fadeInUpMedium
+  &#{&}-fadeInUpBig
+    &.show
+      animation-name: fadeIn, fadeInBig
+  &#{&}-fadeInRight
+    &.show
+      animation-name: fadeIn, fadeInRight
+  &#{&}-fadeInRightSmall
+    &.show
+      animation-name: fadeIn, fadeInRightSmall
+  &#{&}-fadeInRightMedium
+    &.show
+      animation-name: fadeIn, fadeInRightMedium
+  &#{&}-fadeInRightBig
+    &.show
+      animation-name: fadeIn, fadeInRightBig
+  &#{&}-fadeInLeft
+    &.show
+      animation-name: fadeIn, fadeInLeft
+  &#{&}-fadeInLeftSmall
+    &.show
+      animation-name: fadeIn, fadeInLeftSmall
+  &#{&}-fadeInLeftMedium
+    &.show
+      animation-name: fadeIn, fadeInLeftMedium
+  &#{&}-fadeInLeftBig
+    &.show
+      animation-name: fadeIn, fadeInLeftBig
+  &#{&}-fadeInDown
+    &.show
+      animation-name: fadeIn, fadeInDown
+  &#{&}-fadeInDownSmall
+    &.show
+      animation-name: fadeIn, fadeInDownSmall
+  &#{&}-fadeInDownMedium
+    &.show
+      animation-name: fadeIn, fadeInDownMedium
+  &#{&}-fadeInDownBig
+    &.show
+      animation-name: fadeIn, fadeInDownBig 
+
+  &[class*="scrollts-rotateIn"]:not(.show)
+    @extend .invisible
+  &#{&}-rotateIn:not(.show)
+    transform-origin: center
+    transform: rotate3d(0, 0, 1, -200deg)
+  &#{&}-rotateInDownLeft
+    transform-origin: left bottom
+    &:not(.show)
+      transform: rotate3d(0, 0, 1, -45deg)
+  &#{&}-rotateInDownRight
+    transform-origin: right bottom
+    &:not(.show)
+      transform: rotate3d(0, 0, 1, 45deg)
+  &#{&}-rotateInUpLeft
+    transform-origin: left bottom
+    &:not(.show)
+      transform: rotate3d(0, 0, 1, 45deg)
+  &#{&}-rotateInUpRight
+    transform-origin: right bottom
+    &:not(.show)
+      transform: rotate3d(0, 0, 1, -90deg)
+
+  &#{&}-zoomIn
+    &.show
+      animation-name: zoomIn
+    &:not(.show)
+      @extend .invisible
+
+  &[class*="scrollts-flipIn"]:not(.show)
+    @extend .invisible
+  &#{&}-flipInX
+    &.show
+      backface-visibility: visible !important
+      animation-name: flipInX
+  &#{&}-flipInY
+    &.show
+      backface-visibility: visible !important
+      animation-name: flipInY
+
+  &#{&}-lightSpeedIn
+    &.show
+      animation-name: lightSpeedIn
+    &:not(.show)
+      @extend .invisible
+  &#{&}-jackInTheBox
+    &.show
+      animation-name: jackInTheBox
+    &:not(.show)
+      @extend .invisible
+  &#{&}-rollIn
+    &.show
+      animation-name: rollIn
+    &:not(.show)
+      @extend .invisible

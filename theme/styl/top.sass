@@ -28,6 +28,9 @@
     overflow: hidden
     background: linear-gradient(#f6584f3f, #f6584f0f)
 
+    &:not(.show)
+      background: #f6584f
+
     .texts
       position: absolute
       max-width: 88vw
@@ -62,26 +65,44 @@
           transform: translateX(32vw) translateY(45vh)
           z-index: 3
           background-color: #1a1b20
+          &.show
+            animation-name: toppage-scnshts-3
+          &:not(.show)
+            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(32vw) translateY(55vh)
+            &.show
+              animation-name: toppage-scnshts-3-sm
 
         &:nth-child(2)
           width: 80vw
           transform: translateX(10vw) translateY(35vh)
           z-index: 0
+          &.show
+            animation-name: toppage-scnshts-2
+          &:not(.show)
+            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(10vw) translateY(45vh)
+            &.show
+              animation-name: toppage-scnshts-2-sm
 
         &:nth-child(1)
           width: 60vw
           transform: translateX(37vw) translateY(40vh)
           z-index: 1
           background-color: #ececec
+          &.show
+            animation-name: toppage-scnshts-1
+          &:not(.show)
+            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(37vw) translateY(50vh)
+            &.show
+              animation-name: toppage-scnshts-1-sm
 
         &:nth-child(4)
           height: 70vh
@@ -93,7 +114,7 @@
             transform: translateX(48vw)
 
         &:nth-child(5)
-          transform: translateX(67vw) translateY(calc(70vh - 1.6em))
+          transform: translateX(67vw) translateY(calc(64vh - 1.6em))
           transform-origin: bottom
           z-index: 5
           filter: none
@@ -103,7 +124,7 @@
           text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7,0px 1px 0 #f7f7f7, 0px -1px 0 #f7f7f7,-1px 0px 0 #f7f7f7,1px 0px 0 #f7f7f7
 
           @media (max-width: map-get($grid-breakpoints, sm) - 0.02)
-            transform: translateX(52.5vw) translateY(calc(70vh - 1.6em))
+            transform: translateX(52.5vw) translateY(calc(64vh - 1.6em))
 
   #section_2
     > .container
@@ -129,8 +150,8 @@
               
               > a.s2-card-link
                 @extend .border-top
-                @extend .py-2
-                @extend .px-3
+                @extend .p-2
+                @extend .text-center
                 display: block
                 transition: background-color .3s
 
@@ -140,8 +161,3 @@
 
     h4
       @extend .jm-h4
-
-  #section_3
-    .instances-list
-      max-height: 80vh
-      overflow-y: auto

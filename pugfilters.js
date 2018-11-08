@@ -6,6 +6,9 @@ module.exports = {
         htm = require('html-minifier').minify(htm, {"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
         return htm
     },
+    markdown: (str) => {
+        return (require('kramed')(str))
+    },
     mfm: (str) => {
         let htm = require('mfmf').render(str, {})
         return htm
