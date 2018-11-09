@@ -89,6 +89,7 @@
     "popper.js": "^1.14.4",
     "pug": "^2.0.3",
     "pump": "^3.0.0",
+    "punycode": "^2.1.1",
     "replace-ext": "^1.0.0",
     "request": "^2.88.0",
     "rimraf": "^2.6.2",
