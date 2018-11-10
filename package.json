@@ -93,6 +93,7 @@
     "replace-ext": "^1.0.0",
     "request": "^2.88.0",
     "rimraf": "^2.6.2",
+    "semver": "^5.6.0",
     "summaly": "^2.2.0",
     "sync-request": "^6.0.0",
     "sync-summaly": "^2.0.3-sync.2",

@@ -111,110 +111,117 @@ mixin instancesList(o, colors, sctrollts)
       let c = colors ? `text-${colors[0]} bg-${colors[2]}` : ''
       let c2 = colors ? `text-${colors[1]}` : 'text-muted'
       let lgrgb = colors && colors[3] == 'dark' ? '52, 58, 64' : '255, 255, 255'
-    each instance, r in instances
+      let num = 0
+    each instance, r in instancesInfos
       -
-        let iinfo = instancesInfos[r]
-        let ilang = instance.langs ? instance.langs.some(e => e == locale) : true
-        let iregi = iinfo && (iinfo.meta.features ? iinfo.meta.features.registration : !iinfo.meta.disableRegistration)
+        const iregi = instance.notSuspended || (instance.isAlive && (instance.meta.features ? instance.meta.features.registration : !instance.meta.disableRegistration))
+        const alive = instance.notSuspended || instance.isAlive
+        const ilang = instance.langs ? instance.langs.some(e => e == locale) : true
+        if(alive && iregi && ilang) num += 1
         let itype = true
         switch(o){
           case 'selected':
-            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && iregi && !!instance.selected
+            itype = alive && iregi && num < 7
             break
           case 'nonselected':
-            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && iregi && !instance.selected
+            itype = alive && iregi && num >= 7
+            break
+          case 'registration-open':
+            itype = alive && iregi
             break
           case 'suspended':
-            itype = (instance.suspended !== undefined ? instance.suspended : !iinfo)
+            itype = !alive
             break
           case 'registration-closed':
-            itype = (instance.suspended !== undefined ? !instance.suspended : iinfo) && !iregi
+            itype = alive && !iregi
             break
         }
-
       if(ilang && itype)
-        - let s = iinfo && iinfo.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .6), rgba(${lgrgb}, .9)), url('${iinfo.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
+        - let s = instance.isAlive && instance.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .6), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
-            | #{instance.name || (iinfo && iinfo.meta.name && iinfo.meta.name != 'Misskey' && iinfo.meta.name != instance.url) ? `${instance.name || iinfo.meta.name}<span class="${c2} font-weight-normal"> - ${instance.url}</span>` : instance.url}
-          p.my-1.lh-12 #{instance.description || (iinfo && iinfo.description ? iinfo.description.slice(0, 70) : '')}#{iinfo && iinfo.description && iinfo.description.length > 70 ? '…' : ''}
-          .instance-infos.d-flex.flex-wrap.small(class=c2)
-            if(iinfo)
+            | #{instance.name || (instance.isAlive && instance.meta.name && instance.meta.name != 'Misskey' && instance.meta.name != instance.url) ? `${instance.name || instance.meta.name}<span class="${c2} font-weight-normal"> - ${instance.url}</span>` : instance.url}
+          p.my-1.lh-12 #{instance.description || (instance.isAlive && instance.description ? instance.description.slice(0, 70) : '')}#{instance.isAlive && instance.description && instance.description.length > 70 ? '…' : ''}
+
+          if(instance.isAlive)
+            .instance-infos.d-flex.flex-wrap.small(class=c2)
               if(!iregi)
                 abbr(title=i18n('instance_registrationDisabled'))
                   +fa_fw('lock')
               else
                 abbr(title=i18n('instance_registrationEnabled'))
                   +fa_fw('lock-open')
-              if(iinfo.meta.features)
-                if( !iinfo.meta.features.localTimeLine )
+              if(instance.meta.features)
+                if( !instance.meta.features.localTimeLine )
                   abbr(title=i18n('instance_localTimeLineDisabled')).opacity-050
                     +fa_fw('comments')
                 else
                   abbr(title=i18n('instance_localTimeLineEnabled'))
                     +fa_fw('comments')
-                if( iinfo.meta.features.elasticsearch )
+                if( instance.meta.features.elasticsearch )
                   abbr(title=i18n('instance_elasticsearchEnabled'))
                     +fa_fw('search')
                 else
                   abbr(title=i18n('instance_elasticsearchDisabled')).opacity-050
                     +fa_fw('search')
-                if( iinfo.meta.features.recaptcha )
+                if( instance.meta.features.recaptcha )
                   abbr(title=i18n('instance_recaptchaEnabled'))
                     +fa_fw('shield-alt')
                 else
                   abbr(title=i18n('instance_recaptchaDisabled')).opacity-050
                     +fa_fw('shield-alt')
-                if( iinfo.meta.features.objectStorage )
+                if( instance.meta.features.objectStorage )
                   abbr(title=i18n('instance_objectStorageEnabled'))
                     +fa_fw('cube')
                 else
                   abbr(title=i18n('instance_objectStorageDisabled')).opacity-050
                     +fa_fw('cube')
-                if( iinfo.meta.features.twitter )
+                if( instance.meta.features.twitter )
                   abbr(title=i18n('instance_twitterEnabled'))
                     +fa_fw('twitter', 'fab')
                 else
                   abbr(title=i18n('instance_twitterDisabled')).opacity-050
                     +fa_fw('twitter', 'fab')
-                if( iinfo.meta.features.github )
+                if( instance.meta.features.github )
                   abbr(title=i18n('instance_githubEnabled'))
                     +fa_fw('github', 'fab')
                 else
                   abbr(title=i18n('instance_githubDisabled')).opacity-050
                     +fa_fw('github', 'fab')
-                if( iinfo.meta.features.serviceWorker )
+                if( instance.meta.features.serviceWorker )
                   abbr(title=i18n('instance_serviceWorkerEnabled'))
                     +fa_fw('bell')
                 else
                   abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
                     +fa_fw('bell')
-          .instance-infos.d-flex.flex-wrap.small(class=c2)
-            if(iinfo)
-              if(iinfo.stats.originalUsersCount)
-                - const users = iinfo.stats.originalUsersCount
+            .instance-infos.d-flex.flex-wrap.small(class=c2)
+              if(instance.stats.originalUsersCount)
+                - const users = instance.stats.originalUsersCount
                 .instance-infos-item.mr-2
                   abbr(title=i18n('instance_users'))
                     +fa_fw('users')
                   |  #{numeral(users).format(users >= 10000 ? '0.0a' : '0,0')}
-              if(iinfo.stats.originalNotesCount)
-                - const notes = iinfo.stats.originalNotesCount
+              if(instance.stats.originalNotesCount)
+                - const notes = instance.stats.originalNotesCount
                 .instance-infos-item.mr-2
                   abbr(title=i18n('instance_notes'))
                     +fa_fw('pencil-alt')
                   |  #{numeral(notes).format(notes >= 10000 ? '0.0a' : '0,0')}
-              if(iinfo.meta.driveCapacityPerLocalUserMb)
+              if(instance.meta.driveCapacityPerLocalUserMb)
                 .instance-infos-item.mr-2
                   abbr(title=i18n('instance_driveCapacityPerLocalUser'))
                     +fa_fw('hdd')
-                  |  #{numeral(iinfo.meta.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
-              if(iinfo.meta.version)
-                .instance-infos-item.mr-2 v#{iinfo.meta.version}
-              if(iinfo.meta.maintainer)
+                  |  #{numeral(instance.meta.driveCapacityPerLocalUserMb + 'MB').format('0.0b')}
+              if(instance.meta.version)
+                .instance-infos-item.mr-2 v#{instance.meta.version}
+              if(instance.meta.maintainer)
                 .instance-infos-item
                   abbr(title=i18n('instance_maintainer'))
                     +fa_fw('user-cog')
-                  |  #{iinfo.meta.maintainer.name}
-    
+                  |  #{instance.meta.maintainer.name}
+          else if(instance.notSuspended)
+            .instance-infos.d-flex.flex-wrap.small(class=c2)
+              +i18n('instance_notSuspended')
+
     else
       +i18n('none')

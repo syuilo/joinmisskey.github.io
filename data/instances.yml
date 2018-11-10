@@ -3,24 +3,17 @@
 ###### The List of Instances     #######
 ########################################
 - url: misskey.xyz
-  selected: true
   langs: ['ja']
 - url: misskey.jp
-  selected: true
   langs: ['ja']
 - url: misskey.m544.net
-  selected: true
   langs: ['ja']
 - url: msk.kirigakure.net
-  selected: true
   langs: ['ja']
 - url: misskey.xps2.net
-  selected: true
   langs: ['ja']
 - url: misskey.site
-  selected: true
   langs: ['ja']
-########################################
 - url: msky.tokyo
   langs: ['ja']
 - url: mk.kigurumi.fun
@@ -32,7 +25,7 @@
 - name: 'Misskey(Tor)'
   url: 5z5ce433e2yp73jqm3yxmyh2yvcn33venhnm5trqde6uwjysxyy3gbad.onion
   description: xps2氏が運営するTor上のインスタンス
-  suspended: false
+  notSuspended: true
   langs: ['ja']
 - url: misskey.tmin.ml
   langs: ['ja']
@@ -60,7 +53,7 @@
   langs: ['ja']
 - url: misskey.love
   langs: ['ja']
-########################################
+#
 - url: msky.cafe
   langs: ['ja']
 - url: mk.odakyu.app
@@ -79,26 +72,18 @@
 ##
 #
 - url: social.galaxy.cat
-  selected: true
   langs: ['en']
 - url: tri.cash
-  selected: true
   langs: ['en']
 - url: misskey.nl
-  selected: true
   langs: ['en']
 - url: misskey.social
-  selected: true
   langs: ['en']
 - url: kawaii.social
-  selected: true
   langs: ['en']
 - url: lifeisabug.com
-  selected: true
   langs: ['en']
 - url: trillion.city
-  selected: true
   langs: ['en']
 - url: bongocats.town
-  selected: true
   langs: ['en']

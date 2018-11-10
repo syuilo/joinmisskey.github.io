@@ -117,6 +117,10 @@
             "ja": "管理者",
             "en": "Maintainer"
         },
+        "instance_notSuspended": {
+            "ja": "※このインスタンスは技術的制約により情報を取得できません",
+            "en": "* This instance may be alive but cannot be got informations due to technical issues."
+        },
         "p7_subscribe": {
             "ja": "ブラウザで購読",
             "en": "Subscribe in browser"

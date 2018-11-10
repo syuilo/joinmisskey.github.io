@@ -6,6 +6,8 @@ const htmlToText = require("html-to-text")
 const request = require('request')
 const mkdirp = require('mkdirp')
 const downloadTemp = require('../../downloadTemp')
+const extend = require('extend')
+const semver = require('semver')
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -63,36 +65,95 @@ async function getAmpCss(){
     return ampcss
 }
 
-async function safePost(url, options){
-    try {
-        let res = await post(url, options)
-        if (res && res.statusCode == 200) return res
-        else return false
-    } catch(e) {
+function safePost(url, options){
+    return post(url, options).then(
+        res => {
+            if (res && res.statusCode == 200) return res
+            else return false
+        }
+    ).catch(e => {
         return false
-    }
+    })
 }
 
 async function getInstancesInfos(instances){
-    let metasPromises = [], statsPromises = [], result = []
+    let metasPromises = [],
+        statsPromises = [],
+        usersChartsPromises = [],
+        notesChartsPromises = [],
+        instancesInfos = []
     for (let instance of instances) {
         metasPromises.push(safePost(`https://${instance.url}/api/meta`, { json: true }))
         statsPromises.push(safePost(`https://${instance.url}/api/stats`, { json: true }))
+        usersChartsPromises.push(safePost(`https://${instance.url}/api/charts/users`, { json: { span: "day" }}))
+        notesChartsPromises.push(safePost(`https://${instance.url}/api/charts/notes`, { json: { span: "day" }}))
     }
-    const metas = await Promise.all(metasPromises)
-    const stats = await Promise.all(statsPromises)
+    const ress = await Promise.all([
+        Promise.all(metasPromises),
+        Promise.all(statsPromises),
+        Promise.all(usersChartsPromises),
+        Promise.all(notesChartsPromises),
+    ])
+    const metas = ress[0]
+    const stats = ress[1]
+    const usersCharts = ress[2]
+    const notesCharts = ress[3]
     for (let i = 0; i < instances.length; i++) {
+        const instance = instances[i]
+        const meta = metas[i] ? metas[i].body : false
+        const stat = stats[i] ? stats[i].body : false
+        const usersChart = usersCharts[i] ? usersCharts[i].body : false
+        const notesChart = notesCharts[i] ? notesCharts[i].body : false
         if(metas[i] && stats[i]){
-            result.push({
-                meta: metas[i].body,
-                stats: stats[i].body,
-                description: metas[i].body.description ? htmlToText.fromString(metas[i].body.description).replace(/\n/g, '<br>') : false
-            })
+            /*   インスタンスバリューの算出   */
+            let value = 0
+            // セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
+            const v = semver.valid(semver.coerce(meta.version)).split('.') // ['10', '46', '2']
+            value += Number(v[0]) * 1000000000 + Number(v[1]) * 1000000 + Number(v[0]) * 1000
+                                                                          // 10,046,002,000
+            // セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する
+            // 1. 人の集まり方と活発度を評価
+
+            if(usersChart){
+                // ユーザーが何人増えたか 0(統計なし)は除外
+                const arr = usersChart.local.total.filter(e => e !== 0)
+                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 3.0
+            }
+            if(notesChart){
+                // 投稿がいくつ増えたか 0(統計なし)は除外
+                const arr = notesChart.local.total.filter(e => e !== 0)
+                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 1.5
+            }
+
+            value += Math.log2(stat.originalNotesCount) * 10
+            value += stat.originalUsersCount * 0.008
+            value += meta.driveCapacityPerLocalUserMb * 0.001
+            // 2. 機能
+            if(meta.features){
+                if(meta.features.elasticsearch) value += 500
+                if(meta.features.recaptcha)     value += 500
+                if(meta.features.objectStorage) value += 50
+                if(meta.features.twitter)       value += 10
+                if(meta.features.github)        value += 100
+                if(meta.features.serviceWorker) value += 50
+            }
+
+            instancesInfos.push(extend(true, instance, {
+                value,
+                meta,
+                stats: stat,
+                description: metas[i].body.description ? htmlToText.fromString(metas[i].body.description).replace(/\n/g, '<br>') : ( instance.description || false ),
+                isAlive: true
+            }))
         } else {
-            result.push(false)
+            instancesInfos.push(extend(true, { isAlive: false }, instance))
         }
     }
-    return result
+    return instancesInfos.sort((a, b) => {
+        if( !a.isAlive && b.isAlive ) return 1
+        else if( a.isAlive && !b.isAlive ) return -1
+        else return b.value - a.value
+    })
 }
 
 module.exports = async (site, keys, temp_dir, instances) => {
