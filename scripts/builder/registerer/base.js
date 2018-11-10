@@ -108,10 +108,9 @@ async function getInstancesInfos(instances){
             /*   インスタンスバリューの算出   */
             let value = 0
             // 1. セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
-            const v = semver.valid(semver.coerce(meta.version)).split('.') // ['10', '46', '2']
-            value += Number(v[0]) * 1000000000 + Number(v[1]) * 1000000 + Number(v[0]) * 1000
-                                                                          // 10,046,002,000
-            if(meta.version.split('-').length > 1) value += 30
+            const v = semver.valid(semver.coerce(meta.version)).split('.')
+            value += (Number(v[0]) * 1200 + Number(v[1]) * 12 + Number(v[0])) * 1000
+            if(meta.version.split('-').length > 1) value += 100
             // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
             if(usersChart){
                 // 2.
