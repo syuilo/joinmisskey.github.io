@@ -109,26 +109,26 @@ async function getInstancesInfos(instances){
             let value = 0
             // 1. セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
             const v = semver.valid(semver.coerce(meta.version)).split('.')
-            value += (Number(v[0]) * 1200 + Number(v[1]) * 12 + Number(v[0]) * 0.75) * 1000
-            if(meta.version.split('-').length > 1) value += 100
+            value += (Number(v[0]) * 1600 + Number(v[1]) * 16 + Number(v[0])) * 750
+            if(meta.version.split('-').length > 1) value += 200
             // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
             if(usersChart){
                 // 2.
                 const arr = usersChart.local.total.filter(e => e !== 0)
-                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 3.0
+                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 15
             }
             if(notesChart){
                 // 3.
                 const arr = notesChart.local.total.filter(e => e !== 0)
-                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 0.30
+                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 0.6
             }
 
             // 4.
-            value += Math.log2(stat.originalNotesCount) * 10
+            value += stat.originalNotesCount > 0 ? Math.log10(stat.originalNotesCount) * 70 : 0
             // 5.
-            value += stat.originalUsersCount * 0.008
+            value += stat.originalUsersCount > 0 ? Math.log2(stat.originalUsersCount) * 10 : 0
             // 6.
-            value += meta.driveCapacityPerLocalUserMb * 0.001
+            value += meta.driveCapacityPerLocalUserMb > 0 ? Math.log10(meta.driveCapacityPerLocalUserMb) * 100 : 0
 
             // 7.
             if(meta.features){
