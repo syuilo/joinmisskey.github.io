@@ -107,28 +107,31 @@ async function getInstancesInfos(instances){
         if(metas[i] && stats[i]){
             /*   インスタンスバリューの算出   */
             let value = 0
-            // セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
+            // 1. セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
             const v = semver.valid(semver.coerce(meta.version)).split('.') // ['10', '46', '2']
             value += Number(v[0]) * 1000000000 + Number(v[1]) * 1000000 + Number(v[0]) * 1000
                                                                           // 10,046,002,000
-            // セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する
-            // 1. 人の集まり方と活発度を評価
-
+            if(meta.version.split('-').length > 1) value += 30
+            // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
             if(usersChart){
-                // ユーザーが何人増えたか 0(統計なし)は除外
+                // 2.
                 const arr = usersChart.local.total.filter(e => e !== 0)
                 value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 3.0
             }
             if(notesChart){
-                // 投稿がいくつ増えたか 0(統計なし)は除外
+                // 3.
                 const arr = notesChart.local.total.filter(e => e !== 0)
-                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 1.5
+                value += ( arr[0] - arr[arr.length - 1] ) / arr.length * 0.30
             }
 
+            // 4.
             value += Math.log2(stat.originalNotesCount) * 10
+            // 5.
             value += stat.originalUsersCount * 0.008
+            // 6.
             value += meta.driveCapacityPerLocalUserMb * 0.001
-            // 2. 機能
+
+            // 7.
             if(meta.features){
                 if(meta.features.elasticsearch) value += 500
                 if(meta.features.recaptcha)     value += 500
@@ -152,7 +155,8 @@ async function getInstancesInfos(instances){
     return instancesInfos.sort((a, b) => {
         if( !a.isAlive && b.isAlive ) return 1
         else if( a.isAlive && !b.isAlive ) return -1
-        else return b.value - a.value
+        else if ( a.isAlive && b.isAlive ) return b.value - a.value
+        else return ( b.url > a.url ? 1 : -1 )
     })
 }
 

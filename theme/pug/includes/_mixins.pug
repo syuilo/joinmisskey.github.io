@@ -138,7 +138,7 @@ mixin instancesList(o, colors, sctrollts)
         }
       if(ilang && itype)
         - let s = instance.isAlive && instance.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .6), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
-        a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s).instance.list-group-item.list-group-item-action.flex-column.align-items-start
+        a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
             | #{instance.name || (instance.isAlive && instance.meta.name && instance.meta.name != 'Misskey' && instance.meta.name != instance.url) ? `${instance.name || instance.meta.name}<span class="${c2} font-weight-normal"> - ${instance.url}</span>` : instance.url}
           p.my-1.lh-12 #{instance.description || (instance.isAlive && instance.description ? instance.description.slice(0, 70) : '')}#{instance.isAlive && instance.description && instance.description.length > 70 ? '…' : ''}

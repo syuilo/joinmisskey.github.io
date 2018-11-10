@@ -118,8 +118,8 @@
             "en": "Maintainer"
         },
         "instance_notSuspended": {
-            "ja": "※このインスタンスは技術的制約により情報を取得できません",
-            "en": "* This instance may be alive but cannot be got informations due to technical issues."
+            "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
+            "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty."
         },
         "p7_subscribe": {
             "ja": "ブラウザで購読",
