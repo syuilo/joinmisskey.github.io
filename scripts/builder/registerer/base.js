@@ -109,7 +109,7 @@ async function getInstancesInfos(instances){
             let value = 0
             // 1. セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
             const v = semver.valid(semver.coerce(meta.version)).split('.')
-            value += (Number(v[0]) * 1200 + Number(v[1]) * 12 + Number(v[0])) * 1000
+            value += (Number(v[0]) * 1200 + Number(v[1]) * 12 + Number(v[0]) * 0.75) * 1000
             if(meta.version.split('-').length > 1) value += 100
             // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
             if(usersChart){
@@ -135,9 +135,9 @@ async function getInstancesInfos(instances){
                 if(meta.features.elasticsearch) value += 500
                 if(meta.features.recaptcha)     value += 500
                 if(meta.features.objectStorage) value += 50
-                if(meta.features.twitter)       value += 10
-                if(meta.features.github)        value += 100
-                if(meta.features.serviceWorker) value += 50
+                if(meta.features.twitter) meta.features.github ? value += 400 : value += 250
+                else                      meta.features.github ? value += 200 : value += 0
+                if(meta.features.serviceWorker) value += 150
             }
 
             instancesInfos.push(extend(true, instance, {
