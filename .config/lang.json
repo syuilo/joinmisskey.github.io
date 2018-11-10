@@ -3,173 +3,173 @@
     "i18n": {
         "home": {
             "ja": "ホーム",
-            "en": "Home"
+            "en": "Home",
             "fr": "Accueil"
         },
         "blog": {
             "ja": "ブログ",
-            "en": "Blog"
+            "en": "Blog",
             "fr": "Blog"
         },
         "prev": {
             "ja": "前",
-            "en": "Previous"
+            "en": "Previous",
             "fr": "Précédente"
         },
         "next": {
             "ja": "次",
-            "en": "Next"
+            "en": "Next",
             "fr": "Suivante"
         },
         "null": {
             "ja": "なし",
-            "en": "None"
+            "en": "None",
             "fr": "Aucun"
         },
         "none": {
             "ja": "ありません！",
-            "en": "None"
+            "en": "None",
             "fr": "Aucun"
         },
         "nobody": {
             "ja": "いません！",
-            "en": "Nobody"
+            "en": "Nobody",
             "fr": "Personne"
         },
         "the_other_backers": {
             "ja": "ティア外",
-            "en": "Out of Tiers"
+            "en": "Out of Tiers",
             "fr": "Hors normes"
         },
         "update%0": {
             "ja": "%0 更新",
-            "en": "Updated at %0"
+            "en": "Updated at %0",
             "fr": "Mise à jour à 0%"
         },
         "instance_registrationDisabled": {
             "ja": "新規登録拒否",
-            "en": "Registration is disabled."
+            "en": "Registration is disabled.",
             "fr": "Les inscriptions sont désactivées."
         },
         "instance_registrationEnabled": {
             "ja": "新規登録可",
-            "en": "Registration is enabled."
+            "en": "Registration is enabled.",
             "fr": "Les inscriptions sont désactivées."
         },
         "instance_localTimeLineDisabled": {
             "ja": "ローカルタイムライン無効",
-            "en": "Local time line is disabled."
+            "en": "Local time line is disabled.",
             "fr": "Le fil local est désactivé."
         },
         "instance_localTimeLineEnabled": {
             "ja": "ローカルタイムライン有効",
-            "en": "Local time line is enabled."
+            "en": "Local time line is enabled.",
             "fr": "Le fil local est activé."
         },
         "instance_elasticsearchEnabled": {
             "ja": "検索機能を利用可能",
-            "en": "Search function is enabled."
+            "en": "Search function is enabled.",
             "fr": "La fonctionalité de recherche est activée."
         },
         "instance_elasticsearchDisabled": {
             "ja": "検索機能は利用不可",
-            "en": "Search function is disabled."
+            "en": "Search function is disabled.",
             "fr": "La fonctionalité de recherche est désactivée."
         },
         "instance_recaptchaEnabled": {
             "ja": "reCAPTCHAが有効",
-            "en": "reCAPTCHA is enabled."
+            "en": "reCAPTCHA is enabled.",
             "fr": "reCAPTCHA est activé."
         },
         "instance_recaptchaDisabled": {
             "ja": "reCAPTCHAが無効",
-            "en": "reCAPTCHA is disabled."
+            "en": "reCAPTCHA is disabled.",
             "fr": "reCAPTCHA est désactivé."
         },
         "instance_objectStorageEnabled": {
             "ja": "オブジェクトストレージを利用",
-            "en": "This instance using object storage."
+            "en": "This instance using object storage.",
             "fr": "Cette instance utilise le stockage d'objets."
         },
         "instance_objectStorageDisabled": {
             "ja": "オブジェクトストレージを不使用",
-            "en": "This instance not using object storage."
+            "en": "This instance not using object storage.",
             "fr": "Cette instance n'utilise pas le stockage d'objets."
         },
         "instance_twitterEnabled": {
             "ja": "Twitter連携を利用可能",
-            "en": "Twitter connection is enabled."
+            "en": "Twitter connection is enabled.",
             "fr": "L\'authentification via Twitter est activée."
         },
         "instance_twitterDisabled": {
             "ja": "Twitter連携は利用不可",
-            "en": "Twitter connection is disabled."
+            "en": "Twitter connection is disabled.",
             "fr": "L\'authentification via Twitter est désactivée."
         },
         "instance_githubEnabled": {
             "ja": "GitHub連携を利用可能",
-            "en": "GitHub connection is enabled."
+            "en": "GitHub connection is enabled.",
             "fr": "L\'authentification via Github est activée."
         },
         "instance_githubDisabled": {
             "ja": "GitHub連携は利用不可",
-            "en": "GitHub connection is disabled."
+            "en": "GitHub connection is disabled.",
             "fr": "L\'authentification via Github est désactivée."
         },
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
-            "en": "Service worker is working."
+            "en": "Service worker is working.",
             "fr": "Le service worker est fonctionnel."
             
         },
         "instance_serviceWorkerDisabled": {
             "ja": "通知を常時配信負荷",
-            "en": "Service worker is not working."
+            "en": "Service worker is not working.",
             "fr": "Le service worker n'est pas fonctionnel."
         },
         "instance_users": {
             "ja": "登録アカウント数",
-            "en": "Accounts count"
+            "en": "Accounts count",
             "fr": "Comptes"
         },
         "instance_notes": {
             "ja": "投稿数",
-            "en": "Notes count"
+            "en": "Notes count",
             "fr": "Notes"
         },
         "instance_driveCapacityPerLocalUser": {
             "ja": "一人当たりドライブ容量",
-            "en": "Drive capacity per a local user"
+            "en": "Drive capacity per a local user",
             "fr": "Capacité du lecteur de stockage par utilisateur local"
         },
         "instance_maintainer": {
             "ja": "管理者",
-            "en": "Maintainer"
+            "en": "Maintainer",
             "fr": "Mainteneur"
         },
         "instance_notSuspended": {
             "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
-            "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty."
+            "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty.",
             "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l\'instance"
         },
         "p7_subscribe": {
             "ja": "ブラウザで購読",
-            "en": "Subscribe in browser"
+            "en": "Subscribe in browser",
             "fr": "Inscription via navigateur"
         },
         "p7_unsubscribe": {
             "ja": "購読を解除",
-            "en": "Unsubscribe"
+            "en": "Unsubscribe",
             "fr": "Désincription"
         },
         "p7_unsubscribed": {
             "ja": "購読を解除しました。",
-            "en": "Unsubscribed."
+            "en": "Unsubscribed.",
             "fr": "Désinscris"
         },
         "p7_subscribeFailed": {
             "ja": "購読に失敗しました。",
-            "en": "Subscribe is failed."
+            "en": "Subscribe is failed.",
             "fr": "Echec de la désinscription"
         }
     }
