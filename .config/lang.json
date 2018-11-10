@@ -99,22 +99,22 @@
         "instance_twitterEnabled": {
             "ja": "Twitter連携を利用可能",
             "en": "Twitter connection is enabled.",
-            "fr": "L\'authentification via Twitter est activée."
+            "fr": "L'authentification via Twitter est activée."
         },
         "instance_twitterDisabled": {
             "ja": "Twitter連携は利用不可",
             "en": "Twitter connection is disabled.",
-            "fr": "L\'authentification via Twitter est désactivée."
+            "fr": "L'authentification via Twitter est désactivée."
         },
         "instance_githubEnabled": {
             "ja": "GitHub連携を利用可能",
             "en": "GitHub connection is enabled.",
-            "fr": "L\'authentification via Github est activée."
+            "fr": "L'authentification via Github est activée."
         },
         "instance_githubDisabled": {
             "ja": "GitHub連携は利用不可",
             "en": "GitHub connection is disabled.",
-            "fr": "L\'authentification via Github est désactivée."
+            "fr": "L'authentification via Github est désactivée."
         },
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
@@ -150,7 +150,7 @@
         "instance_notSuspended": {
             "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
             "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty.",
-            "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l\'instance"
+            "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l'instance"
         },
         "p7_subscribe": {
             "ja": "ブラウザで購読",
