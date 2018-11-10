@@ -39,6 +39,7 @@
         "the_other_backers": {
             "ja": "ティア外",
             "en": "Out of Tiers"
+            "fr": "Hors normes"
         },
         "update%0": {
             "ja": "%0 更新",
@@ -118,10 +119,13 @@
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
             "en": "Service worker is working."
+            "fr": "Le service worker est fonctionnel."
+            
         },
         "instance_serviceWorkerDisabled": {
             "ja": "通知を常時配信負荷",
             "en": "Service worker is not working."
+            "fr": "Le service worker n'est pas fonctionnel."
         },
         "instance_users": {
             "ja": "登録アカウント数",
@@ -146,6 +150,7 @@
         "instance_notSuspended": {
             "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
             "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty."
+            "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l\'instance"
         },
         "p7_subscribe": {
             "ja": "ブラウザで購読",
