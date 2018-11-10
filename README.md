@@ -11,7 +11,7 @@ The introdction site of [Misskey](https://github.com/syuilo/misskey)
 5. `git checkout src`
 6. `npm install`
 7. `npm install gulp -g`
-8. `git worktree add docs master; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en;`
+8. `git worktree add docs master; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en; git worktree add pages/fr pages/fr;`
 
 ### Build
 
@@ -57,7 +57,7 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 6. `cd pages/<languagecode>`
 7. `git push --set-upstream origin pages/<languagecode>`
 8. `cd ../..`
-9. Add the language in these files: `README.md`(l13), `.config/lang.json`, `theme/pug/includes/_includes_head.pug`.
+9. Add the language in these files: `README.md`(l14), `.config/lang.json`.
 10. Commit these changes to your folk.
 11. Make [new issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new) to ask aqz or syuilo to add a new language.
     We will make branch `pages/<languagecode>`
