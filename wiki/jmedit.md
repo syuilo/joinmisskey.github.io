@@ -5,11 +5,11 @@ layout: wiki
 has_child: false
 rank: 199
 ---
-1. GitHubにアカウントを作る
-2. [joinmisskeyのリポジトリ](https://github.com/joinmisskey/joinmisskey.github.io)をForkする
-3. `pages/ja`内の該当するファイルを編集する
-  * Markdown(`.md`)かPug(`.pug`)で書かれている
-  * 各ファイルには先頭の`--- ~ ---`でYAML FrontMatterが設定されている
-4. 編集が終わったらプルリクエストを出す
-5. aqzやsyuiloがマージする
-6. aqzがビルドすれば、変更が反映される
+1. Créez un compte sur GitHub
+2. Fourchez le [dépôt de joinmisskey](https://github.com/joinmisskey/joinmisskey.github.io) en cliquant sur fork
+3. Modifiez les fichier dans `pages/fr`
+  * Syntaxe des fichiers en Markdown sont en (`.md`) et Pug en (`.pug`)
+  * Chaque fichier possède une syntaxe YAML Front Matter avec un `--- ~ ---` au début
+4. Soumettre une demande de fusion après l'édition
+5. aqz et syuilo fusionneront les modifications
+6. Les modifications seront appliquées lorsque aqz les aura construit
