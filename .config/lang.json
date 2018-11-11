@@ -123,7 +123,7 @@
             
         },
         "instance_serviceWorkerDisabled": {
-            "ja": "通知を常時配信負荷",
+            "ja": "通知を常時配信不可",
             "en": "Service worker is not working.",
             "fr": "Le service worker n'est pas fonctionnel."
         },
