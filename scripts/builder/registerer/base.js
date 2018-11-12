@@ -124,19 +124,19 @@ async function getInstancesInfos(instances){
             }
 
             // 4.
-            value += stat.originalNotesCount > 0 ? Math.log10(stat.originalNotesCount) * 70 : 0
+            value += stat.originalNotesCount > 0 ? Math.log10(stat.originalNotesCount) * 7 : 0
             // 5.
-            value += stat.originalUsersCount > 0 ? Math.log2(stat.originalUsersCount) * 10 : 0
+            value += stat.originalUsersCount > 0 ? Math.log2(stat.originalUsersCount) * 1 : 0
             // 6.
-            value += meta.driveCapacityPerLocalUserMb > 0 ? Math.log10(meta.driveCapacityPerLocalUserMb) * 100 : 0
+            value += meta.driveCapacityPerLocalUserMb > 0 ? Math.log10(meta.driveCapacityPerLocalUserMb) * 10 : 0
 
             // 7.
             if(meta.features){
                 if(meta.features.elasticsearch) value += 500
                 if(meta.features.recaptcha)     value += 500
                 if(meta.features.objectStorage) value += 50
-                if(meta.features.twitter) meta.features.github ? value += 400 : value += 250
-                else                      meta.features.github ? value += 200 : value += 0
+                if(meta.features.twitter) value += meta.features.github ? 400 : 250
+                else                      value += meta.features.github ? 200 : 0
                 if(meta.features.serviceWorker) value += 150
             }
 
