@@ -5,7 +5,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
 .bg-white.py-3
   .container-fluid
     h1.text-center.pt-4.pb-2 Crédits
-    p.text-center Tous ceux et celles qui ont contribué à Misskey.(Titres omis)
+    p.text-center Tous ceux et celles qui ont contribué à Misskey.
 
     h2#specialThanks_list.text-center.pt-4.pb-2 Remerciements particuliers à
     #specialThanks_list.d-flex.flex-wrap.justify-content-center
@@ -14,8 +14,8 @@ description: Misskeyに貢献してくださった方を掲載しています。
         p 村上さん
     .container
       hr.my-5.bg-primary
-    h2#contributors.text-center.pb-2 Contributeur
-    p.text-center #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub] qui a développé le code de Misskey
+    h2#contributors.text-center.pb-2 Contributeurs
+    p.text-center Ceux et celles qui ont dévellopé le code de Misskey via #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
@@ -27,8 +27,8 @@ description: Misskeyに貢献してくださった方を掲載しています。
         +i18n('nobody')
     .container
       hr.my-5.bg-primary
-    h2#contributors.text-center.pb-2 Patron
-    p.text-center #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]でパトロンとして継続的に寄付してくださっている方々
+    h2#contributors.text-center.pb-2 Mécènes
+    p.text-center Les donateurs qui continuent à nous soutenir via #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]
     #patrons_list
       if(patrons || patrons.length != 0)
         each tier in patrons
