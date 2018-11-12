@@ -82,7 +82,7 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.23",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.10.0",
     "numeral": "^2.0.6",
     "pjax-api": "^3.24.1",
     "plugin-error": "^1.0.1",
