@@ -53,6 +53,10 @@
   langs: ['ja']
 - url: misskey.love
   langs: ['ja']
+- url: misskey.myhome.cx
+  langs: ['ja']
+- url: uhouho.xyz
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
