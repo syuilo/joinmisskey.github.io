@@ -188,12 +188,13 @@ mixin instancesList(o, colors, sctrollts)
                 else
                   abbr(title=i18n('instance_githubDisabled')).opacity-050
                     +fa_fw('github', 'fab')
-                if( instance.meta.features.serviceWorker )
-                  abbr(title=i18n('instance_serviceWorkerEnabled'))
-                    +fa_fw('bell')
-                else
-                  abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
-                    +fa_fw('bell')
+                if( !semver.satisfies(semver.valid(semver.coerce(instance.meta.version)), ">=10.48.0") )
+                  if( instance.meta.features.serviceWorker )
+                    abbr(title=i18n('instance_serviceWorkerEnabled'))
+                      +fa_fw('bell')
+                  else
+                    abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
+                      +fa_fw('bell')
             .instance-infos.d-flex.flex-wrap.small(class=c2)
               if(instance.stats.originalUsersCount)
                 - const users = instance.stats.originalUsersCount
