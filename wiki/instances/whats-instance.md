@@ -54,6 +54,7 @@ has_child: false
       * Twitter - `250`
       * GitHub - `200`
   * ServiceWorker(Push Notification) - `150`
+    * ServiceWorkerに不具合があり無効になったため、10.48.0以降のすべてのインスタンスには150を加算する。
 
 算出方法は適宜変更する。
 
