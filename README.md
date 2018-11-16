@@ -1,11 +1,11 @@
 # joinmisskey.github.io
-The introdction site of [Misskey](https://github.com/syuilo/misskey)
+The introduction site of [Misskey](https://github.com/syuilo/misskey)
 
 ## Usage
 ### Install
 
 1. Install Node.js
-2. make a new folder
+2. Make a new folder
 3. `git init`
 4. `git remote add origin https://github.com/joinmisskey/joinmisskey.github.io.git`
 5. `git checkout src`
@@ -46,8 +46,8 @@ This command compresses bitmap images and produces:
 Also compresses bector images.
 
 ### Translation
-#### Add new language
-First, folk this repository, set yours as 'origin' on git and set this one as 'upstream'.
+#### Add a new language
+First, fork this repository, set yours as 'origin' on git and set this one as 'upstream'.
 
 1. `cd pages/ja`
 2. `git checkout -b pages/<languagecode>`
@@ -58,7 +58,7 @@ First, folk this repository, set yours as 'origin' on git and set this one as 'u
 7. `git push --set-upstream origin pages/<languagecode>`
 8. `cd ../..`
 9. Add the language in these files: `README.md`(l14), `.config/lang.json`.
-10. Commit these changes to your folk.
+10. Commit these changes to your fork.
 11. Make [new issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new) to ask aqz or syuilo to add a new language.
     We will make branch `pages/<languagecode>`
 12. Make pull requests of 2 branches, `pages/<languagecode>` and `src`.
