@@ -53,7 +53,7 @@ ChromeでYouTube・ニコニコ動画・ツイキャスの動画・配信を開�
 
 **[WhatYouarePlaying - GitHub](https://github.com/GenbuHase/WhatYouarePlaying)**
 
-## サービス
+## サービス・ツール
 Misskeyを利用したサービス。
 
 ### Misskey API
@@ -75,6 +75,12 @@ Fediverseのなかからあなたと似た人を探すことができる。
 
 **[distdn.org ユーザーマッチング](https://vinayaka.distsn.org/)**
 
+###　ツール
+#### Cropper for Misskey
+アイコン作成補助ツール。
+
+[Cropper for Misskey](https://tools.botchsoft.com/cropper)
+
 #### notestock
 登録したユーザーの投稿を蓄積する。
 
@@ -90,8 +96,3 @@ Fediverseのなかからあなたと似た人を探すことができる。
 Collection of fediverse client libraries for .NET Standard 2.0.
 
 **[OrionDevelop/Disboard - GitHub](https://github.com/OrionDevelop/Disboard)**
-
-#### taqz
-aqzがMisskey、Mastodon、Twitterの認証系を一通り学ぶ目的で書いたTwitter, Mastodon, Misskey対応のCLIクライアント。
-
-**[tamaina/taqz - GitHub](https://github.com/tamaina/taqz)**

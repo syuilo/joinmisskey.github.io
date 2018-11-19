@@ -49,12 +49,12 @@ has_child: false
   * 検索機能 - `500`
   * reCAPTCHA - `500`
   * オブジェクトストレージ - `50`
-  * 他サービス連携
-      * Twitter + GitHub - `400`
-      * Twitter - `250`
-      * GitHub - `200`
+  * 他サービス連携 (Twitter, GitHub, Discord)
+      * 連携が設定されている - `100`
+      * 1サービスにつき - `100`
+      * 例) GitHub連携とDiscord連携が可能な場合、計`300`が加算される
   * ServiceWorker(Push Notification) - `150`
-    * ServiceWorkerに不具合があり無効になったため、10.48.0以降のすべてのインスタンスには150を加算する。
+    * ServiceWorkerに不具合があり無効になったため、10.48.0以降のすべてのインスタンスに`150`を加算する。
 
 算出方法は適宜変更する。
 
