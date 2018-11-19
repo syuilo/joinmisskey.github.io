@@ -136,8 +136,10 @@ async function getInstancesInfos(instances){
                 if(meta.features.elasticsearch) value += 500
                 if(meta.features.recaptcha)     value += 500
                 if(meta.features.objectStorage) value += 50
-                if(meta.features.twitter) value += meta.features.github ? 400 : 250
-                else                      value += meta.features.github ? 200 : 0
+                if(meta.features.twitter || meta.features.github || meta.features.discord) value += 300
+                if(meta.features.twitter) value += 100
+                if(meta.features.github)  value += 100
+                if(meta.features.discord) value += 100
                 if(semver.satisfies(v, ">=10.48.0") || meta.features.serviceWorker) value += 150
             }
 
