@@ -101,7 +101,7 @@
             "en": "%0 connection is enabled.",
             "fr": "L'authentification via %0 est activée."
         },
-        "instance_serviceDisabled": {
+        "instance_serviceConnectionDisabled": {
             "ja": "%0連携は利用不可",
             "en": "%0 connection is disabled.",
             "fr": "L'authentification via %0 est désactivée."
