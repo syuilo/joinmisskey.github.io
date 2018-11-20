@@ -19,9 +19,8 @@ ul.fa-ul
   li #[span.fa-li: +fa_fw('search')]: Recherche disponible
   li #[span.fa-li: +fa_fw('shield-alt')]: Protection contre les bots via reCAPTCHA activée
   li #[span.fa-li: +fa_fw('cube')]: ドライブのファイルはオブジェクトストレージで管理されている
-  li #[span.fa-li: +fa_fw('twitter', 'fab')]: Authentification avec Twitter disponible
-  li #[span.fa-li: +fa_fw('github', 'fab')]: Authentification avec GitHub disponible
-  li #[span.fa-li: +fa_fw('discord', 'fab')]: Authentification avec Discord disponible
+  each service in mkConnectServices
+    li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: Authentification avec #{service} disponible
   li #[span.fa-li: +fa_fw('bell')]: Notifications en direct (non disponible en fonction de l'environnement tel que iOS) #[small 10.48.0以降は利用不可。]
 ul.fa-ul
   li #[span.fa-li: +fa_fw('users')]: Nombre d'utilisateurs inscrits sur l'instance
