@@ -1,3 +1,5 @@
+const mkConnectServices = ['Twitter', 'GitHub', 'Discord']
+
 const util = require('util')
 const promisify = util.promisify
 const sass = require("node-sass")
@@ -136,10 +138,9 @@ async function getInstancesInfos(instances){
                 if(meta.features.elasticsearch) value += 500
                 if(meta.features.recaptcha)     value += 500
                 if(meta.features.objectStorage) value += 50
-                if(meta.features.twitter || meta.features.github || meta.features.discord) value += 300
-                if(meta.features.twitter) value += 100
-                if(meta.features.github)  value += 100
-                if(meta.features.discord) value += 100
+                let v2 = 0
+                for(let service of mkConnectServices){ if(meta.features[service.toLowerCase()]){ v2 += 100 }}
+                if(v2 > 0) value += v2 + 300
                 if(semver.satisfies(v, ">=10.48.0") || meta.features.serviceWorker) value += 150
             }
 
@@ -237,6 +238,7 @@ module.exports = async (site, keys, temp_dir, instances) => {
         patrons,
         contributors,
         ampcss,
-        creditIcons
+        creditIcons,
+        mkConnectServices
     }
 }

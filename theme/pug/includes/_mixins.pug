@@ -176,18 +176,13 @@ mixin instancesList(o, colors, sctrollts)
                 else
                   abbr(title=i18n('instance_objectStorageDisabled')).opacity-050
                     +fa_fw('cube')
-                if( instance.meta.features.twitter )
-                  abbr(title=i18n('instance_twitterEnabled'))
-                    +fa_fw('twitter', 'fab')
-                else
-                  abbr(title=i18n('instance_twitterDisabled')).opacity-050
-                    +fa_fw('twitter', 'fab')
-                if( instance.meta.features.github )
-                  abbr(title=i18n('instance_githubEnabled'))
-                    +fa_fw('github', 'fab')
-                else
-                  abbr(title=i18n('instance_githubDisabled')).opacity-050
-                    +fa_fw('github', 'fab')
+                each service in mkConnectServices
+                  if( instance.meta.features[service.toLowerCase()] )
+                    abbr(title=i18n('instance_serviceConnectionEnabled', [service]))
+                      +fa_fw(service.toLowerCase(), 'fab')
+                  else
+                    abbr(title=i18n('instance_serviceConnectionDisabled', [service])).opacity-050
+                      +fa_fw(service.toLowerCase(), 'fab')
                 if( !semver.satisfies(semver.valid(semver.coerce(instance.meta.version)), ">=10.48.0") )
                   if( instance.meta.features.serviceWorker )
                     abbr(title=i18n('instance_serviceWorkerEnabled'))

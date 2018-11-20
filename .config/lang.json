@@ -44,7 +44,7 @@
         "update%0": {
             "ja": "%0 更新",
             "en": "Updated at %0",
-            "fr": "Mise à jour à 0%"
+            "fr": "Mise à jour à %0"
         },
         "instance_registrationDisabled": {
             "ja": "新規登録拒否",
@@ -96,25 +96,15 @@
             "en": "This instance not using object storage.",
             "fr": "Cette instance n'utilise pas le stockage d'objets."
         },
-        "instance_twitterEnabled": {
-            "ja": "Twitter連携を利用可能",
-            "en": "Twitter connection is enabled.",
-            "fr": "L'authentification via Twitter est activée."
+        "instance_serviceConnectionEnabled": {
+            "ja": "%0連携を利用可能",
+            "en": "%0 connection is enabled.",
+            "fr": "L'authentification via %0 est activée."
         },
-        "instance_twitterDisabled": {
-            "ja": "Twitter連携は利用不可",
-            "en": "Twitter connection is disabled.",
-            "fr": "L'authentification via Twitter est désactivée."
-        },
-        "instance_githubEnabled": {
-            "ja": "GitHub連携を利用可能",
-            "en": "GitHub connection is enabled.",
-            "fr": "L'authentification via Github est activée."
-        },
-        "instance_githubDisabled": {
-            "ja": "GitHub連携は利用不可",
-            "en": "GitHub connection is disabled.",
-            "fr": "L'authentification via Github est désactivée."
+        "instance_serviceDisabled": {
+            "ja": "%0連携は利用不可",
+            "en": "%0 connection is disabled.",
+            "fr": "L'authentification via %0 est désactivée."
         },
         "instance_serviceWorkerEnabled": {
             "ja": "通知を常時配信可能",
