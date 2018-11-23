@@ -6,28 +6,28 @@ has_child: false
 rank: 2
 ---
 p
-  | #[a(href="./whats-instance/#インスタンスとは？").font-weight-bold Qu'est ce qu'une instance ?] / 
+  | #[a(href="./whats-instance/#インスタンスとは？").font-weight-bold Qu’est ce qu’une instance ?] / 
   | #[a(href="./whats-instance/#このリストについて").font-weight-bold À propos de cette liste] / 
-  | #[a(href="./registration-closed/").font-weight-bold Liste des instances n'acceptant pas de nouvelles inscriptions] / 
+  | #[a(href="./registration-closed/").font-weight-bold Liste des instances n’acceptant pas de nouvelles inscriptions] / 
   | #[a(href="./suspended/").font-weight-bold Liste des instances fermées]
 
 h3.blogstyle Légende
 
 ul.fa-ul
-  li #[span.fa-li: +fa_fw('lock')]: Codes d'invitation (une invitation par l'administrateur de l'instance est requise pour l'inscription) / #[+fa_fw('lock-open')]: Nouveaux inscrits
+  li #[span.fa-li: +fa_fw('lock')]: Codes d’invitation (une invitation par l’administrateur de l’instance est requise pour l’inscription) / #[+fa_fw('lock-open')]: Nouveaux inscrits
   li #[span.fa-li: +fa_fw('comments')]: Calendrier local activé
   li #[span.fa-li: +fa_fw('search')]: Recherche disponible
   li #[span.fa-li: +fa_fw('shield-alt')]: Protection contre les bots via reCAPTCHA activée
   li #[span.fa-li: +fa_fw('cube')]: ドライブのファイルはオブジェクトストレージで管理されている
   each service in mkConnectServices
     li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: Authentification avec #{service} disponible
-  li #[span.fa-li: +fa_fw('bell')]: Notifications en direct (non disponible en fonction de l'environnement tel que iOS) #[small 10.48.0以降は利用不可。]
+  li #[span.fa-li: +fa_fw('bell')]: Notifications en direct (non disponible en fonction de l’environnement tel que iOS) #[small 10.48.0以降は利用不可。]
 ul.fa-ul
-  li #[span.fa-li: +fa_fw('users')]: Nombre d'utilisateurs inscrits sur l'instance
-  li #[span.fa-li: +fa_fw('pencil-alt')]: Nombre des publications utilisateurs sur l'instance
+  li #[span.fa-li: +fa_fw('users')]: Nombre d’utilisateurs inscrits sur l’instance
+  li #[span.fa-li: +fa_fw('pencil-alt')]: Nombre des publications utilisateurs sur l’instance
   li #[span.fa-li: +fa_fw('hdd')]: Capacité de stockagé disponible pour les utilisateurs
-  li #[span.fa-li: +fa_fw('user-cog')]: Exemple le nom de l'administrateur
+  li #[span.fa-li: +fa_fw('user-cog')]: Exemple le nom de l’administrateur
 
-h2.blogstyle Exemple d'instances
+h2.blogstyle Exemple d’instances
 
 +instancesList('registration-open')
