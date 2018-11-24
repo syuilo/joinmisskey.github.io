@@ -57,6 +57,8 @@
   langs: ['ja']
 - url: uhouho.xyz
   langs: ['ja']
+- url: 819.blue
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -90,4 +92,11 @@
 #- url: trillion.city
 #  langs: ['en']
 - url: bongocats.town
+  langs: ['en']
+#
+##
+#########################################
+##
+#
+- url: gaygay.me
   langs: ['en']
