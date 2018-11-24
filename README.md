@@ -32,8 +32,10 @@ The introduction site of [Misskey](https://github.com/syuilo/misskey)
 ### Test
 `gulp local-server`
 
-### Add images
+### Compress images
+Install ImageMagick or GraphicsMagick.
 
+#### Add Images
 ```
 gulp image -i <glob-readable-path>
 ```
@@ -44,6 +46,11 @@ This command compresses bitmap images and produces:
 - `/files/images/imports/yyyy/mm/<name>.720c.jpeg` - The **short side** is **equal to** 720px
 
 Also compresses bector images.
+
+#### Recompress All Images
+```
+gulp image-prebuildFiles
+```
 
 ### Translation
 #### Add a new language

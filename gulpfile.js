@@ -504,14 +504,17 @@ function images_base(){
     }
     return site.images.files.all.image ? extend(true,images_allFalse,site.images.files.all.image) : images_allFalse
 }
+
+const gm_autoOrient = $.gm((gmfile) => { return gmfile.autoOrient() }, { imageMagick: site.imageMagick })
+
 gulp.task('image-prebuildFiles', () => {
     const sizes = site.images.files.sizes
-    const stream = gulp.src('files/**/*.{png,jpg,jpeg}')
+    const stream = gulp.src('files/**/*.{png,jpg,jpeg}').pipe(gm_autoOrient)
     const stream2 = require('merge2')()
     for(i = 0; i < sizes.length; i++){
         stream2.add(
             stream
-            .pipe($.imageResize(sizes[i].resize || {}))
+            .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
             .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
             .pipe($.rename(sizes[i].rename || {}))
             .pipe(gulp.dest('dist/files'))
@@ -532,19 +535,22 @@ gulp.task('image-prebuildFiles', () => {
 gulp.task('image', () => {
     if (!argv.i) new Error('ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。')
     const parsed = path.parse(argv.i)
+    if (parsed.length <= 0) new Error('指定されたパスにファイルは見つかりませんでした。')
     const sizes = site.images.files.sizes
     const stream2 = require('merge2')()
     const date = new Date()
     let gifsvg, others
     const dirname = `${date.getFullYear()}/${("0" + (date.getMonth() + 1)).slice(-2)}`
-    $.util.log(`image will be saved as "files/${dirname}/${parsed.name}${parsed.ext}"`)
     if(parsed.ext == "") {
+        $.util.log(`image will be saved like as "files/imports/${dirname}/filename.ext"`)
         gifsvg = gulp.src(argv.i + '/**/*.{gif,svg}')
         others = gulp.src(argv.i + '/**/*.{png,jpg,jpeg}')
     } else if(parsed.ext == ".gif" || parsed.ext == ".svg") {
+        $.util.log(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
         gifsvg = gulp.src(argv.i)
     } else {
-        others = gulp.src(argv.i)
+        $.util.log(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+        others = gulp.src(argv.i).pipe(gm_autoOrient)
     }
     if(gifsvg){
         stream2.add(
@@ -566,7 +572,7 @@ gulp.task('image', () => {
         for(i = 0; i < sizes.length; i++){
             stream2.add(
                 others
-                .pipe($.imageResize(sizes[i].resize || {}))
+                .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
                 .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
                 .pipe($.rename(sizes[i].rename || {}))
                 .pipe($.rename({dirname: dirname} || {}))

@@ -1,4 +1,5 @@
 {
+    "imageMagick": true,
     "images": {
         "files": {
             "all": {
@@ -17,8 +18,7 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
-                        "sharpen": "0x0.75+0.75+0.008",
-                        "imageMagick": true
+                        "sharpen": "0x0.75+0.75+0.008"
                     },
                     "image": {}
                 },
@@ -33,8 +33,7 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
-                        "sharpen": "0x0.75+0.75+0.008",
-                        "imageMagick": true
+                        "sharpen": "0x0.75+0.75+0.008"
                     },
                     "image": {}
                 },
@@ -51,8 +50,7 @@
                         "interlace": "line",
                         "cover": true,
                         "format": "jpeg",
-                        "sharpen": "0x0.75+0.75+0.008",
-                        "imageMagick": true
+                        "sharpen": "0x0.75+0.75+0.008"
                     },
                     "image": {}
                 }
