@@ -21,7 +21,7 @@
   },
   "homepage": "https://joinmisskey.github.io/",
   "devDependencies": {
-    "@babel/core": "^7.1.5",
+    "@babel/core": "^7.1.6",
     "@babel/plugin-transform-strict-mode": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
@@ -102,7 +102,7 @@
     "typescript": "^3.1.6",
     "ua-parser-js": "^0.7.19",
     "wanakana": "^4.0.2",
-    "webpack": "^4.26.0",
+    "webpack": "^4.26.1",
     "workbox-sw": "^3.6.3"
   },
   "dependencies": {
