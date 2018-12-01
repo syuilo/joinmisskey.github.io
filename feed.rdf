@@ -6,9 +6,11 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-11-24T13:00:16.097Z</dc:date>
+        <dc:date>2018-12-01T18:50:05.370Z</dc:date>
         <items>
             <rdf:Seq>
+                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss"/>
+                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/25_update1057/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/24_update1057/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/22_update10562/?ref=rss"/>
@@ -68,11 +70,23 @@
             </rdf:Seq>
         </items>
     </channel>
+    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss">
+        <title>joinmisskey更新</title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss</link>
+        <dc:date>2018-12-01T18:55:00.000Z</dc:date>
+        <description><![CDATA[スクリプトの改良]]></description>
+    </item>
+    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss">
+        <title>最近の更新 ～10.59.3</title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss</link>
+        <dc:date>2018-12-01T18:55:00.000Z</dc:date>
+        <description><![CDATA[MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など]]></description>
+    </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/11/25_update1057/?ref=rss">
-        <title>Misskey 10.57.2</title>
+        <title>最近の更新 ～10.57.2</title>
         <link>https://joinmisskey.github.io/ja/blog/2018/11/25_update1057/?ref=rss</link>
         <dc:date>2018-11-24T12:03:00.000Z</dc:date>
-        <description><![CDATA[リモートにも引用が伝達されるように など]]></description>
+        <description><![CDATA[GitHub NotifierがMisskeyリポジトリから分離される など]]></description>
     </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/11/24_update1057/?ref=rss">
         <title>Misskey 10.57.0</title>
