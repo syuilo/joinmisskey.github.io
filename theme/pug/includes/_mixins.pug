@@ -2,13 +2,21 @@
 
 mixin fa( $icon, $prefix, $option )
   -
+    const style = $prefix || "fas"
+    const option = $option || {}
+    const query = { prefix: style, iconName: $icon }
     let fahtml = ''
-    try {
-      fahtml = fontawesome.icon({ prefix: ( $prefix || "fas" ), iconName: $icon },( $option || {} )).html[0]
-    } catch(e) {
-      console.log(`Can't pick up icon: ${$icon}, ${$prefix ? $prefix : 'type not set (fas)'}`)
-    }
-  i(class=`fa ${ $prefix || "fas" } ${$icon}`)!=fahtml
+    const insertlater = falibs.icons.find((el) => el.prefix == style && el.iconName == $icon)
+  if(insertlater && !isAmp)
+    i(class=`fa ${style} ${$icon}` data-fa-prefix=style data-fa-icon-name=$icon data-fa-option=(JSON.stringify(option).replace(/\"/g,"'")))
+  else
+    -
+      try {
+        fahtml = fontawesome.icon(query, option).html[0]
+      } catch(e2) {
+        console.log(`Can't pick up icon: ${$icon}, ${style}`) 
+      }
+    | !{fahtml}
 
 mixin fa_fw( $icon, $prefix )
   +fa( $icon, $prefix, {classes: ['fa-fw']})
@@ -190,6 +198,12 @@ mixin instancesList(o, colors, sctrollts)
                   else
                     abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
                       +fa_fw('bell')
+              if( instance.meta.enableEmail )
+                abbr(title=i18n('instance_serviceConnectionEnabled', [i18n('email')]))
+                  +fa_fw('envelope-square')
+              else
+                abbr(title=i18n('instance_serviceConnectionDisabled', [i18n('email')])).opacity-050
+                  +fa_fw('envelope-square')
             .instance-infos.d-flex.flex-wrap.small(class=c2)
               if(instance.stats.originalUsersCount)
                 - const users = instance.stats.originalUsersCount
@@ -203,6 +217,11 @@ mixin instancesList(o, colors, sctrollts)
                   abbr(title=i18n('instance_notes'))
                     +fa_fw('pencil-alt')
                   |  #{numeral(notes).format(notes >= 10000 ? '0.0a' : '0,0')}
+              if(instance.meta.maxNoteTextLength)
+                .instance-infos-item.mr-2
+                  abbr(title=i18n('instance_maxNoteTextLength'))
+                    +fa_fw('i-cursor')
+                  |  #{instance.meta.maxNoteTextLength}
               if(instance.meta.driveCapacityPerLocalUserMb)
                 .instance-infos-item.mr-2
                   abbr(title=i18n('instance_driveCapacityPerLocalUser'))

@@ -6,15 +6,14 @@ const util = require('util')
 const promisify = util.promisify
 const path = require('path')
 const del = require('del')
-const workboxBuild = require('workbox-build')
 const minimist = require('minimist')
 const pump = require('pump')
 const request = require('request')
-const es = require('event-stream')
 const htmlmin = require("html-minifier").minify
 const pug = require('pug')
-const mkdirp = require('mkdirp')
+//const mkdirp = require('mkdirp')
 const betterMarkdown = require('./scripts/better_markdown')
+const mergeStream = require('merge-stream')
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -158,50 +157,54 @@ gulp.task('config', () => {
     )
 })
 
-gulp.task('credit-icons', async () => {
-    let stream = []
-    for (let v of base.creditIcons) {
-        if (v) {
-            stream.push(
-                gulp.src(`${temp_dir}${v.name}.${v.ext}`)
-                .pipe($.imageResize({
-                    "format": "png",
-                    "width": 140,
-                    "height": 140,
-                    "crop": true,
-                    "upscale": false,
-                    "cover": true,
-                    "sharpen": "0x0.75+0.75+0.008",
-                    "imageMagick": true
-                }))
-                .pipe($.image({
-                    optipng: false,
-                    pngquant: ["--speed=3"],
-                    zopflipng: false,
-                    "concurrent": 10
-                }))
-                .pipe($.rename({
-                    "dirname": v.name.split('/')[0],
-                    "basename": v.name.split('/')[1],
-                    "extname": ".png"
-                }))
-                .pipe(gulp.dest('dist/files/images/credit'))
-                .on('end',() => {
-                    $.util.log($.util.colors.green(`✔ ${v.name}.${v.ext}`))
-                })
-                .on('error', (err) => {
-                    $.util.log($.util.colors.red(err))
-                })
-            )
+gulp.task('credit-icons', () => {
+    return new Promise((res, rej) => {
+        let stream = mergeStream()
+        let thereis = false
+        for (let v of base.creditIcons) {
+            if (v) {
+                thereis = true
+                stream.add(
+                    gulp.src(`${temp_dir}${v.name}.${v.ext}`)
+                    .pipe($.imageResize({
+                        "format": "png",
+                        "width": 140,
+                        "height": 140,
+                        "crop": true,
+                        "upscale": false,
+                        "cover": true,
+                        "sharpen": "0x0.75+0.75+0.008",
+                        "imageMagick": true
+                    }))
+                    .pipe($.image({
+                        optipng: false,
+                        pngquant: ["--speed=3"],
+                        zopflipng: false,
+                        "concurrent": 10
+                    }))
+                    .pipe($.rename({
+                        "dirname": v.name.split('/')[0],
+                        "basename": v.name.split('/')[1],
+                        "extname": ".png"
+                    }))
+                    .pipe(gulp.dest('dist/files/images/credit'))
+                    .on('end',() => {
+                        $.util.log($.util.colors.green(`✔ ${v.name}.${v.ext}`))
+                    })
+                    .on('error', (err) => {
+                        $.util.log($.util.colors.red(err))
+                    })
+                )
+            }
         }
-    }
-    await new Promise((res, rej) => {
-        es.merge.apply(this, stream)
-            .on('end', res)
+        if(thereis){
+            stream
+            .on('close', res)
             .on('error', rej)
+        } else {
+            res(void(0))
+        }
     })
-    $.util.log($.util.colors.green(`✔ all credit icons processed`))
-    return void(0)
 })
 
 function pugit(val, options){
@@ -299,7 +302,7 @@ function searchSidebar(pathe){
 }
 
 gulp.task('pug', async () => {
-    const stream = []
+    const streams = []
     for (let page of pages) {
         const puglocals = extend(true,
             {
@@ -343,19 +346,21 @@ gulp.task('pug', async () => {
         puglocals.main_html = main_html
         puglocals.headings = regheadings(main_html)
 
-        stream.push(
-        // stream.add(
-            gulp.src(template)
-                .pipe($.pug({ locals: puglocals }))
-                .pipe($.rename(`${page.meta.permalink}index.html`))
-                .pipe(gulp.dest( dests.root ))
-                .on('end',() => {
-                    // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
-                })
-                .on('error', (err) => {
-                    $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
-                    $.util.log($.util.colors.red(err))
-                })
+        streams.push(
+            new Promise((res, rej) => {
+                gulp.src(template)
+                    .pipe($.pug({ locals: puglocals }))
+                    .pipe($.rename(`${page.meta.permalink}index.html`))
+                    .pipe(gulp.dest( dests.root ))
+                    .on('end',() => {
+                        // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
+                        res()
+                    })
+                    .on('error', (err) => {
+                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
+                        rej(err)
+                    })
+            })
         )
         /*
          *                            AMP処理部
@@ -369,28 +374,26 @@ gulp.task('pug', async () => {
                 {isAmp: true, main_html: toamp(puglocals.main_html, base)},
                 puglocals
             )
-            stream.push(
-            // stream.add(
-                gulp.src(amptemplate)
-                    .pipe($.pug({ locals: newoptions }))
-                    .pipe($.rename(`${page.meta.permalink}amp.html`))
-                    .pipe(gulp.dest( dests.root ))
-                    .on('end',() => {
-                        // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
-                    })
-                    .on('error', (err) => {
-                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink} (amp)`))
-                        $.util.log($.util.colors.red(err))
-                    })
+            streams.push(
+                new Promise((res, rej) => {
+                    gulp.src(amptemplate)
+                        .pipe($.pug({ locals: newoptions }))
+                        .pipe($.rename(`${page.meta.permalink}amp.html`))
+                        .pipe(gulp.dest( dests.root ))
+                        .on('end',() => {
+                            // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
+                            res()
+                        })
+                        .on('error', (err) => {
+                            $.util.log($.util.colors.red(`✖ ${page.meta.permalink} (amp)`))
+                            rej(err)
+                        })
+                })
             )
         }
     }
 
-    await new Promise((res, rej) => {
-        es.merge.apply(this, stream)
-            .on('end', res)
-            .on('error', rej)
-    })
+    await Promise.all(streams)
     $.util.log($.util.colors.green(`✔ all html produced`))
     return void(0)
 })
@@ -421,24 +424,49 @@ gulp.task('fa-css', (cb) => {
         cb()
     })
 })
-gulp.task('js', (cb) => {
-    pump([
-        gulp.src('theme/js/main.js'),
-        $.webpack(),
-        $.babel({presets: ['@babel/env'], plugins: ['transform-remove-strict-mode'], compact: false}),
-        $.rename('main.js'),
-        gulp.dest(dests.root + '/assets'),
-        $.uglify(),
-        $.rename('main.min.js'),
-        gulp.dest(dests.root + '/assets')
-    ], (e) => {
-        if(e) { $.util.log($.util.colors.red("Error(js)\n" + e)) }
-        else {
-            $.util.log($.util.colors.green(`✔ assets/main.js`))
+gulp.task('js', () => {
+    const webpackStream = require('webpack-stream')
+    const webpack = require('webpack')
+    let streams = []
+
+    const a = webpackStream(require("./webpack.config"), webpack)
+    streams.push(new Promise((res, rej) => {
+        a
+        .pipe($.terser(
+            {
+                ecma: 8,
+                compress: true,
+                output: {
+                    comments: false,
+                    beautify: false
+                }
+            }
+        ))
+        .pipe($.rename('main.min.js'))
+        .pipe(gulp.dest(dests.root + '/assets'))
+        .on('end',() => {
             $.util.log($.util.colors.green(`✔ assets/main.min.js`))
-        }
-        cb()
-    })
+            res()
+        })
+        .on('error', (err) => {
+            rej(err)
+        })
+    }))
+    
+    streams.push(new Promise((res, rej) => {
+        a
+        .pipe($.rename('main.js'))
+        .pipe(gulp.dest(dests.root + '/assets'))
+        .on('end',() => {
+            $.util.log($.util.colors.green(`✔ assets/main.js`))
+            res()
+        })
+        .on('error', (err) => {
+            rej(err)
+        })
+    }))
+
+    return Promise.all(streams)
 })
 
 gulp.task('copy-docs', (cb) => {
@@ -508,28 +536,37 @@ function images_base(){
 const gm_autoOrient = $.gm((gmfile) => { return gmfile.autoOrient() }, { imageMagick: site.imageMagick })
 
 gulp.task('image-prebuildFiles', () => {
+    const raster = 'files/**/*.{png,jpg,jpeg}'
+    const vector = 'files/**/*.{gif,svg}'
     const sizes = site.images.files.sizes
-    const stream = gulp.src('files/**/*.{png,jpg,jpeg}').pipe(gm_autoOrient)
-    const stream2 = require('merge2')()
+    const streamsrc = gulp.src(raster).pipe(gm_autoOrient)
+    const streams = []
     for(i = 0; i < sizes.length; i++){
-        stream2.add(
-            stream
-            .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
-            .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
-            .pipe($.rename(sizes[i].rename || {}))
-            .pipe(gulp.dest('dist/files'))
+        streams.push(
+            new Promise((res, rej) => {
+                streamsrc
+                .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
+                .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+                .pipe($.rename(sizes[i].rename || {}))
+                .pipe(gulp.dest('dist/files'))
+                .on('end', res)
+                .on('error', rej)
+            })
         )
     }
-    stream2.add(
-        gulp.src('files/**/*.{gif,svg}')
-        .pipe($.image(extend(true, images_base(), {
-            "gifsicle": true,
-            "svgo": true
-        })))
-        .pipe(gulp.dest('dist/files'))
+    streams.push(
+        new Promise((res, rej) => {
+            gulp.src(vector)
+            .pipe($.image(extend(true, images_base(), {
+                "gifsicle": true,
+                "svgo": true
+            })))
+            .pipe(gulp.dest('dist/files'))
+            .on('end', res)
+            .on('error', rej)
+        })
     )
-
-    return stream2
+    return Promise.all(streams)
 })
 
 gulp.task('image', () => {
@@ -537,7 +574,7 @@ gulp.task('image', () => {
     const parsed = path.parse(argv.i)
     if (parsed.length <= 0) new Error('指定されたパスにファイルは見つかりませんでした。')
     const sizes = site.images.files.sizes
-    const stream2 = require('merge2')()
+    const streams = []
     const date = new Date()
     let gifsvg, others
     const dirname = `${date.getFullYear()}/${("0" + (date.getMonth() + 1)).slice(-2)}`
@@ -553,40 +590,56 @@ gulp.task('image', () => {
         others = gulp.src(argv.i).pipe(gm_autoOrient)
     }
     if(gifsvg){
-        stream2.add(
-            gifsvg
-            .pipe($.image(extend(true, images_base(), {
-                "gifsicle": true,
-                "svgo": true
-            })))
-            .pipe($.rename({dirname: dirname} || {}))
-            .pipe(gulp.dest('dist/files/images/imports'))
+        streams.push(
+            new Promise((res, rej) => {
+                gifsvg
+                .pipe($.image(extend(true, images_base(), {
+                    "gifsicle": true,
+                    "svgo": true
+                })))
+                .pipe($.rename({dirname: dirname} || {}))
+                .pipe(gulp.dest('dist/files/images/imports'))
+                .on('end', res)
+                .on('error', rej)
+            })
         )
-        stream2.add(
-            gifsvg
-            .pipe($.rename({dirname: dirname} || {}))
-            .pipe(gulp.dest('files/images/imports'))
+        streams.push(
+            new Promise((res, rej) => {
+                gifsvg
+                .pipe($.rename({dirname: dirname} || {}))
+                .pipe(gulp.dest('files/images/imports'))
+                .on('end', res)
+                .on('error', rej)
+            })
         )
     }
     if(others){
         for(i = 0; i < sizes.length; i++){
-            stream2.add(
-                others
-                .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
-                .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
-                .pipe($.rename(sizes[i].rename || {}))
-                .pipe($.rename({dirname: dirname} || {}))
-                .pipe(gulp.dest('dist/files/images/imports'))
+            streams.push(
+                new Promise((res, rej) => {
+                    others
+                    .pipe($.imageResize(sizes[i].resize ? extend(true, {imageMagick: site.imageMagick}, sizes[i].resize) : {}))
+                    .pipe($.image(sizes[i].image ? extend(true, images_base(), sizes[i].image) : images_allFalse))
+                    .pipe($.rename(sizes[i].rename || {}))
+                    .pipe($.rename({dirname: dirname} || {}))
+                    .pipe(gulp.dest('dist/files/images/imports'))
+                    .on('end', res)
+                    .on('error', rej)
+                })
             )
         }
-        stream2.add(
-            others
-            .pipe($.rename({dirname: dirname} || {}))
-            .pipe(gulp.dest('files/images/imports'))
+        streams.push(
+            new Promise((res, rej) => {
+                others
+                .pipe($.rename({dirname: dirname} || {}))
+                .pipe(gulp.dest('files/images/imports'))
+                .on('end', res)
+                .on('error', rej)
+            })
         )
     }
 
-    return stream2
+    return Promise.all(streams)
 })
 
 gulp.task('clean-docs', (cb) => { del(['docs/**/*', '!docs/.git'], {dot: true}).then(cb()) } )

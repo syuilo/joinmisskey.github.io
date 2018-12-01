@@ -1,5 +1,5 @@
-function scrollts(){
-    const els = document.getElementsByClassName('scrollts')
+function scrolltoshow(){
+    const els = Array.from(document.getElementsByClassName('scrollts'))
     if(IntersectionObserver !== undefined){
         const observer = new IntersectionObserver((entries, observer) => {
             for (let entry of entries) {
@@ -23,16 +23,17 @@ function scrollts(){
             threshold: 0,
             rootMargin: '0px'
         })
-        Array.prototype.forEach.call(els, el => {
+        for(let el of els){
             if(el.classList.contains('scrollts-nomargin')) observer_nomargin.observe(el)
             else observer.observe(el)
-        })
+        }
     } else {
         console.log('v')
-        Array.prototype.forEach.call(els, el => {
+        for(let el of els){
             el.classList.add('show')
-        })
+        }
     }
 }
-window.addEventListener('load', scrollts)
-window.addEventListener('pjax:load', scrollts)
+
+window.addEventListener('DOMContentLoaded', scrolltoshow)
+document.addEventListener('pjax:content', scrolltoshow)

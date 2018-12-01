@@ -1,12 +1,15 @@
-function gototop(){
+function gototo(){
   window.scroll({
     top: 0,
     behavior: "smooth"
   })
   return false
 }
-function addListenerGotoTop(){
-  Array.prototype.forEach.call(document.getElementsByClassName('trigger-gototop'), function(el){el.addEventListener('click', gototop)})
+function gototop(){
+  for(let el of Array.from(document.getElementsByClassName('trigger-gototop'))){
+    el.addEventListener('click', gototo)
+  }
 }
-window.addEventListener('DOMContentLoaded', addListenerGotoTop)
-window.addEventListener('pjax:ready', addListenerGotoTop)
+
+window.addEventListener('DOMContentLoaded', gototop)
+document.addEventListener('pjax:content', gototop)

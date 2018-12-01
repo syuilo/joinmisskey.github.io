@@ -59,6 +59,10 @@
   langs: ['ja']
 - url: 819.blue
   langs: ['ja']
+- url: mi.citringo.net
+  langs: ['ja']
+- url: misskey.waraiotoko.net
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -93,10 +97,14 @@
 #  langs: ['en']
 - url: bongocats.town
   langs: ['en']
+- url: uselesslesbian.club
+  langs: ['en']
 #
 ##
 #########################################
 ##
 #
 - url: gaygay.me
-  langs: ['en']
+  langs: ['zh', 'en']
+- url: msky.naru.cafe
+  langs: ['ko', 'en']

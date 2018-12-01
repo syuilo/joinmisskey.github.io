@@ -10,6 +10,13 @@ else if(site.sw)
   script.
     jm_pathToWorker = '#{urlPrefix}/service_worker.js'
 
+script.
+  var pathname = "/#{site.url.path}";
+  var current_locale = "#{locale}";
+  var user_language = window.navigator.language;
+  var locales = !{JSON.stringify(site.locales)};
+  var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
+
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)
 //- script(src=`${site.url.path}/assets/bootstrap.bundle.min.js` defer)

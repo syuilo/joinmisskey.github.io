@@ -36,6 +36,11 @@
             "en": "Nobody",
             "fr": "Personne"
         },
+        "email": {
+            "ja": "Eメール",
+            "en": "E-mail",
+            "fr": "E-mail"
+        },
         "the_other_backers": {
             "ja": "ティア外",
             "en": "Out of Tiers",
@@ -126,6 +131,11 @@
             "ja": "投稿数",
             "en": "Notes count",
             "fr": "Notes"
+        },
+        "instance_maxNoteTextLength": {
+            "ja": "投稿の文字数制限",
+            "en": "Max note text length",
+            "fr": "Longueur maximale du texte de note"
         },
         "instance_driveCapacityPerLocalUser": {
             "ja": "一人当たりドライブ容量",

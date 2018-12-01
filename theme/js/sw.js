@@ -28,54 +28,46 @@ function sw(){
       subscribe:"manual"
     })
     p7.ready().then(() => p7.isSubscribed()).then(isSubscribed => {
-      const els = document.getElementsByClassName('p7-subscribe')
+      const els = Array.from(document.getElementsByClassName('p7-subscribe'))
       function unsubscribe(el){
         p7.unsubscribe()
         .then(() => {
           alert(jm_p7Unsubscribed)
           console.log('Push Notification Unsubscribed.')
-          Array.prototype.forEach.call(
-            els,
-            function(el){
-              el.removeEventListener('click', unsubscribe)
-              el.addEventListener('click', subscribe)
-              el.textContent = jm_p7Subscribe
-            }
-          )
+          for(let el of els){
+            el.removeEventListener('click', unsubscribe)
+            el.addEventListener('click', subscribe)
+            el.textContent = jm_p7Subscribe
+          }
         })
       }
       function subscribe(){
         p7.subscribe()
         .then(() => {
           console.log('Push Notification Subscribed!')
-          Array.prototype.forEach.call(
-            els,
-            function(el){
-              el.removeEventListener('click',subscribe)
-              el.addEventListener('click',unsubscribe)
-              el.textContent = jm_p7Unsubscribe
-            }
-          )
+          for(let el of els){
+            el.removeEventListener('click',subscribe)
+            el.addEventListener('click',unsubscribe)
+            el.textContent = jm_p7Unsubscribe
+          }
         }).catch(e => {
           alert(jm_p7SubscribeFailed)
           console.log('Push Notification Subscribing is Failed')
           console.log(e)
         })
       }
-      Array.prototype.forEach.call(
-        els,
-        function(el){
-          if(isSubscribed){
-            el.addEventListener('click',unsubscribe)
-            el.textContent = jm_p7Unsubscribe
-          } else {
-            el.addEventListener('click',subscribe)
-            el.textContent = jm_p7Subscribe
-          }
+      for(let el of els){
+        if(isSubscribed){
+          el.addEventListener('click',unsubscribe)
+          el.textContent = jm_p7Unsubscribe
+        } else {
+          el.addEventListener('click',subscribe)
+          el.textContent = jm_p7Subscribe
         }
-      )
+      }
     })  
   }
 }
+
 window.addEventListener('DOMContentLoaded', sw)
-window.addEventListener('pjax:ready', sw)
+document.addEventListener('pjax:content', sw)

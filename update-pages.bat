@@ -1,1 +1,1 @@
-.\copy-ja %1 && npm run build-pages && .\push-ja %1
+.\copy-ja %1 && gulp pages && .\push-ja %1
