@@ -22,6 +22,7 @@ ul.fa-ul
   each service in mkConnectServices
     li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: Authentification avec #{service} disponible
   li #[span.fa-li: +fa_fw('bell')]: Notifications en direct (non disponible en fonction de l’environnement tel que iOS) #[small 10.48.0以降は利用不可。]
+  li #[span.fa-li: +fa_fw('envelope-square')]: Eメール連携を利用可能
 ul.fa-ul
   li #[span.fa-li: +fa_fw('users')]: Nombre d’utilisateurs inscrits sur l’instance
   li #[span.fa-li: +fa_fw('pencil-alt')]: Nombre des publications utilisateurs sur l’instance
