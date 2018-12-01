@@ -2,7 +2,7 @@
 title: "joinmisskey更新"
 description: スクリプトの改良
 layout: blog
-date: 2018-12-02T03:30:00+09:00
+date: 2018-12-02T03:55:00+09:00
 thumbnail: /files/images/imports/2018/09/wet.jpg
 author:
   name: aqz
