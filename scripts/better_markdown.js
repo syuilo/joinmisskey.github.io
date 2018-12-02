@@ -32,6 +32,7 @@ module.exports = (htm, urlprefix) => {
   $('a[href^="http"], a[href^="//"]').each((i, el) => {
     const e = $('a[href^="http"], a[href^="//"]').eq(i)
     const text = as[i]
+    e.attr({ target: "_blank", rel: "noopener" })
     if(e.attr('href') == text) e.text(decodeURIComponent(require('punycode').toUnicode(text)))
   })
 
