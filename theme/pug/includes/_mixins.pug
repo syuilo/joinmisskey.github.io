@@ -111,7 +111,7 @@ mixin mfm_example(src)
       p.m-0.p-0.small.font-weight-bold Text
       textarea.mb-2.bg-white(rows=(src.split('\n').length - 1) readonly)!=src
       p.m-0.p-0.small.font-weight-bold Preview
-      .mk-note.bg-white!=mfmf.render(src, {baseUrl: '?'})
+      .mk-note.bg-white!=mfmf.render(mfmf.parse(src), [], {jmstyle: true, url: '?', animate: true, codeTagAsDiv: true, faJm: true})
 
 mixin instancesList(o, colors, sctrollts)
   .instances-list.list-group(class=(scrollts ? `scrollts scrollts-${scrollts}` : ''))
