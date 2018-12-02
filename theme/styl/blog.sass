@@ -45,3 +45,23 @@ h6.blogstyle,
   @extend .mt-3
   @extend .p-1
   font-weight: 700
+
+div.blogstyle.blogstyle-image
+  display: flex
+  width: 100%
+
+  > div
+    @extend .card
+    margin: 0 auto
+    width: 40em
+    max-width: 100%
+    height: fit-content
+
+    > img
+      max-height: 60vh
+      width: 100%
+      object-fit: contain
+
+    > p
+      @extend .small
+      margin: .2em .2em
