@@ -11,9 +11,9 @@ author:
 category: グッズ
 amp: true
 ---
-[Misskey Cafe Store](https://msky-cafe.booth.pm/) より、Misskeyロゴステッカー(小)が販売開始されます。
+[Misskey Cafe Store](https://msky-cafe.booth.pm/) より、Misskeyロゴステッカー(小)が販売開始されます。 [*](https://misskey.xyz/notes/5c02d8e5e0a8a6002746cdbb)
 
-**[販売ページ(booth)へ](https://msky-cafe.booth.pm/items/1115309)**
+**[先行販売ページ(booth)へ](https://msky-cafe.booth.pm/items/1115309)**
 
 大きいステッカーも発売される予定があるそうです。[*](https://misskey.xyz/notes/5c02de257771780027d67248)
 
@@ -39,6 +39,6 @@ amp: true
 
 先行予約は 2018年 12月 7日 24:00 までで、発送予定日は12月10日を予定しているそうです。  
 
-売り切れ次第終了で、
+売り切れ次第終了。
 
-[*](https://misskey.xyz/notes/5c02d8e5e0a8a6002746cdbb)
+**[販売ページ(booth)へ](https://msky-cafe.booth.pm/items/1115309)**
