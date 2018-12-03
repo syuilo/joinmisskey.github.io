@@ -6,9 +6,10 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-12-03T11:08:17.178Z</dc:date>
+        <dc:date>2018-12-03T14:38:14.894Z</dc:date>
         <items>
             <rdf:Seq>
+                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/024_update10600/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/023_sticker/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss"/>
@@ -72,6 +73,12 @@
             </rdf:Seq>
         </items>
     </channel>
+    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss">
+        <title>最近の更新 ～10.60.4</title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss</link>
+        <dc:date>2018-12-03T14:30:00.000Z</dc:date>
+        <description><![CDATA[特に驚くような機能はありません。]]></description>
+    </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/024_update10600/?ref=rss">
         <title>最近の更新 ～10.60.0</title>
         <link>https://joinmisskey.github.io/ja/blog/2018/12/024_update10600/?ref=rss</link>
