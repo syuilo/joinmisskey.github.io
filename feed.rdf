@@ -6,14 +6,15 @@
         <description><![CDATA[いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)]]></description>
         <dc:language>ja</dc:language>
         <dc:rights>Copyright (c) Misskey</dc:rights>
-        <dc:date>2018-12-03T16:23:28.108Z</dc:date>
+        <dc:date>2018-12-03T17:12:59.473Z</dc:date>
         <items>
             <rdf:Seq>
+                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/04_update10610/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/024_update10600/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/023_sticker/?ref=rss"/>
-                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss"/>
+                <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/25_update1057/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/24_update1057/?ref=rss"/>
                 <rdf:li rdf:resource="https://joinmisskey.github.io/ja/blog/2018/11/22_update10562/?ref=rss"/>
@@ -73,6 +74,12 @@
             </rdf:Seq>
         </items>
     </channel>
+    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/04_update10610/?ref=rss">
+        <title>Misskey 10.61.0</title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/12/04_update10610/?ref=rss</link>
+        <dc:date>2018-12-03T17:00:00.000Z</dc:date>
+        <description><![CDATA[MFM 打消し線構文追加]]></description>
+    </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss">
         <title>最近の更新 ～10.60.4</title>
         <link>https://joinmisskey.github.io/ja/blog/2018/12/03_update10604/?ref=rss</link>
@@ -91,17 +98,17 @@
         <dc:date>2018-12-02T07:30:00.000Z</dc:date>
         <description><![CDATA[Misskey Cafe Storeより、Misskeyロゴステッカーが販売開始されます]]></description>
     </item>
-    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss">
-        <title>joinmisskey更新</title>
-        <link>https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss</link>
-        <dc:date>2018-12-01T18:55:00.000Z</dc:date>
-        <description><![CDATA[スクリプトの改良]]></description>
-    </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss">
         <title>最近の更新 ～10.59.3</title>
         <link>https://joinmisskey.github.io/ja/blog/2018/12/02_update10593/?ref=rss</link>
         <dc:date>2018-12-01T18:55:00.000Z</dc:date>
         <description><![CDATA[MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など]]></description>
+    </item>
+    <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss">
+        <title>joinmisskey更新</title>
+        <link>https://joinmisskey.github.io/ja/blog/2018/12/022_jmupdate/?ref=rss</link>
+        <dc:date>2018-12-01T18:55:00.000Z</dc:date>
+        <description><![CDATA[スクリプトの改良]]></description>
     </item>
     <item rdf:about="https://joinmisskey.github.io/ja/blog/2018/11/25_update1057/?ref=rss">
         <title>最近の更新 ～10.57.2</title>
