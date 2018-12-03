@@ -32,7 +32,9 @@ import {
     faHome,
     faBroadcastTower,
     faBook,
-    faStoreAlt
+    faStoreAlt,
+    faExternalLinkSquareAlt,
+    faExternalLinkAlt
 } from '@fortawesome/free-solid-svg-icons'
 library.add(
     faLock,
@@ -55,7 +57,9 @@ library.add(
     faHome,
     faBroadcastTower,
     faBook,
-    faStoreAlt
+    faStoreAlt,
+    faExternalLinkSquareAlt,
+    faExternalLinkAlt
 )
 
 export const getHTML = (query, option) => {

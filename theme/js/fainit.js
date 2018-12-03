@@ -1,15 +1,19 @@
 const { getNode } = require('../../scripts/falib')
 
 function fainit(){
-    const els = Array.from(document.getElementsByTagName('i'))
-    for( let el of els ){
+    for( let el of Array.from(document.getElementsByTagName('i')) ){
         if(!el.hasChildNodes()){
-            const fa = getNode(
-                { prefix: el.dataset.faPrefix, iconName: el.dataset.faIconName },
-                JSON.parse(el.dataset.faOption.replace(/'/g,"\""))
-                )
-            el.insertAdjacentElement('beforebegin', fa.item(0))
-            el.parentElement.removeChild(el)
+            try {
+                const fa = getNode(
+                    { prefix: el.dataset.faPrefix, iconName: el.dataset.faIconName },
+                    JSON.parse(el.dataset.faOption.replace(/'/g,"\""))
+                    )
+                el.insertAdjacentElement('beforebegin', fa.item(0))
+                el.parentElement.removeChild(el)
+            } catch(e) {
+                console.log(`FontAwesome: ${el.dataset.faPrefix} ${el.dataset.faIconName}は見つかりませんでした。`)
+                console.log(e)
+            }
         }
     }
 }

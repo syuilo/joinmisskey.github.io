@@ -25,7 +25,9 @@ const {
     faHome,
     faBroadcastTower,
     faBook,
-    faStoreAlt
+    faStoreAlt,
+    faExternalLinkSquareAlt,
+    faExternalLinkAlt
 } = require('@fortawesome/free-solid-svg-icons')
 
 module.exports = {
@@ -54,6 +56,8 @@ module.exports = {
         faHome,
         faBroadcastTower,
         faBook,
-        faStoreAlt
+        faStoreAlt,
+        faExternalLinkSquareAlt,
+        faExternalLinkAlt
     ]
 }
