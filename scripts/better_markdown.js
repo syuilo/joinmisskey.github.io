@@ -25,8 +25,8 @@ module.exports = (htm, urlprefix) => {
   $('img[src^="/"]').each((i, el) => { $('img[src^="/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('img[src^="files/"]').each((i, el) => { $('img[src^="files/"]').eq(i).attr('src', `${urlprefix}${$(el).attr('src')}`) })
   $('table').addClass('table table-sm table-bordered')
-  $(':not(.mfm) > blockquote').addClass('blockquote rounded px-3 px-md-4 py-3 font-weight-light')
-  $(':not(.mfm) > a[href^="http"], :not(.mfm) > a[href^="//"]').append(fontawesome.icon({ prefix: "fas", iconName: "external-link-alt" },{classes:['fa-fw', 'fa-sm']}).html[0])
+  $(':not([data-mfm]) > blockquote').addClass('blockquote rounded px-3 px-md-4 py-3 font-weight-light')
+  $(':not([data-mfm]) > a[href^="http"], :not([data-mfm]) > a[href^="//"]').append(fontawesome.icon({ prefix: "fas", iconName: "external-link-alt" },{classes:['fa-fw', 'fa-sm']}).html[0])
   let as = []
   $('a[href^="http"], a[href^="//"]').each((i, el) => { as.push($(el).text()) })
   $('a[href^="http"], a[href^="//"]').each((i, el) => {

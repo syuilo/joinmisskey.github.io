@@ -14,6 +14,8 @@ const pug = require('pug')
 //const mkdirp = require('mkdirp')
 const betterMarkdown = require('./scripts/better_markdown')
 const mergeStream = require('merge-stream')
+const glog = require('fancy-log')
+const colors = require('colors')
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -56,15 +58,15 @@ let site = extend(true,
 
 if(argv._.some(e => e == 'netlify')) site = extend(this,site,require('./.config/netlify-override.json'))
 if(argv._.some(e => e == 'local-server')) site = extend(this,site,require('./.config/debug-override.json'))
-console.log(argv._.some(e => e == 'local-server'))
-console.log(argv._.some(e => e == 'netlify'))
+//console.log(argv._.some(e => e == 'local-server'))
+//console.log(argv._.some(e => e == 'netlify'))
 
 const keys = (() => {
     if(existFile('./.config/keys.json')){
         try {
             return require('./.config/keys.json')
         } catch(e) {
-            $.util.log(`There is no './.config/keys.json'.`) 
+            glog(`There is no './.config/keys.json'.`) 
             return null
         }
     } else if (PATREON_CAMPAIGN in provess.env && PATREON_BARER in process.env) {
@@ -152,8 +154,8 @@ gulp.task('config', () => {
     require('mkdirp').sync(path.parse(dests.info).dir)
     return writeFile( dests.info, JSON.stringify( resultObj ))
     .then(
-        () => { $.util.log($.util.colors.green(`✔ info.json`)) },
-        (err) => { $.util.log($.util.colors.red(`✖ info.json`)); $.util.log(err) }
+        () => { glog(colors.green(`✔ info.json`)) },
+        (err) => { glog(colors.red(`✖ info.json`)); glog(err) }
     )
 })
 
@@ -189,10 +191,10 @@ gulp.task('credit-icons', () => {
                     }))
                     .pipe(gulp.dest('dist/files/images/credit'))
                     .on('end',() => {
-                        $.util.log($.util.colors.green(`✔ ${v.name}.${v.ext}`))
+                        glog(colors.green(`✔ ${v.name}.${v.ext}`))
                     })
                     .on('error', (err) => {
-                        $.util.log($.util.colors.red(err))
+                        glog(colors.red(err))
                     })
                 )
             }
@@ -244,9 +246,8 @@ function toamp(htm, base){
                 const temppath = `${temp_dir}amp/${url.hostname}/`
                 mkdirp.sync(temppath)
                 const v = await require('./scripts/downloadTemp')(filename, src, temppath)
-                console.log(v)
                 if (!v) {
-                    console.log( `${messages.amp.invalid_imageUrl}:\n${src}` )
+                    glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
                     return resolve()
                 }
                 if (!existFile(`${temppath}${filename}.${v.ext}`)) return resolve()
@@ -255,7 +256,7 @@ function toamp(htm, base){
                 height = dims.height
             */
             } else {
-                console.log( `${messages.amp.invalid_imageUrl}:\n${src}` )
+                glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
             }
             $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
             // return resolve()
@@ -336,7 +337,7 @@ gulp.task('pug', async () => {
                 try {
                     main_html = pugit(page.body, puglocals)
                 } catch(e) {
-                    console.log(`Error: ${page.meta.permalink}`)
+                    glog(`Error: ${page.meta.permalink}`)
                     throw Error(e)
                 }
                 if (page.attributes.improve) main_html = betterMarkdown(main_html, urlPrefix)
@@ -353,11 +354,11 @@ gulp.task('pug', async () => {
                     .pipe($.rename(`${page.meta.permalink}index.html`))
                     .pipe(gulp.dest( dests.root ))
                     .on('end',() => {
-                        // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}`))
+                        // glog(colors.green(`✔ ${page.meta.permalink}`))
                         res()
                     })
                     .on('error', (err) => {
-                        $.util.log($.util.colors.red(`✖ ${page.meta.permalink}`))
+                        glog(colors.red(`✖ ${page.meta.permalink}`))
                         rej(err)
                     })
             })
@@ -381,11 +382,11 @@ gulp.task('pug', async () => {
                         .pipe($.rename(`${page.meta.permalink}amp.html`))
                         .pipe(gulp.dest( dests.root ))
                         .on('end',() => {
-                            // $.util.log($.util.colors.green(`✔ ${page.meta.permalink}amp.html`))
+                            // glog(colors.green(`✔ ${page.meta.permalink}amp.html`))
                             res()
                         })
                         .on('error', (err) => {
-                            $.util.log($.util.colors.red(`✖ ${page.meta.permalink} (amp)`))
+                            glog(colors.red(`✖ ${page.meta.permalink} (amp)`))
                             rej(err)
                         })
                 })
@@ -394,7 +395,7 @@ gulp.task('pug', async () => {
     }
 
     await Promise.all(streams)
-    $.util.log($.util.colors.green(`✔ all html produced`))
+    glog(colors.green(`✔ all html produced`))
     return void(0)
 })
 
@@ -406,8 +407,8 @@ gulp.task('css', (cb) => {
         $.rename('style.min.css'),
         gulp.dest(dests.root + '/assets')
     ], (e) => {
-        if(e) $.util.log($.util.colors.red("Error(css)\n" + e))
-        else $.util.log($.util.colors.green(`✔ assets/style.min.css`))
+        if(e) glog(colors.red("Error(css)\n" + e))
+        else glog(colors.green(`✔ assets/style.min.css`))
         cb()
     })
 })
@@ -419,8 +420,8 @@ gulp.task('fa-css', (cb) => {
         $.rename('fontawesome.min.css'),
         gulp.dest(dests.root + '/assets')
     ], (e) => {
-        if(e) $.util.log($.util.colors.red("Error(fa-css)\n" + e))
-        else $.util.log($.util.colors.green(`✔ assets/style.min.css`))
+        if(e) glog(colors.red("Error(fa-css)\n" + e))
+        else glog(colors.green(`✔ assets/style.min.css`))
         cb()
     })
 })
@@ -445,7 +446,7 @@ gulp.task('js', () => {
         .pipe($.rename('main.min.js'))
         .pipe(gulp.dest(dests.root + '/assets'))
         .on('end',() => {
-            $.util.log($.util.colors.green(`✔ assets/main.min.js`))
+            glog(colors.green(`✔ assets/main.min.js`))
             res()
         })
         .on('error', (err) => {
@@ -458,7 +459,7 @@ gulp.task('js', () => {
         .pipe($.rename('main.js'))
         .pipe(gulp.dest(dests.root + '/assets'))
         .on('end',() => {
-            $.util.log($.util.colors.green(`✔ assets/main.js`))
+            glog(colors.green(`✔ assets/main.js`))
             res()
         })
         .on('error', (err) => {
@@ -579,14 +580,14 @@ gulp.task('image', () => {
     let gifsvg, others
     const dirname = `${date.getFullYear()}/${("0" + (date.getMonth() + 1)).slice(-2)}`
     if(parsed.ext == "") {
-        $.util.log(`image will be saved like as "files/imports/${dirname}/filename.ext"`)
+        glog(`image will be saved like as "files/imports/${dirname}/filename.ext"`)
         gifsvg = gulp.src(argv.i + '/**/*.{gif,svg}')
         others = gulp.src(argv.i + '/**/*.{png,jpg,jpeg}')
     } else if(parsed.ext == ".gif" || parsed.ext == ".svg") {
-        $.util.log(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+        glog(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
         gifsvg = gulp.src(argv.i)
     } else {
-        $.util.log(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+        glog(`image will be saved like as "files/imports/${dirname}/${parsed.name}${parsed.ext}"`)
         others = gulp.src(argv.i).pipe(gm_autoOrient)
     }
     if(gifsvg){
@@ -699,7 +700,7 @@ self.addEventListener('fetch', function(event) {
 importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");`
         }
         fs.writeFile(`${dests.root}/${destName}.js`, res, () => {
-            $.util.log($.util.colors.green(`✔ ${destName}.js`))
+            glog(colors.green(`✔ ${destName}.js`))
             cb()
         })
 })
@@ -707,16 +708,16 @@ importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");`
 gulp.task('make-manifest', (cb) => {
     return writeFile( `dist/docs/manifest.json`, JSON.stringify(manifest))
     .then(
-        () => { $.util.log($.util.colors.green(`✔ manifest.json`)) },
-        (err) => { $.util.log($.util.colors.red(`✖ manifest.json`)); $.util.log(err) }
+        () => { glog(colors.green(`✔ manifest.json`)) },
+        (err) => { glog(colors.red(`✖ manifest.json`)); glog(err) }
     )
 })
 
 gulp.task('make-rss', (cb) => {
     return writeFile( `dist/docs/feed.rdf`, require('./scripts/builder/registerer/rss')(base, 'ja'))
     .then(
-        () => { $.util.log($.util.colors.green(`✔ feed.rdf`)) },
-        (err) => { $.util.log($.util.colors.red(`✖ feed.rdf`)); $.util.log(err) }
+        () => { glog(colors.green(`✔ feed.rdf`)) },
+        (err) => { glog(colors.red(`✖ feed.rdf`)); glog(err) }
     )
 })
 
@@ -738,7 +739,7 @@ const browserconfigXml = () => {
 
 gulp.task('make-browserconfig', (cb) => {
     fs.writeFile( `dist/docs/browserconfig.xml`, browserconfigXml, () => {
-        $.util.log($.util.colors.green(`✔ browserconfig.xml`)); cb()
+        glog(colors.green(`✔ browserconfig.xml`)); cb()
     })
 })
 
@@ -755,7 +756,7 @@ gulp.task('notify-failure', () => {
 
 function wait4(cb, sec){
     let interval = null
-    process.stdout.write($.util.colors.green(` ${sec} ██████    \r`))
+    process.stdout.write(colors.green(` ${sec} ██████    \r`))
     function waiti(){
         sec--
         if( sec < 0 && interval != null ){
@@ -763,13 +764,13 @@ function wait4(cb, sec){
             cb()
             clearInterval(interval)
         }
-        else if ( sec == 0 ) process.stdout.write($.util.colors.red(`\r ${sec}              \r`))
-        else if ( sec == 1 ) process.stdout.write($.util.colors.red(`\r ${sec}  █            \r`))
-        else if ( sec == 2 ) process.stdout.write($.util.colors.red(`\r ${sec}  ██          \r`))
-        else if ( sec == 3 ) process.stdout.write($.util.colors.red(`\r ${sec}  ███        \r`))
-        else if ( sec == 4 ) process.stdout.write($.util.colors.yellow(`\r ${sec}  ████      \r`))
-        else if ( sec == 5 ) process.stdout.write($.util.colors.yellow(`\r ${sec}  █████    \r`))
-        else process.stdout.write($.util.colors.green(`\r ${sec}  ██████    `))
+        else if ( sec == 0 ) process.stdout.write(colors.red(`\r ${sec}              \r`))
+        else if ( sec == 1 ) process.stdout.write(colors.red(`\r ${sec}  █            \r`))
+        else if ( sec == 2 ) process.stdout.write(colors.red(`\r ${sec}  ██          \r`))
+        else if ( sec == 3 ) process.stdout.write(colors.red(`\r ${sec}  ███        \r`))
+        else if ( sec == 4 ) process.stdout.write(colors.yellow(`\r ${sec}  ████      \r`))
+        else if ( sec == 5 ) process.stdout.write(colors.yellow(`\r ${sec}  █████    \r`))
+        else process.stdout.write(colors.green(`\r ${sec}  ██████    `))
     }
     interval = setInterval(waiti, 1000)
 }
