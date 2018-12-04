@@ -84,6 +84,7 @@ let instances = require('js-yaml').safeLoad(fs.readFileSync(`./data/instances.ym
 let temp_dir = 'dist/cache/' // 末尾のスラッシュ必要
 
 const urlPrefix = `${site.url.scheme}://${site.url.host}${site.url.path}`
+glog(`Site url = '${urlPrefix}'`)
 
 let src = {
    'everypug': ['theme/pug/**/*.pug','./.temp/**/*.pug'],
@@ -229,17 +230,11 @@ function toamp(htm, base){
             let id     = $el.attr('id')
             let width  = $el.attr('width')
             let height = $el.attr('height')
-            if( ( width === undefined || height === undefined ) && src.startsWith("files/") ){
-                const dims = sizeOf( src )
+            if( ( width === undefined || height === undefined ) && src.startsWith(`${urlPrefix}/files/`) ){
+                const dims = sizeOf( '.' + src.slice(urlPrefix.length) )
                 width = dims.width
                 height = dims.height
-                src = base.site.url.path + "/" + src
-            } else if ( ( width === undefined || height === undefined ) && src.startsWith("/files/") ){
-                const dims = sizeOf( src.slice(1) )
-                width = dims.width
-                height = dims.height
-                src = base.site.url.path + src
-                /*
+                src = base.site.url.path + "/" + src/*
             } else if ( ( width === undefined || height === undefined ) && ( src.startsWith('http') || src.startsWith('//') ) ){
                 const url = require('url').parse(src)
                 const filename = `${url.pathname.slice(1).replace(/\//g,'-')}`.slice(-36)
@@ -648,11 +643,10 @@ gulp.task('clean-dist-docs', (cb) => { del('dist/docs/**/*', {dot: true}).then(c
 gulp.task('clean-dist-files', (cb) => { del('dist/files/**/*', {dot: true}).then(cb()) } )
 
 gulp.task('make-sw', (cb) => {
-    if(!site.sw && !site.push7) cb()
-    const destName = site.push7 ? "push7-worker" : "service_worker"
+    if(!site.sw) { cb(); return void(0) }
+    const destName = "service_worker"
     let res = ''
-        if(site.sw){
-            res =
+        res =
 `/* workbox ${base.update.toJSON()} */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 workbox.routing.registerRoute(
@@ -662,9 +656,9 @@ workbox.routing.registerRoute(
     })
 );
 `
-            const offline = pages.some((e) => e.meta.permalink == '/offline/')
-            if(offline){
-                res +=
+        const offline = pages.some((e) => e.meta.permalink == '/offline/')
+        if(offline){
+            res +=
 `workbox.precaching.precacheAndRoute([
     {
         url: '/offline/',
@@ -683,8 +677,8 @@ self.addEventListener('fetch', function(event) {
     );
 });
 `
-            }/*
-            if(site.ga){
+        }/*
+        if(site.ga){
                 res +=
 `workbox.googleAnalytics.initialize({
     parameterOverrides: {
@@ -692,13 +686,7 @@ self.addEventListener('fetch', function(event) {
     },
 });
 `
-            }*/
-        }
-        if(site.push7){
-            res +=
-`/* push7 */
-importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");`
-        }
+        }*/
         fs.writeFile(`${dests.root}/${destName}.js`, res, () => {
             glog(colors.green(`✔ ${destName}.js`))
             cb()

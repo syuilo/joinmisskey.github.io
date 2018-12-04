@@ -6,7 +6,7 @@ function fainit(){
             try {
                 const fa = getNode(
                     { prefix: el.dataset.faPrefix, iconName: el.dataset.faIconName },
-                    JSON.parse(el.dataset.faOption.replace(/'/g,"\""))
+                    (el.dataset.faOption ? JSON.parse(el.dataset.faOption.replace(/'/g,"\"")) : {})
                     )
                 el.insertAdjacentElement('beforebegin', fa.item(0))
                 el.parentElement.removeChild(el)

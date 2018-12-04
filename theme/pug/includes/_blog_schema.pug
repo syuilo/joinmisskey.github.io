@@ -4,12 +4,12 @@
     "@type": "BlogPosting" ,
     "mainEntityOfPage": {
       "@type": "WebPage" ,
-      "@id": `${site.url.scheme}://${site.url.host}${site.url.path}${page.meta.permalink}`
+      "@id": `${urlPrefix}${page.meta.permalink}`
     },
     "headline": page.attributes.title,
     "image": {
       "@type": "ImageObject" ,
-      "url": `${site.url.scheme}://${site.url.host}${thsrc}`,
+      "url": `${urlPrefix}${thsrc}`,
       "height": thheight,
       "width": thwidth
     },
@@ -24,12 +24,12 @@
       "name": site.name,
       "logo": {
         "@type": "ImageObject" ,
-        "url": `${site.url.scheme}://${site.url.host}${site.url.path}${site.publisher_image_path}`,
+        "url": `${urlPrefix}${site.publisher_image_path}`,
         "height": pheight,
         "width": pwidth
       }
     },
-    "description": "${page.attributes.description}",
+    "description": page.attributes.description,
     "inLanguage": locale
   })
 

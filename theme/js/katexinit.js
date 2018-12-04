@@ -1,10 +1,12 @@
-import katex from 'katex'
+import { renderToString as getKatexString } from 'katex'
 
 function katexinit(){
     for( let el of Array.from(document.querySelectorAll('[data-mfm="math"]')) ){
         const n = document.createElement('span')
-        katex.render(el.textContent, n,{ throwOnError: false })
-        el.parentNode.insertBefore(n, el)
+        n.setAttribute('data-mfm', 'math')
+        const s = getKatexString(el.textContent, { throwOnError: false })
+        n.insertAdjacentHTML('afterbegin', s)
+        el.insertAdjacentElement('beforebegin', n)
         el.parentNode.removeChild(el)
     }
 }

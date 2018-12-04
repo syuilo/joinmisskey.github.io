@@ -57,12 +57,5 @@
         "start_url": "/",
         "display": "standalone"
     },
-    "push7": {
-        "appNo": "b299cef0c1344d01bd04376429903362",
-        "manifest": {
-            "gcm_sender_id": "781205625909",
-            "gcm_user_visible_only": true
-        }
-    },
     "sw": "js|css|png|jpeg|jpg|svg|svgz|woff2"
 }
