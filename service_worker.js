@@ -1,4 +1,4 @@
-/* workbox 2018-12-03T17:12:59.473Z */
+/* workbox 2018-12-04T05:37:31.950Z */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 workbox.routing.registerRoute(
     /.*.(?:js|css|png|jpeg|jpg|svg|svgz|woff2)/,
@@ -9,7 +9,7 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
     {
         url: '/offline/',
-        revision: '1543857179473',
+        revision: '1543901851950',
     }
 ]);
 self.addEventListener('fetch', function(event) {
@@ -23,5 +23,3 @@ self.addEventListener('fetch', function(event) {
         })
     );
 });
-/* push7 */
-importScripts("https://aldebaran.push7.jp/ex-push7-worker.js");
