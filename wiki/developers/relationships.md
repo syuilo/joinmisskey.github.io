@@ -1,7 +1,8 @@
 ---
 title: 他のサービスとの連携を設定する
-description: Twiitter、GitHubおよびDiscordでの認証を利用することができる。これには管理者側での設定が必要。
+description: Twitter、GitHubおよびDiscordでの認証を利用することができる。これには管理者側での設定が必要。
 layout: wiki
+rank: 1
 ---
 **他のサービスとの連携を設定するにはRedisとの接続が必要。**
 
