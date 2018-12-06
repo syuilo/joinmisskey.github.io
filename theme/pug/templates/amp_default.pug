@@ -146,6 +146,10 @@ html(lang=locale, amp)
                 a(href="https://twitter.com/misskey_xyz" target="_blank" rel="noopener")
                   +fa_fw('twitter', 'fab')
                   span.sr-only Twitter
+                | 
+                a(href="/feed.rdf" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span.sr-only RSS
 
     block gtag
       if(site.ga)
