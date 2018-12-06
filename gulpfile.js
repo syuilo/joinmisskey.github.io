@@ -161,13 +161,11 @@ gulp.task('config', () => {
 })
 
 gulp.task('credit-icons', () => {
-    return new Promise((res, rej) => {
-        let stream = mergeStream()
-        let thereis = false
-        for (let v of base.creditIcons) {
-            if (v) {
-                thereis = true
-                stream.add(
+    let streams = []
+    for (let v of base.creditIcons) {
+        if (v) {
+            streams.push(
+                new Promise((res, rej) => {
                     gulp.src(`${temp_dir}${v.name}.${v.ext}`)
                     .pipe($.imageResize({
                         "format": "png",
@@ -183,7 +181,7 @@ gulp.task('credit-icons', () => {
                         optipng: false,
                         pngquant: ["--speed=3"],
                         zopflipng: false,
-                        "concurrent": 10
+                        concurrent: 10
                     }))
                     .pipe($.rename({
                         "dirname": v.name.split('/')[0],
@@ -191,23 +189,14 @@ gulp.task('credit-icons', () => {
                         "extname": ".png"
                     }))
                     .pipe(gulp.dest('dist/files/images/credit'))
-                    .on('end',() => {
-                        glog(colors.green(`✔ ${v.name}.${v.ext}`))
-                    })
-                    .on('error', (err) => {
-                        glog(colors.red(err))
-                    })
-                )
-            }
+                    .on('end', res)
+                    .on('error', rej)
+                })
+            )
         }
-        if(thereis){
-            stream
-            .on('close', res)
-            .on('error', rej)
-        } else {
-            res(void(0))
-        }
-    })
+    }
+    console.log(streams)
+    return (streams.length > 0 ? Promise.all(streams) : void(0))
 })
 
 function pugit(val, options){
@@ -833,7 +822,7 @@ gulp.task('pages',
         'register',
         'config',
         gulp.parallel('pug', 'credit-icons'),
-        'make-subfiles',
+        gulp.parallel('copy-prebuildFiles', 'make-subfiles'),
         'copy-f404',
         'copy-docs',
         'clean-dist-docs',
