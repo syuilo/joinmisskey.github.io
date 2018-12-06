@@ -160,12 +160,15 @@ gulp.task('config', () => {
     )
 })
 
-gulp.task('credit-icons', () => {
+gulp.task('credit-icons', (cb) => {
     let streams = []
+    let ex = false
     for (let v of base.creditIcons) {
         if (v) {
+            ex = true
             streams.push(
                 new Promise((res, rej) => {
+                    console.log(':v:')
                     gulp.src(`${temp_dir}${v.name}.${v.ext}`)
                     .pipe($.imageResize({
                         "format": "png",
@@ -195,8 +198,8 @@ gulp.task('credit-icons', () => {
             )
         }
     }
-    console.log(streams)
-    return (streams.length > 0 ? Promise.all(streams) : void(0))
+    if(!ex) cb()
+    else return Promise.all(streams)
 })
 
 function pugit(val, options){
