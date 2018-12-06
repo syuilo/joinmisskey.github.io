@@ -1,10 +1,10 @@
 ---
 title: クライアント
-description: Misskeyに投稿するなどできるソフトウェア一覧。
+description: Misskeyに投稿するなどできるアプリ・ソフトウェア一覧。
 layout: wiki
 rank: 1
 ---
-Misskeyの機能を一通り利用できるソフトウェア一覧。これらのソフトウェアがMisskeyの機能を完全に網羅しているわけではない。
+Misskeyの機能を一通り利用できるアプリ・ソフトウェア一覧。これらのソフトウェアがMisskeyの機能を完全に網羅しているわけではない。
 
 ## デスクトップ
 ### マルチOS
@@ -31,7 +31,7 @@ Node.jsを使ったCLIツール。インスタンスを複数登録し、投稿�
 
 **[Subway TooterをPlayストアでダウンロード](https://play.google.com/store/apps/details?id=jp.juggler.subwaytooter&hl=ja)**
 
-[#SubwayTooter](https://mastodon.juggler.jp/tags/subwaytooter) / [Subway Tooter (マストドン日本語Wiki)](https://ja.mstdn.wiki/Subway_Tooter) / [Subway Tooter @SubwayTooter@mastodon.juggler.jp](https://mastodon.juggler.jp/@SubwayTooter) / [Subway Tooter Blog](http://subwaytooter.hatenadiary.jp/) / [tateisu/SubwayTooter on GitHub](https://github.com/tateisu/SubwayTooter) / [tateisu @tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)
+[#SubwayTooter](https://mastodon.juggler.jp/tags/subwaytooter) ･ [Subway Tooter (マストドン日本語Wiki)](https://ja.mstdn.wiki/Subway_Tooter) ･ [Subway Tooter @SubwayTooter@mastodon.juggler.jp](https://mastodon.juggler.jp/@SubwayTooter) ･ [Subway Tooter Blog](http://subwaytooter.hatenadiary.jp/) ･ [tateisu/SubwayTooter on GitHub](https://github.com/tateisu/SubwayTooter) ･ [tateisu @tateisu@mastodon.juggler.jp](https://mastodon.juggler.jp/@tateisu)
 
 ### iOS
 今のところ、iOS上で動作するMisskeyクライアントはない。
