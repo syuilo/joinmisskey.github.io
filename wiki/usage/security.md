@@ -1,6 +1,6 @@
 ---
 title: セキュリティ
-description: アカウントのパスワードを変更したり、アカウントのログインに二段階認証を適用できたりできる。
+description: アカウントのパスワードを変更したり、アカウントのログインに二段階認証を適用したりできる。
 layout: wiki
 rank: 12
 prev: /wiki/usage/integration/
