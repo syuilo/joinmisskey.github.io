@@ -2,8 +2,8 @@
 title: テーマ
 description: テーマによって画面の配色を変えられる。テーマは共有できる。
 layout: wiki
-rank: 11
-prev: /wiki/usage/profile/
+rank: 13
+prev: /wiki/usage/security/
 #next: /wiki/usage/follow/
 ---
 ## ダークモード
