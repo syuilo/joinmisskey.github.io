@@ -233,6 +233,7 @@ async function toamp(htm, base){
                 const temppath = `${temp_dir}amp/${url.hostname}/`
                 require('mkdirp').sync(temppath)
                 const v = await require('./scripts/downloadTemp')(filename, src, temppath)
+                glog(v)
                 if (!v || !existFile(`${temppath}${filename}.${v.ext}`)) {
                     glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
                     resolve()
