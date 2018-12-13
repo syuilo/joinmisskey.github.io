@@ -211,7 +211,7 @@ function pugit(val, options){
 async function toamp(htm, base){
     const sizeOf = require('image-size')
     let $ = require('cheerio').load(htm, {decodeEntities: false})
-    let promises = []
+    const promises = []
     $('img[src]').each(function(){
         const $el = $(this)
         // todo
@@ -232,28 +232,24 @@ async function toamp(htm, base){
                 const filename = `${url.pathname.slice(1).replace(/\//g,'-')}`.slice(-36)
                 const temppath = `${temp_dir}amp/${url.hostname}/`
                 require('mkdirp').sync(temppath)
-                const v = await require('./scripts/downloadTemp')(filename, src, temppath)
+                const v = await require('./scripts/downloadTemp')(filename, src, temppath, true)
                 glog(v)
                 if (!v || !existFile(`${temppath}${filename}.${v.ext}`)) {
                     glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
-                    resolve()
-                    return void(0)
+                    return resolve()
                 }
                 const dims = sizeOf( `${temppath}${filename}.${v.ext}` )
                 width = dims.width
                 height = dims.height
-            
             } else {
                 glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
-                resolve()
-                return void(0)
+                return resolve()
             }
             $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
-            resolve()
-            return void(0)
+            return resolve()
         }))
     })
-    await Promise.all(promises)
+    if(promises.length > 0) await Promise.all(promises)
     $('img').remove()
     return $('body').html()
 }

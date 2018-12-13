@@ -9,7 +9,7 @@ const glob = require('glob')
 const getHash = require('./gethash')
 const mkdirp = require('mkdirp')
 
-module.exports = async (name, url, temp_dir) => {
+module.exports = async (name, url, temp_dir, alwaysReturn) => {
     mkdirp.sync(temp_dir)
     const files = glob.sync(`${temp_dir}${name}.{png,jpg,jpeg,gif}`)
     if(files.length > 0){
@@ -22,7 +22,10 @@ module.exports = async (name, url, temp_dir) => {
         if (getHash(remote, 'sha384', 'binary', 'base64') != getHash(local, 'sha384', 'binary', 'base64')) {
             await writeFile(`${temp_dir}${name}.${ext}`, remote)
             return { name: name, ext: ext }
-        } else { return false }
+        } else {
+            if(alwaysReturn) return { name: name, ext: ext }
+            else return false
+        }
     } else {
         console.log('Getting new image: ' + url)
         return download(url).then(async data => {
