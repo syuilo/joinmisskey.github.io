@@ -208,14 +208,14 @@ function pugit(val, options){
     return res
 }
 
-function toamp(htm, base){
+async function toamp(htm, base){
     const sizeOf = require('image-size')
     let $ = require('cheerio').load(htm, {decodeEntities: false})
     let promises = []
     $('img[src]').each(function(){
         const $el = $(this)
         // todo
-        /*promises.push(new Promise(async (resolve) => {*/
+        promises.push(new Promise(async (resolve, reject) => {
             let src    = $el.attr('src')
             let alt    = $el.attr('alt')
             let title  = $el.attr('title')
@@ -226,32 +226,34 @@ function toamp(htm, base){
                 const dims = sizeOf( '.' + src.slice(urlPrefix.length) )
                 width = dims.width
                 height = dims.height
-                src = base.site.url.path + "/" + src/*
+                src = base.site.url.path + "/" + src
             } else if ( ( width === undefined || height === undefined ) && ( src.startsWith('http') || src.startsWith('//') ) ){
                 const url = require('url').parse(src)
                 const filename = `${url.pathname.slice(1).replace(/\//g,'-')}`.slice(-36)
                 const temppath = `${temp_dir}amp/${url.hostname}/`
-                mkdirp.sync(temppath)
+                require('mkdirp').sync(temppath)
                 const v = await require('./scripts/downloadTemp')(filename, src, temppath)
-                if (!v) {
+                if (!v || !existFile(`${temppath}${filename}.${v.ext}`)) {
                     glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
-                    return resolve()
+                    resolve()
+                    return void(0)
                 }
-                if (!existFile(`${temppath}${filename}.${v.ext}`)) return resolve()
                 const dims = sizeOf( `${temppath}${filename}.${v.ext}` )
                 width = dims.width
                 height = dims.height
-            */
+            
             } else {
                 glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
+                resolve()
+                return void(0)
             }
-            $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}"></amp-image>`)
-            // return resolve()
-        /*}))*/
+            $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+            resolve()
+            return void(0)
+        }))
     })
-    /*await Promise.all(promises)*/
+    await Promise.all(promises)
     $('img').remove()
-    $('amp-img').attr('layout','responsive')
     return $('body').html()
 }
 
@@ -358,12 +360,12 @@ gulp.task('pug', async () => {
             if(existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
             else if(existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
             else throw Error('amp_default.pugが見つかりませんでした。')
-            const newoptions = extend(true,
-                {isAmp: true, main_html: toamp(puglocals.main_html, base)},
-                puglocals
-            )
             streams.push(
-                new Promise((res, rej) => {
+                new Promise(async (res, rej) => {
+                    const newoptions = extend(true,
+                        { isAmp: true, main_html: await toamp(puglocals.main_html, base) },
+                        puglocals
+                    )
                     gulp.src(amptemplate)
                         .pipe($.pug({ locals: newoptions }))
                         .pipe($.rename(`${page.meta.permalink}amp.html`))
