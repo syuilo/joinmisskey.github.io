@@ -109,7 +109,7 @@
   },
   "dependencies": {
     "gulp": "^4.0.0",
-    "npm": "^6.4.1",
+    "npm": "^6.5.0",
     "workbox-build": "^3.6.3"
   }
 }
