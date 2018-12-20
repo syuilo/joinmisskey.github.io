@@ -100,7 +100,7 @@
     "sync-summaly": "^2.0.3-sync.2",
     "terser": "^3.11.0",
     "tether": "^1.4.5",
-    "typescript": "^3.2.1",
+    "typescript": "^3.2.2",
     "ua-parser-js": "^0.7.19",
     "wanakana": "^4.0.2",
     "webpack": "^4.27.1",
