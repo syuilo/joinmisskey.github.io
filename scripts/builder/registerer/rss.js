@@ -16,7 +16,7 @@ module.exports = (base, pages, lang) => {
         link: base.urlPrefix,
         description: base.site.descriptions ? base.site.descriptions[lang] : base.site.description,
         favicon: base.urlPrefix + '/favicon.ico',
-        copyright: '© ${base.site.author}',
+        copyright: `© ${base.site.author}`,
         feedLinks: {
             json: `${base.urlPrefix}/feed.json`,
             atom: `${base.urlPrefix}/feed.json`

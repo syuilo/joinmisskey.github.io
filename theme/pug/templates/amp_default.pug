@@ -147,9 +147,17 @@ html(lang=locale, amp)
                   +fa_fw('twitter', 'fab')
                   span.sr-only Twitter
                 | 
-                a(href="/feed.rdf" target="_blank" rel="noopener")
+                a(href="/feed.rss" target="_blank" rel="noopener")
                   +fa_fw('rss')
-                  span.sr-only RSS
+                  span RSS
+                | 
+                a(href="/feed.json" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span JSON
+                | 
+                a(href="/feed.atom" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span ATOM
 
     block gtag
       if(site.ga)

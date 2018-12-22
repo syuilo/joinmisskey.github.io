@@ -37,7 +37,9 @@ html(lang=locale)
 
       block includes_head
         link(rel="manifest" href=`${site.url.path}/manifest.json`)
-        link(rel="alternate" type="application/rss+xml" title=`${site.name} RSS` href=`${urlPrefix}/feed.rdf`)
+        link(rel="alternate" type="application/atom+xml" title=`${site.name}` href=`${urlPrefix}/feed.atom`)
+        link(rel="alternate" type="application/rss+xml" title=`${site.name}` href=`${urlPrefix}/feed.rss`)
+        link(rel="alternate" type="application/json" title=`${site.name}` href=`${urlPrefix}/feed.json`)
         include ../includes/_includes_head.pug
 
       block icons
@@ -125,9 +127,17 @@ html(lang=locale)
                   +fa_fw('twitter', 'fab')
                   span.sr-only Twitter
                 | 
-                a(href="/feed.rdf" target="_blank" rel="noopener")
+                a(href="/feed.rss" target="_blank" rel="noopener")
                   +fa_fw('rss')
-                  span.sr-only RSS
+                  span RSS
+                | 
+                a(href="/feed.json" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span JSON
+                | 
+                a(href="/feed.atom" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span ATOM
 
     block includes_foot
       include ../includes/_includes_foot.pug
