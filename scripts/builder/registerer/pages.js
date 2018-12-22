@@ -73,7 +73,6 @@ module.exports = async (site, src, urlPrefix) => {
             page.attributes.tags = page.attributes.tag.split(' ')
             delete page.attributes.tag
         }
-
         return page
     }
 }

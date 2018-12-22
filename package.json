@@ -108,6 +108,7 @@
     "workbox-sw": "^3.6.3"
   },
   "dependencies": {
+    "feed": "^2.0.2",
     "gulp": "^4.0.0",
     "npm": "^6.5.0",
     "workbox-build": "^3.6.3"
