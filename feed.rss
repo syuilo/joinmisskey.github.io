@@ -4,11 +4,21 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)</description>
-        <lastBuildDate>Sat, 22 Dec 2018 15:59:24 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Dec 2018 16:52:14 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
-        <copyright>© ${base.site.author}</copyright>
+        <copyright>© Misskey</copyright>
         <atom:link href="https://joinmisskey.github.io/feed.json" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[joinmisskeyのRSSのURLが変更になりました]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2018/12/23_jmupdate/</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2018/12/23_jmupdate/</guid>
+            <pubDate>Sat, 22 Dec 2018 16:45:00 GMT</pubDate>
+            <description><![CDATA[RSS2, JSON1, Atom1に対応。]]></description>
+            <content:encoded><![CDATA[<p>変更前 <code>https:<span class="comment">//joinmisskey.github.io/feed.rdf</span></code></p><p><strong>変更後</strong></p><ul><li><code>https:<span class="comment">//joinmisskey.github.io/feed.rss</span></code> (RSS2)</li><li><code>https:<span class="comment">//joinmisskey.github.io/feed.json</span></code> (JSON1)</li><li><code>https:<span class="comment">//joinmisskey.github.io/feed.atom</span></code> (Atom1)</li></ul>]]></content:encoded>
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2018/11/taka1.jpg">
+            </enclosure>
+        </item>
         <item>
             <title><![CDATA[最近の更新 ～10.66.1]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2018/12/22_update10661/</link>
