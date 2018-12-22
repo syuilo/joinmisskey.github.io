@@ -666,25 +666,23 @@ gulp.task('make-manifest', (cb) => {
 
 gulp.task('make-rss', (cb) => {
     const feed = require('./scripts/builder/registerer/rss')(base, pages, 'ja')
-    return writeFile( `dist/docs/feed.rss`, feed.rss2())
-    .then(
-        () => { glog(colors.green(`✔ feed.rss`)) },
-        (err) => { glog(colors.red(`✖ feed.rss`)); glog(err) }
-    )
-    .then(
-        () => writeFile( `dist/docs/feed.json`, feed.json1()),
-    )
-    .then(
-        () => { glog(colors.green(`✔ feed.json`)) },
-        (err) => { glog(colors.red(`✖ feed.json`)); glog(err) }
-    )
-    .then(
-        () => writeFile( `dist/docs/feed.atom`, feed.atom1()),
-    )
-    .then(
-        () => { glog(colors.green(`✔ feed.atom`)) },
-        (err) => { glog(colors.red(`✖ feed.atom`)); glog(err) }
-    )
+    return Promise.all([
+        writeFile( `dist/docs/feed.rss`, feed.rss2())
+        .then(
+            () => { glog(colors.green(`✔ feed.rss`)) },
+            (err) => { glog(colors.red(`✖ feed.rss`)); glog(err) }
+        ),
+        writeFile( `dist/docs/feed.json`, feed.json1())
+        .then(
+            () => { glog(colors.green(`✔ feed.json`)) },
+            (err) => { glog(colors.red(`✖ feed.json`)); glog(err) }
+        ),
+        writeFile( `dist/docs/feed.atom`, feed.atom1())
+        .then(
+            () => { glog(colors.green(`✔ feed.atom`)) },
+            (err) => { glog(colors.red(`✖ feed.atom`)); glog(err) }
+        )
+    ])
 })
 
 const browserconfigXml = () => {

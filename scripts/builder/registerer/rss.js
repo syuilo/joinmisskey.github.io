@@ -35,7 +35,7 @@ module.exports = (base, pages, lang) => {
         feed.addItem({
             title: page.attributes.title,
             id: `${base.urlPrefix}${page.meta.permalink}`,
-            link: `${base.urlPrefix}${page.meta.permalink}`,
+            link: `${base.urlPrefix}${page.meta.permalink}?rel=rss`,
             date: new Date(page.meta.mtime),
             description: page.attributes.description,
             content: page.main_html,
