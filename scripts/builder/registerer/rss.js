@@ -19,7 +19,7 @@ module.exports = (base, pages, lang) => {
         copyright: `© ${base.site.author}`,
         feedLinks: {
             json: `${base.urlPrefix}/feed.json`,
-            atom: `${base.urlPrefix}/feed.json`
+            atom: `${base.urlPrefix}/feed.atom`
         }
     })
 
