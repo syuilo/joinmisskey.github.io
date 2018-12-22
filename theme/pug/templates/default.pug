@@ -13,7 +13,7 @@ html(lang=locale)
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, minimum-scale=1, initial-scale=1")
       block title
-        title #{page.attributes.title} - #{site.names[locale] || site.name}
+        title #{page.attributes['title-breadcrumb'] || page.attributes.title} - #{site.names[locale] || site.name}
 
       block thankyou_seeing_sourcecode
         //
