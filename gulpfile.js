@@ -204,16 +204,14 @@ async function toamp(htm, base){
     const sizeOf = require('image-size')
     let $ = require('cheerio').load(htm, {decodeEntities: false})
     const promises = []
-    $('img[src]').each(function(){
-        const $el = $(this)
-        // todo
+    $('img[src]').each(function(i, el){
         promises.push(new Promise(async (resolve, reject) => {
-            let src    = $el.attr('src')
-            let alt    = $el.attr('alt')
-            let title  = $el.attr('title')
-            let id     = $el.attr('id')
-            let width  = $el.attr('width')
-            let height = $el.attr('height')
+            let src    = $(el).attr('src')
+            let alt    = $(el).attr('alt')
+            let title  = $(el).attr('title')
+            let id     = $(el).attr('id')
+            let width  = $(el).attr('width')
+            let height = $(el).attr('height')
             if( ( width === undefined || height === undefined ) && src.startsWith(`${urlPrefix}/files/`) ){
                 const dims = sizeOf( '.' + src.slice(urlPrefix.length) )
                 width = dims.width
@@ -237,7 +235,7 @@ async function toamp(htm, base){
                 glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
                 return resolve()
             }
-            $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+            $('img[src]').eq(i).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
             return resolve()
         }))
     })
