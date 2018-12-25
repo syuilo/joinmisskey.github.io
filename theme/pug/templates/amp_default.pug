@@ -12,7 +12,7 @@ html(lang=locale, amp)
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, minimum-scale=1, initial-scale=1")
       block title
-        title #{page.attributes.title} - #{site.names[locale] || site.name}
+        title #{page.attributes['title-breadcrumb'] || page.attributes.title} - #{site.names[locale] || site.name}
 
       block thankyou_seeing_sourcecode
         //
@@ -147,9 +147,17 @@ html(lang=locale, amp)
                   +fa_fw('twitter', 'fab')
                   span.sr-only Twitter
                 | 
-                a(href="/feed.rdf" target="_blank" rel="noopener")
+                a(href="/feed.rss" target="_blank" rel="noopener")
                   +fa_fw('rss')
-                  span.sr-only RSS
+                  span RSS
+                | 
+                a(href="/feed.json" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span JSON
+                | 
+                a(href="/feed.atom" target="_blank" rel="noopener")
+                  +fa_fw('rss')
+                  span Atom
 
     block gtag
       if(site.ga)

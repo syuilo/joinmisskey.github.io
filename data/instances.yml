@@ -37,6 +37,8 @@
   langs: ['ja']
 - url: yuzulia.xyz
   langs: ['ja']
+- url: r18don.xyz
+  langs: ['ja']
 - url: msky.jnsk.info
   langs: ['ja']
 - url: re.kirishima.cloud
@@ -104,7 +106,16 @@
 #########################################
 ##
 #
+- url: mk.tux.tf
+  langs: ['fr', 'ja']
+#
+##
+#########################################
+##
+#
 - url: gaygay.me
+  langs: ['zh', 'en']
+- url: sns.moka-rin.moe
   langs: ['zh', 'en']
 - url: msky.naru.cafe
   langs: ['ko', 'en']

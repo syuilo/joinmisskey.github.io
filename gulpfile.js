@@ -9,11 +9,8 @@ const del = require('del')
 const minimist = require('minimist')
 const pump = require('pump')
 const request = require('request')
-const htmlmin = require("html-minifier").minify
 const pug = require('pug')
 //const mkdirp = require('mkdirp')
-const betterMarkdown = require('./scripts/better_markdown')
-const mergeStream = require('merge-stream')
 const glog = require('fancy-log')
 const colors = require('colors')
 
@@ -145,6 +142,7 @@ gulp.task('register', async cb => {
         }
     )
 
+
     cb()
 })
 
@@ -202,26 +200,18 @@ gulp.task('credit-icons', (cb) => {
     else return Promise.all(streams)
 })
 
-function pugit(val, options){
-    options.isSubcall = true
-    const res = pug.render(`${base.theme_pug.script}\n${base.theme_pug.mixin}\n${val}`, options)
-    return res
-}
-
 async function toamp(htm, base){
     const sizeOf = require('image-size')
     let $ = require('cheerio').load(htm, {decodeEntities: false})
     const promises = []
-    $('img[src]').each(function(){
-        const $el = $(this)
-        // todo
+    $('img[src]').each(function(i, el){
         promises.push(new Promise(async (resolve, reject) => {
-            let src    = $el.attr('src')
-            let alt    = $el.attr('alt')
-            let title  = $el.attr('title')
-            let id     = $el.attr('id')
-            let width  = $el.attr('width')
-            let height = $el.attr('height')
+            let src    = $(el).attr('src')
+            let alt    = $(el).attr('alt')
+            let title  = $(el).attr('title')
+            let id     = $(el).attr('id')
+            let width  = $(el).attr('width')
+            let height = $(el).attr('height')
             if( ( width === undefined || height === undefined ) && src.startsWith(`${urlPrefix}/files/`) ){
                 const dims = sizeOf( '.' + src.slice(urlPrefix.length) )
                 width = dims.width
@@ -245,7 +235,7 @@ async function toamp(htm, base){
                 glog( `${messages.amp.invalid_imageUrl}:\n${src}` )
                 return resolve()
             }
-            $el.after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+            $('img[src]').eq(i).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
             return resolve()
         }))
     })
@@ -290,7 +280,8 @@ function searchSidebar(pathe){
 
 gulp.task('pug', async () => {
     const streams = []
-    for (let page of pages) {
+    for (const page of pages) {
+        if(!page) continue
         const puglocals = extend(true,
             {
                 page,
@@ -307,31 +298,10 @@ gulp.task('pug', async () => {
             puglocals.sidebarHTML = sidebarHTML
         }
 
-        let main_html
-        switch(page.meta.src.ext){
-            case '.md':
-                main_html = require("kramed")(page.body)
-                main_html = betterMarkdown(main_html, urlPrefix)
-                // main_html = maly(main_html)
-                main_html = htmlmin(main_html ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-                break
-            case '.html':
-            case '.htm':
-                main_html = htmlmin(page.body ,{"collapseWhitespace": true,"removeEmptyAttributes": false,"removeEmptyElements": false})
-                break
-            case '.pug':
-                try {
-                    main_html = pugit(page.body, puglocals)
-                } catch(e) {
-                    glog(`Error: ${page.meta.permalink}`)
-                    throw Error(e)
-                }
-                if (page.attributes.improve) main_html = betterMarkdown(main_html, urlPrefix)
-                break
-        }
-        main_html = require('./scripts/highl')(main_html)
-        puglocals.main_html = main_html
-        puglocals.headings = regheadings(main_html)
+        page.main_html = require('./scripts/make_html')(page, puglocals, urlPrefix)
+
+        puglocals.main_html = page.main_html
+        puglocals.headings = regheadings(page.main_html)
 
         streams.push(
             new Promise((res, rej) => {
@@ -693,11 +663,24 @@ gulp.task('make-manifest', (cb) => {
 })
 
 gulp.task('make-rss', (cb) => {
-    return writeFile( `dist/docs/feed.rdf`, require('./scripts/builder/registerer/rss')(base, 'ja'))
-    .then(
-        () => { glog(colors.green(`✔ feed.rdf`)) },
-        (err) => { glog(colors.red(`✖ feed.rdf`)); glog(err) }
-    )
+    const feed = require('./scripts/builder/registerer/rss')(base, pages, 'ja')
+    return Promise.all([
+        writeFile( `dist/docs/feed.rss`, feed.rss2())
+        .then(
+            () => { glog(colors.green(`✔ feed.rss`)) },
+            (err) => { glog(colors.red(`✖ feed.rss`)); glog(err) }
+        ),
+        writeFile( `dist/docs/feed.json`, feed.json1())
+        .then(
+            () => { glog(colors.green(`✔ feed.json`)) },
+            (err) => { glog(colors.red(`✖ feed.json`)); glog(err) }
+        ),
+        writeFile( `dist/docs/feed.atom`, feed.atom1())
+        .then(
+            () => { glog(colors.green(`✔ feed.atom`)) },
+            (err) => { glog(colors.red(`✖ feed.atom`)); glog(err) }
+        )
+    ])
 })
 
 const browserconfigXml = () => {
@@ -808,13 +791,6 @@ gulp.task('default',
         'register',
         'config',
         'core',
-        (cb) => { cb() }
-    )
-)
-
-gulp.task('netlify',
-    gulp.series(
-        'default',
         (cb) => { cb() }
     )
 )
