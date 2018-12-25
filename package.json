@@ -98,7 +98,7 @@
     "summaly": "^2.2.0",
     "sync-request": "^6.0.0",
     "sync-summaly": "^2.0.3-sync.2",
-    "terser": "^3.11.0",
+    "terser": "^3.13.1",
     "tether": "^1.4.5",
     "typescript": "^3.2.1",
     "ua-parser-js": "^0.7.19",
