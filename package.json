@@ -103,7 +103,7 @@
     "typescript": "^3.2.2",
     "ua-parser-js": "^0.7.19",
     "wanakana": "^4.0.2",
-    "webpack": "^4.27.1",
+    "webpack": "^4.28.2",
     "webpack-stream": "^5.2.1",
     "workbox-sw": "^3.6.3"
   },
