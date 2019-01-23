@@ -116,7 +116,7 @@ mixin mfm_example(src)
 mixin instancesList(o, colors, sctrollts)
   .instances-list.list-group(class=(scrollts ? `scrollts scrollts-${scrollts}` : ''))
     -
-      let c = colors ? `text-${colors[0]} bg-${colors[2]}` : ''
+      let c = colors ? `text-${colors[0]} bg-${colors[2]}` : 'text-black'
       let c2 = colors ? `text-${colors[1]}` : 'text-muted'
       let lgrgb = colors && colors[3] == 'dark' ? '52, 58, 64' : '255, 255, 255'
       let num = 0
@@ -149,7 +149,9 @@ mixin instancesList(o, colors, sctrollts)
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start
           h4.jm-h4.noindex
             | #{instance.name || (instance.isAlive && instance.meta.name && instance.meta.name != 'Misskey' && instance.meta.name != instance.url) ? `${instance.name || instance.meta.name}<span class="${c2} font-weight-normal"> - ${instance.url}</span>` : instance.url}
-          p.my-1.lh-12 #{instance.description || (instance.isAlive && instance.description ? instance.description.slice(0, 70) : '')}#{instance.isAlive && instance.description && instance.description.length > 70 ? '…' : ''}
+          if(instance.isAlive && instance.description)
+            p.my-1.lh-12
+              | #{(instance.description.slice(0, 70) || '')}#{instance.description.length > 70 ? '…' : ''}
 
           if(instance.isAlive)
             .instance-infos.d-flex.flex-wrap.small(class=c2)

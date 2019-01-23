@@ -153,13 +153,13 @@ async function getInstancesInfos(instances){
                 isAlive: true
             }))
         } else {
-            instancesInfos.push(extend(true, { isAlive: false }, instance))
+            instancesInfos.push(extend(true, { isAlive: false, value: 0 }, instance))
         }
     }
     return instancesInfos.sort((a, b) => {
         if( !a.isAlive && b.isAlive ) return 1
         else if( a.isAlive && !b.isAlive ) return -1
-        else if ( a.isAlive && b.isAlive ) return b.value - a.value
+        else if ( a.isAlive && b.isAlive ) return ( b.value || 0 ) - ( a.value || 0 )
         else return ( b.url > a.url ? -1 : 1 )
     })
 }
