@@ -65,4 +65,6 @@ has_child: false
 各言語版のページで、それぞれの言語が使われているインスタンスのみ掲載している。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページから閲覧できる。
 
 ## ほかのインスタンスリスト
-[distsn.org](https://distsn.org/misskey-instances.html)
+- [distsn.org](https://distsn.org/misskey-instances.html)
+- [the-federation.info](https://the-federation.info/misskey)
+- [fediverse.network](https://fediverse.network/misskey)
