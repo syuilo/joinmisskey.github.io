@@ -57,5 +57,6 @@
         "start_url": "/",
         "display": "standalone"
     },
-    "sw": "js|css|png|jpeg|jpg|svg|svgz|woff2"
+    "sw": "js|css|png|jpeg|jpg|svg|svgz|woff2",
+    "metaPages": ["404", "offline"]
 }

@@ -4,6 +4,6 @@ block main
   #main.padding
     .container.py-5.bg-white.main-shadow
       h1= page.attributes.title
-      !=main_html
+      !=mainHtml
       ul.simpleindex.list-unstyled
         +lis_of_dir(page.meta.permalink, {s: true, unstyled: true})

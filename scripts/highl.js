@@ -1,14 +1,23 @@
+const { syntaxHighlighter } = require("mfmf")
+const cheerio = require("cheerio")
+
 module.exports = (htm) => {
-  const highlighter = require('mfmf').syntaxHighlighter
-  function fuckescape(val){
-    val = val.replace(/&amp;/g, "&") .replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    val = val.replace(/&lt;/g, "<") .replace(/&gt;/g, ">") .replace(/&#39;/g, "'") .replace(/&quot;/g, "\"")
-    return val
+  function fuckescape(val) {
+    let res = val.replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, "\"")
+    res = res.replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, "\"")
+    return res
   }
 
-  let $ = require('cheerio').load(htm, {decodeEntities: false})
-  $(':not(.mfm) code').each((i, el) => {
-    $(el).html(highlighter(fuckescape($(el).text())))
+  const $ = cheerio.load(htm, { decodeEntities: false })
+  $(":not(.mfm) code").each((i, el) => {
+    $(el).html(syntaxHighlighter(fuckescape($(el).text())))
   })
-  return $('body').html()
+  return $("body").html()
 }

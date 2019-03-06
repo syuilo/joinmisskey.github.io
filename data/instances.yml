@@ -65,6 +65,36 @@
   langs: ['ja']
 - url: misskey.waraiotoko.net
   langs: ['ja']
+- url: misskey.kurume-nct.com
+  langs: ['ja']
+- url: misskey.dev
+  langs: ['ja']
+- url: mi.xeltica.work
+  langs: ['ja']
+- url: mi.siotter.tk
+  langs: ['ja']
+- url: mi.cryo.jp
+  langs: ['ja']
+- url: m.xrc.jp
+  langs: ['ja']
+- url: key.tearaikazuki.jp
+  langs: ['ja']
+- url: i.mi.xeltica.work
+  langs: ['ja']
+- url: hoge-poyo.moe
+  langs: ['ja']
+- url: gyutte.site
+  langs: ['ja']
+- url: gaze.live-on.net
+  langs: ['ja']
+- url: emoji.msky.work
+  langs: ['ja']
+- url: boonchat.xyz
+  langs: ['ja']
+- url: ayylamo.kamp.site
+  langs: ['ja']
+- url: misskey.rip
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -101,13 +131,21 @@
   langs: ['en']
 - url: uselesslesbian.club
   langs: ['en']
+- url: miss.va-11-hall-a.cafe
+  langs: ['en']
+- url: m.natalie.ee
+  langs: ['en']
+- url: boopsnoot.gq
+  langs: ['en']
 #
 ##
 #########################################
 ##
 #
 - url: mk.tux.tf
-  langs: ['fr', 'ja']
+  langs: ['fr']
+- url: misskey.anjara.eu
+  langs: ['fr']
 #
 ##
 #########################################
@@ -119,3 +157,5 @@
   langs: ['zh', 'en']
 - url: msky.naru.cafe
   langs: ['ko', 'en']
+- url: m.con.sh
+  langs: ['zh', 'en']

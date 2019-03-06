@@ -1,10 +1,41 @@
 const {
-    faTwitter,
-    faGithub,
-    faDiscord
-} = require('@fortawesome/free-brands-svg-icons')
+  faTwitter,
+  faGithub,
+  faDiscord
+} = require("@fortawesome/free-brands-svg-icons")
 
 const {
+  faLock,
+  faLockOpen,
+  faComments,
+  faSearch,
+  faShieldAlt,
+  faCube,
+  faBell,
+  faEnvelopeSquare,
+  faUsers,
+  faPencilAlt,
+  faICursor,
+  faHdd,
+  faUserCog,
+  faFolderOpen,
+  faTags,
+  faClock,
+  faBars,
+  faHome,
+  faBroadcastTower,
+  faBook,
+  faStoreAlt,
+  faExternalLinkSquareAlt,
+  faExternalLinkAlt
+} = require("@fortawesome/free-solid-svg-icons")
+
+module.exports = {
+  icons: [
+    faTwitter,
+    faGithub,
+    faDiscord,
+
     faLock,
     faLockOpen,
     faComments,
@@ -28,36 +59,5 @@ const {
     faStoreAlt,
     faExternalLinkSquareAlt,
     faExternalLinkAlt
-} = require('@fortawesome/free-solid-svg-icons')
-
-module.exports = {
-    icons: [
-        faTwitter,
-        faGithub,
-        faDiscord,
-
-        faLock,
-        faLockOpen,
-        faComments,
-        faSearch,
-        faShieldAlt,
-        faCube,
-        faBell,
-        faEnvelopeSquare,
-        faUsers,
-        faPencilAlt,
-        faICursor,
-        faHdd,
-        faUserCog,
-        faFolderOpen,
-        faTags,
-        faClock,
-        faBars,
-        faHome,
-        faBroadcastTower,
-        faBook,
-        faStoreAlt,
-        faExternalLinkSquareAlt,
-        faExternalLinkAlt
-    ]
+  ]
 }
