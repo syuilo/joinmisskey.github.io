@@ -5,9 +5,10 @@ The introduction site of [Misskey](https://github.com/syuilo/misskey)
 ### Install
 
 1. Install Node.js
-2. Make a new folder
+2. Make a new folder and pushd to it
 3. `git init`
 4. `git remote add origin https://github.com/joinmisskey/joinmisskey.github.io.git`
+5. `git fetch`
 5. `git checkout src`
 6. `npm install`
 7. `npm install gulp -g`
