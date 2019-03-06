@@ -12,10 +12,12 @@ Misskeyの機能を一通り利用できるアプリ・ソフトウェア一覧�
 - OS: Windows, macOS, Linux  
 - Node.js, Electron
 
-世界で2番目のElectronで動作するMisskeyクライアント。  
+[Cutls P](https://kirishima.cloud/@Cutls)によるマルチカラム対応のMastodon/Misskeyクライアント。  
+GPL 3.0([GitHub:cutls/TheDesk](https://github.com/cutls/TheDesk))
 
 **[TheDesk - thedesk.top](https://thedesk.top/)**  
 **[TheDeskをMicrosoft Storeでインストール](https://www.microsoft.com/store/productId/9P2NDNZ0GWZF)**
+
 
 #### taqz
 Node.jsを使ったCLIツール。インスタンスを複数登録し、投稿できる。
