@@ -1,25 +1,31 @@
-/* workbox 2019-01-22T13:22:17.776Z */
+/* workbox 2019-03-06T11:36:56.261Z */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
 workbox.routing.registerRoute(
     /.*.(?:js|css|png|jpeg|jpg|svg|svgz|woff2)/,
     workbox.strategies.staleWhileRevalidate({
-        cacheName: 'assets-cache',
+        cacheName: "assets-cache",
     })
 );
 workbox.precaching.precacheAndRoute([
     {
-        url: '/offline/',
-        revision: '1548163337776',
+        url: "/offline/",
+        revision: "1551872216261",
     }
 ]);
-self.addEventListener('fetch', function(event) {
+workbox.skipWaiting();
+self.addEventListener("fetch", function(event) {
     event.respondWith(
         caches.match(event.request)
         .then(function(response) {
             return response || fetch(event.request);
         })
         .catch(function() {
-            return caches.match('/offline/');
+            return caches.match("/offline/");
         })
     );
 });
+self.addEventListener("install", function(event) {
+    workbox.skipWaiting();
+    workbox.clientsClaim();
+})
