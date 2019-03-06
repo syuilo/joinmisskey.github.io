@@ -2,6 +2,9 @@
 ###### インスタンスリスト        #######
 ###### The List of Instances     #######
 ########################################
+- url: misskey.dev
+  langs: ['ja', 'en', 'fr', 'ko', 'zh']
+#
 - url: misskey.xyz
   langs: ['ja']
 - url: misskey.jp
@@ -66,8 +69,6 @@
 - url: misskey.waraiotoko.net
   langs: ['ja']
 - url: misskey.kurume-nct.com
-  langs: ['ja']
-- url: misskey.dev
   langs: ['ja']
 - url: mi.xeltica.work
   langs: ['ja']
