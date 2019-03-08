@@ -2,7 +2,7 @@
 title: joinmisskeyブログの更新についてのおしらせ
 description: 各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。
 layout: blog
-date: 2019-03-08T11:31:00+09:00
+date: 2019-03-08T11:46:00+09:00
 thumbnail: 
 author:
   name: aqz
