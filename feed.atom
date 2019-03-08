@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id></id>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-03-06T11:51:41.680Z</updated>
+    <updated>2019-03-08T02:51:20.322Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://joinmisskey.github.io"/>
     <link rel="self" href="https://joinmisskey.github.io/feed.atom"/>
     <subtitle>いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)</subtitle>
     <icon>https://joinmisskey.github.io/favicon.ico</icon>
     <rights>© Misskey</rights>
+    <entry>
+        <title type="html"><![CDATA[misskey.xyzの直近の変化についてまとめ]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss">
+        </link>
+        <updated>2019-03-08T02:47:00.000Z</updated>
+        <summary type="html"><![CDATA[misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[joinmisskeyブログの更新についてのおしらせ]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/?rel=rss">
+        </link>
+        <updated>2019-03-08T02:46:00.000Z</updated>
+        <summary type="html"><![CDATA[各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[最近の機能追加 - Recently Added & Updated Features]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/?rel=rss">
+        </link>
+        <updated>2019-03-08T02:45:00.000Z</updated>
+        <summary type="html"><![CDATA[ここ2か月間のアップデートの情報を一挙に抜粋してご紹介します！]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[最近の更新 ～10.73.0]]></title>
         <id>https://joinmisskey.github.io/ja/blog/2018/12/31_update10730/</id>

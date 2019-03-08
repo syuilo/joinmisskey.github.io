@@ -6,6 +6,39 @@
     "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)",
     "items": [
         {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss",
+            "title": "misskey.xyzの直近の変化についてまとめ",
+            "summary": "misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。",
+            "image": "https://joinmisskey.github.io/files/images/icons/thumb.png",
+            "date_modified": "2019-03-08T02:47:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/?rel=rss",
+            "title": "joinmisskeyブログの更新についてのおしらせ",
+            "summary": "各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。",
+            "image": "https://joinmisskey.github.io/files/images/icons/thumb.png",
+            "date_modified": "2019-03-08T02:46:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/?rel=rss",
+            "title": "最近の機能追加 - Recently Added & Updated Features",
+            "summary": "ここ2か月間のアップデートの情報を一挙に抜粋してご紹介します！",
+            "image": "https://joinmisskey.github.io/files/images/imports/2018/11/taka4.jpg",
+            "date_modified": "2019-03-08T02:45:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
             "id": "https://joinmisskey.github.io/ja/blog/2018/12/31_update10730/",
             "url": "https://joinmisskey.github.io/ja/blog/2018/12/31_update10730/?rel=rss",
             "title": "最近の更新 ～10.73.0",

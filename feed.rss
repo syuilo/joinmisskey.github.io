@@ -4,11 +4,38 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)</description>
-        <lastBuildDate>Wed, 06 Mar 2019 11:51:41 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Mar 2019 02:51:20 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
         <atom:link href="https://joinmisskey.github.io/feed.atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[misskey.xyzの直近の変化についてまとめ]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss</guid>
+            <pubDate>Fri, 08 Mar 2019 02:47:00 GMT</pubDate>
+            <description><![CDATA[misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/icons/thumb.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[joinmisskeyブログの更新についてのおしらせ]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/?rel=rss</guid>
+            <pubDate>Fri, 08 Mar 2019 02:46:00 GMT</pubDate>
+            <description><![CDATA[各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/icons/thumb.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[最近の機能追加 - Recently Added & Updated Features]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-1-changes/?rel=rss</guid>
+            <pubDate>Fri, 08 Mar 2019 02:45:00 GMT</pubDate>
+            <description><![CDATA[ここ2か月間のアップデートの情報を一挙に抜粋してご紹介します！]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2018/11/taka4.jpg">
+            </enclosure>
+        </item>
         <item>
             <title><![CDATA[最近の更新 ～10.73.0]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2018/12/31_update10730/?rel=rss</link>
