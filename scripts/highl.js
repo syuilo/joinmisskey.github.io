@@ -5,7 +5,6 @@ const Prism = require("prismjs")
 const cheerio = require("cheerio")
 
 module.exports = (htm) => {
-
   const $ = cheerio.load(htm, { decodeEntities: false })
   $("code").each((i, el) => {
     const cl = $(el).attr("class")
