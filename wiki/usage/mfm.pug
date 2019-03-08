@@ -44,7 +44,13 @@ p #[b 三重カッコ]で囲うか#[code &amp;lt;motion&amp;gt;]と#[code &amp;l
 h4 ビッグ
 p 文字を`***`で挟むと、通常の1.5倍の大きさの太字で表示され、条件を満たすと動く。
 
-+mfm_example('<motion>動きます！</motion>\n(((動く？)))\n***こいつ……動くぞ！***')
+h4 左右反転・回転・飛び跳ねる
+ul
+  li 左右反転: #[code &lt;flip&gt;…&lt;/flip&gt;]
+  li 回転: #[code &lt;spin&gt;…&lt;/spin&gt;]
+  li 飛び跳ねる: #[code &lt;jump&gt;…&lt;/jump&gt;]
+
++mfm_example('<motion>動きます！</motion>\n(((動く？)))\n***こいつ……動くぞ！***\n\n<flip>左右反転flip</flip>\n<spin>回転spin</spin>\n<jump>飛び跳ねる jump</jump>')
 
 h3 コード
 p.
@@ -85,6 +91,6 @@ p #[code 【…】]または<code>[…]</code>という行は例のようにタ�
 +mfm_example('【ねこです】\nきいてますか。\nねこはそこにいます。\nよろしくおねがいします。\n\n【クレジット】\n [SCP-040-JP](http://ja.scp-wiki.net/scp-040-jp) ©Ikr_4185\nこのコンテンツは、?[クリエイティブ・コモンズ 表示-継承3.0ライセンス](http://creativecommons.org/licenses/by-sa/3.0/deed.ja)の元で利用可能です。\n\nSCP財団日本支部(SCP-JP) http://ja.scp-wiki.net/')
 
 h3 数式
-p #[code \(]と#[code \)]で囲まれた部分はLaTeX数式として認識される。現在は表示ライブラリにKaTeXを利用している。
+p #[code \(]と#[code \)]で囲まれた部分はインラインのLaTeX数式、<code>\[</code>と<code>\]</code>で囲まれた部分はブロックのLaTex数式として認識される。現在は表示ライブラリにKaTeXを利用している。
 
-+mfm_example(`二次方程式\\(ax^2+bx+c=0\\)の解、というと一般的に\n\n<center>\\(x= \\frac{-b±\\sqrt{b^2-4ac}} {2a}\\)</center>\nが知られていますが、\\(b\\)が偶数のとき、\\(b' = \\frac b 2\\)として\n\n<center>\\(x= \\frac{-b'±\\sqrt{b'^2-ac}} {a}\\)</center>\nとすると計算が少しだけ楽になります。`)
++mfm_example(`二次方程式\\(ax^2+bx+c=0\\)の解、というと一般的に\n\n<center>\\(x= \\frac{-b±\\sqrt{b^2-4ac}} {2a}\\)</center>\nが知られていますが、\\(b\\)が偶数のとき、\\(b' = \\frac b 2\\)として\n\n<center>\\(x= \\frac{-b'±\\sqrt{b'^2-ac}} {a}\\)</center>\nとすると計算が少しだけ楽になります。\n\nブロックのLaTeX\\[\\sqrt{a} \\times \\sqrt{a}\\=\\sqrt{a}^2\\=a\\]`)
