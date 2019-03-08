@@ -14,15 +14,18 @@
 
 h2.blogstyle,
 .blogstyle-h2
+  @extend .h2
   @extend .mt-5
   @extend .px-1
   @extend .py-2
-  @extend .border-bottom
-  @extend .border-primary
-  @extend .border-2
+  border-bottom: 2px solid $primary !important
+  border-top: 1px solid $primary !important
+  border-left: none
+  border-right: none
 
 h3.blogstyle,
 .blogstyle-h3
+  @extend .h3
   @extend .mt-4
   @extend .p-1
   @extend .border-bottom
@@ -30,14 +33,17 @@ h3.blogstyle,
 
 h4.blogstyle,
 .blogstyle-h4
+  @extend .h4
   @extend .mt-4
   @extend .p-1
+  @extend .bg-light
   @extend .border-bottom
 
 h5.blogstyle,
 .blogstyle-h5
   @extend .mt-3
   @extend .p-1
+  @extend .border-bottom
   font-weight: 300
 
 h6.blogstyle,

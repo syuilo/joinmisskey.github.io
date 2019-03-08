@@ -9,7 +9,6 @@ import { detectOldBrowser } from "./old-browsers"
 import { pjaxinit } from "./pjax"
 import { pjaxLoaded } from "./pjax-ready-others"
 // import { Sidebar } from "./sidebar"
-import { sw } from "./sw"
 
 function contentLoaded() {
   fainit()
@@ -20,9 +19,6 @@ function contentLoaded() {
 
 onReady(contentLoaded)
 document.addEventListener("pjax:content", contentLoaded)
-
-sw()
-document.addEventListener("pjax:content", sw)
 
 pjaxinit()
 

@@ -1,6 +1,26 @@
 if(site.sw)
   script.
     jm_pathToWorker = '#{urlPrefix}/service_worker.js'
+    // twbs/bootstrap build/sw.jsより借用
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(window.jm_pathToWorker)
+        .then(registration => {
+          console.log("Service Worker: 登録: ", registration)
+          registration.onupdatefound = () => {
+            console.log(this)
+            if (this.installing) {
+              this.installing.onstatechange = () => {
+                if (this.state === "installed") {
+                  console.log("Service Worker: バージョンアップします...")
+                  location.reload(true)
+                }
+              }
+            }
+          }
+        }).catch(err => {
+          console.log("Service Worker: 登録時にエラー発生しました: ", err)
+        })
+    }
 
 script.
   var pathname = "/#{site.url.path}";
@@ -8,6 +28,7 @@ script.
   var user_language = window.navigator.language;
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
+
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)

@@ -5,11 +5,8 @@
   width: 100%
   z-index: 100
   background-color: #fff
-  box-shadow: rgba(0, 0, 0, .2) 0 0 8px
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .075)
   border: none
-
-  @media (max-width: map-get($grid-breakpoints, md) - 0.02)
-    box-shadow: 0 1px 0 rgba(0, 0, 0, .075)
 
   nav
     &#mainnav
@@ -25,14 +22,11 @@
         border-left: none
         border-bottom: none
         border-radius: 0
-        border-right: 1px solid $gray-300
+        border-right: solid 1px rgba(0,0,0,0.1)
         background: transparent
 
-        @media (max-width: map-get($grid-breakpoints, md) - 0.02)
-          border-right: solid 1px rgba(0,0,0,0.1)
-
-          svg
-            font-size: 22.4px
+        svg
+          font-size: 22.4px
 
       &:before
         position: fixed
