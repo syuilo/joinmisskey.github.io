@@ -2,7 +2,7 @@
 title: 最近の機能追加 - Recently Added & Updated Features
 description: ここ2か月間のアップデートの情報を一挙に抜粋してご紹介します！
 layout: blog
-date: 2019-03-08T11:30:00+09:00
+date: 2019-03-08T11:45:00+09:00
 thumbnail: /files/images/imports/2018/11/taka4.jpg
 author:
   name: aqz
