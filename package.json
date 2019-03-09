@@ -20,7 +20,9 @@
     "url": "https://github.com/joinmisskey/joinmisskey.github.io/issues"
   },
   "homepage": "https://joinmisskey.github.io/",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/katex": "^0.10.1"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.13",
     "@fortawesome/free-brands-svg-icons": "^5.7.0",
