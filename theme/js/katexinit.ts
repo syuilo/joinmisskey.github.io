@@ -1,7 +1,7 @@
 import { renderToString as getKatexString } from "katex"
 
 export const katexinit = () => {
-    for ( const el of Array.from(document.querySelectorAll('[data-mfm="math"]')) ) {
+    for ( const el of Array.from(document.querySelectorAll('[data-mfm^="math"]')) ) {
         const n = document.createElement("span")
         n.setAttribute("data-mfm", "math")
         const s = getKatexString(el.textContent, { throwOnError: false })
