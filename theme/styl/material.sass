@@ -1,8 +1,14 @@
 .raise-1
   transition: box-shadow .4s
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12)
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2)
+
+.raise-2
+  transition: box-shadow .4s
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3)
+  
+a.raise-1
   &:hover, &:focus
-    box-shadow: 0 3px 6px -1px rgba(0,0,0,0.2), 0 2px 7px 1px rgba(0,0,0,0.14), 0 1px 10px 1px rgba(0,0,0,0.12)
+    @extend .raise-2
 
 .card
   @extend .border-0
@@ -10,12 +16,4 @@
   @extend .raise-1
 
   .card-img-bottom, .card-img-top
-    @extend .rounded-0
-
-.instances-list
-  @extend .border-0
-  @extend .rounded-0
-  @extend .raise-1
-
-  > *
     @extend .rounded-0
