@@ -255,9 +255,12 @@ gulp.task("css", (cb) => {
 
 gulp.task("js", (cb) => {
   const wpackconf = {
-    entry: ["./theme/js/main.ts"],
+    entry: {
+      main: "./theme/js/main.ts",
+      sw: "./theme/js/sw.ts"
+    },
     output: {
-      filename: "main.js",
+      filename: "[name].js",
       publicPath: `${site.url.path}/assets/scripts/`
     },
     resolve: {
