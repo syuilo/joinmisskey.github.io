@@ -6,8 +6,7 @@ rank: 2
 ---
 主に特定の用途に絞ってMisskeyを利用するソフトウェアやツールの一覧。
 
-## スタンドアロン
-
+## スタンドアロン・ブラウザ拡張
 ### NowPlaying
 NowPlayingアプリは、音楽アプリで曲が再生される度にその曲の情報を投稿する。
 
@@ -17,7 +16,7 @@ NowPlayingアプリは、音楽アプリで曲が再生される度にその曲�
 **[Legato-Dev/Legato-NowPlaying on GitHub](https://github.com/Legato-Dev/Legato-NowPlaying/)**
 
 #### WhatYouarePlaying
-ChromeでYouTube・ニコニコ動画・ツイキャスの動画・配信を開くとその内容が投稿されるChrome拡張機能のNowPlayingアプリ。
+ChromeでYouTube・ニコニコ動画・ツイキャスの動画・配信を開くとその内容が投稿される**Chrome拡張機能**のNowPlayingアプリ。
 
 **[GenbuHase/WhatYouarePlaying on GitHub](https://github.com/GenbuHase/WhatYouarePlaying)**
 
@@ -30,8 +29,18 @@ GitHubを監視して通知してくれるBot。
 
 **[syuilo/misskey-github-notifier on GitHub](https://github.com/syuilo/misskey-github-notifier)**
 
-## サービス
-###　ツール
+### その他
+#### Better Misskey
+MisskeyのUIを拡張する**Chrome拡張機能**。
+
+**[Chromeウェブストアから Better Misskey をインストール](https://chrome.google.com/webstore/detail/better-misskey/bkmgmcphjfddgejhddnhjdbaebblecpe)**
+
+
+
+
+
+## Webサービス
+### ツール
 #### Cropper for Misskey
 アイコン作成補助ツール。
 
@@ -58,8 +67,15 @@ Fediverseのなかからあなたと似た人を探すことができる。
 
 **[distdn.org ユーザーマッチング](https://vinayaka.distsn.org/)**
 
+ちなみに、Misskeyインスタンスで設定されている場合、「おすすめユーザー」ウィジェットがこのユーザーマッチングを利用して表示される。
+
 #### notestock
 ActivityPubを利用して、登録したユーザーの投稿を蓄積するサービス。
 
 **[notestock](https://notestock.osa-p.net/)**
 
+### その他
+#### Social Proxy
+Misskey・Mastodon・Twitterアカウントを管理し、発言を同時に投稿できる。
+
+**[Social Proxy](https://sproxy.sikeserver.com/)**
