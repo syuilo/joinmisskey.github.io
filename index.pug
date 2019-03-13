@@ -35,7 +35,7 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
               .s2-card-text
-                h4 Home and Deck (Desktop)
+                h4 Home and Deck
                 p.mb-0 大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを利用できます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
@@ -50,7 +50,7 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
               .s2-card-icon.font-size-16: +fa_fw('cogs', 'fas')
               .s2-card-text
                 h4 自分好みに調整
-                p.mb-0 多岐にわたるオプションがあり、操作や表示を細かく変更できます。
+                p.mb-0 画面に関する多岐にわたるオプションがあり、操作や表示を細かく変更できます。
 
     hr.my-5#section_2_a
 
@@ -70,7 +70,7 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
               .s2-card-text
                 p.mb-0
                   +fa_fw('i-cursor')
-                  | インスタンスごとに設定された文字数制限
+                  | インスタンスごとに設定された#[b 自由な文字数制限]
                 p.mb-0
                   +fa_fw('unlock')
                   |  You can #[b configure privacy range] of your post finely
@@ -97,14 +97,14 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
               .s2-card-icon.font-size-16: +fa_fw('chart-pie', 'fas')
               .s2-card-text
                 h4 Poll
-                p.mb-0 Let's ask opinions! Let's ask opinions to everyone. You can create up to 10 choices.
+                p.mb-0 みんなに意見を聞いてみよう。10個までの選択肢でアンケートを作成できます。複数回答可や有効期限付きにできます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('cloud', 'fas')
               .s2-card-text
                 h4 Drive
-                p.mb-0 Save your photos and share it again! You can manage pictures you attached to posts in your drive.
+                p.mb-0 画像を保存して何回も共有しよう。添付した画像をドライブで管理したり、ドライブにあらかじめ画像をアップロードしたりできます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -130,7 +130,8 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
               .s2-card-text
                 h4 Fediverse
                 p.mb-0
-                  | Misskey and #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") other SNS] connect each other because it exists in the Fediverse (universe composed of various SNS.)
+                  | MisskeyはActivityPubというWeb標準規格のサーバー間通信機能を持っているため、
+                  | 違うインスタンスや#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーをフォローしたり投稿を見て反応したりすることができます。
         article.col-12.col-md-6
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -160,7 +161,7 @@ description: Misskey, a distributed microblogging from the Earth ―― Why don'
               .s2-card-text
                 h4 API
                 p.mb-0 Make your apps and clients to make your life better. You can use almost all features of Misskey in your apps.          
-            a(href="https://misskey.xyz/docs/ja-JP/api" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
+            a(href="https://misskey.xyz/api-doc" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
         article.col-12.col-md-6
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
