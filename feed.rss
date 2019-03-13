@@ -4,7 +4,7 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)</description>
-        <lastBuildDate>Tue, 12 Mar 2019 19:56:09 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 13 Mar 2019 16:03:28 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
@@ -15,7 +15,7 @@
             <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss</guid>
             <pubDate>Fri, 08 Mar 2019 02:47:00 GMT</pubDate>
             <description><![CDATA[misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></description>
-            <enclosure url="https://joinmisskey.github.io/files/images/icons/thumb.png">
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png">
             </enclosure>
         </item>
         <item>
@@ -24,7 +24,7 @@
             <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-2-about-jm/?rel=rss</guid>
             <pubDate>Fri, 08 Mar 2019 02:46:00 GMT</pubDate>
             <description><![CDATA[各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。]]></description>
-            <enclosure url="https://joinmisskey.github.io/files/images/icons/thumb.png">
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png">
             </enclosure>
         </item>
         <item>
