@@ -13,7 +13,7 @@ amp: true
 ---
 まずは、私(aqz)の個人的な事情によってjoinmisskeyの更新間隔が空き、混乱を招いてしまったことをお詫び申し上げます。
 
-さて、この記事では、joinmisskeyの今後の更新について予定を説明させていただきます。
+さて、この記事では、joinmisskeyの今後の更新について予定を説明いたします。
 
 ### 「最近の更新」について
 今後joinmisskeyのブログでは詳細なアップデート情報を扱いません。Misskey本体できちんとChangeLog・リリースノートを書くようになったためです。フィードにつきましては[GitHubのリリースのフィード(Atom)](https://github.com/syuilo/misskey/releases.atom)をご利用いただくと便利かと思います。  
