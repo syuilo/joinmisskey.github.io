@@ -35,8 +35,8 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
               .s2-card-text
-                h4 ホームとデッキ (デスクトップ)
-                p.mb-0 大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを利用できます。
+                h4 ホームとデッキ
+                p.mb-0 大きいタイムラインが中央に1つある「ホーム」と、カラムを配置し複数のタイムラインを見られる「デッキ」とを選んで利用できます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -50,7 +50,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
               .s2-card-icon.font-size-16: +fa_fw('cogs', 'fas')
               .s2-card-text
                 h4 自分好みに調整
-                p.mb-0 多岐にわたるオプションがあり、操作や表示を細かく変更できます。
+                p.mb-0 画面に関する多岐にわたるオプションがあり、操作や表示を細かく変更できます。
 
     hr.my-5#section_2_a
 
@@ -70,7 +70,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
               .s2-card-text
                 p.mb-0
                   +fa_fw('i-cursor')
-                  | インスタンスごとに設定された文字数制限
+                  | インスタンスごとに設定された#[b 自由な文字数制限]
                 p.mb-0
                   +fa_fw('unlock')
                   |  #[b 公開範囲]を投稿ごとに細かく設定
@@ -97,14 +97,14 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
               .s2-card-icon.font-size-16: +fa_fw('chart-pie', 'fas')
               .s2-card-text
                 h4 アンケート
-                p.mb-0 みんなに意見を聞いてみよう。10個の選択肢を作ることができます。
+                p.mb-0 みんなに意見を聞いてみよう。10個までの選択肢でアンケートを作成できます。複数回答可や有効期限付きにできます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
               .s2-card-icon.font-size-16: +fa_fw('cloud', 'fas')
               .s2-card-text
                 h4 ドライブ
-                p.mb-0 画像を保存して何回も共有しよう。投稿に添付した画像はドライブで管理できます。
+                p.mb-0 画像を保存して何回も共有しよう。添付した画像をドライブで管理したり、ドライブにあらかじめ画像をアップロードしたりできます。
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -131,7 +131,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
                 h4 Fediverse
                 p.mb-0
                   | MisskeyはActivityPubというWeb標準規格のサーバー間通信機能を持っているため、
-                  | #[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーもフォローすることができます。
+                  | 違うインスタンスや#[a(href="https://fediverse.gitlab.io/" target="_blank" rel="noopener") 他のサービス]のユーザーをフォローしたり投稿を見て反応したりすることができます。
         article.col-12.col-md-6
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -161,7 +161,7 @@ description: 地球で生まれた分散マイクロブログSNS Misskey ―― 
               .s2-card-text
                 h4 API
                 p.mb-0 アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。          
-            a(href="https://misskey.xyz/docs/ja-JP/api" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
+            a(href="https://misskey.xyz/api-doc" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
         article.col-12.col-md-6
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
