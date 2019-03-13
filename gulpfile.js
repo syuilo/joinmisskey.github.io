@@ -207,7 +207,7 @@ gulp.task("credit-icons", (cb) => {
               upscale: false,
               cover: true,
               sharpen: "0x0.75+0.75+0.008",
-              imageMagick: true
+              imageMagick: site.imageMagick
             }))
             .pipe($.image({
               optipng: false,
@@ -862,6 +862,7 @@ gulp.task("core",
       "config",
       "css",
       "pug",
+      "credit-icons",
       "js"
     ),
     gulp.parallel("copy-publish", "make-subfiles"),
@@ -879,7 +880,7 @@ gulp.task("default",
 gulp.task("pages",
   gulp.series(
     "register",
-    gulp.parallel("config", "pug"),
+    gulp.parallel("config", "pug", "credit-icons"),
     gulp.parallel("copy-prebuildFiles", "make-subfiles"),
     "copy-f404",
     "copy-docs",
@@ -897,7 +898,7 @@ gulp.task("prebuild-files",
 gulp.task("core-with-pf",
   gulp.series(
     "prebuild-files",
-    gulp.parallel("css", "js", "pug"),
+    gulp.parallel("css", "js", "pug", "credit-icons"),
     gulp.parallel("copy-publish", "make-subfiles"),
     "make-sw", "last",
     (cb) => { cb() }
