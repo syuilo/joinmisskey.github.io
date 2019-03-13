@@ -11,12 +11,12 @@ module.exports = (option) => {
     else if (Array.isArray(option.args)) nargs = nargs.concat(option.args)
     else throw Error("maqz:inkscape : argsは文字列か配列にしましょう。")
   }
-  const stream = through2.obj(
+  return through2.obj(
     // eslint-disable-next-line consistent-return
     (nfile, encode, cb) => {
-      const file = nfile
-      if (!file) {
-        return cb(null, file)
+      const file = nfile.clone()
+      if (!file || file.isNull()) {
+        return cb(null, nfile)
       }
       if (file.isBuffer()) {
         temp.open({ suffix: ".svg" }, (err, info) => {
@@ -61,5 +61,4 @@ module.exports = (option) => {
       }
     }
   )
-  return stream
 }
