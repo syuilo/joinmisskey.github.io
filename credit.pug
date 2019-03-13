@@ -18,9 +18,9 @@ description: Misskeyに貢献してくださった方を掲載しています。
         p 村上さん
     .container
       hr.my-5.bg-primary
-    h2#contributors.text-center.pb-2 共同制作者
+    h2#collaborators.text-center.pb-2 共同制作者
     p.text-center Misskey開発陣
-    #contributors_list.d-flex.flex-wrap.justify-content-center
+    #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-4
       if(contributors)
         each contributor in contributors
           if(collaborators.some(contributor.login))
