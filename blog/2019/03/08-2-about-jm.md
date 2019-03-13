@@ -3,7 +3,7 @@ title: joinmisskeyブログの更新についてのおしらせ
 description: 各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。
 layout: blog
 date: 2019-03-08T11:46:00+09:00
-thumbnail: /files/imports/2019/03/misskey-rd-bg-bk.png
+thumbnail: /files/images/imports/2019/03/misskey-rd-bg-bk.png
 author:
   name: aqz
   url: https://misskey.xyz/@aqz
