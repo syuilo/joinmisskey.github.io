@@ -19,7 +19,8 @@ description: We post people who contributed to Misskey.
     .container
       hr.my-5.bg-primary
     h2#collaborators.text-center.pb-2 Collaborators
-    #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-4
+    //- p.text-center
+    #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-5
       if(contributors)
         each contributor in contributors
           if(collaborators.some(e => e === contributor.login))
