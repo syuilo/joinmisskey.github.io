@@ -22,7 +22,7 @@ description: We post people who contributed to Misskey.
     #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-4
       if(contributors)
         each contributor in contributors
-          if(collaborators.some(contributor.login))
+          if(collaborators.some(e => e === contributor.login))
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
               img(src=`/files/images/credit/github/${contributor.id}.png`)
               p=contributor.login
@@ -31,7 +31,7 @@ description: We post people who contributed to Misskey.
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
-          if(!bots.some(contributor.login) && !collaborators.some(contributor.login))
+          if(!bots.some(e => e === contributor.login) && !collaborators.some(e => e === contributor.login))
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
               img(src=`/files/images/credit/github/${contributor.id}.png`)
               p=contributor.login
