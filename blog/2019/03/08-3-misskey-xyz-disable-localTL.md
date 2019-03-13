@@ -3,7 +3,7 @@ title: misskey.xyzの直近の変化についてまとめ
 description: misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。
 layout: blog
 date: 2019-03-08T11:47:00+09:00
-thumbnail: 
+thumbnail: /files/imports/2019/03/misskey-rd-bg-bk.svg
 author:
   name: aqz
   url: https://misskey.xyz/@aqz
