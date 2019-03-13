@@ -2,6 +2,10 @@
 title: クレジット
 description: Misskeyに貢献してくださった方を掲載しています。
 ---
+-
+  const collaborators = ["syuilo", "AyaMorisawa", "mei23", "acid-chicken"]
+  const bots = ["greenkeeper[bot]", "dependabot[bot]", "dependabot-bot"]
+
 .bg-white.py-3
   .container-fluid
     h1.text-center.pt-4.pb-2 Crédits
@@ -14,12 +18,21 @@ description: Misskeyに貢献してくださった方を掲載しています。
         p 村上さん
     .container
       hr.my-5.bg-primary
+    h2#collaborators.text-center.pb-2 共同制作者
+    p.text-center Misskey開発陣
+    #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-4
+      if(contributors)
+        each contributor in contributors
+          if(collaborators.some(contributor.login))
+            a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
+              img(src=`/files/images/credit/github/${contributor.id}.png`)
+              p=contributor.login
     h2#contributors.text-center.pb-2 Contributeurs
     p.text-center Ceux et celles qui ont dévellopé le code de Misskey via #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
-          if(contributor.login != 'greenkeeper[bot]' && contributor.login != 'tamaina')
+          if(!bots.some(contributor.login) && !collaborators.some(contributor.login))
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
               img(src=`/files/images/credit/github/${contributor.id}.png`)
               p=contributor.login
