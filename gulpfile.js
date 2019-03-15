@@ -704,6 +704,11 @@ gulp.task("make-sw", (cb) => {
   res = `/* workbox ${base.update.toJSON()} */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
+self.addEventListener("install", function(event) {
+  workbox.skipWaiting();
+  workbox.clientsClaim();
+})
+
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,
     workbox.strategies.staleWhileRevalidate({
@@ -719,7 +724,6 @@ workbox.routing.registerRoute(
         revision: "${base.update.getTime()}",
     }
 ]);
-workbox.skipWaiting();
 self.addEventListener("fetch", function(event) {
     event.respondWith(
         caches.match(event.request)
@@ -731,10 +735,6 @@ self.addEventListener("fetch", function(event) {
         })
     );
 });
-self.addEventListener("install", function(event) {
-    workbox.skipWaiting();
-    workbox.clientsClaim();
-})
 `
   } /*
         if(site.ga){

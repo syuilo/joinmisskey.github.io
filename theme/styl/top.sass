@@ -26,10 +26,10 @@
     position: relative
     height: 66vh
     overflow: hidden
-    background: linear-gradient(#f6584f3f, #f6584f0f)
+    background: linear-gradient(rgba($misskey-ai, .25), rgba($misskey-ai, .05))
 
     &:not(.show)
-      background: #f6584f
+      background: $misskey-ai
 
     .texts
       position: absolute
@@ -115,7 +115,7 @@
           z-index: 4
 
           @media (max-width: map-get($grid-breakpoints, sm))
-            transform: translateX(48vw)
+            transform: translateX(38vw)
 
         &:nth-child(5)
           transform: translateX(67vw) translateY(calc(64vh - 1.6em))
