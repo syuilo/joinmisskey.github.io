@@ -44,7 +44,7 @@ Node.jsを使ったCLIツール。インスタンスを複数登録し、投稿�
 なお、joinmisskeyも同様の方法でホーム画面に追加できるようになっている。
 
 ### Chrome
-Android（もしくはデスクトップ）でアプリを
+Google Chromeでは、Android（もしくはデスクトップOS）でネイティブアプリケーションのように端末にMisskeyを登録できる。
 
 1. ChromeでMisskeyを開く
 2. 右上の「︙」をタップ（クリック）しメニューを表示
