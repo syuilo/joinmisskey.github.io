@@ -1,13 +1,16 @@
 ---
-title: テーマ
+title: テーマ・外見
 description: テーマによって画面の配色を変えられる。テーマは共有できる。
 layout: wiki
 rank: 13
 prev: /wiki/usage/security/
 #next: /wiki/usage/follow/
 ---
+Misskey Webでは、テーマ機能によってその配色を自由に変更できる。
+
 ## ダークモード
-Misskeyの画面にはダークモードとライトモードがある。メニューから素早く変更可能。
+ライトモードとダークモードは、メニューから素早く変更可能だ。  
+メニューを開き、ダークモードにするときは「闇に飲まれる」、ライトモードにするときは「光あれ」を選択する。
 
 ## テーマ設定
 `設定` > `Web`でテーマを設定できる。
@@ -26,7 +29,7 @@ Misskeyの画面にはダークモードとライトモードがある。メニ�
 「インストールされたテーマ」を展開すると、インストールしたテーマや自分が作成したテーマのコードを確認できる。
 
 ## Misskey Assets Store
-[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)は、テーマを共有するサイト。  
+[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)は、テーマを共有するサイトである。  
 他の人が作ったテーマを探し、また、自分で作ったテーマをアップロードことができる。
 
 MiASは村上さん@AureoleArk@misskey.xyzが運営している。
