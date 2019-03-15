@@ -49,7 +49,7 @@ html(lang=locale)
           link(rel="icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
 
       block theme_color
-        meta(name="theme-color", content=site.theme_color.primary)
+        meta(name="theme-color", content=site._theme_color)
 
       block og
         meta(property="og:type", content="website")

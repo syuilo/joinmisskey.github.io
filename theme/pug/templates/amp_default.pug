@@ -43,7 +43,7 @@ html(lang=locale, amp)
         link(rel="alternate" type="application/rss+xml" title=`${site.name} RSS` href=`${urlPrefix}/feed.rdf`)
 
       block theme_color
-        meta(name="theme-color", content=site.theme_color.primary)
+        meta(name="theme-color", content=site._theme_color)
 
       block og
         meta(property="og:type", content="website")
