@@ -3,7 +3,7 @@
     "title": "Misskeyをはじめよう",
     "home_page_url": "https://joinmisskey.github.io",
     "feed_url": "https://joinmisskey.github.io/feed.json",
-    "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey(ミスキー)",
+    "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
             "id": "https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/",
