@@ -36,8 +36,6 @@ const donloadTemp = require("./scripts/downloadTemp")
 const makeHtml = require("./scripts/makeHtml")
 const regheadings = require("./scripts/regheadings")
 
-const inkscape = require("./scripts/builder/registerer/gulp-inkscape")
-const svgo = require("./scripts/builder/registerer/gulp-svgo")
 const makeRss = require("./scripts/builder/registerer/rss")
 
 // const exec = require("child_process").exec
@@ -523,6 +521,7 @@ function imagesBase() {
   ) : imagesAllFalse
 }
 
+
 const gmAutoOrient = $.gm(
   gmfile => gmfile.autoOrient(),
   {
@@ -575,8 +574,8 @@ gulp.task("image-prebuildFiles", () => {
   streams.push(
     new Promise((res, rej) => {
       gulp.src(svg)
-        .pipe(inkscape({ args: ["-T"] }))
-        .pipe(svgo())
+        .pipe($.inkscape({ args: ["-T"] }))
+        .pipe($.svgmin())
         .pipe(gulp.dest("dist/files"))
         .on("end", res)
         .on("error", rej)
@@ -636,8 +635,8 @@ gulp.task("image", () => {
     streams.push(
       new Promise((res, rej) => {
         svg
-          .pipe(inkscape({ args: ["-T"] }))
-          .pipe(svgo())
+          .pipe($.inkscape({ args: ["-T"] }))
+          .pipe($.svgmin())
           .pipe($.rename({ dirname } || {}))
           .pipe(gulp.dest("dist/files/images/imports"))
           .on("end", res)
