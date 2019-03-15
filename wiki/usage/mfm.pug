@@ -84,11 +84,14 @@ p.
   <code>[link](url)</code>という記述は、urlに飛ぶlinkという表示のハイパーリンクとして表示される。<br>
   <code>?[link](url)</code>とすると、投稿下部に表示されるリンクの詳細が表示されなくなる。(残念ながら例では変わりないが…)
 p URLをそのまま貼り付けるとそのままリンクとして認識される。
+p 英数字・半角記号以外の文字を含むURLは、#[code &lt;…&gt;]で囲うことでURLとして認識させられる。
 
 h3 タイトル
 p #[code 【…】]または<code>[…]</code>という行は例のようにタイトルとして表示される。
 
 +mfm_example('【ねこです】\nきいてますか。\nねこはそこにいます。\nよろしくおねがいします。\n\n【クレジット】\n [SCP-040-JP](http://ja.scp-wiki.net/scp-040-jp) ©Ikr_4185\nこのコンテンツは、?[クリエイティブ・コモンズ 表示-継承3.0ライセンス](http://creativecommons.org/licenses/by-sa/3.0/deed.ja)の元で利用可能です。\n\nSCP財団日本支部(SCP-JP) http://ja.scp-wiki.net/')
+
++mfm_example('[日本語などを含むURLを認識させられるようになりました]\n連合型SNSでより楽しいインターネットライフを！\n[連合型SNSの例](<https://tamaina.github.io/blog/5-fediverse/#連合型SNSソフトの例>)\n\n<https://藍.moe>')
 
 h3 数式
 p #[code \(]と#[code \)]で囲まれた部分はインラインのLaTeX数式、<code>\[</code>と<code>\]</code>で囲まれた部分はブロックのLaTex数式として認識される。現在は表示ライブラリにKaTeXを利用している。
