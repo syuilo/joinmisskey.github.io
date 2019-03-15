@@ -82,7 +82,7 @@
     "katex": "^0.10.1",
     "kramed": "^0.5.6",
     "load-gulp-tasks": "^0.1.0",
-    "mfmf": "^4.0.2",
+    "mfmf": "^4.1.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
