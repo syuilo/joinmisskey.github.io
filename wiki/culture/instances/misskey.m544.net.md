@@ -1,6 +1,6 @@
 ---
 title: misskey.m544.net
-description: misskey.xyzは、めいめいが運営しているインスタンス。
+description: misskey.m544.netは、めいめいが運営しているインスタンス。
 layout: wiki
 ---
 [**misskey.m544.net**](https://misskey.m544.net)は、[めいめい](../../users/mei23/)が運営しているMisskeyインスタンス。
