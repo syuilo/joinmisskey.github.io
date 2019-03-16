@@ -85,7 +85,7 @@ append preset
     if(!page.attributes.title) page.attributes.title = headline
 
 block title
-  title #[+i18n('blog')]: #{page.attributes.title} - #{site.name}
+  title #{page.attributes.title} - #[+i18n('blog')] - #{site.names[locale] || site.name}
 
 block main
 

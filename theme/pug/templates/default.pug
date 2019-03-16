@@ -53,7 +53,7 @@ html(lang=locale)
 
       block og
         meta(property="og:type", content="website")
-        meta(property="og:title", content=`${page.attributes.title} - ${site.names[locale] || site.name}`)
+        meta(property="og:title", content=page.attributes.title)
         meta(property="og:description", content=page.attributes.description)
         if ( !!page.meta.thumbnail )
           meta(property="og:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
