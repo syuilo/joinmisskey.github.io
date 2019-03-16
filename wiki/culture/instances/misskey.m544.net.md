@@ -1,6 +1,6 @@
 ---
 title: misskey.m544.net
-description: misskey.xyzは、syuiloが運営し村上さんがサーバーを管理するインスタンス。開発者が運営しているため、本家インスタンスといえる。
+description: misskey.xyzは、めいめいが運営しているインスタンス。
 layout: wiki
 ---
 [**misskey.m544.net**](https://misskey.m544.net)は、[めいめい](../../users/mei23/)が運営しているMisskeyインスタンス。
