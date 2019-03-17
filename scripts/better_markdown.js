@@ -35,7 +35,7 @@ module.exports = (htm, urlprefix) => {
   $("img[src^=\"files/\"]").each((i, el) => { $(el).attr("src", `${urlprefix}/${$(el).attr("src")}`) })
   $("table").addClass("table table-sm table-bordered")
   $(":not([data-mfm]) > blockquote").addClass("blockquote rounded px-3 px-md-4 py-3 font-weight-light")
-  $(":not([data-mfm]) > a[href^=\"http\"], :not([data-mfm]) > a[href^=\"//\"]").append(fontawesome.icon({ prefix: "fas", iconName: "external-link-alt" }, { classes: ["fa-fw", "fa-sm"] }).html[0])
+  $(":not([data-mfm]) > a[href^=\"http\"], :not([data-mfm]) > a[href^=\"//\"]").append(String.raw`<i class="fa fas external-link-alt" data-fa-prefix="fas" data-fa-icon-name="external-link-alt" data-fa-option="{'classes':['fa-fw', 'fa-sm']}"></i>`)
   const as = []
   $("a[href^=\"http\"], a[href^=\"//\"]").each((i, el) => { as.push($(el).text()) })
   $("a[href^=\"http\"], a[href^=\"//\"]").each((i) => {

@@ -6,7 +6,7 @@ module.exports = (base, pages, lang) => {
     return -1
   })
 
-  const qpages = pages.filter(e => e.meta.permalink.indexOf(`/${lang}/blog/`) == 0
+  const qpages = pages.filter(e => e.meta.permalink.indexOf(`/${lang}/blog/`) === 0
                               && e.attributes.layout === "blog" // blogレイアウトが適用されている
                               && e.attributes.draft !== true //
                               && e.attributes.published === true)
@@ -32,7 +32,7 @@ module.exports = (base, pages, lang) => {
     let image = ""
     if (page.meta.thumbnail) image = `${base.urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`
     else if (base.site.site_card_path) image = `${base.urlPrefix}${base.site.site_card_path}`
-    else image = `${base.urlPrefix  }/favicon.ico`
+    else image = `${base.urlPrefix}/favicon.ico`
     feed.addItem({
       title: page.attributes.title,
       id: `${base.urlPrefix}${page.meta.permalink}`,
