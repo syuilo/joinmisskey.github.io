@@ -151,26 +151,6 @@
             "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
             "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty.",
             "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l'instance"
-        },
-        "p7_subscribe": {
-            "ja": "ブラウザで購読",
-            "en": "Subscribe in browser",
-            "fr": "Inscription via navigateur"
-        },
-        "p7_unsubscribe": {
-            "ja": "購読を解除",
-            "en": "Unsubscribe",
-            "fr": "Désincription"
-        },
-        "p7_unsubscribed": {
-            "ja": "購読を解除しました。",
-            "en": "Unsubscribed.",
-            "fr": "Désinscris"
-        },
-        "p7_subscribeFailed": {
-            "ja": "購読に失敗しました。",
-            "en": "Subscribe is failed.",
-            "fr": "Echec de la désinscription"
         }
     }
 }
