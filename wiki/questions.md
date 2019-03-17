@@ -36,7 +36,7 @@ Mastodonと中身が同じで操作部だけ新しく作成したわけでもな
 ### Mastodonと連携できる？
 連携とは少し違う。MastodonとMisskeyで相互にフォローできる。
 
-MisskeyからMastodonのユーザーをフォローできるし、逆にMastodonからMisskeyユーザーもフォローできる。また、ユーザーの投稿にリアクションを付けたりRenote(=ブースト)も行える。
+MisskeyからMastodonのユーザーをフォローできるし、逆にMastodonからMisskeyユーザーもフォローできる。また、ユーザーの投稿にリアクションを付けたりRenote（=ブースト）も行える。
 
 別のソフトウェアの他のインスタンスのユーザーとも交流できるというわけだ。
 
@@ -67,5 +67,5 @@ Catは設定画面から設定できる。
 **GitHub**を使ったことがある方は*その内容のIssueが立っていないか確認してから*[Issue](https://github.com/syuilo/misskey/issues/new/choose)で報告をお願いしたい。  
 PullRequestももちろん歓迎している。
 
-### Misskeyに寄付したい
-**[こちら(トップページの一番最後のセクション)にリンクがあるためご覧ください。](../../#section_7)**
+### Misskeyに寄付したい。
+ほしいものリストやPatreonのリンクがあるので**[こちら（トップページの一番最後のセクション）](../../#section_7)**を参照されたい。
