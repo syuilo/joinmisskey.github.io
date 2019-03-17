@@ -26,6 +26,6 @@ amp: true
 - ジョブキューウィジェットを追加
 - フォローリストをインポートできるように
 - 埋め込みプレイヤーを閉じることができるように
-- MFMでURLを明示する構文`<…>`の追加
+- MFMでURLを明示する構文の追加
 
 など。[チェンジログ](https://github.com/syuilo/misskey/blob/develop/CHANGELOG.md)も参照。
