@@ -6,6 +6,17 @@
     "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/03/18-1-changes-customreaction/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/03/18-1-changes-customreaction/?rel=rss",
+            "title": "最近の更新 ～v10.97.2 リアクション自由化など",
+            "summary": "リアクションが自由に、ほか。",
+            "image": "https://joinmisskey.github.io/files/images/imports/2019/03/customreact.png",
+            "date_modified": "2019-03-17T20:00:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
             "id": "https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/",
             "url": "https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss",
             "title": "misskey.xyzの直近の変化についてまとめ",
