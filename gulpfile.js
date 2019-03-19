@@ -28,7 +28,13 @@ const cheerio = require("cheerio")
 
 const url = require("url")
 
-const { dom } = require("@fortawesome/fontawesome-svg-core")
+const { dom, library, icon } = require("@fortawesome/fontawesome-svg-core")
+
+library.add(
+  require("@fortawesome/free-solid-svg-icons").fas,
+  require("@fortawesome/free-regular-svg-icons").far,
+  require("@fortawesome/free-brands-svg-icons").fab
+)
 
 const $ = require("gulp-load-plugins")()
 
@@ -343,6 +349,15 @@ async function toamp(htm, base) {
   })
   if (promises.length > 0) await Promise.all(promises)
   $("img").remove()
+
+  $("i").each((i, el) => {
+    $("i").eq(i).after(icon(
+      { iconName: $(el).attr("data-fa-icon-name"), prefix: $(el).attr("data-fa-prefix") },
+      JSON.parse($(el).attr("data-fa-option").replace(/'/g, "\""))
+    ).html[0])
+  })
+  $("i").remove()
+
   return $("body").html()
 }
 

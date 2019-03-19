@@ -92,11 +92,25 @@
   langs: ['ja']
 - url: boonchat.xyz
   langs: ['ja']
-- url: ayylamo.kamp.site
-  langs: ['ja']
 - url: misskey.rip
   langs: ['ja']
 - url: twista.283.cloud
+  langs: ['ja']
+- url: misskey.kurume-nct.com
+  langs: ['ja']
+- url: misskey.xn--kst.jp
+  langs: ['ja']
+- url: kig.life
+  langs: ['ja']
+- url: transport.msky.cafe
+  langs: ['ja']
+- url: xn--931a.moe
+  langs: ['ja']
+- url: mi.ijs01140.cf
+  langs: ['ja']
+- url: mini.msky.cafe
+  langs: ['ja']
+- url: seikin.xyz
   langs: ['ja']
 #
 - url: msky.cafe
@@ -128,8 +142,9 @@
   langs: ['en']
 - url: lifeisabug.com
   langs: ['en']
-#- url: trillion.city
-#  langs: ['en']
+- url: trillion.city
+  langs: ['en']
+  suspended: true
 - url: bongocats.town
   langs: ['en']
 - url: uselesslesbian.club
@@ -139,6 +154,20 @@
 - url: m.natalie.ee
   langs: ['en']
 - url: boopsnoot.gq
+  langs: ['en']
+- url: waifuappreciation.club
+  langs: ['en']
+- url: akko.gq
+  langs: ['en']
+- url: soc.nanao.moe
+  langs: ['en']
+- url: nya.social
+  langs: ['en']
+- url: ayylamo.kamp.site
+  langs: ['en']
+- url: lesbian.energy
+  langs: ['en']
+- url: noir.pub
   langs: ['en']
 #
 ##
@@ -150,6 +179,10 @@
 - url: misskey.anjara.eu
   langs: ['fr']
 - url: etxetik.org
+  langs: ['fr']
+- url: murmur.red
+  langs: ['fr']
+- url: social.56k.es
   langs: ['fr']
 #
 ##

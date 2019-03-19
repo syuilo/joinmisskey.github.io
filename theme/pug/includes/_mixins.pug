@@ -123,7 +123,7 @@ mixin instancesList(o, colors, sctrollts)
     each instance, r in instancesInfos
       -
         const iregi = instance.notSuspended || (instance.isAlive && (instance.meta.features ? instance.meta.features.registration : !instance.meta.disableRegistration))
-        const alive = instance.notSuspended || instance.isAlive
+        const alive = !instance.suspended && (instance.notSuspended || instance.isAlive)
         const ilang = instance.langs ? instance.langs.some(e => e == locale) : true
         if(alive && iregi && ilang) num += 1
         let itype = true
