@@ -116,7 +116,7 @@ mixin mfm_example(src)
 mixin instancesList(o, colors, sctrollts)
   .instances-list.list-group(class=(scrollts ? `scrollts scrollts-${scrollts}` : ''))
     -
-      let c = colors ? `text-${colors[0]} bg-${colors[2]}` : 'text-black'
+      let c = colors ? `text-${colors[0]} bg-${colors[2]}` : 'text-dark'
       let c2 = colors ? `text-${colors[1]}` : 'text-muted'
       let lgrgb = colors && colors[3] == 'dark' ? '52, 58, 64' : '255, 255, 255'
       let num = 0
