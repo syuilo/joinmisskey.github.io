@@ -60,7 +60,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
       h3.text-center 多くの機能
       p.text-center Misskeyでできることはたくさんあります。
       p.text-center
-        a(href="wiki/usage/").btn.btn-lg.btn-primary.scrollts.scrollts-jackInTheBox
+        a(href="wiki/").btn.btn-lg.btn-primary.scrollts.scrollts-jackInTheBox
           +fa_fw('book')
           | Wikiで使い方を見る
 
@@ -95,7 +95,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
               .s2-card-text
                 h4 リアクション
                 p.mb-0 投稿への共感を簡単に表現しよう。絵文字を選んで、投稿にリアクションを送れます。
-            img(src="/files/images/imports/2019/03/reaction.720.png")
+            img(src="/files/images/imports/2019/03/reaction-2.720.png")
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -110,7 +110,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
               .s2-card-icon.font-size-16: +fa_fw('cloud', 'fas')
               .s2-card-text
                 h4 ドライブ
-                p.mb-0 画像を保存して何回も共有しよう。添付した画像をドライブで管理したり、ドライブにあらかじめ画像をアップロードしたりできます。
+                p.mb-0 ファイルを保存して何回も共有しよう。添付したファイルをドライブで管理したり、ドライブにあらかじめファイルをアップロードしたりできます。
         article.col-12.col-md-6.col-xl-4
           .card.image.scrollts.scrollts-fadeInUpSmall
             .s2-card-grid
@@ -145,14 +145,14 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
               .s2-card-icon.font-size-16: +fa_fw('server', 'fas')
               .s2-card-text
                 h4 簡単なインスタンス構築
-                p.mb-0 Misskeyサーバーの構築は簡単です。
-            a(href="wiki/developers/").s2-card-link.font-weight-bold インスタンスを立てる
+                p.mb-0 Misskeyのインストールは簡単です。自分のSNSを持つことができます。
+            a(href="wiki/developers/").s2-card-link.font-weight-bold インスタンスの構築・管理について<br>詳しく見る
 
     hr.my-5#section_2_c
 
     section.s2-item
       h3.text-center オープン
-      p.text-center Misskeyはオープンソースソフトウェアです。開発や翻訳に参加することができます。独自の拡張を追加することもできます。
+      p.text-center Misskeyはオープンソースソフトウェアです。誰でも開発や翻訳に参加することができます。リポジトリをフォークし、独自の拡張を追加することもできます。
       p.text-center
         a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener").btn.btn-lg.btn-dark.mr-2.scrollts.scrollts-zoomIn
           +fa_fw('github', 'fab')
@@ -224,17 +224,19 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
     hr.my-4
     h3.text-center Misskeyを支援する
     p.text-center
-      | Misskeyがお気に入りですか？Misskeyは個人で開発しており、自由でオープンソースです。
+      | Misskeyがお気に入りですか？Misskeyは自由でオープンソースです。
       br
-      | サーバーを維持するために少なくない支出が発生しています。しかし、Misskeyに広告は付けられていません。
+      | ユーザーの操作を邪魔しないようにMisskeyには広告が付けられていませんが、サーバーを維持するために少なくない支出が発生しています。
       br
-      | Misskeyの開発にご支援ください。
+      | ぜひMisskeyの開発にご支援ください。
     a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('patreon', 'fab')
       | syuiloのパトロンになる
     a(href="http://amzn.asia/7O1LEI5" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
       +fa_fw('amazon', 'fab')
       | ほしいものリスト
+    a(href="https://www.bountysource.com/teams/misskey" target="_blank" rel="noopener").btn.btn-block.btn-lg.btn-outline-primary.mb-2
+      | Bountysource
     p.text-center または#[a(href="https://misskey.xyz/@syuilo" target="_blank" rel="noopener") syuiloに問い合わせる]
     p.text-center
       a(href="wiki/about-jm/").btn.btn-primary.btn-lg joinmisskeyを支援する
