@@ -14,12 +14,17 @@ function loadyaml(filepath) {
 
 const mylist = loadyaml("./data/instances.yml")
 
+const duplicated = mylist.filter((e, i, arr) => arr.findIndex(x => x.url === e.url) !== i)
+  .map(e => e.url)
+if (duplicated.length > 0) console.log(`Duplicated:\n  ${duplicated.join(",\n  ")}\n`)
+else console.log("Duplicated:\n  There is no duplicated instance!\n")
+
 const get = promisify(request.get)
 get("http://distsn.org/cgi-bin/distsn-misskey-instances-api.cgi", { json: true })
   .then((res) => {
     const notregistered = res.body.map(e => e.hostName)
       .filter(e => mylist.findIndex(x => x.url === e) < 0)
 
-    if (notregistered.length > 0) console.log(`${notregistered.join(",\n")}\n\n${notregistered.length === 1 ? "is" : "are"} not listed.`)
-    else console.log("Every instance is listed!")
+    if (notregistered.length > 0) console.log(`Not listed:\n  ${notregistered.join(",\n  ")}\n`)
+    else console.log("Not listed:\n  Every Misskey instances are listed!")
   })
