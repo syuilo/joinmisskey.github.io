@@ -105,7 +105,7 @@
     "through2": "^3.0.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.14.0",
-    "typescript": "^3.2.4",
+    "typescript": "^3.3.4000",
     "typescript-require": "^0.2.10",
     "ua-parser-js": "^0.7.19",
     "webpack": "^4.28.4",
