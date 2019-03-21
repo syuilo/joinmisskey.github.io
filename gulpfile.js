@@ -553,31 +553,17 @@ gulp.task("make-sw", (cb) => {
     return null
   }
   const destName = "service_worker"
+  const offline = pages.some(e => e.meta.permalink === "/offline/")
   let res = ""
   res = `/* workbox ${base.update.toJSON()} */
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
-
 self.addEventListener("install", function(event) {
   workbox.skipWaiting();
   workbox.clientsClaim();
 })
-
-workbox.routing.registerRoute(
-    /.*\.(?:${site.sw})/,
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: "assets-cache",
-    })
-);
 `
-  const offline = pages.some(e => e.meta.permalink === "/offline/")
+
   if (offline) {
-    res += `workbox.precaching.precacheAndRoute([
-    {
-        url: "/offline/",
-        revision: "${base.update.getTime()}",
-    }
-]);
-self.addEventListener("fetch", function(event) {
+    res += `self.addEventListener("fetch", function(event) {
     event.respondWith(
         caches.match(event.request)
         .then(function(response) {
@@ -587,18 +573,30 @@ self.addEventListener("fetch", function(event) {
             return caches.match("/offline/");
         })
     );
-});
+});`
+  }
+
+  res += `
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
+workbox.routing.registerRoute(
+    /.*\.(?:${site.sw})/,
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: "assets-cache",
+    })
+);
 `
-  } /*
-        if(site.ga){
-                res +=
-`workbox.googleAnalytics.initialize({
-    parameterOverrides: {
-        cd1: "offline",
-    },
-});
+
+  if (offline) {
+    res += `workbox.precaching.precacheAndRoute([
+    {
+        url: "/offline/",
+        revision: "${base.update.getTime()}",
+    }
+]);
 `
-        } */
+  }
+
   fs.writeFile(`${dests.root}/${destName}.js`, res, () => {
     glog(colors.green(`✔ ${destName}.js`))
     cb()

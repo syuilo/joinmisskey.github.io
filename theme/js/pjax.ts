@@ -9,19 +9,18 @@ declare global {
   }
 }
 
-import { Pjax } from "pjax-api"
-
 const userLanguage = navigator.language
 
-function move_locale(targetlang: string) {
-  if (targetlang !== window.currentLocale) {
-    window.addEventListener("DOMContentLoaded", () => {
-      Pjax.replace("/" + targetlang + window.permalink + "?moved" + window.location.hash, {})
-    })
+export const pjaxinit = async () => {
+  const { Pjax } = await import("pjax-api")
+  function move_locale(targetlang: string) {
+    if (targetlang !== window.currentLocale) {
+      window.addEventListener("DOMContentLoaded", () => {
+        Pjax.replace("/" + targetlang + window.permalink + "?moved" + window.location.hash, {})
+      })
+    }
   }
-}
 
-export const pjaxinit = (): Pjax => {
   if (window.currentLocale !== "false" || window.location.pathname === window.pathname) {
     if (window.location.search.indexOf("moved") === -1) {
       if (window.locales.indexOf(userLanguage) >= 0) {
@@ -37,5 +36,6 @@ export const pjaxinit = (): Pjax => {
       history.replaceState(null, null, window.location.href.replace(/\?[^#]*/, ""))
     }
   }
+
   return new Pjax({ areas: ["#main, #breadcrumb, #mainnav, #updateTime", "body"], update: { head: "meta" } })
 }

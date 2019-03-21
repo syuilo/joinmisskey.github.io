@@ -11,7 +11,7 @@ export const katexinit = () => {
 
     import("katex")
       .then(({ render }) => {
-        for (const el of els ) {
+        for (const el of els) {
           const f = el.textContent
           el.textContent = ""
           render(f, el, {
