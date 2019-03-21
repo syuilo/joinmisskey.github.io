@@ -1,6 +1,6 @@
 export const scrolltoshow = (): void => {
   const els = Array.from(document.getElementsByClassName("scrollts"))
-  if (IntersectionObserver !== undefined) {
+  if (IntersectionObserver !== undefined && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, o) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {

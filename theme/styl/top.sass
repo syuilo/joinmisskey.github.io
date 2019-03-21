@@ -22,6 +22,14 @@
 @import "./keyframes"
 
 #toppage
+  > section:not(#top)
+    padding-top: 4.5em
+    padding-bottom: 4.5em
+
+    @media (min-width: map-get($grid-breakpoints, xl))
+      padding-top: 8.25em
+      padding-bottom: 8.25em
+
   #top
     position: relative
     height: 66vh
@@ -133,6 +141,13 @@
   #section_2
     > .container
       > .s2-item
+        padding-top: 3em
+        padding-bottom: 3em
+
+        @media (min-width: map-get($grid-breakpoints, xl))
+          padding-top: 5em
+          padding-bottom: 5em
+
         > .row
           > article
             @extend .p-2

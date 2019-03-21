@@ -3,8 +3,7 @@ if(site.sw)
     jm_pathToWorker = '#{urlPrefix}/service_worker.js'
 script.
   var pathname = "/#{site.url.path}";
-  var current_locale = "#{locale}";
-  var user_language = window.navigator.language;
+  var currentLocale = "#{locale}";
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
 
