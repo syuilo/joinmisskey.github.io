@@ -23,8 +23,12 @@
 
 #toppage
   > section:not(#top)
-    padding-top: 8.25em
-    padding-bottom: 8.25em
+    padding-top: 4.5em
+    padding-bottom: 4.5em
+
+    @media screen (min-width: map-get($grid-breakpoints, xl))
+      padding-top: 8.25em
+      padding-bottom: 8.25em
 
   #top
     position: relative
@@ -137,8 +141,12 @@
   #section_2
     > .container
       > .s2-item
-        padding-top: 5em
-        padding-bottom: 5em
+        padding-top: 3em
+        padding-bottom: 3em
+
+        @media screen (min-width: map-get($grid-breakpoints, xl))
+          padding-top: 5em
+          padding-bottom: 5em
 
         > .row
           > article
