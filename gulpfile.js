@@ -343,20 +343,18 @@ async function toamp(htm, base) {
         glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
         return resolve()
       }
-      $("img[src]").eq(i).after(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+      $(el).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
       return resolve()
     }))
   })
   if (promises.length > 0) await Promise.all(promises)
-  $("img").remove()
 
   $("i").each((i, el) => {
-    $("i").eq(i).after(icon(
+    $(el).replaceWith(icon(
       { iconName: $(el).attr("data-fa-icon-name"), prefix: $(el).attr("data-fa-prefix") },
       JSON.parse($(el).attr("data-fa-option").replace(/'/g, "\""))
     ).html[0])
   })
-  $("i").remove()
 
   return $("body").html()
 }
