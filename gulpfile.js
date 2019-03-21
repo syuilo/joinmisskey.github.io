@@ -556,10 +556,6 @@ gulp.task("make-sw", (cb) => {
   const offline = pages.some(e => e.meta.permalink === "/offline/")
   let res = ""
   res = `/* workbox ${base.update.toJSON()} */
-self.addEventListener("install", function(event) {
-  workbox.skipWaiting();
-  workbox.clientsClaim();
-})
 `
 
   if (offline) {
@@ -578,6 +574,11 @@ self.addEventListener("install", function(event) {
 
   res += `
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+
+self.addEventListener("install", function(event) {
+  workbox.skipWaiting();
+  workbox.clientsClaim();
+})
 
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,

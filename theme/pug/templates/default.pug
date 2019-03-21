@@ -112,8 +112,16 @@ html(lang=locale)
             .d-flex.justify-content-between.flex-wrap.small
               div © 2018-2019 #{site.author}
 
+              //
+                 
+                .
+
               #updateTime.text-muted
                 +i18n('update%0', [updateMoment.tz('Asia/Tokyo').format('lll z')])
+
+              //
+                .
+                 
 
               div
                 a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener")
