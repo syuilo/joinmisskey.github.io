@@ -325,7 +325,7 @@ async function toamp(htm, base) {
         width = dims.width
         // eslint-disable-next-line prefer-destructuring
         height = dims.height
-        src = `${base.site.url.path}/${src}`
+        console.log(src)
       } else if ((width === undefined || height === undefined) && (src.startsWith("http") || src.startsWith("//"))) {
         const Url = url.parse(src)
         const filename = `${Url.pathname.slice(1).replace(/\//g, "-")}`.slice(-36)
@@ -346,6 +346,7 @@ async function toamp(htm, base) {
         glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
         return resolve()
       }
+      console.log(src)
       $("img[src]").eq(i).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
       return resolve()
     }))
