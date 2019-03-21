@@ -17,6 +17,7 @@ const readyaml = require("js-yaml").safeLoad
 const mkdirp = require("mkdirp")
 const webpackStream = require("webpack-stream")
 const webpack = require("webpack")
+const Sitemap = require("sitemap")
 
 const postcssSorting = require("postcss-sorting")
 const autoprefixer = require("autoprefixer")
@@ -310,6 +311,8 @@ async function toamp(htm, base) {
   $("img[src]").each((i, el) => {
     promises.push(new Promise(async (resolve) => {
       // eslint-disable-next-line no-shadow
+      // console.log("IMAGE")
+      // eslint-disable-next-line no-shadow
       let src = $(el).attr("src")
       const alt = $(el).attr("alt")
       const title = $(el).attr("title")
@@ -343,14 +346,14 @@ async function toamp(htm, base) {
         glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
         return resolve()
       }
-      $(el).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+      $("img[src]").eq(i).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
       return resolve()
     }))
   })
   if (promises.length > 0) await Promise.all(promises)
 
   $("i").each((i, el) => {
-    $(el).replaceWith(icon(
+    $("i").eq(i).replaceWith(icon(
       { iconName: $(el).attr("data-fa-icon-name"), prefix: $(el).attr("data-fa-prefix") },
       JSON.parse($(el).attr("data-fa-option").replace(/'/g, "\""))
     ).html[0])
@@ -542,167 +545,6 @@ const gmAutoOrient = $.gm(
   }
 )
 
-gulp.task("image-prebuildFiles", () => {
-  const raster = "files/**/*.{png,jpg,jpeg}"
-  const gif = "files/**/*.gif"
-  const svg = "files/**/*.svg"
-  const { sizes } = site.images.files
-  const streamsrc = gulp.src(raster).pipe(gmAutoOrient)
-  const streams = []
-  for (let i = 0; i < sizes.length; i += 1) {
-    streams.push(
-      // eslint-disable-next-line no-loop-func
-      new Promise((res, rej) => {
-        streamsrc
-          .pipe($.imageResize(
-            sizes[i].resize ? extend(
-              true,
-              { imageMagick: site.imageMagick },
-              sizes[i].resize
-            ) : {}
-          ))
-          .pipe($.image(sizes[i].image ? extend(
-            true,
-            imagesBase(),
-            sizes[i].image
-          ) : imagesAllFalse))
-          .pipe($.rename(sizes[i].rename || {}))
-          .pipe(gulp.dest("dist/files"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-  }
-  streams.push(
-    new Promise((res, rej) => {
-      gulp.src(gif)
-        .pipe($.image(extend(true, imagesBase(), {
-          gifsicle: true
-        })))
-        .pipe(gulp.dest("dist/files"))
-        .on("end", res)
-        .on("error", rej)
-    })
-  )
-  streams.push(
-    new Promise((res, rej) => {
-      gulp.src(svg)
-        .pipe($.inkscape({ args: ["-T"] }))
-        .pipe($.svgmin())
-        .pipe(gulp.dest("dist/files"))
-        .on("end", res)
-        .on("error", rej)
-    })
-  )
-  return Promise.all(streams)
-})
-
-gulp.task("image", () => {
-  if (!argv.i) throw Error("ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。")
-  const parsed = path.parse(argv.i)
-  if (parsed.length <= 0) throw Error("指定されたパスにファイルは見つかりませんでした。")
-  const { sizes } = site.images.files
-  const streams = []
-  const date = new Date()
-  let gif; let svg; let others
-  const dirname = `${date.getFullYear()}/${(`0${date.getMonth() + 1}`).slice(-2)}`
-  if (parsed.ext === "") {
-    glog(`image will be saved like as "files/images/imports/${dirname}/filename.ext"`)
-    gif = gulp.src(`${argv.i}/**/*.gif`)
-    svg = gulp.src(`${argv.i}/**/*.svg`)
-    others = gulp.src(`${argv.i}/**/*.{png,jpg,jpeg}`)
-  } else if (parsed.ext === ".svg") {
-    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
-    svg = gulp.src(argv.i)
-  } else if (parsed.ext === ".gif") {
-    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
-    gif = gulp.src(argv.i)
-  } else {
-    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
-    others = gulp.src(argv.i).pipe(gmAutoOrient)
-  }
-  if (gif) {
-    streams.push(
-      new Promise((res, rej) => {
-        gif
-          .pipe($.image(extend(true, imagesBase(), {
-            gifsicle: true
-          })))
-          .pipe($.rename({ dirname } || {}))
-          .pipe(gulp.dest("dist/files/images/imports"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-    streams.push(
-      new Promise((res, rej) => {
-        gif
-          .pipe($.rename({ dirname } || {}))
-          .pipe(gulp.dest("files/images/imports"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-  }
-  if (svg) {
-    streams.push(
-      new Promise((res, rej) => {
-        svg
-          .pipe($.inkscape({ args: ["-T"] }))
-          .pipe($.svgmin())
-          .pipe($.rename({ dirname } || {}))
-          .pipe(gulp.dest("dist/files/images/imports"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-    streams.push(
-      new Promise((res, rej) => {
-        svg
-          .pipe($.rename({ dirname } || {}))
-          .pipe(gulp.dest("files/images/imports"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-  }
-  if (others) {
-    for (let i = 0; i < sizes.length; i += 1) {
-      streams.push(
-        new Promise((res, rej) => {
-          others
-            .pipe($.imageResize(sizes[i].resize ? extend(
-              true,
-              { imageMagick: site.imageMagick },
-              sizes[i].resize
-            ) : {}))
-            .pipe($.image(sizes[i].image ? extend(
-              true,
-              imagesBase(),
-              sizes[i].image
-            ) : imagesAllFalse))
-            .pipe($.rename(sizes[i].rename || {}))
-            .pipe($.rename({ dirname } || {}))
-            .pipe(gulp.dest("dist/files/images/imports"))
-            .on("end", res)
-            .on("error", rej)
-        })
-      )
-    }
-    streams.push(
-      new Promise((res, rej) => {
-        others
-          .pipe($.rename({ dirname } || {}))
-          .pipe(gulp.dest("files/images/imports"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-  }
-
-  return Promise.all(streams)
-})
-
 gulp.task("clean-docs", () => del(["docs/**/*", "!docs/.git"], { dot: true }))
 gulp.task("clean-dist-docs", () => del("dist/docs/**/*", { dot: true }))
 gulp.task("clean-dist-files", () => del("dist/files/**/*", { dot: true }))
@@ -813,6 +655,22 @@ gulp.task("make-browserconfig", (cb) => {
   })
 })
 
+gulp.task("make-sitemap", (cb) => {
+  const urls = pages.filter(e => e.meta.locale).map(e => ({
+    url: e.meta.permalink,
+    links: site.locales.map(lang => ({ lang, url: `/${lang}/${e.meta.dirs.slice(2).join("/")}` }))
+  }))
+
+  const sitemap = Sitemap.createSitemap({
+    hostname: urlPrefix,
+    urls
+  })
+
+  fs.writeFile("dist/docs/sitemap.xml", sitemap.toString(), () => {
+    glog(colors.green("✔ sitemap.xml")); cb()
+  })
+})
+
 function wait4(cb, psec) {
   let sec = psec
   let interval = null
@@ -863,7 +721,8 @@ gulp.task("make-subfiles",
     gulp.parallel(
       "make-manifest",
       "make-rss",
-      "make-browserconfig"
+      "make-browserconfig",
+      "make-sitemap"
     ),
     (cb) => { cb() }
   ))
@@ -900,30 +759,6 @@ gulp.task("pages",
     (cb) => { cb() }
   ))
 
-gulp.task("prebuild-files",
-  gulp.series(
-    "clean-dist-files",
-    "image-prebuildFiles",
-    (cb) => { cb() }
-  ))
-
-gulp.task("core-with-pf",
-  gulp.series(
-    "prebuild-files",
-    gulp.parallel("css", "js", "pug", "credit-icons"),
-    gulp.parallel("copy-publish", "make-subfiles"),
-    "make-sw", "last",
-    (cb) => { cb() }
-  ))
-
-gulp.task("travis_ci",
-  gulp.series(
-    "register",
-    "prebuild-files",
-    "default",
-    (cb) => { cb() }
-  ))
-
 gulp.task("watcher",
   gulp.series(
     "wait-5sec", "register", "config",
@@ -957,3 +792,185 @@ gulp.task("local-server",
     gulp.parallel("connect", "watch"),
     (cb) => { cb() }
   ))
+
+
+/*
+  IMAGE IMPORTING & CONVERTING TASKS
+*/
+
+gulp.task("image-prebuildFiles", () => {
+  const raster = "files/**/*.{png,jpg,jpeg}"
+  const gif = "files/**/*.gif"
+  const svg = "files/**/*.svg"
+  const { sizes } = site.images.files
+  const streamsrc = gulp.src(raster).pipe(gmAutoOrient)
+  const streams = []
+  for (let i = 0; i < sizes.length; i += 1) {
+    streams.push(
+      // eslint-disable-next-line no-loop-func
+      new Promise((res, rej) => {
+        streamsrc
+          .pipe($.imageResize(
+            sizes[i].resize ? extend(
+              true,
+              { imageMagick: site.imageMagick },
+              sizes[i].resize
+            ) : {}
+          ))
+          .pipe($.image(sizes[i].image ? extend(
+            true,
+            imagesBase(),
+            sizes[i].image
+          ) : imagesAllFalse))
+          .pipe($.rename(sizes[i].rename || {}))
+          .pipe(gulp.dest("dist/files"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+  }
+  streams.push(
+    new Promise((res, rej) => {
+      gulp.src(gif)
+        .pipe($.image(extend(true, imagesBase(), {
+          gifsicle: true
+        })))
+        .pipe(gulp.dest("dist/files"))
+        .on("end", res)
+        .on("error", rej)
+    })
+  )
+  streams.push(
+    new Promise((res, rej) => {
+      gulp.src(svg)
+        .pipe($.inkscape({ args: ["-T"] }))
+        .pipe($.svgmin())
+        .pipe(gulp.dest("dist/files"))
+        .on("end", res)
+        .on("error", rej)
+    })
+  )
+  return Promise.all(streams)
+})
+
+gulp.task("prebuild-files",
+  gulp.series(
+    "clean-dist-files",
+    "image-prebuildFiles",
+    (cb) => { cb() }
+  ))
+
+gulp.task("core-with-pf",
+  gulp.series(
+    "prebuild-files",
+    gulp.parallel("css", "js", "pug", "credit-icons"),
+    gulp.parallel("copy-publish", "make-subfiles"),
+    "make-sw", "last",
+    (cb) => { cb() }
+  ))
+
+gulp.task("image", () => {
+  if (!argv.i) throw Error("ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。")
+  const parsed = path.parse(argv.i)
+  if (parsed.length <= 0) throw Error("指定されたパスにファイルは見つかりませんでした。")
+  const { sizes } = site.images.files
+  const streams = []
+  const date = new Date()
+  let gif; let svg; let others
+  const dirname = `${date.getFullYear()}/${(`0${date.getMonth() + 1}`).slice(-2)}`
+  if (parsed.ext === "") {
+    glog(`image will be saved like as "files/images/imports/${dirname}/filename.ext"`)
+    gif = gulp.src(`${argv.i}/**/*.gif`)
+    svg = gulp.src(`${argv.i}/**/*.svg`)
+    others = gulp.src(`${argv.i}/**/*.{png,jpg,jpeg}`)
+  } else if (parsed.ext === ".svg") {
+    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+    svg = gulp.src(argv.i)
+  } else if (parsed.ext === ".gif") {
+    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+    gif = gulp.src(argv.i)
+  } else {
+    glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
+    others = gulp.src(argv.i).pipe(gmAutoOrient)
+  }
+  if (gif) {
+    streams.push(
+      new Promise((res, rej) => {
+        gif
+          .pipe($.image(extend(true, imagesBase(), {
+            gifsicle: true
+          })))
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("dist/files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+    streams.push(
+      new Promise((res, rej) => {
+        gif
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+  }
+  if (svg) {
+    streams.push(
+      new Promise((res, rej) => {
+        svg
+          .pipe($.inkscape({ args: ["-T"] }))
+          .pipe($.svgmin())
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("dist/files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+    streams.push(
+      new Promise((res, rej) => {
+        svg
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+  }
+  if (others) {
+    for (let i = 0; i < sizes.length; i += 1) {
+      streams.push(
+        new Promise((res, rej) => {
+          others
+            .pipe($.imageResize(sizes[i].resize ? extend(
+              true,
+              { imageMagick: site.imageMagick },
+              sizes[i].resize
+            ) : {}))
+            .pipe($.image(sizes[i].image ? extend(
+              true,
+              imagesBase(),
+              sizes[i].image
+            ) : imagesAllFalse))
+            .pipe($.rename(sizes[i].rename || {}))
+            .pipe($.rename({ dirname } || {}))
+            .pipe(gulp.dest("dist/files/images/imports"))
+            .on("end", res)
+            .on("error", rej)
+        })
+      )
+    }
+    streams.push(
+      new Promise((res, rej) => {
+        others
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
+  }
+
+  return Promise.all(streams)
+})
