@@ -313,7 +313,7 @@ async function toamp(htm, base) {
       // eslint-disable-next-line no-shadow
       // console.log("IMAGE")
       // eslint-disable-next-line no-shadow
-      let src = $(el).attr("src")
+      const src = $(el).attr("src")
       const alt = $(el).attr("alt")
       const title = $(el).attr("title")
       const id = $(el).attr("id")
@@ -325,7 +325,6 @@ async function toamp(htm, base) {
         width = dims.width
         // eslint-disable-next-line prefer-destructuring
         height = dims.height
-        console.log(src)
       } else if ((width === undefined || height === undefined) && (src.startsWith("http") || src.startsWith("//"))) {
         const Url = url.parse(src)
         const filename = `${Url.pathname.slice(1).replace(/\//g, "-")}`.slice(-36)
@@ -346,21 +345,19 @@ async function toamp(htm, base) {
         glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
         return resolve()
       }
-      console.log(src)
-      $("img[src]").eq(i).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
+      $(el).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
       return resolve()
     }))
   })
   if (promises.length > 0) await Promise.all(promises)
-
   $("i").each((i, el) => {
-    $("i").eq(i).replaceWith(icon(
+    $(el).replaceWith(icon(
       { iconName: $(el).attr("data-fa-icon-name"), prefix: $(el).attr("data-fa-prefix") },
       JSON.parse($(el).attr("data-fa-option").replace(/'/g, "\""))
     ).html[0])
   })
 
-  return $("body").html()
+  return $.html()
 }
 
 gulp.task("pug", async () => {
@@ -455,8 +452,8 @@ gulp.task("pug", async () => {
             ampHtml => new Promise((res, rej) => {
               const newoptions = extend(
                 true,
-                { isAmp: true, mainHtml: ampHtml },
-                puglocals
+                puglocals,
+                { isAmp: true, mainHtml: ampHtml }
               )
               gulp.src(amptemplate)
                 .pipe($.pug({ locals: newoptions }))
