@@ -14,47 +14,15 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
       img(src="/files/images/imports/2019/03/top-mobile-1403march19.720c.jpeg" alt="Mobile").scrollts.scrollts-e-1.scrollts-nomargin
       img(src="/files/images/imports/2019/03/ai_svg.svg" alt="Ai").scrollts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin
       div.small.scrollts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin Misskeyマスコット 藍（Ai）
-  section#section_1.pt-5.pb-4.bg-primary.text-white: .container
+  section#section_1.bg-primary.text-white: .container
     p.text-center Misskeyを見つけていただき、ありがとうございます。Misskeyは、地球で生まれた#[span.font-weight-bold 分散マイクロブログSNS]です。Fediverse（様々なSNSで構成される宇宙）の中に存在するため、他のSNSと相互に繋がっています。
     p.text-center 暫し都会の喧騒から離れて、新しいインターネットにダイブしてみませんか。
     p.mt-1.text-center
       a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2.scrollts.scrollts-flipInX.scrollts-nomargin はじめる
       a(href="wiki/developers/").btn.btn-lg.btn-primary.scrollts.scrollts-flipInX.scrollts-nomargin 運営する
-  section#section_2.py-5.bg-white: .container
+  section#section_2.bg-white: .container
     h2.text-center.mt-3 Misskeyをはじめる理由
-
-    hr.my-5#section_2_0
-
-    section.s2-item
-      h3.text-center カスタマイズ性の高い画面
-      p.text-center MisskeyのWebクライアントはあなたの好みに合わせて自在に設定できます。
-
-      .row
-        article.col-12.col-md-6.col-xl-4
-          .card.image.scrollts.scrollts-fadeInUpSmall
-            .s2-card-grid
-              .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
-              .s2-card-text
-                h4 ホームとデッキ
-                p.mb-0 大きいタイムラインが中央に1つある「ホーム」か、カラムを配置し複数のタイムラインを見られる「デッキ」のどちらかを選んで利用できます。
-            img(src="/files/images/imports/2019/03/home-and-deck.svg")
-        article.col-12.col-md-6.col-xl-4
-          .card.scrollts.scrollts-fadeInUpSmall
-            .s2-card-grid
-              .s2-card-icon.font-size-16: +fa_fw('calculator', 'fas')
-              .s2-card-text
-                h4 ウィジェット
-                p.mb-0 小さなウィジェットは様々な情報を表示します。ウィジェットを自由に選んで並べ替えることができます。
-            img(src="/files/images/imports/2019/03/widgets.svg")
-        article.col-12.col-md-12.col-xl-4
-          .card.scrollts.scrollts-fadeInUpSmall
-            .s2-card-grid
-              .s2-card-icon.font-size-16: +fa_fw('palette', 'fas')
-              .s2-card-text
-                h4 自分好みに調整
-                p.mb-0 画面に関する多岐にわたるオプションがあり、操作や表示を細かく変更できます。
-
-    hr.my-5#section_2_a
+    p 普段使いのSNSがMisskeyでなければならない理由は、たくさんあります。
 
     section.s2-item
       h3.text-center 多くの機能
@@ -127,6 +95,37 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
     hr.my-5#section_2_b
 
     section.s2-item
+      h3.text-center カスタマイズ性の高い画面
+      p.text-center MisskeyのWebクライアントはあなたの好みに合わせて自在に設定できます。
+
+      .row
+        article.col-12.col-md-6.col-xl-4
+          .card.image.scrollts.scrollts-fadeInUpSmall
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('th-large', 'fas')
+              .s2-card-text
+                h4 ホームとデッキ
+                p.mb-0 大きいタイムラインが中央に1つある「ホーム」か、カラムを配置し複数のタイムラインを見られる「デッキ」のどちらかを選んで利用できます。
+            img(src="/files/images/imports/2019/03/home-and-deck.svg")
+        article.col-12.col-md-6.col-xl-4
+          .card.scrollts.scrollts-fadeInUpSmall
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('calculator', 'fas')
+              .s2-card-text
+                h4 ウィジェット
+                p.mb-0 小さなウィジェットは様々な情報を表示します。ウィジェットを自由に選んで並べ替えることができます。
+            img(src="/files/images/imports/2019/03/widgets.svg")
+        article.col-12.col-md-12.col-xl-4
+          .card.scrollts.scrollts-fadeInUpSmall
+            .s2-card-grid
+              .s2-card-icon.font-size-16: +fa_fw('palette', 'fas')
+              .s2-card-text
+                h4 自分好みに調整
+                p.mb-0 画面に関する多岐にわたるオプションがあり、操作や表示を細かく変更できます。
+
+    hr.my-5#section_2_a
+
+    section.s2-item
       h3.text-center 独立性と社会性
       p.text-center あなたの意志で運営者を選択する、もしくはあなた自身でサーバーを運営することもできます。
 
@@ -168,7 +167,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
               .font-size-16: +fa_fw('code', 'fas')
               .s2-card-text
                 h4 API
-                p.mb-0 アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを、アプリを作成して利用することができます。          
+                p.mb-0 アプリやクライアントを作って生活に役立てよう。MisskeyのほぼすべてのAPIエンドポイントを外部から利用できます。リバーシBotと対戦し、今聞いている曲をみんなに知らせましょう！
             a(href="https://misskey.xyz/api-doc" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Misskey API
         article.col-12.col-md-6
           .card.scrollts.scrollts-fadeInUpSmall
@@ -179,7 +178,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
                 p.mb-0 MisskeyはGNU Affero General Public License v3.0 (AGPLv3)の下で二次利用することができます。
             a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").s2-card-link.font-weight-bold  ライセンス
 
-  #section_3.bg-dark.text-white.py-5: .container
+  section#section_3.bg-dark.text-white: .container
     h2.text-center さっそくはじめよう
     p.text-center まずはどこか既存のインスタンスに登録してみてください！
     p.text-center Misskeyは他のインスタンスのユーザーともフォローや会話ができます。インスタンスのURLはあなたのIDの一部になります。
@@ -191,7 +190,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
 
     p.text-white-50.pt-2 インスタンスは順次掲載します。リストに載せてほしいインスタンスがありましたら、@aqz@misskey.xyzまでお知らせください。
   
-  #section_4.py-4.bg-success: .container.text-center.text-white
+  section#section_4.bg-success: .container.text-center.text-white
     .row
       .col-12.col-md-6
         .py-3
@@ -206,7 +205,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
             |  クレジット
           p.mt-1.mb-0.p-0 Misskeyの開発に関わってくださった方々です。
 
-  #section_6.bg-white.py-5: .container.text-center.text-dark
+  section#section_6.bg-white: .container.text-center.text-dark
     h2 記事になりました
     p.m-0
       a(href="http://www.itmedia.co.jp/news/articles/1804/17/news124.html" target="_blank" rel="noopener" title="ActivityPub対応国産SNS「Misskey」、LTLも実装 ―― ITmedia NEWS").p-1.mr-2
@@ -214,7 +213,7 @@ description: いつまでも進化する、先進的なマイクロブログSNS 
       a(href="https://www.moongift.jp/2018/07/misskey-%e5%88%86%e6%95%a3%e5%9e%8b%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%96%e3%83%ad%e3%82%b0%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/" target="_blank" rel="noopener" title="Misskey - 分散型マイクロブログサービス ―― MOONGIFT").p-1
         img(src="/files/images/imports/2018/07/MOONGIFT.png" style="height: 33px" alt="MOONGIFT")
 
-  #section_7.pt-5.pb-4: .container
+  section#section_7: .container
     h2.text-center 支援
     p.text-center
       a(href="./credit/#patrons").btn.btn-lg.btn-light.text-primary.mr-2
