@@ -9,6 +9,8 @@ layout: wiki
 [**aqz/tamainaの個人サイト** tamaina.github.io](https://tamaina.github.io)
 
 ## 概要
+joinmisskeyを編集・開発している。また、Misskeyの現在のロゴの作成者でもある。
+
 aqzの読み方は「アキウス」を推奨している。  
 ハンドルネームは、aqzまたはtamaina(短縮してtmin)のどちらかもしくは両方を使用している。ちなみに、使い始めたのはtamainaのほうが先である。
 
