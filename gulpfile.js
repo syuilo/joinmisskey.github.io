@@ -574,8 +574,15 @@ workbox.routing.registerRoute(
 );
 `
 
-if (offline) {
-  res += `self.addEventListener("fetch", function(event) {
+  if (offline) {
+    res += `workbox.precaching.precacheAndRoute([
+    {
+        url: "/offline/",
+        revision: "${base.update.getTime()}",
+    }
+]);
+
+self.addEventListener("fetch", function(event) {
   event.respondWith(
       caches.match(event.request)
       .then(function(response) {
@@ -585,16 +592,7 @@ if (offline) {
           return caches.match("/offline/");
       })
   );
-});`
-}
-
-  if (offline) {
-    res += `workbox.precaching.precacheAndRoute([
-    {
-        url: "/offline/",
-        revision: "${base.update.getTime()}",
-    }
-]);
+});
 `
   }
 
