@@ -1,4 +1,4 @@
-/* workbox 2019-03-21T23:53:10.419Z */
+/* workbox 2019-03-22T03:03:08.905Z */
 self.addEventListener("fetch", function(event) {
     event.respondWith(
         caches.match(event.request)
@@ -26,6 +26,6 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
     {
         url: "/offline/",
-        revision: "1553212390419",
+        revision: "1553223788905",
     }
 ]);
