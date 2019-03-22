@@ -11,16 +11,18 @@ declare global {
 
 const userLanguage = navigator.language
 
-export const pjaxinit = async () => {
-  const { Pjax } = await import("pjax-api")
+export const pjaxinit = /*async*/ () => {
+  // const { Pjax } = await import("pjax-api")
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       window.addEventListener("DOMContentLoaded", () => {
-        Pjax.replace("/" + targetlang + window.permalink + "?moved" + window.location.hash, {})
+        // Pjax.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`, {})
+        window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
     }
   }
 
+// tslint:disable-next-line: align
   if (window.currentLocale !== "false" || window.location.pathname === window.pathname) {
     if (window.location.search.indexOf("moved") === -1) {
       if (window.locales.indexOf(userLanguage) >= 0) {
@@ -29,7 +31,7 @@ export const pjaxinit = async () => {
         move_locale(userLanguage.slice(0, 2))
       } else if (window.currentLocale !== "ja") {
         window.addEventListener("DOMContentLoaded", () => {
-          Pjax.replace("/ja" + window.permalink + "?moved" + window.location.hash, {})
+          move_locale("ja")
         })
       }
     } else {
@@ -37,5 +39,5 @@ export const pjaxinit = async () => {
     }
   }
 
-  return new Pjax({ areas: ["#main, #breadcrumb, #mainnav, #updateTime", "body"], update: { head: "meta" } })
+  // return new Pjax({ areas: ["#main, #breadcrumb, #mainnav, #updateTime", "body"], update: { head: "meta" } })
 }
