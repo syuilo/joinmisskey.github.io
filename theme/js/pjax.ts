@@ -31,7 +31,7 @@ export const pjaxinit = /*async*/ () => {
         move_locale(userLanguage.slice(0, 2))
       } else if (window.currentLocale !== "ja") {
         window.addEventListener("DOMContentLoaded", () => {
-          move_locale("ja")
+          window.location.href = `/ja${window.permalink}?moved${window.location.hash}`
         })
       }
     } else {
