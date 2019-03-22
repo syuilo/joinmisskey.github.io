@@ -14,7 +14,7 @@ export const swinit = (): void => {
           console.log("Service Worker: 登録: ", registration.scope)
           registration.addEventListener("updatefound", () => {
             console.log("updatefound", registration)
-            if (registration.installing && pastState && pastState !== "activated") {
+            if (registration.installing && pastState && pastState === "activated") {
               registration.installing.onstatechange = () => {
                 console.log("Service Worker: バージョンアップします...")
                 location.reload(true)

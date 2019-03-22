@@ -558,20 +558,6 @@ gulp.task("make-sw", (cb) => {
   res = `/* workbox ${base.update.toJSON()} */
 `
 
-  if (offline) {
-    res += `self.addEventListener("fetch", function(event) {
-    event.respondWith(
-        caches.match(event.request)
-        .then(function(response) {
-            return response || fetch(event.request);
-        })
-        .catch(function() {
-            return caches.match("/offline/");
-        })
-    );
-});`
-  }
-
   res += `
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
@@ -587,6 +573,20 @@ workbox.routing.registerRoute(
     })
 );
 `
+
+if (offline) {
+  res += `self.addEventListener("fetch", function(event) {
+  event.respondWith(
+      caches.match(event.request)
+      .then(function(response) {
+          return response || fetch(event.request);
+      })
+      .catch(function() {
+          return caches.match("/offline/");
+      })
+  );
+});`
+}
 
   if (offline) {
     res += `workbox.precaching.precacheAndRoute([
