@@ -11,14 +11,20 @@ Misskeyを自力で運営するには、VPSを借りるか自分でサーバー�
 
 [セットアップガイド](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md) / [運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)
 
+#### わからないことがあったら
+エラーが発生したなどわからないことがあれば、まず開発者に聞いてみよう。  
+@syuilo@misskey.xyzをはじめとする共同開発者に、困っていることの詳細を載せてをリプライを送ってほしい。
+
+もしくは、[Fedeloper Folum](https://forum.fedeloper.jp/)で質問してみよう。
+
 ### ホスティングサービスを利用する
 Misskeyのセットアップを省き、Misskeyのインスタンスを貸し出すサービスを利用できるかもしれない。
 
-ベータテストとして[Hostdon Beta ProgramでMisskeyのインスタンスを借りることができる。](https://beta.hostdon.jp/)[(ブログ記事)](../../blog/2018/08/12_3_hostdon/)  
-申し込みは既に終了している。
+~~ベータテストとして[Hostdon Beta ProgramでMisskeyのインスタンスを借りることができる。](https://beta.hostdon.jp/)[(ブログ記事)](../../blog/2018/08/12_3_hostdon/)~~  
+申し込みは終了した。
 
 ### インスタンスの運営
-[運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)に従って自分をadminにすると、管理画面(URL: `/admin`)が利用できるようになる。
+[運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)にしたがって自分をadminにすると、管理画面（URL: `/admin`）が利用できるようになる。
 
 管理画面ではインスタンスのステータスの閲覧や各種設定を行うことができる。
 
@@ -29,10 +35,10 @@ MisskeyはGitHub上でソースコードを公開しており、自分で改造�
 Pull RequestやIssueをお待ちしている。
 
 ## APIを利用してアプリを作成する
-MisskeyはAPIを公開している。(というよりは、Webクライアント自体がAPIを利用している。)  
-APIの使い方についてはインスタンスごとのドキュメント`/docs/ja-JP/about`を参照されたい。
+MisskeyはAPIを公開している。(Misskey Web自体もAPIを利用して通信している。)  
+Misskey APIの使い方についてはインスタンスごとのドキュメント`/docs/ja-JP/about`を参照されたい。
 
-APIに限らず、ActivityPubで接続して投稿を管理するやり方もあるだろう(ActivityPubもAPIの一種類だが)。
+MisskeyのAPIに限らず、ActivityPubで接続して投稿を管理するやり方もある。
 
 ## 翻訳
 Crowdin上でMisskeyの翻訳に参加できる。  
