@@ -1,4 +1,4 @@
-import onReady from "./onReady";
+import onReady from "./onReady"
 
 declare global {
   // tslint:disable-next-line: interface-name
@@ -16,7 +16,7 @@ export const pjaxinit = async () => {
   const { Pjax } = await import("pjax-api")
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
-      window.addEventListener("DOMContentLoaded", () => {
+      onReady(() => {
         Pjax.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`, {})
         // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
