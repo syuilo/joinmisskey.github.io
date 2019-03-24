@@ -18,11 +18,11 @@ function contentLoaded() {
   katexinit()
 }
 
+detectOldBrowser()
+
 onReady(contentLoaded)
 document.addEventListener("pjax:content", contentLoaded)
 
 pjaxinit()
-
-detectOldBrowser()
 
 window.addEventListener("pjax:load", pjaxLoaded)
