@@ -1,5 +1,6 @@
 #ini
   position: fixed
+  display: flex
   z-index: 101
   top: 0
   left: 0
@@ -8,16 +9,13 @@
   background: #fff
   cursor: wait
 
-  & > svg
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
+  & > #ini_inner
     margin: auto
-    width: 64px
-    height: 64px
-    animation: ini 0.6s infinite linear
+
+    > svg
+      width: 64px
+      height: 64px
+      animation: ini 0.6s infinite linear
 
 @import "./keyframes"
 
