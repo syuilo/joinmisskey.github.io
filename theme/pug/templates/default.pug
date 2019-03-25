@@ -81,13 +81,6 @@ html(lang=locale)
           meta(name="twitter:description", content=page.attributes.description)
           meta(name="twitter:site", content=site.social_media.twitter.stalk)
 
-      block gtag
-        if(site.ga)
-          | <script async src="https://www.googletagmanager.com/gtag/js?id=#{site.ga}"></script>
-          | <script>
-          | window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '#{site.ga}', );
-          | </script>
-
       block js_head
 
   body

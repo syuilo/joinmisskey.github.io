@@ -7,6 +7,11 @@ script.
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
 
+block gtag
+  if(site.ga)
+    script(src=`https://www.googletagmanager.com/gtag/js?id=${site.ga}` async)
+    script.
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '#{site.ga}', );
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
 //- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)

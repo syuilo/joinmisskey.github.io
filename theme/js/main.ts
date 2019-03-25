@@ -25,4 +25,5 @@ document.addEventListener("pjax:content", contentLoaded)
 
 pjaxinit()
 
+
 window.addEventListener("pjax:load", pjaxLoaded)

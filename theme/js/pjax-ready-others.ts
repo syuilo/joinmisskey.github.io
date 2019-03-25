@@ -6,7 +6,7 @@ declare global {
     }
     twttr: any
     disqus_config: any
-    gtag(a: string, b: string): void
+    gtag(...xs: any): void
   }
 }
 
