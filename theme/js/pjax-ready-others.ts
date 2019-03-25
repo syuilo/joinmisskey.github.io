@@ -12,7 +12,7 @@ declare global {
 
 export const pjaxLoaded = (): void => {
   if (window.gtag) {
-    window.gtag("event", "page_view")
+    // window.gtag("event", "page_view")
   }
   if (window.DISQUS) {
     // DISQUSでresetを送信します。
