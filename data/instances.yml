@@ -110,6 +110,8 @@
   langs: ['ja']
 - url: seikin.xyz
   langs: ['ja']
+- url: misskey.ranranhome.info
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
