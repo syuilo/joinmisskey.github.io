@@ -95,7 +95,7 @@
     "pjax-api": "^3.25.0",
     "popper.js": "^1.14.7",
     "postcss-sorting": "^4.0.1",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.16.0",
     "pug": "^2.0.3",
     "pump": "^3.0.0",
     "punycode": "^2.1.1",
