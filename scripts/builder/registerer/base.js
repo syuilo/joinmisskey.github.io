@@ -137,8 +137,8 @@ async function getInstancesInfos(instances) {
 
       // 7.
       if (meta.features) {
-        if (meta.features.elasticsearch) value += 500
-        if (meta.features.recaptcha) value += 500
+        if (meta.features.elasticsearch) value += 250
+        if (meta.features.recaptcha) value += 250
         if (meta.features.objectStorage) value += 50
         let v2 = 0
         // eslint-disable-next-line no-restricted-syntax
