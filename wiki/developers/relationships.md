@@ -37,7 +37,7 @@ Authorization callback URLは`https://(your-misskey-instance)/api/gh/cb`とい�
 `管理画面` > `インスタンス` > `GitHub連携`で`GitHub連携を有効にする`を有効にし、 Client Id と Client Secret を記入する。
 
 ## Discord
-GitHubの連携の設定はかなり簡単。
+Discordの連携の設定はかなり簡単。
 
 ### 1. Discordアカウントを作成
 Discordアカウントを持っていない場合、作成する必要がある。
