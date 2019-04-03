@@ -5,6 +5,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
 -
   const collaborators = ["syuilo", "AyaMorisawa", "mei23", "acid-chicken"]
   const bots = ["greenkeeper[bot]", "dependabot[bot]", "dependabot-bot"]
+  const qqq = update.getTime().toString(36)
 
 .bg-white.py-3
   .container-fluid
@@ -25,7 +26,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
         each contributor in contributors
           if(collaborators.some(e => e === contributor.login))
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
-              img(src=`/files/images/credit/github/${contributor.id}.png`)
+              img(src=`/files/images/credit/github/${contributor.id}.png?${qqq}`)
               p=contributor.login
     h2#contributors.text-center.pb-2 コントリビューター
     p.text-center #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]でMisskeyの開発に関わってくださった方々
@@ -34,7 +35,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
         each contributor in contributors
           if(!bots.some(e => e === contributor.login) && !collaborators.some(e => e === contributor.login))
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
-              img(src=`/files/images/credit/github/${contributor.id}.png`)
+              img(src=`/files/images/credit/github/${contributor.id}.png?${qqq}`)
               p=contributor.login
       else
         +i18n('nobody')
@@ -50,7 +51,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
             div.patrons-list-members.d-flex.flex-wrap.justify-content-center
               each patron in tier.members
                 a(href=patron.attributes.url target="_blank" rel="noopener" title=patron.attributes.full_name).person
-                  img(src=`/files/images/credit/patreon/${patron.id}.png`)
+                  img(src=`/files/images/credit/patreon/${patron.id}.png?${qqq}`)
                   p=patron.attributes.full_name
       else
         +i18n('nobody')
