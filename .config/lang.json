@@ -128,12 +128,12 @@
             "fr": "Comptes"
         },
         "instance_notes": {
-            "ja": "投稿数",
+            "ja": "ノートの数",
             "en": "Notes count",
             "fr": "Notes"
         },
         "instance_maxNoteTextLength": {
-            "ja": "投稿の文字数制限",
+            "ja": "ノートの文字数制限",
             "en": "Max note text length",
             "fr": "Longueur maximale du texte de note"
         },
