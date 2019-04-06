@@ -17,7 +17,7 @@ Misskeyの動作がやけに重いときは「UIの動きを減らす」を有�
 ### 私は（プリンよりむしろ）寿司が好き
 **I prefer sushi to flan!**
 
-リアクションの🍮が🍣になります。
+リアクションの🍮が🍣になる。
 
 ## テーマ
 Misskey Webでは、テーマ機能によってその配色を自由に変更できる。
@@ -48,6 +48,4 @@ Misskey Webでは、テーマ機能によってその配色を自由に変更で
 [Misskey Assets Store (MiAS)](https://assets.msky.cafe/)は、テーマを共有するサイトである。  
 他の人が作ったテーマを探し、また、自分で作ったテーマをアップロードことができる。
 
-MiASは村上さん@AureoleArk@misskey.xyzが運営している。
-
-## デザイン設定
+MiASは[村上さん](../../culture/users/AureoleArk)が運営している。

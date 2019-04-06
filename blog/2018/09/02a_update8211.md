@@ -35,7 +35,7 @@ DeckでもURLプレビューが表示されるようになりました。 [*](ht
 モバイルの新規投稿フォームが使いやすくなりました。  
 投稿画面を開いてもタイムラインが戻らなくなりました。 [*](https://github.com/syuilo/misskey/commit/6819eb3b4da43665de8e159d774b3f2325ddfe0b), [*](https://github.com/syuilo/misskey/commit/7559b8da6c1b3c1bebd0355891d788f11bafa4ea), [*](https://github.com/syuilo/misskey/commit/5209a584a2ed76057ec5edc351cf155154f3f68f)
 
-まったく違う投稿にリプライ・Renoteしてしまう問題、および新規登録フォームが表示されない問題は修正されています。 [*](https://github.com/syuilo/misskey/commit/63e2dbbb0d1b9be3aba6afc8ec7ddb5f84c193cf), [*](https://github.com/syuilo/misskey/commit/f1d65a66b465a18d200f922fac03384bee7d6f69)
+まったく違う投稿にリプライ・リノートしてしまう問題、および新規登録フォームが表示されない問題は修正されています。 [*](https://github.com/syuilo/misskey/commit/63e2dbbb0d1b9be3aba6afc8ec7ddb5f84c193cf), [*](https://github.com/syuilo/misskey/commit/f1d65a66b465a18d200f922fac03384bee7d6f69)
 
 ### その他
 - 寄付者にサーバーの設定を適用 [#2494](https://github.com/syuilo/misskey/pull/2494)
