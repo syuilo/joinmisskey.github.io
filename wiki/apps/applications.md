@@ -40,6 +40,12 @@ MisskeyのUIを拡張する**Chrome拡張機能**。
 
 
 ## Webサービス
+### 質問箱
+#### Quesdon (quesdon.toot.app)
+QuesdonはもともとMastodon向けに開発された質問箱サービスだが、quesdon.toot.appではMisskeyへログインする機能が追加されている。
+
+**[Quesdon (quesdon.toot.app)](https://quesdon.toot.app)**
+
 ### ツール
 #### Cropper for Misskey
 アイコン作成補助ツール。

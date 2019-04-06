@@ -45,7 +45,7 @@ Pull RequestやIssueをお待ちしている。
 MisskeyはAPIを公開している。(Misskey Web自体もAPIを利用して通信している。)  
 Misskey APIの使い方についてはインスタンスごとのドキュメント`/docs/ja-JP/about`を参照されたい。
 
-MisskeyのAPIに限らず、ActivityPubで接続して投稿を管理するやり方もある。
+MisskeyのAPIに限らず、ActivityPubで接続してノートを管理するやり方もある。
 
 ## 翻訳
 Crowdin上でMisskeyの翻訳に参加できる。  
