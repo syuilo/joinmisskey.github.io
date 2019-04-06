@@ -118,6 +118,8 @@
   langs: ['ja']
 - url: yuuyaap.aa0.netvolante.jp
   langs: ['ja']
+- url: misky.herokuapp.com
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
