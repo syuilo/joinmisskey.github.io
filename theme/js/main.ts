@@ -8,7 +8,7 @@ import onLoad from "./onLoad"
 import onReady from "./onReady"
 import { scrolltoshow } from "./scrolltoshow"
 
-import { loadtoshow } from "./loadts"
+import { loadtoshow } from "./loadtoshow"
 import { detectOldBrowser } from "./old-browsers"
 import { pjaxinit } from "./pjax"
 import { pjaxLoaded } from "./pjax-loaded"

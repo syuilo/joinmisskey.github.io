@@ -1,12 +1,11 @@
+import { show } from "./toshow"
+
 export const scrolltoshow = (): void => {
   const els = Array.from(document.getElementsByClassName("scrollts"))
   if (IntersectionObserver !== undefined && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, o) => {
       for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show")
-          o.unobserve(entry.target)
-        }
+        if (entry.isIntersecting) show(entry.target, o)
       }
     }, {
         rootMargin: "-30% 0px",
@@ -14,10 +13,7 @@ export const scrolltoshow = (): void => {
       })
     const observerNomargin = new IntersectionObserver((entries, o) => {
       for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show")
-          o.unobserve(entry.target)
-        }
+        if (entry.isIntersecting) show(entry.target, o)
       }
     }, {
         rootMargin: "0px",
