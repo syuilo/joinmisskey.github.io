@@ -6,6 +6,8 @@
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: misskey.xyz
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
+- url: yuzulia.xyz
+  langs: ['en', 'ja']
 #
 - url: misskey.jp
   langs: ['ja']
@@ -37,8 +39,6 @@
 - url: misskey.nokotaro.com
   langs: ['ja']
 - url: 7.distsn.org
-  langs: ['ja']
-- url: yuzulia.xyz
   langs: ['ja']
 - url: r18don.xyz
   langs: ['ja']
