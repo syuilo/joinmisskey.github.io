@@ -1,56 +1,6 @@
 $dulation: .9s
 $delay: .6s
 
-.scrollts
-  &#{&}-linear
-    transition-timing-function: linear !important
-  &#{&}-ease
-    transition-timing-function: ease !important
-  &#{&}-ease-in
-    transition-timing-function: ease-in !important
-  &#{&}-ease-out
-    transition-timing-function: ease-out !important
-  &#{&}-ease-in-out
-    transition-timing-function: ease-in-out !important
-
-  &#{&}-u-0
-    transition-duration: 0 !important
-    animation-duration:  0 !important
-  &#{&}-u-1
-    transition-duration: $dulation * .5 !important
-    animation-duration:  $dulation * .5 !important
-  &#{&}-u-2
-    transition-duration: $dulation * .75 !important
-    animation-duration:  $dulation * .75 !important
-  &#{&}-u-3
-    transition-duration: $dulation !important
-    animation-duration:  $dulation !important
-  &#{&}-u-4
-    transition-duration: $dulation * 1.25 !important
-    animation-duration:  $dulation * 1.25 !important
-  &#{&}-u-5
-    transition-duration: $dulation * 1.5 !important
-    animation-duration:  $dulation * 1.5 !important
-
-  &#{&}-e-0
-    transition-delay: 0 !important
-    animation-delay:  0 !important
-  &#{&}-e-1
-    transition-delay: $delay * .5 !important
-    animation-delay: $delay * .5 !important
-  &#{&}-e-2
-    transition-delay: $delay * .75 !important
-    animation-delay:  $delay * .75 !important
-  &#{&}-e-3
-    transition-delay: $delay !important
-    animation-delay:  $delay !important
-  &#{&}-e-4
-    transition-delay: $delay * 1.25 !important
-    animation-delay:  $delay * 1.25 !important
-  &#{&}-e-5
-    transition-delay: $delay * 1.5 !important
-    animation-delay:  $delay * 1.5 !important
-
 /*!
  * keyframes and transforms from animate.css -http://daneden.me/animate
  * Version - 3.7.0
@@ -62,13 +12,16 @@ $delay: .6s
 @import './scrolltoshow/flipin'
 @import './scrolltoshow/theOthers'
 
+.transition-property-none
+  transition-property: none
+
 .scrollts
-  transition-property: all
-  transition-duration: $dulation
-  animation-duration:  $dulation
+  transition-duration: $dulation !important
+  animation-duration:  $dulation !important
 
   &[class*="scrollts-fadeIn"]:not(.show)
     @extend .invisible
+    @extend .transition-property-none
   &#{&}-fadeIn
     &.show
       animation-name: fadeIn
@@ -121,8 +74,11 @@ $delay: .6s
     &.show
       animation-name: fadeIn, fadeInDownBig 
 
-  &[class*="scrollts-rotateIn"]:not(.show)
+  &[class*="scrollts-rotateIn"]
+    transition-property: transform
+    &:not(.show)
     @extend .invisible
+
   &#{&}-rotateIn:not(.show)
     transform-origin: center
     transform: rotate3d(0, 0, 1, -200deg)
@@ -144,13 +100,17 @@ $delay: .6s
       transform: rotate3d(0, 0, 1, -90deg)
 
   &#{&}-zoomIn
+    @extend .transition-property-none
     &.show
       animation-name: zoomIn
     &:not(.show)
       @extend .invisible
 
-  &[class*="scrollts-flipIn"]:not(.show)
-    @extend .invisible
+  &[class*="scrollts-flipIn"]
+    @extend .transition-property-none
+    &:not(.show)
+      @extend .invisible
+
   &#{&}-flipInX
     &.show
       backface-visibility: visible !important
@@ -161,17 +121,75 @@ $delay: .6s
       animation-name: flipInY
 
   &#{&}-lightSpeedIn
+    @extend .transition-property-none
     &.show
       animation-name: lightSpeedIn
     &:not(.show)
       @extend .invisible
   &#{&}-jackInTheBox
+    @extend .transition-property-none
+
     &.show
       animation-name: jackInTheBox
     &:not(.show)
       @extend .invisible
   &#{&}-rollIn
+    @extend .transition-property-none
     &.show
       animation-name: rollIn
     &:not(.show)
       @extend .invisible
+
+  &#{&}-linear
+    transition-timing-function: linear !important
+    animation-timing-function: linear !important
+  &#{&}-ease
+    transition-timing-function: ease !important
+    animation-timing-function: ease !important
+  &#{&}-ease-in
+    transition-timing-function: ease-in !important
+    animation-timing-function: ease-in !important
+  &#{&}-ease-out
+    transition-timing-function: ease-out !important
+    animation-timing-function: ease-out !important
+  &#{&}-ease-in-out
+    transition-timing-function: ease-in-out !important
+    animation-timing-function: ease-in-not !important
+
+  &#{&}-u-0
+    transition-duration: 0 !important
+    animation-duration:  0 !important
+  &#{&}-u-1
+    transition-duration: $dulation * .5 !important
+    animation-duration:  $dulation * .5 !important
+  &#{&}-u-2
+    transition-duration: $dulation * .75 !important
+    animation-duration:  $dulation * .75 !important
+  &#{&}-u-3
+    transition-duration: $dulation !important
+    animation-duration:  $dulation !important
+  &#{&}-u-4
+    transition-duration: $dulation * 1.25 !important
+    animation-duration:  $dulation * 1.25 !important
+  &#{&}-u-5
+    transition-duration: $dulation * 1.5 !important
+    animation-duration:  $dulation * 1.5 !important
+
+  &#{&}-e-0
+    transition-delay: 0 !important
+    animation-delay:  0 !important
+  &#{&}-e-1
+    transition-delay: $delay * .5 !important
+    animation-delay: $delay * .5 !important
+  &#{&}-e-2
+    transition-delay: $delay * .75 !important
+    animation-delay:  $delay * .75 !important
+  &#{&}-e-3
+    transition-delay: $delay !important
+    animation-delay:  $delay !important
+  &#{&}-e-4
+    transition-delay: $delay * 1.25 !important
+    animation-delay:  $delay * 1.25 !important
+  &#{&}-e-5
+    transition-delay: $delay * 1.5 !important
+    animation-delay:  $delay * 1.5 !important

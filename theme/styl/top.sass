@@ -32,10 +32,10 @@
     position: relative
     height: 66vh
     overflow: hidden
-    background: linear-gradient(rgba($misskey-ai, .25), rgba($misskey-ai, .05))
+    background: $misskey-ai
 
-    &:not(.show)
-      background: $misskey-ai
+    &.show
+      background: linear-gradient(rgba($misskey-ai, .25), rgba($misskey-ai, .05))
 
     .texts
       position: absolute
@@ -72,10 +72,10 @@
           transform: translateX(32vw) translateY(45vh)
           z-index: 3
           background-color: #1a1b20
+          display: none
           &.show
+            display: block !important
             animation-name: toppage-scnshts-3
-          &:not(.show)
-            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(35vw) translateY(55vh)
@@ -87,10 +87,10 @@
           width: 60vw
           transform: translateX(10vw) translateY(35vh)
           z-index: 0
+          display: none
           &.show
+            display: block !important
             animation-name: toppage-scnshts-2
-          &:not(.show)
-            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(10vw) translateY(45vh)
@@ -103,10 +103,10 @@
           transform: translateX(37vw) translateY(40vh)
           z-index: 1
           background-color: #ececec
+          display: none
           &.show
+            display: block !important
             animation-name: toppage-scnshts-1
-          &:not(.show)
-            @extend .invisible
 
           @media (max-width: map-get($grid-breakpoints, sm))
             transform: translateX(37vw) translateY(50vh)
