@@ -11,6 +11,7 @@ block gtag
   if(site.ga)
     script(src=`https://www.googletagmanager.com/gtag/js?id=${site.ga}` async)
     script.
+      window.gaId = '#{site.ga}'
       window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '#{site.ga}', );
 
 //- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)

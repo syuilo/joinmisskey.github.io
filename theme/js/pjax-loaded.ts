@@ -6,6 +6,7 @@ declare global {
     }
     twttr: any
     disqus_config: any
+    gaId: string
     gtag(...xs: any): void
   }
 }
