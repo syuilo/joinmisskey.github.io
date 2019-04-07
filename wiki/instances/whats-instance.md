@@ -22,7 +22,7 @@ has_child: false
 ### リストの順序について
 インスタンスリストは次のように並んでいる。
 
-[ソースコードで確認](https://github.com/joinmisskey/joinmisskey.github.io/blob/src/scripts/builder/registerer/base.js#L108)
+[（ソースコードで確認）](https://github.com/joinmisskey/joinmisskey.github.io/blob/src/scripts/builder/registerer/base.js#L108)
 
 #### インスタンスにアクセスできる場合
 インスタンスごとに評価値を算出し、その降順に並んでいる。  
@@ -62,9 +62,12 @@ has_child: false
 技術的にアクセスができない場所にインスタンスが存在する場合や閉鎖したインスタンスは、URL（ドメイン）の辞書順で並ぶ。
 
 ### 他言語版のインスタンス
-各言語版のページで、それぞれの言語が使われているインスタンスのみ掲載している。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページから閲覧できる。
+各言語版のページで、それぞれの言語が使われているインスタンスのみ掲載している。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページから閲覧できる。  
+なお、インスタンスの言語は編集者が勝手に推測して設定している。インスタンスの言語設定についてリクエストがある場合は、@aqz@misskey.xyz宛てに教えてほしい。
 
 ## ほかのインスタンスリスト
+Misskeyインスタンスの一覧はjoinmisskey以外でも提供されている。
+
 - [distsn.org](https://distsn.org/misskey-instances.html)
 - [the-federation.info](https://the-federation.info/misskey)
 - [fediverse.network](https://fediverse.network/misskey)
