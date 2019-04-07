@@ -15,63 +15,62 @@ $delay: .6s
 .transition-property-none
   transition-property: none
 
-.scrollts,
-.loadts
+.scrollts, .loadts
   transition-duration: $dulation !important
   animation-duration:  $dulation !important
 
   &[class*="scrollts-fadeIn"]:not(.show)
     @extend .invisible
     @extend .transition-property-none
-  &#{&}-fadeIn
+  &.scrollts-fadeIn
     &.show
       animation-name: fadeIn
-  &#{&}-fadeInUp
+  &.scrollts-fadeInUp
     &.show
       animation-name: fadeIn, fadeInUp
-  &#{&}-fadeInUpSmall
+  &.scrollts-fadeInUpSmall
     &.show
       animation-name: fadeIn, fadeInUpSmall
-  &#{&}-fadeInUpMedium
+  &.scrollts-fadeInUpMedium
     &.show
       animation-name: fadeIn, fadeInUpMedium
-  &#{&}-fadeInUpBig
+  &.scrollts-fadeInUpBig
     &.show
       animation-name: fadeIn, fadeInBig
-  &#{&}-fadeInRight
+  &.scrollts-fadeInRight
     &.show
       animation-name: fadeIn, fadeInRight
-  &#{&}-fadeInRightSmall
+  &.scrollts-fadeInRightSmall
     &.show
       animation-name: fadeIn, fadeInRightSmall
-  &#{&}-fadeInRightMedium
+  &.scrollts-fadeInRightMedium
     &.show
       animation-name: fadeIn, fadeInRightMedium
-  &#{&}-fadeInRightBig
+  &.scrollts-fadeInRightBig
     &.show
       animation-name: fadeIn, fadeInRightBig
-  &#{&}-fadeInLeft
+  &.scrollts-fadeInLeft
     &.show
       animation-name: fadeIn, fadeInLeft
-  &#{&}-fadeInLeftSmall
+  &.scrollts-fadeInLeftSmall
     &.show
       animation-name: fadeIn, fadeInLeftSmall
-  &#{&}-fadeInLeftMedium
+  &.scrollts-fadeInLeftMedium
     &.show
       animation-name: fadeIn, fadeInLeftMedium
-  &#{&}-fadeInLeftBig
+  &.scrollts-fadeInLeftBig
     &.show
       animation-name: fadeIn, fadeInLeftBig
-  &#{&}-fadeInDown
+  &.scrollts-fadeInDown
     &.show
       animation-name: fadeIn, fadeInDown
-  &#{&}-fadeInDownSmall
+  &.scrollts-fadeInDownSmall
     &.show
       animation-name: fadeIn, fadeInDownSmall
-  &#{&}-fadeInDownMedium
+  &.scrollts-fadeInDownMedium
     &.show
       animation-name: fadeIn, fadeInDownMedium
-  &#{&}-fadeInDownBig
+  &.scrollts-fadeInDownBig
     &.show
       animation-name: fadeIn, fadeInDownBig 
 
@@ -80,27 +79,27 @@ $delay: .6s
     &:not(.show)
     @extend .invisible
 
-  &#{&}-rotateIn:not(.show)
+  &.scrollts-rotateIn:not(.show)
     transform-origin: center
     transform: rotate3d(0, 0, 1, -200deg)
-  &#{&}-rotateInDownLeft
+  &.scrollts-rotateInDownLeft
     transform-origin: left bottom
     &:not(.show)
       transform: rotate3d(0, 0, 1, -45deg)
-  &#{&}-rotateInDownRight
+  &.scrollts-rotateInDownRight
     transform-origin: right bottom
     &:not(.show)
       transform: rotate3d(0, 0, 1, 45deg)
-  &#{&}-rotateInUpLeft
+  &.scrollts-rotateInUpLeft
     transform-origin: left bottom
     &:not(.show)
       transform: rotate3d(0, 0, 1, 45deg)
-  &#{&}-rotateInUpRight
+  &.scrollts-rotateInUpRight
     transform-origin: right bottom
     &:not(.show)
       transform: rotate3d(0, 0, 1, -90deg)
 
-  &#{&}-zoomIn
+  &.scrollts-zoomIn
     @extend .transition-property-none
     &.show
       animation-name: zoomIn
@@ -112,85 +111,85 @@ $delay: .6s
     &:not(.show)
       @extend .invisible
 
-  &#{&}-flipInX
+  &.scrollts-flipInX
     &.show
       backface-visibility: visible !important
       animation-name: flipInX
-  &#{&}-flipInY
+  &.scrollts-flipInY
     &.show
       backface-visibility: visible !important
       animation-name: flipInY
 
-  &#{&}-lightSpeedIn
+  &.scrollts-lightSpeedIn
     @extend .transition-property-none
     &.show
       animation-name: lightSpeedIn
     &:not(.show)
       @extend .invisible
-  &#{&}-jackInTheBox
+  &.scrollts-jackInTheBox
     @extend .transition-property-none
 
     &.show
       animation-name: jackInTheBox
     &:not(.show)
       @extend .invisible
-  &#{&}-rollIn
+  &.scrollts-rollIn
     @extend .transition-property-none
     &.show
       animation-name: rollIn
     &:not(.show)
       @extend .invisible
 
-  &#{&}-linear
+  &.scrollts-linear
     transition-timing-function: linear !important
     animation-timing-function: linear !important
-  &#{&}-ease
+  &.scrollts-ease
     transition-timing-function: ease !important
     animation-timing-function: ease !important
-  &#{&}-ease-in
+  &.scrollts-ease-in
     transition-timing-function: ease-in !important
     animation-timing-function: ease-in !important
-  &#{&}-ease-out
+  &.scrollts-ease-out
     transition-timing-function: ease-out !important
     animation-timing-function: ease-out !important
-  &#{&}-ease-in-out
+  &.scrollts-ease-in-out
     transition-timing-function: ease-in-out !important
     animation-timing-function: ease-in-not !important
 
-  &#{&}-u-0
+  &.scrollts-u-0
     transition-duration: 0 !important
     animation-duration:  0 !important
-  &#{&}-u-1
+  &.scrollts-u-1
     transition-duration: $dulation * .5 !important
     animation-duration:  $dulation * .5 !important
-  &#{&}-u-2
+  &.scrollts-u-2
     transition-duration: $dulation * .75 !important
     animation-duration:  $dulation * .75 !important
-  &#{&}-u-3
+  &.scrollts-u-3
     transition-duration: $dulation !important
     animation-duration:  $dulation !important
-  &#{&}-u-4
+  &.scrollts-u-4
     transition-duration: $dulation * 1.25 !important
     animation-duration:  $dulation * 1.25 !important
-  &#{&}-u-5
+  &.scrollts-u-5
     transition-duration: $dulation * 1.5 !important
     animation-duration:  $dulation * 1.5 !important
 
-  &#{&}-e-0
+  &.scrollts-e-0
     transition-delay: 0 !important
     animation-delay:  0 !important
-  &#{&}-e-1
+  &.scrollts-e-1
     transition-delay: $delay * .5 !important
     animation-delay: $delay * .5 !important
-  &#{&}-e-2
+  &.scrollts-e-2
     transition-delay: $delay * .75 !important
     animation-delay:  $delay * .75 !important
-  &#{&}-e-3
+  &.scrollts-e-3
     transition-delay: $delay !important
     animation-delay:  $delay !important
-  &#{&}-e-4
+  &.scrollts-e-4
     transition-delay: $delay * 1.25 !important
     animation-delay:  $delay * 1.25 !important
-  &#{&}-e-5
+  &.scrollts-e-5
     transition-delay: $delay * 1.5 !important
     animation-delay:  $delay * 1.5 !important
