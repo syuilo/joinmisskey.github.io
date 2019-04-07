@@ -304,7 +304,7 @@ function searchSidebar(pathe) {
 }
 
 // eslint-disable-next-line no-shadow
-async function toamp(htm, base) {
+async function toamp(htm) {
   // eslint-disable-next-line no-shadow
   const $ = cheerio.load(htm, { decodeEntities: false })
   const promises = []

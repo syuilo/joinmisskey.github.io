@@ -8,6 +8,7 @@ import onLoad from "./onLoad"
 import onReady from "./onReady"
 import { scrolltoshow } from "./scrolltoshow"
 
+import { loadtoshow } from "./loadts"
 import { detectOldBrowser } from "./old-browsers"
 import { pjaxinit } from "./pjax"
 import { pjaxLoaded } from "./pjax-loaded"
@@ -16,10 +17,11 @@ function contentReady() {
   fainit()
   gototop()
   katexinit()
+  scrolltoshow()
 }
 
 function contentLoaded() {
-  scrolltoshow()
+  loadtoshow()
 }
 
 detectOldBrowser()
