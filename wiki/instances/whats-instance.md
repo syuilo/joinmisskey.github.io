@@ -53,7 +53,7 @@ has_child: false
       * 連携が設定されている - `16`
       * 1サービスにつき - `16`
       * 例）GitHub連携とDiscord連携が可能な場合、計`48`が加算される
-  * ServiceWorker (Push Notification) - `50`
+  * ServiceWorker (Push Notification) - `16`
 
 算出方法は適宜変更する。
 
