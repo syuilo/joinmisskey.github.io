@@ -193,13 +193,12 @@ mixin instancesList(o, colors, sctrollts)
                   else
                     abbr(title=i18n('instance_serviceConnectionDisabled', [service])).opacity-050
                       +fa_fw(service.toLowerCase(), 'fab')
-                if( !semver.satisfies(semver.valid(semver.coerce(instance.meta.version)), ">=10.48.0") )
-                  if( instance.meta.features.serviceWorker )
-                    abbr(title=i18n('instance_serviceWorkerEnabled'))
-                      +fa_fw('bell')
-                  else
-                    abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
-                      +fa_fw('bell')
+                if( instance.meta.features.serviceWorker )
+                  abbr(title=i18n('instance_serviceWorkerEnabled'))
+                    +fa_fw('bell')
+                else
+                  abbr(title=i18n('instance_serviceWorkerDisabled')).opacity-050
+                    +fa_fw('bell')
               if( instance.meta.enableEmail )
                 abbr(title=i18n('instance_serviceConnectionEnabled', [i18n('email')]))
                   +fa_fw('envelope-square')

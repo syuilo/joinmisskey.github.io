@@ -137,14 +137,14 @@ async function getInstancesInfos(instances) {
 
       // 7.
       if (meta.features) {
-        if (meta.features.elasticsearch) value += 250
-        if (meta.features.recaptcha) value += 250
-        if (meta.features.objectStorage) value += 50
+        if (meta.features.elasticsearch) value += 64
+        if (meta.features.recaptcha) value += 64
+        if (meta.features.objectStorage) value += 32
         let v2 = 0
         // eslint-disable-next-line no-restricted-syntax
-        for (const service of mkConnectServices) { if (meta.features[service.toLowerCase()]) { v2 += 100 } }
-        if (v2 > 0) value += v2 + 300
-        if (semver.satisfies(v, ">=10.48.0") || meta.features.serviceWorker) value += 150
+        for (const service of mkConnectServices) { if (meta.features[service.toLowerCase()]) { v2 += 16 } }
+        if (v2 > 0) value += v2 + 16
+        if (meta.features.serviceWorker) value += 16
       }
 
       instancesInfos.push(extend(true, instance, {
