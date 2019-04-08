@@ -14,14 +14,14 @@ p
 h3.blogstyle 凡例
 
 ul.fa-ul
-  li #[span.fa-li: +fa_fw('lock')]: 招待制 (登録にはインスタンス管理者が発行したコードが必要) / #[+fa_fw('lock-open')]: 新規登録可
+  li #[span.fa-li: +fa_fw('lock')]: 招待制（登録にはインスタンス管理者が発行したコードが必要）/ #[+fa_fw('lock-open')]: 新規登録可
   li #[span.fa-li: +fa_fw('comments')]: ローカルタイムラインが有効
   li #[span.fa-li: +fa_fw('search')]: 検索が有効
   li #[span.fa-li: +fa_fw('shield-alt')]: reCAPTCHAによるボット防御が有効
   li #[span.fa-li: +fa_fw('cube')]: ドライブのファイルはオブジェクトストレージで管理されている
   each service in mkConnectServices
     li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: #{service}連携を利用可能
-  li #[span.fa-li: +fa_fw('bell')]: 通知を常時配信可能 (iOSなど、利用環境によっては利用不可) #[small 10.48.0以降は利用不可。]
+  li #[span.fa-li: +fa_fw('bell')]: 通知を常時配信可能 (iOSなど、利用環境によっては利用不可)
   li #[span.fa-li: +fa_fw('envelope-square')]: Eメール連携を利用可能
 ul.fa-ul
   li #[span.fa-li: +fa_fw('users')]: インスタンスに登録されたユーザー数
