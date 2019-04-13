@@ -23,7 +23,33 @@ export const pjaxinit = async () => {
     }
   }
 
-  if (window.currentLocale !== "false" || window.location.pathname === window.pathname) {
+  function iAmNotRobot(): boolean {
+    const ua = window.navigator.userAgent.toLowerCase()
+    for (const text of [
+      "googlebot",
+      "google.com/bot",
+      "google.com/adsbot",
+      "google.com/mobile/adsbot",
+      "google.com/feedfetcher",
+      "bingbot",
+      "bing.com/bingbot",
+      "bingpreview",
+      "msnbot",
+      "search.msn.com/msnbot",
+      "ahrefsbot",
+      "ahrefs.com/robot",
+      "baiduspider",
+      "baidu.com/search/spider",
+      "yandexbot",
+      "yandex.com/bots",
+      "slurp",
+      "help.yahoo.com/help/us/ysearch/slurp"
+    ]) if (ua.indexOf(text) !== -1) return false
+    return true
+  }
+
+  if (
+    (window.currentLocale !== "false" || window.location.pathname === window.pathname) && iAmNotRobot()) {
     if (window.location.search.indexOf("moved") === -1) {
       if (window.locales.indexOf(userLanguage) >= 0) {
         move_locale(userLanguage)
