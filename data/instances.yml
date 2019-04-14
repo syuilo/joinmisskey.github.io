@@ -6,6 +6,8 @@
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: misskey.xyz
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
+- url: misskey.io
+  langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: yuzulia.xyz
   langs: ['en', 'ja']
 #
@@ -119,6 +121,12 @@
 - url: yuuyaap.aa0.netvolante.jp
   langs: ['ja']
 - url: misky.herokuapp.com
+  langs: ['ja']
+- url: misskey.nanao.moe
+  langs: ['ja']
+- url: misskeyml.herokuapp.com
+  langs: ['ja']
+- url: mk.ayushio.com
   langs: ['ja']
 #
 - url: msky.cafe
