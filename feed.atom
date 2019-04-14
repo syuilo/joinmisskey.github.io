@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id></id>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-04-14T13:38:30.152Z</updated>
+    <updated>2019-04-14T18:33:03.340Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://joinmisskey.github.io"/>
     <link rel="self" href="https://joinmisskey.github.io/feed.atom"/>
@@ -54,12 +54,23 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[misskey.xyzの直近の変化についてまとめ]]></title>
+        <title type="html"><![CDATA[公式インスタンスがmisskey.ioになります]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss">
+        </link>
+        <updated>2019-03-08T02:47:00.000Z</updated>
+        <summary type="html"><![CDATA[Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[misskey.ioの直近の変化についてまとめ]]></title>
         <id>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/</id>
         <link href="https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss">
         </link>
         <updated>2019-03-08T02:47:00.000Z</updated>
-        <summary type="html"><![CDATA[misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></summary>
+        <summary type="html"><![CDATA[misskey.ioはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></summary>
         <author>
             <name>aqz</name>
         </author>
@@ -577,7 +588,7 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[18/8/20 misskey.xyzサービス停止について]]></title>
+        <title type="html"><![CDATA[18/8/20 misskey.ioサービス停止について]]></title>
         <id>https://joinmisskey.github.io/ja/blog/2018/08/20_2_ddos/</id>
         <link href="https://joinmisskey.github.io/ja/blog/2018/08/20_2_ddos/?rel=rss">
         </link>
@@ -659,7 +670,7 @@
         <link href="https://joinmisskey.github.io/ja/blog/2018/08/12_1_latestrelease/?rel=rss">
         </link>
         <updated>2018-08-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[misskey.xyz内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。]]></summary>
+        <summary type="html"><![CDATA[misskey.io内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。]]></summary>
         <author>
             <name>aqz</name>
         </author>

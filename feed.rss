@@ -4,7 +4,7 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Sun, 14 Apr 2019 13:38:30 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Apr 2019 18:33:03 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
@@ -46,11 +46,20 @@
             </enclosure>
         </item>
         <item>
-            <title><![CDATA[misskey.xyzの直近の変化についてまとめ]]></title>
+            <title><![CDATA[公式インスタンスがmisskey.ioになります]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</guid>
+            <pubDate>Fri, 08 Mar 2019 02:47:00 GMT</pubDate>
+            <description><![CDATA[Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/04/mkio.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[misskey.ioの直近の変化についてまとめ]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss</link>
             <guid>https://joinmisskey.github.io/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss</guid>
             <pubDate>Fri, 08 Mar 2019 02:47:00 GMT</pubDate>
-            <description><![CDATA[misskey.xyzはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></description>
+            <description><![CDATA[misskey.ioはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。]]></description>
             <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png">
             </enclosure>
         </item>
@@ -473,7 +482,7 @@
             </enclosure>
         </item>
         <item>
-            <title><![CDATA[18/8/20 misskey.xyzサービス停止について]]></title>
+            <title><![CDATA[18/8/20 misskey.ioサービス停止について]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2018/08/20_2_ddos/?rel=rss</link>
             <guid>https://joinmisskey.github.io/ja/blog/2018/08/20_2_ddos/?rel=rss</guid>
             <pubDate>Mon, 20 Aug 2018 04:00:01 GMT</pubDate>
@@ -540,7 +549,7 @@
             <link>https://joinmisskey.github.io/ja/blog/2018/08/12_1_latestrelease/?rel=rss</link>
             <guid>https://joinmisskey.github.io/ja/blog/2018/08/12_1_latestrelease/?rel=rss</guid>
             <pubDate>Sun, 12 Aug 2018 00:00:00 GMT</pubDate>
-            <description><![CDATA[misskey.xyz内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。]]></description>
+            <description><![CDATA[misskey.io内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。]]></description>
             <enclosure url="https://joinmisskey.github.io/files/images/imports/2018/07/denchu.jpg">
             </enclosure>
         </item>
