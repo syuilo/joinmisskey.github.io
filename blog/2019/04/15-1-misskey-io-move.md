@@ -2,7 +2,7 @@
 title: 公式インスタンスがmisskey.ioになります
 description: Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。
 layout: blog
-date: 2019-03-08T11:47:00+09:00
+date: 2019-04-15T03:30:00+09:00
 thumbnail: /files/images/imports/2019/04/mkio.png
 author:
   name: aqz
