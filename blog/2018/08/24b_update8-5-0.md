@@ -6,7 +6,7 @@ date: 2018-08-24T07:30:00+09:00
 thumbnail: /files/images/imports/2018/08/home.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true

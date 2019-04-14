@@ -6,7 +6,7 @@ date: 2018-12-02T03:55:00+09:00
 thumbnail: /files/images/imports/2018/09/wet.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true

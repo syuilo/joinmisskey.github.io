@@ -21,7 +21,7 @@ aqzの読み方は「アキウス」を推奨している。
 なお、自分でこの自分自身の記事を書いた。
 
 ## アカウント
-- [@aqz@misskey.xyz](https://misskey.xyz/@aqz)
+- [@aqz@misskey.io](https://misskey.io/@aqz)
 - [Twitter @t_ma1n](https://twitter.com/t_ma1n)
 - [Twitter @aqzvy](https://twitter.com/aqzvy)
 - [GitHub @tamaina](https://github.com/tamaina)

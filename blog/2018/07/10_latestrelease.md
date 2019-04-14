@@ -6,7 +6,7 @@ date: 2018-07-10T01:00:01+09:00
 thumbnail: /files/images/imports/2018/07/e235.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -21,8 +21,8 @@ amp: true
 
 #### タグ検索
 
-`//misskey.xyz/tags/<タグ>`にアクセスすることで、タグがつけられた投稿を見ることができます。  
-[例: #misskey](https://misskey.xyz/tags/misskey)
+`//misskey.io/tags/<タグ>`にアクセスすることで、タグがつけられた投稿を見ることができます。  
+[例: #misskey](https://misskey.io/tags/misskey)
 
 ##### ハッシュタグウィジェット
 
@@ -30,10 +30,10 @@ amp: true
 
 #### 全文検索
 
-[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
-[例: "misskey"](https://misskey.xyz/search?q=misskey)
+[7月4日](https://misskey.io/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
+[例: "misskey"](https://misskey.io/search?q=misskey)
 
-[→ドキュメント : 検索](https://misskey.xyz/docs/ja/search)
+[→ドキュメント : 検索](https://misskey.io/docs/ja/search)
 
 全文検索機能は現在利用できません。
 
