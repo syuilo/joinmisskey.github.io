@@ -30,7 +30,7 @@ amp: true
 
 #### 全文検索
 
-[7月4日](https://misskey.io/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
+[7月4日](https://misskey.xyz/notes/5b3cbde4ac2b1f31035b9230)に待望の全文検索が復活しました。  
 [例: "misskey"](https://misskey.io/search?q=misskey)
 
 [→ドキュメント : 検索](https://misskey.io/docs/ja/search)

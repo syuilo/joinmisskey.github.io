@@ -32,7 +32,7 @@ Misskey v11リリースに伴い、公式インスタンスはmisskey.xyzからm
 すでに新規登録は停止しています。
 
 データ移行のためしばらくはxyzの稼働を続けたいという考えですが、それにはコストが発生します。  
-[サーバーを管理している村上さんのPatreon](https://www.patreon.com/AureoleArk)に月50ドルの支援がある限りは、xyzは稼働を続けます。 [*](https://misskey.io/notes/5cb3241779d541003afd7e0d)
+[サーバーを管理している村上さんのPatreon](https://www.patreon.com/AureoleArk)に月50ドルの支援がある限りは、xyzは稼働を続けます。 [*](https://misskey.xyz/notes/5cb3241779d541003afd7e0d)
 
 ## その他
 - Twitterアカウントのユーザー名を[@misskey_io](https://twitter.com/misskey_io)に変更します。
