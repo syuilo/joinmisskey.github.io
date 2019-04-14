@@ -12,6 +12,6 @@ syuilo（しゅいろ）は、Misskeyの開発者（Owner）。Twitterのフォ�
 [**syuiloの個人サイト** syuilo.com](https://syuilo.com)
 
 ## アカウント
-- [@syuilo@misskey.xyz](https://misskey.xyz/@syuilo)
+- [@syuilo@misskey.io](https://misskey.io/@syuilo)
 - [Twitter @syuilo](https://twitter.com/syuilo)
 - [GitHub @syuilo](https://github.io/syuilo)

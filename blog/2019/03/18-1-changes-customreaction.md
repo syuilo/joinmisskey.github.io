@@ -6,7 +6,7 @@ date: 2019-03-18T05:00:00+09:00
 thumbnail: /files/images/imports/2019/03/customreact.png
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
