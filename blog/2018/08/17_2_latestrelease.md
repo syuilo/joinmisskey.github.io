@@ -6,7 +6,7 @@ date: 2018-08-17T09:00:01+09:00
 thumbnail: /files/images/imports/2018/07/flower.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -53,7 +53,7 @@ TwitterのUser Streams廃止と凍結祭りが影響しているようです。
 
 三大インスタンス(mstdn.jp、friends.nico、pawoo.net)もユーザー数とトゥート数が急増し、それ以外のインスタンスも全体的に増えているようです。
 
-Eugen氏が運営するmastodon.socialは新規登録を閉じ、代替の登録先としてknzk.meをお勧めしています。[*](https://misskey.xyz/notes/5b75a45805b00f56a1aacf57)
+Eugen氏が運営するmastodon.socialは新規登録を閉じ、代替の登録先としてknzk.meをお勧めしています。[*](https://misskey.io/notes/5b75a45805b00f56a1aacf57)
 
 ### 新しいインスタンス
 [misskey.jp](https://misskey.jp)、[misskeyちほー](https://mk.kemono-friends.info)が開設された模様です。

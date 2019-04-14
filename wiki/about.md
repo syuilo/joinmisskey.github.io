@@ -16,7 +16,7 @@ Misskeyはオープンソースソフトウェアで、[ソースコード](http
 
 Misskeyという名前はMay'nの楽曲「Brain Diver」の歌詞から採られている（syuiloが名前を考えていたときにたまたま聴いていた）。
 
-バグ報告や機能追加要望等は[GitHubリポジトリのIssueとして投稿](https://github.com/syuilo/misskey/issues/new/choose)してほしい。GitHubアカウントを持たない方はMisskey内で@aqz@misskey.xyzか@syuilo@misskey.xyzにリプライを送ってほしい。  
+バグ報告や機能追加要望等は[GitHubリポジトリのIssueとして投稿](https://github.com/syuilo/misskey/issues/new/choose)してほしい。GitHubアカウントを持たない方はMisskey内で@aqz@misskey.ioか@syuilo@misskey.ioにリプライを送ってほしい。  
 PullRequestも歓迎している。
 
 ## Misskey 資源セット

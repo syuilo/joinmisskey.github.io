@@ -6,7 +6,7 @@ date: 2019-04-14T23:00:00+09:00
 thumbnail: /files/images/imports/2019/03/misskey-rd-bg-bk.png
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true

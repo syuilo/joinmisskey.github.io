@@ -6,7 +6,7 @@ date: 2019-04-14T23:00:00+09:00
 thumbnail: /files/images/imports/2019/04/dbk-lg.png
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -26,3 +26,6 @@ v11.0.0では、PostgreSQLにしたこと以外の変更はあまりありませ
 - リストTLでフォローしていないユーザーの非公開投稿が流れる問題を修正
 - リストTLでダイレクト投稿が流れない問題を修正
 - ミュートしているユーザーの投稿がタイムラインに流れてくることがある問題を修正
+
+## 追記
+- 

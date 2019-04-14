@@ -6,7 +6,7 @@ date: 2018-07-29T09:00:00+09:00
 thumbnail: /files/images/imports/2018/07/e2337000.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -19,7 +19,7 @@ amp: true
 
 ### 公式アカウント認証バッジ
 サーバー管理者が公式アカウントにバッジを付けられるようになりました。  
-[例 @domu@misskey.xyz](https://misskey.xyz/@domu)
+[例 @domu@misskey.io](https://misskey.io/@domu)
 
 ### ハッシュタグ・サジェスト
 "#"を入力すると自分が使ったハッシュタグを選択できます。  

@@ -1,12 +1,12 @@
 ---
 title: "最近の更新😇 (H30/8/12) ～5.22.1"
-description: misskey.xyz内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。
+description: misskey.io内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。
 layout: blog
 date: 2018-08-12T09:00:00+09:00
 thumbnail: /files/images/imports/2018/07/denchu.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -49,11 +49,11 @@ Catを有効にすると「な」が「にゃ」に変換されますが(所謂n
 これからもMisskeyはあなたが望む限り魔法をかけ続けます。
 
 ### ドキュメント更新
-[ドキュメント](https://misskey.xyz/docs/ja/about)にdisqusが設置されました(できるようになりました)。APIの使い方でわからないことがあれば質問してみましょう。  
+[ドキュメント](https://misskey.io/docs/ja/about)にdisqusが設置されました(できるようになりました)。APIの使い方でわからないことがあれば質問してみましょう。  
 ……インスタンス独自拡張でもない限りsyuiloに直接聞いたほうが早いと思います。正直。
 
 ### その他
-ブログが放置されていた2週間の間にも改善された箇所はたくさんありますが(オセロとか[藍](https://misskey.xyz/@ai)の多機能化とか)、面倒臭いのでこれでブログを書くのはやめておきます😇
+ブログが放置されていた2週間の間にも改善された箇所はたくさんありますが(オセロとか[藍](https://misskey.io/@ai)の多機能化とか)、面倒臭いのでこれでブログを書くのはやめておきます😇
 
 ## これからの予定
 粘り強いプレゼンテーションの結果(*)、Misskeyにようやく管理画面が実装される見込みとなりました。  

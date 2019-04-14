@@ -6,7 +6,7 @@ date: 2019-03-20T02:30:00+09:00
 thumbnail: /files/images/imports/2019/03/kyos.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: 更新
 amp: true
@@ -18,7 +18,7 @@ MisskeyのデータベースをPostgreSQLに対応させるプロジェクトが
 
 > 可能なら書く  
 > 不可能なら書かない  
-> ――しゅいろ[*](https://misskey.xyz/notes/5c9266b8391759002e05102d)
+> ――しゅいろ[*](https://misskey.io/notes/5c9266b8391759002e05102d)
 
 現時点では、マイグレーションが書けるかどうかはわかっていません。
 

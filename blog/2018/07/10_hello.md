@@ -6,7 +6,7 @@ date: 2018-07-10T01:00:00+09:00
 thumbnail: /files/images/imports/2018/07/akibabara.jpg
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true
@@ -18,6 +18,6 @@ zawazawaのChangeLogとかはこちらに移管するような気がします。
 
 jQueryを嫌ってbootstrapのスクリプトは切っています。
 
-[Misskey本家サーバー misskey.xyz](https://misskey.xyz)  
+[Misskey本家サーバー misskey.io](https://misskey.io)  
 [Misskey GitHub syuilo/misskey](https://github.com/syuilo/misskey)  
 [joinmisskey GitHub joinmisskey/joinmisskey.github.io](https://github.com/joinmisskey/joinmisskey.github.io)  

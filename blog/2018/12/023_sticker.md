@@ -6,16 +6,16 @@ date: 2018-12-02T16:30:00+09:00
 thumbnail: /files/images/imports/2018/12/sticker.png
 author:
   name: aqz
-  url: https://misskey.xyz/@aqz
+  url: https://misskey.io/@aqz
   avatar: aqz
 category: グッズ
 amp: true
 ---
-[Misskey Cafe Store](https://msky-cafe.booth.pm/) より、Misskeyロゴステッカー(小)が販売開始されます。 [*](https://misskey.xyz/notes/5c02d8e5e0a8a6002746cdbb)
+[Misskey Cafe Store](https://msky-cafe.booth.pm/) より、Misskeyロゴステッカー(小)が販売開始されます。 [*](https://misskey.io/notes/5c02d8e5e0a8a6002746cdbb)
 
 **[先行販売ページ(booth)へ](https://msky-cafe.booth.pm/items/1115309)**
 
-大きいステッカーも発売される予定があるそうです。[*](https://misskey.xyz/notes/5c02de257771780027d67248)
+大きいステッカーも発売される予定があるそうです。[*](https://misskey.io/notes/5c02de257771780027d67248)
 
 ## 詳細
 ![商品画像](/files/images/imports/2018/12/sticker.png "Misskeyステッカー(小) 商品画像")
