@@ -16,7 +16,7 @@ amp: true
 [**misskey.ioにアカウントを登録してください。**](https://misskey.io)
 
 Misskey史上初の公式インスタンス移転です。  
-Misskey v11リリースに伴い、公式インスタンスはmisskey.ioからmisskey.ioに引っ越しとなります。  
+Misskey v11リリースに伴い、公式インスタンスはmisskey.xyzからmisskey.ioに引っ越しとなります。  
 
 引っ越しに至った理由は、Misskey v11のデータベースソフトウェア変更に伴うデータの移行を断念したためです。
 
