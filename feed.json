@@ -6,6 +6,17 @@
     "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss",
+            "title": "公式インスタンスがmisskey.ioになります",
+            "summary": "Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。",
+            "image": "https://joinmisskey.github.io/files/images/imports/2019/04/mkio.png",
+            "date_modified": "2019-04-14T18:30:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
             "id": "https://joinmisskey.github.io/ja/blog/2019/04/14-1-misskey-daybreak-12/",
             "url": "https://joinmisskey.github.io/ja/blog/2019/04/14-1-misskey-daybreak-12/?rel=rss",
             "title": "Misskey <<daybreak>> v11.0.0 Released!!",
@@ -45,17 +56,6 @@
             "summary": "リアクションが自由に、ほか。",
             "image": "https://joinmisskey.github.io/files/images/imports/2019/03/customreact.png",
             "date_modified": "2019-03-17T20:00:00.000Z",
-            "author": {
-                "name": "aqz"
-            }
-        },
-        {
-            "id": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/",
-            "url": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss",
-            "title": "公式インスタンスがmisskey.ioになります",
-            "summary": "Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。",
-            "image": "https://joinmisskey.github.io/files/images/imports/2019/04/mkio.png",
-            "date_modified": "2019-03-08T02:47:00.000Z",
             "author": {
                 "name": "aqz"
             }

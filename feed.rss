@@ -4,11 +4,20 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Sun, 14 Apr 2019 18:33:03 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Apr 2019 18:52:35 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
         <atom:link href="https://joinmisskey.github.io/feed.atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[公式インスタンスがmisskey.ioになります]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</guid>
+            <pubDate>Sun, 14 Apr 2019 18:30:00 GMT</pubDate>
+            <description><![CDATA[Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/04/mkio.png">
+            </enclosure>
+        </item>
         <item>
             <title><![CDATA[Misskey <<daybreak>> v11.0.0 Released!!]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2019/04/14-1-misskey-daybreak-12/?rel=rss</link>
@@ -43,15 +52,6 @@
             <pubDate>Sun, 17 Mar 2019 20:00:00 GMT</pubDate>
             <description><![CDATA[リアクションが自由に、ほか。]]></description>
             <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/customreact.png">
-            </enclosure>
-        </item>
-        <item>
-            <title><![CDATA[公式インスタンスがmisskey.ioになります]]></title>
-            <link>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</link>
-            <guid>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</guid>
-            <pubDate>Fri, 08 Mar 2019 02:47:00 GMT</pubDate>
-            <description><![CDATA[Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。]]></description>
-            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/04/mkio.png">
             </enclosure>
         </item>
         <item>
