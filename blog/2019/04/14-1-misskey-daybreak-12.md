@@ -11,6 +11,8 @@ author:
 category: 更新
 amp: true
 ---
+![Misskey daybreak](/files/images/imports/2019/04/dbk-lg.png)
+
 Misskeyの新しいバージョン「daybreak」の正式版がついにリリースされました。データベースソフトウェアをMongoDBからPostgreSQLに変更しました。  
 [**詳細はCHANGELOGをご覧ください。**](https://github.com/syuilo/misskey/blob/develop/CHANGELOG.md#1100-daybreak)
 
