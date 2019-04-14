@@ -22,5 +22,5 @@ Misskeyのソフトウェア自体からローカルタイムライン機能が�
 ちなみに、「ハイライト」「みつける」の両機能はこのLTL無効状態でもユーザーや話題の投稿を見つけやすくするために追加されたという経緯があります。
 
 ## お知らせアカウント
-misskey.ioのサーバー情報などを呟く[@notify@misskey.io](https://misskey.io/@notify)が作成されました。[*](https://misskey.io/notes/5c40712bff578900271bdce6)  
+misskey.ioのサーバー情報などを呟く[@notify@misskey.io](https://misskey.io/@notify)が作成されました。[*](https://misskey.xyz/notes/5c40712bff578900271bdce6)  
 村上さんやしゅいろによって、メンテナンス・障害・モデレーションに関する情報が発信されています。
