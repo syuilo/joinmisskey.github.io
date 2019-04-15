@@ -14,6 +14,7 @@ const userLanguage = navigator.language
 
 export const pjaxinit = async () => {
   const { Pjax } = await import("pjax-api")
+
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       onReady(() => {
