@@ -50,7 +50,9 @@ export const pjaxinit = async () => {
   }
 
   if (
-    (window.currentLocale !== "false" || window.location.pathname === window.pathname) && iAmNotRobot()) {
+    (window.currentLocale !== "false" || window.location.pathname === window.pathname)
+    && iAmNotRobot()
+  ) {
     if (window.location.search.indexOf("moved") === -1) {
       if (window.locales.indexOf(userLanguage) >= 0) {
         move_locale(userLanguage)
