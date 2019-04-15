@@ -1,5 +1,5 @@
 ---
-title: The Official Instance of Misskey is now misskey.io
+title: The Official Instance of Misskey is Now misskey.io
 description: Because of the completion of Misskey v11, the official instance of misskey becomes misskey.io instead of misskey.xyz.
 layout: blog
 date: 2019-04-15T03:30:00+09:00
