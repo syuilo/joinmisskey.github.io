@@ -130,6 +130,8 @@
   langs: ['ja']
 - url: test.yuzulia.xyz
   langs: ['ja']
+- url: suki.tsuki.network
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
