@@ -22,7 +22,7 @@ html(lang=locale, amp)
           *
           *
       block canonical
-        link(rel="canonical", href=`${urlPrefix}/ja/${page.meta.dirs.slice(2).join("/")}`)
+        link(rel="canonical", href=page.meta.url.href)
         link(rel="amphtml", href=`${page.meta.url.href}amp.html`)
 
         if(page.meta.locale)
