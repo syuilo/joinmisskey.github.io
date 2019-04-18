@@ -128,6 +128,8 @@
   langs: ['ja']
 - url: mk.ayushio.com
   langs: ['ja']
+- url: test.yuzulia.xyz
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -215,3 +217,10 @@
   langs: ['ko', 'en']
 - url: m.con.sh
   langs: ['zh', 'en']
+#
+##
+#########################################
+##
+#
+- url: miss.waytt.cf
+  langs: ['ru', 'en']
