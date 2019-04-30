@@ -132,6 +132,10 @@
   langs: ['ja']
 - url: suki.tsuki.network
   langs: ['ja']
+- url: misskey.nokotaro.work
+  langs: ['ja']
+- url: msky.floso.net
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
