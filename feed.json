@@ -6,6 +6,17 @@
     "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/05/14-0-changes-110700/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/05/14-0-changes-110700/?rel=rss",
+            "title": "最近の更新 ～11.7.0",
+            "summary": "祝 令和改元 / ページ（Misskey Pages）追加ほか",
+            "image": "https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png",
+            "date_modified": "2019-04-30T16:00:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
             "id": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/",
             "url": "https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss",
             "title": "公式インスタンスがmisskey.ioになります",

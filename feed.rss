@@ -4,11 +4,20 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Mon, 22 Apr 2019 23:43:01 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Apr 2019 15:41:56 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
         <atom:link href="https://joinmisskey.github.io/feed.atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[最近の更新 ～11.7.0]]></title>
+            <link>https://joinmisskey.github.io/ja/blog/2019/05/14-0-changes-110700/?rel=rss</link>
+            <guid>https://joinmisskey.github.io/ja/blog/2019/05/14-0-changes-110700/?rel=rss</guid>
+            <pubDate>Tue, 30 Apr 2019 16:00:00 GMT</pubDate>
+            <description><![CDATA[祝 令和改元 / ページ（Misskey Pages）追加ほか]]></description>
+            <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png">
+            </enclosure>
+        </item>
         <item>
             <title><![CDATA[公式インスタンスがmisskey.ioになります]]></title>
             <link>https://joinmisskey.github.io/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss</link>
