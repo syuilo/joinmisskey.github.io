@@ -225,6 +225,8 @@
   langs: ['ko', 'en']
 - url: m.con.sh
   langs: ['zh', 'en']
+- url: misskey.gothloli.club
+  langs: ['zh', 'en']
 #
 ##
 #########################################
