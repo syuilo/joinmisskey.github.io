@@ -92,16 +92,18 @@ async function getInstancesInfos(instances) {
     usersChartsPromises.push(safePost(`https://${instance.url}/api/charts/users`, { json: { span: "day" } }))
     notesChartsPromises.push(safePost(`https://${instance.url}/api/charts/notes`, { json: { span: "day" } }))
   }
-  const ress = await Promise.all([
+  const [
+    metas,
+    stats,
+    usersCharts,
+    notesCharts
+  ] = await Promise.all([
     Promise.all(metasPromises),
     Promise.all(statsPromises),
     Promise.all(usersChartsPromises),
     Promise.all(notesChartsPromises)
   ])
-  const metas = ress[0]
-  const stats = ress[1]
-  const usersCharts = ress[2]
-  const notesCharts = ress[3]
+
   for (let i = 0; i < instances.length; i += 1) {
     const instance = instances[i]
     const meta = metas[i] ? metas[i].body : false
