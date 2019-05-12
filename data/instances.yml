@@ -138,6 +138,10 @@
   langs: ['ja']
 - url: misskey.noellabo.jp
   langs: ['ja']
+- url: misskey.fluoride.dev
+  langs: ['ja']
+- url: social.xeltica.work
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
