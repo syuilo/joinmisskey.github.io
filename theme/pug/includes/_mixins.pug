@@ -145,7 +145,10 @@ mixin instancesList(o, colors, sctrollts)
             break
         }
       if(ilang && itype)
-        - let s = instance.isAlive && instance.meta.bannerUrl ? `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center;` : ''
+        -
+          let s = (instance.isAlive && instance.meta.bannerUrl) ?
+          `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
+          ``
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start.py-3
           h5.noindex
             | #{instance.name || (instance.isAlive && instance.meta.name && instance.meta.name != 'Misskey' && instance.meta.name != instance.url) ? `${instance.name || instance.meta.name}<span class="${c2}"> - ${instance.url}</span>` : instance.url}
