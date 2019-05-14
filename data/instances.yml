@@ -2,12 +2,13 @@
 ###### インスタンスリスト        #######
 ###### The List of Instances     #######
 ########################################
+- url: misskey.io
+  langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: misskey.dev
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: misskey.xyz
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
-- url: misskey.io
-  langs: ['ja', 'en', 'fr', 'ko', 'zh']
+  notSuspended: true
 - url: yuzulia.xyz
   langs: ['en', 'ja']
 #

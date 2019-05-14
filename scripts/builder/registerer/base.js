@@ -1,9 +1,7 @@
 /* eslint-disable max-len */
 const mkConnectServices = ["Twitter", "GitHub", "Discord"]
 
-const util = require("util")
-
-const { promisify } = util
+const { promisify } = require("util")
 const sass = require("node-sass")
 const CleanCss = require("clean-css")
 const htmlToText = require("html-to-text")
@@ -236,11 +234,7 @@ module.exports = async (site, keys, tempDir, instances) => {
     patrons = patrons.reverse()
   }
 
-  const promises2 = await Promise.all([Promise.all(promises), getInstancesInfos(instances), getAmpCss()])
-
-  const creditIcons = promises2[0]
-  const instancesInfos = promises2[1]
-  const ampcss = promises2[2]
+  const [creditIcons, instancesInfos, ampcss] = await Promise.all([Promise.all(promises), getInstancesInfos(instances), getAmpCss()])
 
   return {
     instancesInfos,
