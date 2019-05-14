@@ -16,13 +16,13 @@ Misskeyはオープンソースソフトウェアで、[ソースコード](http
 
 Misskeyという名前はMay'nの楽曲「Brain Diver」の歌詞から採られている（syuiloが名前を考えていたときにたまたま聴いていた）。
 
-バグ報告や機能追加要望等は[GitHubリポジトリのIssueとして投稿](https://github.com/syuilo/misskey/issues/new/choose)してほしい。GitHubアカウントを持たない方はMisskey内で@aqz@misskey.ioか@syuilo@misskey.ioにリプライを送ってほしい。  
+バグ報告や機能追加要望等は[GitHubリポジトリのIssueとして投稿](https://github.com/syuilo/misskey/issues/new/choose)してほしい。GitHubアカウントを持っていない方は、Misskey内で@aqz@misskey.ioか@syuilo@misskey.ioにリプライを送ってほしい。  
 PullRequestも歓迎している。
 
 ## Misskey 資源セット
 ![Misskey Logo](/files/images/title.light.svg)
 
-Misskeyのロゴや配色は、[資源セットとしてこちらからダウンロード](https://github.com/joinmisskey/mk-assets/releases)できる。  
+Misskeyのロゴや配色は[こちらからダウンロード](https://github.com/joinmisskey/mk-assets/releases)できる。  
 プレスキット、メディアキットとも呼ばれる。
 
 [**資源セットをダウンロード** (joinmisskey/mk-assets releases)](https://github.com/joinmisskey/mk-assets/releases)
