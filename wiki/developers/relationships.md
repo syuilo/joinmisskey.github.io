@@ -1,11 +1,9 @@
 ---
 title: 他のサービスとの連携を設定する
-description: Twitter、GitHubおよびDiscordでの認証を利用することができる。これには管理者側での設定が必要。
+description: Twitter、GitHubおよびDiscordでの認証を利用することができる。これには管理者側での設定が必要である。
 layout: wiki
 rank: 1
 ---
-**他のサービスとの連携を設定するにはRedisとの接続が必要。**
-
 ## Twitter
 一時期話題になったことだが、Twitterアプリの作成には使用用途を記入し審査を受ける必要がある。  
 審査には数日かかるようだ。
