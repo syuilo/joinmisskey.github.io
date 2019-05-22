@@ -37,7 +37,6 @@ Misskeyのモデレーション機能について、簡単に解説する。
 
 ```
 sinblr.com
-fleur7.com
 switter.at
 switter.co
 humblr.social
