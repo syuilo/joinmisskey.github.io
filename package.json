@@ -111,7 +111,7 @@
     "typescript": "^3.4.5",
     "typescript-require": "^0.2.10",
     "ua-parser-js": "^0.7.19",
-    "webpack": "^4.32.0",
+    "webpack": "^4.32.1",
     "webpack-stream": "^5.2.1",
     "youtube-player": "^5.5.2"
   }
