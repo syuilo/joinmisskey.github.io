@@ -36,10 +36,9 @@ Misskeyのモデレーション機能について、簡単に解説する。
 例:
 
 ```
-sinblr.com
-switter.at
-switter.co
-humblr.social
+example.com
+hoge.fuga
+foo.bar
 ```
 
 ### 閉鎖されているとマーク
