@@ -202,6 +202,8 @@
   langs: ['en']
 - url: status.pech.tech
   langs: ['en']
+- url: misskey.i2p.rocks
+  langs: ['en']
 #
 ##
 #########################################
