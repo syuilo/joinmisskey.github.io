@@ -143,6 +143,8 @@
   langs: ['ja']
 - url: social.xeltica.work
   langs: ['ja']
+- url: misskey.ml
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
