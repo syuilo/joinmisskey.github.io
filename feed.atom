@@ -2,13 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id></id>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-05-26T18:25:20.273Z</updated>
+    <updated>2019-05-27T11:03:43.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://joinmisskey.github.io"/>
     <link rel="self" href="https://joinmisskey.github.io/feed.atom"/>
     <subtitle>いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）</subtitle>
     <icon>https://joinmisskey.github.io/favicon.ico</icon>
     <rights>© Misskey</rights>
+    <entry>
+        <title type="html"><![CDATA[最近の更新 ～11.20.0]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/05/27-1-changes-112000/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/05/27-1-changes-112000/?rel=rss">
+        </link>
+        <updated>2019-05-27T11:00:00.000Z</updated>
+        <summary type="html"><![CDATA[公式アカウントフラグの廃止とおすすめアカウント機能の追加 / Misskey Pagesの改良 ほか]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ステッカー再販]]></title>
         <id>https://joinmisskey.github.io/ja/blog/2019/05/12-0-sticker-saihan/</id>

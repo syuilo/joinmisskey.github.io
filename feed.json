@@ -6,6 +6,17 @@
     "description": "いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
+            "id": "https://joinmisskey.github.io/ja/blog/2019/05/27-1-changes-112000/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/05/27-1-changes-112000/?rel=rss",
+            "title": "最近の更新 ～11.20.0",
+            "summary": "公式アカウントフラグの廃止とおすすめアカウント機能の追加 / Misskey Pagesの改良 ほか",
+            "image": "https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png",
+            "date_modified": "2019-05-27T11:00:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
             "id": "https://joinmisskey.github.io/ja/blog/2019/05/12-0-sticker-saihan/",
             "url": "https://joinmisskey.github.io/ja/blog/2019/05/12-0-sticker-saihan/?rel=rss",
             "title": "ステッカー再販",
