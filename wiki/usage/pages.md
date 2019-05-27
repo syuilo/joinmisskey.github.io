@@ -3,8 +3,8 @@ title: ページ
 description: 「ページ」では、簡単なスクリプトを利用しながらページを作成できる。
 layout: wiki
 rank: 16
-prev: /wiki/usage/widget/
-#next: /wiki/usage/widget/
+prev: /wiki/usage/widgets/
+next: /wiki/usage/groups/
 ---
 「ページ」では、簡単なスクリプトを利用しながらページを作成できる。ぜひ触ってみてほしい。
 
