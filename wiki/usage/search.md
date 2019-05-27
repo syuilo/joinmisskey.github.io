@@ -4,7 +4,7 @@ description: 検索でノートやユーザーを検索できる。
 layout: wiki
 rank: 14
 prev: /wiki/usage/theme/
-next: /wiki/usage/widget/
+next: /wiki/usage/widgets/
 ---
 ![検索窓](/files/images/imports/2019/03/kensakumado.png)
 
