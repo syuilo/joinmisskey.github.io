@@ -31,10 +31,12 @@ Misskey v11リリースに伴い、公式インスタンスはmisskey.xyzからm
   * 設定画面から投稿データのエクスポートが行えます。
 
 ## misskey.xyzの今後について
-すでに新規登録は停止しています。
+misskey.xyzは2019/5/31をもって閉鎖されます。
 
-データ移行のためしばらくはxyzの稼働を続けたいという考えですが、それにはコストが発生します。  
-[サーバーを管理している村上さんのPatreon](https://www.patreon.com/AureoleArk)に月50ドルの支援がある限りは、xyzは稼働を続けます。 [*](https://misskey.xyz/notes/5cb3241779d541003afd7e0d)
+~~すでに新規登録は停止しています。~~
+
+~~データ移行のためしばらくはxyzの稼働を続けたいという考えですが、それにはコストが発生します。~~  
+~~[サーバーを管理している村上さんのPatreon](https://www.patreon.com/AureoleArk)に月50ドルの支援がある限りは、xyzは稼働を続けます。 [*](https://misskey.xyz/notes/5cb3241779d541003afd7e0d)~~
 
 ## その他
 - Twitterアカウントのユーザー名を[@misskey_io](https://twitter.com/misskey_io)に変更します。
