@@ -26,10 +26,12 @@ The official instance of misskey becomes misskey.io instead of misskey.xyz.
   * You can export posts (notes) from settings.
 
 ## About the future of misskey.xyz
-Registration for misskey.xyz already closed.
+misskey.xyz has closed.
 
-We think we should continue running misskey.xyz because there is data on it, but it costs.  
-So misskey.xyz will continue as long as there is $50 support per month to [Aureole Ark (Murakami-san)'s Patreon](https://www.patreon.com/AureoleArk)[*](https://misskey.xyz/notes/5cb3241779d541003afd7e0d).
+~~Registration for misskey.xyz already closed.~~
+
+~~We think we should continue running misskey.xyz because there is data on it, but it costs.~~  
+~~So misskey.xyz will continue as long as there is $50 support per month to [Aureole Ark (Murakami-san)'s Patreon](https://www.patreon.com/AureoleArk)[*](https://misskey.xyz/notes/5cb3241779d541003afd7e0d).~~
 
 ## the others
 - The official Twitter account is now [@misskey_io](https://twitter.com/misskey_io).
