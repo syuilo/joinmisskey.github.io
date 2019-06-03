@@ -15,7 +15,7 @@ amp: true
 
 [**Sign up for *misskey.io!***](https://misskey.io)
 
-Because of the completion of Misskey v11, we should have had to migrate data of the instance but we give up, and we decided to move.  
+Because of the completion of Misskey v11 that uses different database software than old version, we should have had to migrate data of *misskey.xyz*, but we gave up migration of data and we decided to move.  
 The official instance of Misskey becomes *misskey.io* instead of *misskey.xyz*.
 
 ## About moving
