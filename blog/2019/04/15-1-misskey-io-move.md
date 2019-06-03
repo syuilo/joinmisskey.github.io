@@ -11,17 +11,17 @@ author:
 category: misskey.io
 amp: true
 ---
-![misskey.io](/files/images/imports/2019/04/mkio.png)
+![*misskey.io*](/files/images/imports/2019/04/mkio.png)
 
-[**Sign up for misskey.io!**](https://misskey.io)
+[**Sign up for *misskey.io!***](https://misskey.io)
 
 Because of the completion of Misskey v11, we should have had to migrate data of the instance but we give up, and we decided to move.  
-The official instance of misskey becomes misskey.io instead of misskey.xyz.
+The official instance of Misskey becomes *misskey.io* instead of *misskey.xyz*.
 
 ## About moving
 1. **There is no migration of data.** You should [**sign up for misskey.io**](https://misskey.io).
   * You can export and import followings and lists from settings.
-2. **misskey.xyz has been closed.** All data disappears.
+2. ***misskey.xyz* has been closed.** All data disappears.
 
 ## the others
 - The official Twitter account is now [@misskey_io](https://twitter.com/misskey_io).
