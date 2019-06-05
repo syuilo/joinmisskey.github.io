@@ -147,6 +147,12 @@
   langs: ['ja']
 - url: twista.nokotaro.work
   langs: ['ja']
+- url: lanterner.cf
+  langs: ['ja']
+- url: misk.thinaticsystem.com
+  langs: ['ja']
+- url: nekomimi.yokohama
+  langs: ['js']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -208,6 +214,10 @@
   langs: ['en']
 - url: misskey.i2p.rocks
   langs: ['en']
+- url: the.nyanbinary.club
+  langs: ['en']
+- url: fedi.kitteh.pw
+  langs: ['en']
 #
 ##
 #########################################
@@ -237,6 +247,8 @@
 - url: m.con.sh
   langs: ['zh', 'en']
 - url: misskey.gothloli.club
+  langs: ['zh', 'en']
+- url: ygo.pub
   langs: ['zh', 'en']
 #
 ##
