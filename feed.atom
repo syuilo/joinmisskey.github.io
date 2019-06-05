@@ -2,13 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id></id>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-06-05T03:55:31.641Z</updated>
+    <updated>2019-06-05T21:43:41.759Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://joinmisskey.github.io"/>
     <link rel="self" href="https://joinmisskey.github.io/feed.atom"/>
     <subtitle>いつまでも進化する、先進的なマイクロブログSNS Misskey（ミスキー）</subtitle>
     <icon>https://joinmisskey.github.io/favicon.ico</icon>
     <rights>© Misskey</rights>
+    <entry>
+        <title type="html"><![CDATA[Misskey Wiki開設]]></title>
+        <id>https://joinmisskey.github.io/ja/blog/2019/06/06-new-wiki/</id>
+        <link href="https://joinmisskey.github.io/ja/blog/2019/06/06-new-wiki/?rel=rss">
+        </link>
+        <updated>2019-06-05T22:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Misskey Wikiが開設されました。joinmisskeyのWikiはそちらに移転します。]]></summary>
+        <author>
+            <name>aqz</name>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[最近の更新 ～11.20.0]]></title>
         <id>https://joinmisskey.github.io/ja/blog/2019/05/27-1-changes-112000/</id>
