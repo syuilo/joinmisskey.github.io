@@ -58,9 +58,9 @@ export const pjaxinit = async () => {
         move_locale(userLanguage)
       } else if (window.locales.indexOf(userLanguage.slice(0, 2)) >= 0) {
         move_locale(userLanguage.slice(0, 2))
-      } else if (window.currentLocale !== "ja") {
+      } else if (window.currentLocale !== "en") {
         onReady(() => {
-          Pjax.replace(`/ja${window.permalink}?moved${window.location.hash}`, {})
+          Pjax.replace(`/en${window.permalink}?moved${window.location.hash}`, {})
         })
       }
     } else {
