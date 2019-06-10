@@ -17,6 +17,8 @@ has_child: false
 ## このリストについて
 更新は手動で行っている。追加依頼は@aqz@misskey.ioまたは[Issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new)にて受け付ている。
 
+[セキュリティリスク](https://github.com/syuilo/misskey/security/advisories)が高いバージョンで運用されているインスタンスはリストに掲載されない。
+
 インスタンスの情報は、ページ最下部の更新日時の時点でAPIから得た情報を基にしている。
 
 ### リストの順序について
