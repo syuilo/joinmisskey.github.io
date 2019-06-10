@@ -144,7 +144,7 @@ mixin instancesList(o, colors, sctrollts)
             itype = alive && !iregi
             break
         }
-      if(ilang && itype)
+      if(ilang && itype && ( instance.isAlive ? !semver.satisfies(instance.meta.version, ">= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2") : true ))
         -
           let s = (instance.isAlive && instance.meta.bannerUrl) ?
           `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
