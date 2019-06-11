@@ -47,7 +47,7 @@ description: Misskeyに貢献してくださった方を掲載しています。
       if(patrons || patrons.length != 0)
         each tier in patrons
           div(id=`patrons_list_${tier.lv}`).patrons-list-tier
-            h3.text-center.pt-4.pb-2 #{!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title} <small>(#{tier.members + 1})</small>
+            h3.text-center.pt-4.pb-2 #{!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title} <small>(#{tier.members.length + 1})</small>
             div.patrons-list-members.d-flex.flex-wrap.justify-content-center
               each patron in tier.members
                 a(href=patron.attributes.url target="_blank" rel="noopener" title=patron.attributes.full_name).person
