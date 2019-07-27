@@ -3,7 +3,7 @@
 ###### The List of Instances     #######
 ########################################
 - url: misskey.io
-  langs: ['ja', 'en', 'fr', 'ko', 'zh']
+  langs: ['ja']
   notSuspended: true
 - url: misskey.dev
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
@@ -11,6 +11,8 @@
   langs: ['ja', 'en', 'fr', 'ko', 'zh']
 - url: yuzulia.xyz
   langs: ['en', 'ja']
+- url: s.alien.moe
+  langs: ['ja', 'ko', 'en']
 #
 - url: misskey.jp
   langs: ['ja']
@@ -152,7 +154,25 @@
 - url: misk.thinaticsystem.com
   langs: ['ja']
 - url: nekomimi.yokohama
-  langs: ['js']
+  langs: ['ja']
+- url: misskey.t612.ml
+  langs: ['ja']
+- url: misskey.lunet.org
+  langs: ['ja']
+- url: www.chemoner.tokyo
+  langs: ['ja']
+- url: phantasma.cloud
+  langs: ['ja']
+- url: mk.sns.monster
+  langs: ['ja']
+- url: mamesky.mamemo.online
+  langs: ['ja']
+- url: miss.oikura.site
+  langs: ['ja']
+- url: mi.makotia.me
+  langs: ['ja']
+- url: eizi2002.dip.jp
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -217,6 +237,28 @@
 - url: the.nyanbinary.club
   langs: ['en']
 - url: fedi.kitteh.pw
+  langs: ['en']
+- url: misskey.dereferenced.org
+  langs: ['en']
+- url: donar.cz
+  langs: ['en']
+- url: blackmesa.space
+  langs: ['en']
+- url: 776568.natalie.ee
+  langs: ['en']
+- url: log.cyberpunk.net.ar
+  langs: ['en']
+- url: social.coolmathgames.tech
+  langs: ['en']
+- url: mi.underscore.world
+  langs: ['en']
+- url: cyberia.nessel.cloud
+  langs: ['en']
+- url: catgirl.life
+  langs: ['en']
+- url: hoefer.social
+  langs: ['en']
+- url: skippers-bin.com
   langs: ['en']
 #
 ##
