@@ -175,6 +175,10 @@
   langs: ['ja']
 - url: mujo.xyz
   langs: ['ja']
+- url: mi.zuiho.moe
+  langs: ['ja']
+- url: test_t_msk.m0.lc
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -261,6 +265,8 @@
 - url: hoefer.social
   langs: ['en']
 - url: skippers-bin.com
+  langs: ['en']
+- url: changelings.online
   langs: ['en']
 #
 ##
