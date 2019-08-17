@@ -6,12 +6,12 @@
     "description": "いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
-            "id": "https://joinmisskey.github.io/ja/blog/2019/08/11-1-changes-112003/",
-            "url": "https://joinmisskey.github.io/ja/blog/2019/08/11-1-changes-112003/?rel=rss",
-            "title": "最近の更新 ～11.20.3",
+            "id": "https://joinmisskey.github.io/ja/blog/2019/08/17-1-changes-112701/",
+            "url": "https://joinmisskey.github.io/ja/blog/2019/08/17-1-changes-112701/?rel=rss",
+            "title": "最近の更新 ～11.27.1",
             "summary": "セキュリティアップデートが含まれます。",
             "image": "https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png",
-            "date_modified": "2019-06-10T15:30:00.000Z",
+            "date_modified": "2019-08-16T15:30:00.000Z",
             "author": {
                 "name": "aqz"
             }
