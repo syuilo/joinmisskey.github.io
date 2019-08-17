@@ -4,7 +4,7 @@
         <title>Misskeyをはじめよう</title>
         <link>https://joinmisskey.github.io</link>
         <description>いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Sat, 17 Aug 2019 07:59:51 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 17 Aug 2019 08:57:16 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
@@ -14,7 +14,7 @@
             <link>https://joinmisskey.github.io/ja/blog/2019/08/17-1-changes-112701/?rel=rss</link>
             <guid>https://joinmisskey.github.io/ja/blog/2019/08/17-1-changes-112701/?rel=rss</guid>
             <pubDate>Fri, 16 Aug 2019 15:30:00 GMT</pubDate>
-            <description><![CDATA[セキュリティアップデートが含まれます。]]></description>
+            <description><![CDATA[WebAuthnサポート、削除して編集、通知のフィルタリングの追加など。]]></description>
             <enclosure url="https://joinmisskey.github.io/files/images/imports/2019/03/misskey-rd-bg-bk.png"/>
         </item>
         <item>
