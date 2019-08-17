@@ -113,7 +113,7 @@ async function getInstancesInfos(instances) {
       let value = 0
       // 1. セマンティックバージョニングをもとに並び替え (独自拡張の枝番は除去)
       const v = semver.valid(semver.coerce(meta.version))
-      const varr = v.split(".")
+      const varr = v ? v.split(".") : [0, 0, 0]
       value += (Number(varr[0]) * 16 * 150 + Number(varr[1]) * 16 + Number(varr[0])) * 750
       if (meta.version.split("-").length > 1) value += 5
       // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
