@@ -15,7 +15,7 @@ has_child: false
 ちなみに、インスタンスどうしが繋がっている世界はFediverseと呼ばれる。
 
 ## このリストについて
-更新は手動で行っている。追加依頼は@aqz@misskey.ioまたは[Issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new)にて受け付ている。
+更新は手動で行っている。追加依頼は@aqz@yuzulia.xyzまたは[Issue](https://github.com/joinmisskey/joinmisskey.github.io/issues/new)にて受け付ている。
 
 [セキュリティリスク](https://github.com/syuilo/misskey/security/advisories)が高いバージョンで運用されているインスタンスはリストに掲載されない。
 
@@ -64,7 +64,7 @@ has_child: false
 
 ### 他言語版のインスタンス
 各言語版のページで、それぞれの言語が使われているインスタンスのみ掲載している。ほかの言語のインスタンスを見たい場合、右上の言語選択で他国語版のページから閲覧できる。  
-なお、インスタンスの言語は編集者が勝手に推測して設定している。インスタンスの言語設定についてリクエストがある場合は、@aqz@misskey.io宛てに教えてほしい。
+なお、インスタンスの言語は編集者が勝手に推測して設定している。インスタンスの言語設定についてリクエストがある場合は、@aqz@yuzulia.xyz宛てに教えてほしい。
 
 ## ほかのインスタンスリスト
 Misskeyインスタンスの一覧はjoinmisskey以外でも提供されている。

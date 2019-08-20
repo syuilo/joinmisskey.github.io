@@ -65,7 +65,7 @@ Catは設定画面から設定できる。
 検索機能は、インスタンス管理者がサーバーにElasticSearchをインストールし、Misskeyに接続しないと利用できない。
 
 ### 不具合を見つけた。こんな機能がほしい。
-@aqz@misskey.ioか@syuilo@misskey.ioにリプライを送ってほしい。
+@aqz@yuzulia.xyzか@syuilo@misskey.ioにリプライを送ってほしい。
 
 **GitHub**を使ったことがある方は*その内容のIssueが立っていないか確認してから*[Issue](https://github.com/syuilo/misskey/issues/new/choose)で報告をお願いしたい。  
 PullRequestももちろん歓迎している。
