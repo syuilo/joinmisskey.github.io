@@ -69,6 +69,5 @@ has_child: false
 ## ほかのインスタンスリスト
 Misskeyインスタンスの一覧はjoinmisskey以外でも提供されている。
 
-- [distsn.org](https://distsn.org/misskey-instances.html)
 - [the-federation.info](https://the-federation.info/misskey)
 - [fediverse.network](https://fediverse.network/misskey)
