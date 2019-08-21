@@ -123,7 +123,7 @@ mixin instancesList(o, colors, sctrollts)
     each instance, r in instancesInfos
       -
         const versionOk = instance.isAlive ? !semver.satisfies(instance.meta.version, ">= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2") : true
-        const iregi = instance.notSuspended || versionOk || (instance.isAlive && (instance.meta.features ? instance.meta.features.registration : !instance.meta.disableRegistration))
+        const iregi = instance.notSuspended || (instance.isAlive && (instance.meta.features ? instance.meta.features.registration : !instance.meta.disableRegistration))
         const alive = !instance.suspended && (instance.notSuspended || instance.isAlive)
         const ilang = instance.langs ? instance.langs.some(e => e == locale) : true
         if(alive && iregi && ilang) num += 1
@@ -145,7 +145,7 @@ mixin instancesList(o, colors, sctrollts)
             itype = alive && !iregi
             break
         }
-      if(ilang && itype)
+      if(ilang && itype && versionOk)
         -
           let s = (instance.isAlive && instance.meta.bannerUrl) ?
           `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
