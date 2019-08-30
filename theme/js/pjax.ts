@@ -15,10 +15,22 @@ const userLanguage = navigator.language
 export const pjaxinit = async () => {
   const { Pjax } = await import("pjax-api")
 
+  const pj = new Pjax({
+    areas: [
+      "#main, #breadcrumb, #mainnav, #updateTime",
+      "body"
+    ],
+    update: {
+      css: false,
+      head: "meta",
+      script: false
+    }
+  })
+
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       onReady(() => {
-        Pjax.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`, {})
+        pj.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`)
         // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
     }
@@ -59,24 +71,12 @@ export const pjaxinit = async () => {
       } else if (window.locales.indexOf(userLanguage.slice(0, 2)) >= 0) {
         move_locale(userLanguage.slice(0, 2))
       } else if (window.currentLocale !== "en") {
-        onReady(() => {
-          Pjax.replace(`/en${window.permalink}?moved${window.location.hash}`, {})
-        })
+        move_locale("en")
       }
     } else {
       history.replaceState(null, null, window.location.href.replace(/\?[^#]*/, ""))
     }
   }
 
-  return new Pjax({
-    areas: [
-      "#main, #breadcrumb, #mainnav, #updateTime",
-      "body"
-    ],
-    update: {
-      css: false,
-      head: "meta",
-      script: false
-    }
-  })
+  return pj
 }

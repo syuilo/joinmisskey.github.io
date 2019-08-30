@@ -50,6 +50,5 @@ window.addEventListener("pjax:load", () => {
 })
 
 window.addEventListener("load", () => {
-  if (window.location.pathname === "/") return
   ini.classList.add("hide")
 })
