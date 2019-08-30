@@ -87,22 +87,23 @@ html(lang=locale)
         style
           :sass
             #ini
+              position: fixed
+              display: flex
+              visibility: visible
+              z-index: 101
+              top: 0
+              left: 0
+              width: 100vw
+              height: 100vh
+              background: #fff
+              cursor: wait
+
               &.hide
                 display: none
                 visibility: hidden
                 animation: ini-hide 0.6s linear
 
               &.show
-                position: fixed
-                display: flex
-                visibility: visible
-                z-index: 101
-                top: 0
-                left: 0
-                width: 100vw
-                height: 100vh
-                background: #fff
-                cursor: wait
                 animation: ini-show 0.6s linear
 
                 & > #ini_inner
