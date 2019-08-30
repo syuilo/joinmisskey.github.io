@@ -40,11 +40,15 @@ window.addEventListener("pjax:load", contentLoaded)
 const ini = document.getElementById("ini")
 
 window.addEventListener("pjax:fetch", () => {
+  ini.classList.remove("show")
+  ini.classList.add("hide")
+})
+
+window.addEventListener("pjax:load", () => {
   ini.classList.remove("hide")
   ini.classList.add("show")
 })
 
-window.addEventListener("pjax:load", () => {
-  ini.classList.remove("show")
-  ini.classList.add("hide")
+window.addEventListener("load", () => {
+  ini.classList.add("show")
 })

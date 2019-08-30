@@ -85,7 +85,7 @@ html(lang=locale)
 
       block style
         style
-          :sass
+          :clean-css:sass
             #ini
               position: fixed
               display: flex
@@ -98,21 +98,20 @@ html(lang=locale)
               background: #fff
               cursor: wait
 
+              & > #ini_inner
+                margin: auto
+
+                > svg
+                  width: 64px
+                  height: 64px
+                  animation: ini-svg 0.6s infinite linear
+
               &.hide
                 display: none
-                visibility: hidden
                 animation: ini-hide 0.6s linear
 
               &.show
                 animation: ini-show 0.6s linear
-
-                & > #ini_inner
-                  margin: auto
-
-                  > svg
-                    width: 64px
-                    height: 64px
-                    animation: ini-svg 0.6s infinite linear
 
             @keyframes ini-svg
               from
@@ -138,7 +137,7 @@ html(lang=locale)
         svg(viewBox="0 0 50 50").mb-2.
           <path fill=#{site._theme_color} d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" />
         div
-          if(page.meta.dirs.length == 3)
+          if(page.meta.dirs.length == 2)
             a(href="/ja/") Skip
 
     block wo_footer
