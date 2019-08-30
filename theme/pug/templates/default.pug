@@ -83,7 +83,43 @@ html(lang=locale)
 
       block js_head
 
+      block style
+        style
+          :sass
+            #ini
+              position: fixed
+              display: flex
+              z-index: 101
+              top: 0
+              left: 0
+              width: 100vw
+              height: 100vh
+              background: #fff
+              cursor: wait
+
+              & > #ini_inner
+                margin: auto
+
+                > svg
+                  width: 64px
+                  height: 64px
+                  animation: ini 0.6s infinite linear
+
+            @keyframes ini
+              from
+                transform: rotate(0deg)
+              to
+                transform: rotate(360deg)
+
   body
+
+    div#ini.text-center
+      #ini_inner
+        svg(viewBox="0 0 50 50").mb-2.
+          <path fill=#{site._theme_color} d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" />
+        div
+          a(href="/ja/") Skip
+
     block wo_footer
       block nav
         #nav
