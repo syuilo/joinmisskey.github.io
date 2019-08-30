@@ -7,30 +7,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
-$font-family-sans-serif: faqz-p, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif
-$font-family-monospace: faqz-m, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif
-$font-family-base: faqz-p, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif
-
-$font-weight-light: 200
-$font-weight-normal: 300
-$font-weight-bold: 700
-
-$font-weight-base: $font-weight-normal
-$line-height-base: 1.6
-
-$headings-font-family: faqz-c, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif
-$headings-font-weight: 200
-$headings-line-height: 1.2
-$headings-color: inherit
-
-$misskey-red: #f6584f
-$misskey-ai: #105779
-$gray: #888
-$primary: $misskey-ai
-$body-color: #444
-$body-bg: #f7f7f7
-
+@import "./myval"
 @import "../../node_modules/bootstrap/scss/functions"
 @import "../../node_modules/bootstrap/scss/variables"
 
@@ -40,7 +17,7 @@ $breadcrumb-divider: "・"
 
 @import "../../node_modules/bootstrap/scss/mixins"
 @import "../../node_modules/bootstrap/scss/root"
-@import "../../node_modules/bootstrap/scss/print"
+// @import "../../node_modules/bootstrap/scss/print"
 @import "../../node_modules/bootstrap/scss/reboot"
 @import "../../node_modules/bootstrap/scss/type"
 @import "../../node_modules/bootstrap/scss/images"
@@ -89,7 +66,6 @@ $breadcrumb-divider: "・"
 @import "./material"
 
 @import "./my"
-@import "./top"
 @import "./blog"
 @import "./blog-index"
 @import "./breadcrumb"

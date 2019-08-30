@@ -68,5 +68,15 @@ export const pjaxinit = async () => {
     }
   }
 
-  return new Pjax({ areas: ["#main, #breadcrumb, #mainnav, #updateTime", "body"], update: { head: "meta" } })
+  return new Pjax({
+    areas: [
+      "#main, #breadcrumb, #mainnav, #updateTime",
+      "body"
+    ],
+    update: {
+      css: false,
+      head: "meta",
+      script: false
+    }
+  })
 }

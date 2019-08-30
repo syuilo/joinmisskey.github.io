@@ -1,3 +1,7 @@
+@import "../myval"
+@import "~bootstrap/scss/functions"
+@import "~bootstrap/scss/variables"
+
 #ini
   position: fixed
   display: flex
@@ -17,7 +21,7 @@
       height: 64px
       animation: ini 0.6s infinite linear
 
-@import "./keyframes"
+@import "../keyframes"
 
 #toppage
   > section:not(#top)
@@ -148,7 +152,7 @@
 
         > .row
           > article
-            @extend .p-2
+            padding: map-get($spacers, 2)
 
             > .card
               width: 100%
@@ -166,9 +170,9 @@
                   font-size: 1.1rem
 
               > a.s2-card-link
-                @extend .border-top
-                @extend .p-2
-                @extend .text-center
+                border-top: $border-width solid $border-color !important;
+                padding: map-get($spacers, 2)
+                text-align: center
                 display: block
                 transition: background-color .3s
 
@@ -180,4 +184,10 @@
                 width: 100%
 
     h4
-      @extend .jm-h4
+      font-size: 16px
+      line-height: 1.6em
+      font-weight: 700
+      margin: 0
+
+      > span
+        overflow-wrap: break-word

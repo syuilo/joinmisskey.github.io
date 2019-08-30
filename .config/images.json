@@ -53,6 +53,23 @@
                         "sharpen": "0x0.75+0.75+0.008"
                     },
                     "image": {}
+                },
+                {
+                    "rename": {
+                        "suffix": ".720c",
+                        "extname": ".webp"
+                    },
+                    "resize": {
+                        "width": 720,
+                        "height": 720,
+                        "crop": false,
+                        "upscale": true,
+                        "interlace": "line",
+                        "cover": true,
+                        "format": "webp",
+                        "sharpen": "0x0.75+0.75+0.008"
+                    },
+                    "image": {}
                 }
             ]
         }

@@ -269,12 +269,26 @@ gulp.task("js", (cb) => {
       publicPath: `${site.url.path}/assets/scripts/`
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js"],
+      extensions: [".ts", ".tsx", ".js", ".sass", ".scss"],
       modules: ["node_modules"]
     },
     module: {
       rules: [
-        { test: /\.tsx?$/, loader: "ts-loader" }
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+          ]
+        },
+        {
+          test: /\.tsx?$/,
+          loader: "ts-loader",
+          options: {
+            appendTsSuffixTo: [/\.s[ac]ss$/]
+          }
+        }
       ]
     },
     mode: "production"
