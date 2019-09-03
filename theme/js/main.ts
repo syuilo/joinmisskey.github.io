@@ -3,7 +3,6 @@ import("bootstrap/js/dist/dropdown")
 
 import { fainit } from "./fainit"
 import { gototop } from "./gototop"
-import { katexinit } from "./katexinit"
 import onLoad from "./onLoad"
 import onReady from "./onReady"
 import { scrolltoshow } from "./scrolltoshow"
@@ -17,7 +16,6 @@ import { pjaxLoaded } from "./pjax-loaded"
 function contentReady() {
   fainit()
   gototop()
-  katexinit()
   scrolltoshow()
   importCss()
 }
