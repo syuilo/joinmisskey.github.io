@@ -179,6 +179,8 @@
   langs: ['ja']
 - url: test_t_msk.m0.lc
   langs: ['ja']
+- url: iro.moe
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -299,6 +301,8 @@
 - url: misskey.gothloli.club
   langs: ['zh', 'en']
 - url: ygo.pub
+  langs: ['zh', 'en']
+- url: mk.veryamt.com
   langs: ['zh', 'en']
 #
 ##

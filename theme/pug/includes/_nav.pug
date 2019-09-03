@@ -7,30 +7,23 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
       +fa("bars", "fas")
     .collapse.navbar-collapse#navtoggle
       ul.navbar-nav.mr-auto.mt-lg-0.ml-3.ml-md-0
-        li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale ? locale : 'ja'}/` ? "active" : "" ))
-          a.nav-link(href=`/${locale ? locale : 'ja'}/`)
+        li.nav-item.px-md-3(class=( page.meta.permalink == `/${locale || 'ja'}/` ? "active" : "" ))
+          a.nav-link(href=`/${locale || 'ja'}/`)
             +fa_fw("home")
             span.d-inline.d-md-none.d-lg-inline
               |  
               +i18n("home")
-        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale ? locale : 'ja'}/blog/`) == 0 ? "active" : "" ))
-          a.nav-link(href=`/${locale ? locale : 'ja'}/blog/`)
+        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale || 'ja'}/blog/`) == 0 ? "active" : "" ))
+          a.nav-link(href=`/${locale || 'ja'}/blog/`)
             +fa_fw("broadcast-tower")
             span.d-inline.d-md-none.d-lg-inline
               |  
               +i18n("blog")
-        li.nav-item.px-md-3
-          a.nav-link(href="https://misskey.wiki/" target="_blank" rel="noopener")
+        li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale || 'ja'}/wiki/`) == 0 ? "active" : "" ))
+          a.nav-link(href=`/${locale || 'ja'}/wiki/`)
             +fa_fw("book")
             span.d-inline.d-md-none.d-lg-inline
-              |  
-              | Wiki
-        li.nav-item.px-md-3
-          a.nav-link(href="https://assets.msky.cafe/" target="_blank" rel="noopener")
-            +fa_fw("store-alt")
-            span.d-inline.d-md-none.d-lg-inline
-              |  
-              | Assets Store
+              |  Wiki
     .dropleft
       button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
