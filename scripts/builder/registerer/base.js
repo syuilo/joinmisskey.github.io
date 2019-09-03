@@ -119,13 +119,13 @@ async function getInstancesInfos(instances) {
       // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
       if (usersChart) {
         // 2.
-        const arr = usersChart.local.total.filter(e => e !== 0)
-        value += (arr[0] - arr[arr.length - 1]) / arr.length * 15
+        const arr = usersChart.local.total.filter((e) => e !== 0)
+        value += ((arr[0] - arr[arr.length - 1]) / arr.length) * 15
       }
       if (notesChart) {
         // 3.
-        const arr = notesChart.local.total.filter(e => e !== 0)
-        value += (arr[0] - arr[arr.length - 1]) / arr.length * 0.6
+        const arr = notesChart.local.total.filter((e) => e !== 0)
+        value += ((arr[0] - arr[arr.length - 1]) / arr.length) * 0.6
       }
 
       // 4.
@@ -205,14 +205,14 @@ module.exports = async (site, keys, tempDir, instances) => {
           const cet = e.relationships.currently_entitled_tiers
           const tierLv = cet.data.length
           for (let i = patrons.length - 1; i < tierLv; i += 1) {
-            const tier = n.included.find(g => g.id === cet.data[i].id && g.type === "tier")
+            const tier = n.included.find((g) => g.id === cet.data[i].id && g.type === "tier")
             patrons.push({
               title: tier.attributes.title,
               lv: tierLv,
               members: []
             })
           }
-          const patron = n.included.find(g => g.id === e.relationships.user.data.id && g.type === "user")
+          const patron = n.included.find((g) => g.id === e.relationships.user.data.id && g.type === "user")
           patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
           patrons[tierLv].members.push(patron)
         }

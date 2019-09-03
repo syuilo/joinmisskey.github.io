@@ -17,7 +17,7 @@ export const pjaxinit = async () => {
 
   const pj = new Pjax({
     areas: [
-      "#main, #breadcrumb, #mainnav, #updateTime",
+      "#main, #breadcrumb, #mainnav, #updateTime, #ini",
       "body"
     ],
     update: {
