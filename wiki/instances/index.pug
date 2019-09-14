@@ -11,24 +11,25 @@ p
   | #[a(href="./registration-closed/").font-weight-bold 招待制インスタンスの一覧] / 
   | #[a(href="./suspended/").font-weight-bold 閉鎖しているインスタンスの一覧]
 
-h3.blogstyle 凡例
+details
+  summary 凡例
 
-ul.fa-ul
-  li #[span.fa-li: +fa_fw('lock')]: 招待制（登録にはインスタンス管理者が発行したコードが必要）/ #[+fa_fw('lock-open')]: 新規登録可
-  li #[span.fa-li: +fa_fw('comments')]: ローカルタイムラインが有効
-  li #[span.fa-li: +fa_fw('search')]: 検索が有効
-  li #[span.fa-li: +fa_fw('shield-alt')]: reCAPTCHAによるボット防御が有効
-  li #[span.fa-li: +fa_fw('cube')]: ドライブのファイルはオブジェクトストレージで管理されている
-  each service in mkConnectServices
-    li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: #{service}連携を利用可能
-  li #[span.fa-li: +fa_fw('bell')]: 通知を常時配信可能 (iOSなど、利用環境によっては利用不可)
-  li #[span.fa-li: +fa_fw('envelope-square')]: Eメール連携を利用可能
-ul.fa-ul
-  li #[span.fa-li: +fa_fw('users')]: インスタンスに登録されたユーザー数
-  li #[span.fa-li: +fa_fw('pencil-alt')]: インスタンス内のユーザーのノートの総数
-  li #[span.fa-li: +fa_fw('i-cursor')]: 文字数制限
-  li #[span.fa-li: +fa_fw('hdd')]: 1ユーザーが利用できるドライブ容量
-  li #[span.fa-li: +fa_fw('user-cog')]: インスタンス管理者名
+  ul.fa-ul
+    li #[span.fa-li: +fa_fw('lock')]: 招待制（登録にはインスタンス管理者が発行したコードが必要）/ #[+fa_fw('lock-open')]: 新規登録可
+    li #[span.fa-li: +fa_fw('comments')]: ローカルタイムラインが有効
+    li #[span.fa-li: +fa_fw('search')]: 検索が有効
+    li #[span.fa-li: +fa_fw('shield-alt')]: reCAPTCHAによるボット防御が有効
+    li #[span.fa-li: +fa_fw('cube')]: ドライブのファイルはオブジェクトストレージで管理されている
+    each service in mkConnectServices
+      li #[span.fa-li: +fa_fw(service.toLowerCase(), 'fab')]: #{service}連携を利用可能
+    li #[span.fa-li: +fa_fw('bell')]: 通知を常時配信可能 (iOSなど、利用環境によっては利用不可)
+    li #[span.fa-li: +fa_fw('envelope-square')]: Eメール連携を利用可能
+  ul.fa-ul
+    li #[span.fa-li: +fa_fw('users')]: インスタンスに登録されたユーザー数
+    li #[span.fa-li: +fa_fw('pencil-alt')]: インスタンス内のユーザーのノートの総数
+    li #[span.fa-li: +fa_fw('i-cursor')]: 文字数制限
+    li #[span.fa-li: +fa_fw('hdd')]: 1ユーザーが利用できるドライブ容量
+    li #[span.fa-li: +fa_fw('user-cog')]: インスタンス管理者名
 
 h2.blogstyle 登録が自由なインスタンス一覧
 
