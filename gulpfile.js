@@ -278,7 +278,7 @@ gulp.task("js", (cb) => {
         {
           test: /\.s[ac]ss$/i,
           use: [
-            "style-loader",
+            { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
             "css-loader",
             "sass-loader"
           ]
@@ -573,11 +573,11 @@ gulp.task("make-sw", (cb) => {
 `
 
   res += `
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 self.addEventListener("install", function(event) {
-  workbox.skipWaiting();
-  workbox.clientsClaim();
+  self.skipWaiting();
+  self.clients.claim();
 })
 
 workbox.routing.registerRoute(

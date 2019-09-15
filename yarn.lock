@@ -443,7 +443,7 @@ ansi-colors@^2.0.5:
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-2.0.5.tgz#5da37825fef3e75f3bda47f760d64bfd10e15e10"
   integrity sha512-yAdfUZ+c2wetVNIFsNRn44THW+Lty6S5TwMpUfLA/UaGhiXbBv/F8E60/1hMLd0cnF/CDoWH8vzVaI5bAcHCjw==
 
-ansi-colors@^3.2.4:
+ansi-colors@^3.2.1:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
   integrity sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==
@@ -3459,7 +3459,7 @@ filenamify@^2.0.0:
     strip-outer "^1.0.0"
     trim-repeated "^1.0.0"
 
-filesize@^4.1.2:
+filesize@^4.0.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-4.2.0.tgz#a8c989a179ca3a895cc32eab4abc64ebf6d34d44"
   integrity sha512-bdS2UP98MZzLyTZzhuSH5ctAWyDt81n5xMti9BSdmgPXjjENLDz5Bmbk2R7ATVw/HRysZzWA2JIPgcSAOimWpw==
@@ -4259,28 +4259,28 @@ gulp-image-resize@^0.13.1:
     lodash "~4.17.14"
     through2 "~2.0.5"
 
-gulp-image@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-image/-/gulp-image-5.1.0.tgz#2321826f78d241a14b05fba8da01e073b6daf5d2"
-  integrity sha512-VVQyTZAVQJ+cXa//v2CtQolmY80D50SQ2KHUC1Qk5wG/IVKwepzFpHAjGoap58SJybDMoHdNh3tkK4v8wHYRPg==
+gulp-image@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-image/-/gulp-image-5.0.0.tgz#b8be6a862464f0884e7ddbf715ca5858ada0c49c"
+  integrity sha512-xGanO2P/uFUyNxPX69yBipRO+YAgFWUNw/Yc7qQzj53DdYSlKe+jXGVRsuWKpxfQM3rmOhz0TmjKAHnSQ3axjw==
   dependencies:
-    ansi-colors "^3.2.4"
+    ansi-colors "^3.2.1"
     exec-buffer "^3.2.0"
-    fancy-log "^1.3.3"
-    filesize "^4.1.2"
+    fancy-log "^1.3.2"
+    filesize "^4.0.0"
     gifsicle "^4.0.1"
     guetzli "^2.0.0"
     is-gif "^3.0.0"
     is-jpg "^2.0.0"
     is-png "^2.0.0"
-    is-svg "^4.2.0"
+    is-svg "^4.1.0"
     jpeg-recompress-bin "^4.0.0"
     mozjpeg "^6.0.1"
     optipng-bin "^6.0.0"
-    plugin-error "^1.0.1"
-    pngquant-bin "^5.0.2"
+    plugin-error "^1.0.0"
+    pngquant-bin "^5.0.0"
     round10 "^1.0.3"
-    svgo "^1.2.2"
+    svgo "^1.0.2"
     through2-concurrent "^2.0.0"
     zopflipng-bin "^5.0.0"
 
@@ -5366,7 +5366,7 @@ is-svg@^3.0.0:
   dependencies:
     html-comment-regex "^1.1.0"
 
-is-svg@^4.2.0:
+is-svg@^4.1.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/is-svg/-/is-svg-4.2.0.tgz#3324896f8cc9c4f04b8435a5cf811593d72aa251"
   integrity sha512-ZJ3FYzcq3cxJHvslBXQYoNHkdEr7QTjHS5+lMrD+QkZHQ9GFTGI22/Isd3PMleJbeSigfzL+F0kQNQcepvGibw==
@@ -7843,7 +7843,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-plugin-error@1.0.1, plugin-error@^1.0.1:
+plugin-error@1.0.1, plugin-error@^1.0.0, plugin-error@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-1.0.1.tgz#77016bd8919d0ac377fdcdd0322328953ca5781c"
   integrity sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==
@@ -7864,7 +7864,7 @@ plugin-error@^0.1.2:
     arr-union "^2.0.1"
     extend-shallow "^1.1.2"
 
-pngquant-bin@^5.0.2:
+pngquant-bin@^5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/pngquant-bin/-/pngquant-bin-5.0.2.tgz#6f34f3e89c9722a72bbc509062b40f1b17cda460"
   integrity sha512-OLdT+4JZx5BqE1CFJkrvomYV0aSsv6x2Bba+aWaVc0PMfWlE+ZByNKYAdKeIqsM4uvW1HOSEHnf8KcOnykPNxA==
@@ -9936,7 +9936,7 @@ sver-compat@^1.5.0:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
-svgo@^1.0.0, svgo@^1.2.1, svgo@^1.2.2, svgo@^1.3.0:
+svgo@^1.0.0, svgo@^1.0.2, svgo@^1.2.1, svgo@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.3.0.tgz#bae51ba95ded9a33a36b7c46ce9c359ae9154313"
   integrity sha512-MLfUA6O+qauLDbym+mMZgtXCGRfIxyQoeH6IKVcFslyODEe/ElJNwr0FohQ3xG4C6HK6bk3KYPPXwHVJk3V5NQ==
@@ -10970,6 +10970,18 @@ wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
+
+workbox-core@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-4.3.1.tgz#005d2c6a06a171437afd6ca2904a5727ecd73be6"
+  integrity sha512-I3C9jlLmMKPxAC1t0ExCq+QoAMd0vAAHULEgRZ7kieCdUd919n53WC0AfvokHNwqRhGn+tIIj7vcb5duCjs2Kg==
+
+workbox-window@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-4.3.1.tgz#ee6051bf10f06afa5483c9b8dfa0531994ede0f3"
+  integrity sha512-C5gWKh6I58w3GeSc0wp2Ne+rqVw8qwcmZnQGpjiek8A2wpbxSJb1FdCoQVO+jDJs35bFgo/WETgl1fqgsxN0Hg==
+  dependencies:
+    workbox-core "^4.3.1"
 
 worker-farm@^1.6.0, worker-farm@^1.7.0:
   version "1.7.0"

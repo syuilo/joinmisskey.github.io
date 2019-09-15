@@ -117,6 +117,7 @@
     "ua-parser-js": "^0.7.20",
     "webpack": "^4.37.0",
     "webpack-stream": "^5.2.1",
+    "workbox-window": "^4.3.1",
     "youtube-player": "^5.5.2"
   }
 }
