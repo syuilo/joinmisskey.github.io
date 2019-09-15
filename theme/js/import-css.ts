@@ -1,5 +1,9 @@
 export default () => {
-  const l = window.location
+  const top = require("../styl/lazy/top.sass")
+  top.unuse()
 
-  if ((l.pathname).split("/").length === 3) require("../styl/lazy/top.sass")
+  const p = window.location.pathname
+
+  if (p.split("/").length === 3) top.use()
+  else if (top.unuse) top.unuse()
 }

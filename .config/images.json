@@ -77,7 +77,7 @@
     "icons": [
         {
             "path": "/files/images/icons/icon.svg",
-            "sizes": "700x700",
+            "sizes": "192x192",
             "type": "image/svg+xml"
         },
         {
