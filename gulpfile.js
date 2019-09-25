@@ -21,7 +21,6 @@ const Sitemap = require("sitemap")
 
 const postcssSorting = require("postcss-sorting")
 const autoprefixer = require("autoprefixer")
-const cssMqpacker = require("css-mqpacker")
 const cssnano = require("cssnano")
 
 const sizeOf = require("image-size")
@@ -38,6 +37,8 @@ library.add(
 )
 
 const $ = require("gulp-load-plugins")()
+
+$.sass.compiler = require("sass")
 
 const donloadTemp = require("./scripts/downloadTemp")
 const makeHtml = require("./scripts/makeHtml")
@@ -247,7 +248,6 @@ gulp.task("css", (cb) => {
     $.postcss([
       postcssSorting(),
       autoprefixer(),
-      cssMqpacker(),
       cssnano()
     ]),
     $.rename("main.css"),
