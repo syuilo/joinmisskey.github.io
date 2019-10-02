@@ -187,6 +187,12 @@
   langs: ['ja']
 - url: azupo.xyz
   langs: ['ja']
+- url: sisskey.cordx.net
+  langs: ['ja']
+- url: msk.ht164.jp
+  langs: ['ja']
+- url: misskey.kazuto.online
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -277,6 +283,12 @@
 - url: changelings.online
   langs: ['en']
 - url: awoo.world
+  langs: ['en']
+- url: 0702.org
+  langs: ['en']
+- url: hentai.agency
+  langs: ['en']
+- url: social.bads.team
   langs: ['en']
 #
 ##
