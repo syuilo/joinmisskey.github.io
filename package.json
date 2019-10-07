@@ -92,7 +92,7 @@
     "moment-timezone": "^0.5.26",
     "npm": "^6.10.2",
     "numeral": "^2.0.6",
-    "pjax-api": "^3.29.6",
+    "pjax-api": "^3.29.10",
     "popper.js": "^1.15.0",
     "postcss-sorting": "^5.0.1",
     "prismjs": "^1.17.1",
