@@ -7857,10 +7857,10 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
-pjax-api@^3.29.6:
-  version "3.29.9"
-  resolved "https://registry.yarnpkg.com/pjax-api/-/pjax-api-3.29.9.tgz#34f0095445caf4a37fe56dfcd89435aa0839d3d8"
-  integrity sha512-VVaMYjsDn31eoAbMzNe2ypyHWQS0DaidYT5YpcMT7fNZzFMdU7OP1wfCetAamBbM6vaMtYGJwNdd4wzaGRxhZA==
+pjax-api@^3.29.10:
+  version "3.29.10"
+  resolved "https://registry.yarnpkg.com/pjax-api/-/pjax-api-3.29.10.tgz#81ca7408e13d4221ca5a75ed22ab4a8e0bbf1f8c"
+  integrity sha512-hyGauckCijFzgxRGCZFB9tT6kZA3ecCnhi5qXf8V5gCkuxxBAUuPfW6zSIS7EJJ4APIBrtPkfPTFXTVWXsXDvQ==
 
 pkg-dir@^2.0.0:
   version "2.0.0"
