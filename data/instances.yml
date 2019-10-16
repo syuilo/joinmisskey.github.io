@@ -193,6 +193,14 @@
   langs: ['ja']
 - url: misskey.kazuto.online
   langs: ['ja']
+- url: e.usagi.top
+  langs: ['ja']
+- url: groundpolis.nokotaro.com
+  langs: ['ja']
+- url: mi.ijs01140.cf
+  langs: ['ja']
+- url: xn--qp9h.ml
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -290,6 +298,10 @@
   langs: ['en']
 - url: social.bads.team
   langs: ['en']
+- url: catgirl.works
+  langs: ['en']
+- url: short.shitpo.st
+  langs: ['en']
 #
 ##
 #########################################
@@ -324,6 +336,8 @@
   langs: ['zh', 'en']
 - url: mk.veryamt.com
   langs: ['zh', 'en']
+- url: madost.one
+  langs: ['ko', 'en']
 #
 ##
 #########################################
