@@ -5,7 +5,7 @@
         "ja": "Misskeyをはじめよう"
     },
     "short_name": "joinmisskey",
-    "description": "S forever evolving, sophisticated microblogging platform \"Misskey\"",
+    "description": "A forever evolving, sophisticated microblogging platform \"Misskey\"",
     "descriptions": {
         "en": "A forever evolving, sophisticated microblogging platform \"Misskey\"",
         "ja": "いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）"
@@ -13,7 +13,7 @@
     "author": "Misskey",
     "url": {
         "path": "",
-        "host": "joinmisskey.github.io",
+        "host": "join.misskey.page",
         "scheme": "https"
     },
     "pages_src": {

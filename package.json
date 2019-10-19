@@ -1,8 +1,8 @@
 {
-  "name": "joinmisskey.github.io",
+  "name": "join.misskey.page",
   "version": "1.0.0",
   "main": "docs/index.html",
-  "description": "joinmisskey.github.io",
+  "description": "join.misskey.page",
   "scripts": {
     "build-files": "gulp prebuild-files",
     "build2deploy": "gulp",
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/joinmisskey/joinmisskey.github.io/issues"
   },
-  "homepage": "https://joinmisskey.github.io/",
+  "homepage": "https://join.misskey.page/",
   "browserslist": [
     "defaults"
   ],

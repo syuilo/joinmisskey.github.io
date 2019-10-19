@@ -1,4 +1,4 @@
-# joinmisskey.github.io
+# join.misskey.page
 The introduction site of [Misskey](https://github.com/syuilo/misskey)
 
 ## Usage

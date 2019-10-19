@@ -18,7 +18,7 @@ const duplicated = mylist.filter((e, i, arr) => arr.findIndex(x => x.url === e.u
   .map(e => e.url)
 if (duplicated.length > 0) console.log(`Duplicated:\n  ${duplicated.join(",\n  ")}\n`)
 else console.log("Duplicated:\n  There is no duplicated instance!\n")
-
+/*
 const get = promisify(request.get)
 get("http://distsn.org/cgi-bin/distsn-misskey-instances-api.cgi", { json: true })
   .then((res) => {
@@ -28,3 +28,4 @@ get("http://distsn.org/cgi-bin/distsn-misskey-instances-api.cgi", { json: true }
     if (notregistered.length > 0) console.log(`Not listed:\n  ${notregistered.join(",\n  ")}\n`)
     else console.log("Not listed:\n  Every Misskey instances are listed!")
   })
+*/
