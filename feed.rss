@@ -4,11 +4,27 @@
         <title>Misskeyをはじめよう</title>
         <link>https://join.misskey.page</link>
         <description>いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Sat, 19 Oct 2019 10:14:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Oct 2019 11:35:18 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
         <atom:link href="https://join.misskey.page/feed.atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[最近の更新 ～11.31.4]]></title>
+            <link>https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400/?rel=rss</link>
+            <guid>https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400/?rel=rss</guid>
+            <pubDate>Sat, 19 Oct 2019 11:00:01 GMT</pubDate>
+            <description><![CDATA[広告ブロッカーの警告を削除、リアクションピッカーをカスタマイズできるように など]]></description>
+            <enclosure url="https://join.misskey.page/files/images/imports/2019/10/P_20190812_124323.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[join.misskey.pageへ移転]]></title>
+            <link>https://join.misskey.page/ja/blog/2019/10/19-1-about-jm/?rel=rss</link>
+            <guid>https://join.misskey.page/ja/blog/2019/10/19-1-about-jm/?rel=rss</guid>
+            <pubDate>Sat, 19 Oct 2019 11:00:00 GMT</pubDate>
+            <description><![CDATA[ドメイン「misskey.page」を取得し、URLをjoin.misskey.pageとしました。]]></description>
+            <enclosure url="https://join.misskey.page/files/images/imports/2019/10/thumb.png"/>
+        </item>
         <item>
             <title><![CDATA[最近の更新 ～11.31.4]]></title>
             <link>https://join.misskey.page/ja/blog/2019/09/03-1-changes-113104/?rel=rss</link>
