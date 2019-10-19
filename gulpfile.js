@@ -323,7 +323,7 @@ async function toamp(htm) {
   // eslint-disable-next-line no-shadow
   const $ = cheerio.load(htm, { decodeEntities: false })
   const promises = []
-  $("img[src]").each((i, el) => {
+  $("img[src], .blogstyle-image > div > img[src]").each((i, el) => {
     promises.push(async () => {
       // eslint-disable-next-line no-shadow
       // console.log("IMAGE")
@@ -582,7 +582,7 @@ self.addEventListener("install", function(event) {
 
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,
-    workbox.strategies.staleWhileRevalidate({
+    new workbox.strategies.StaleWhileRevalidate({
         cacheName: "assets-cache",
     })
 );

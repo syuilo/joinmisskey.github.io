@@ -13,6 +13,9 @@ import { detectOldBrowser } from "./old-browsers"
 import { pjaxinit } from "./pjax"
 import { pjaxLoaded } from "./pjax-loaded"
 
+import { Loading } from "./loading"
+new Loading()
+
 function contentReady() {
   fainit()
   gototop()
@@ -34,19 +37,3 @@ document.addEventListener("pjax:content", contentReady)
 onLoad(contentLoaded)
 window.addEventListener("pjax:load", pjaxLoaded)
 window.addEventListener("pjax:load", contentLoaded)
-
-const ini = document.getElementById("ini")
-
-window.addEventListener("pjax:fetch", () => {
-  ini.classList.remove("hide")
-  ini.classList.add("show")
-})
-
-window.addEventListener("pjax:load", () => {
-  ini.classList.remove("show")
-  ini.classList.add("hide")
-})
-
-window.addEventListener("load", () => {
-  ini.classList.add("hide")
-})
