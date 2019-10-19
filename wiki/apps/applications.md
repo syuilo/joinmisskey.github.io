@@ -37,8 +37,6 @@ MisskeyのUIを拡張する**Chrome拡張機能**。
 
 
 
-
-
 ## Webサービス
 ### 質問箱
 #### Quesdon (quesdon.toot.app)
@@ -73,15 +71,7 @@ Fediverseのなかからあなたと似た人を探すことができる。
 
 **[distdn.org ユーザーマッチング](https://vinayaka.distsn.org/)**
 
-ちなみに、Misskeyインスタンスで設定されている場合、「おすすめユーザー」ウィジェットがこのユーザーマッチングを利用して表示される。
-
 #### notestock
 ActivityPubを利用して、登録したユーザーの投稿を蓄積するサービス。
 
 **[notestock](https://notestock.osa-p.net/)**
-
-### その他
-#### Social Proxy
-Misskey・Mastodon・Twitterアカウントを管理し、発言を同時に投稿できる。
-
-**[Social Proxy](https://sproxy.sikeserver.com/)**

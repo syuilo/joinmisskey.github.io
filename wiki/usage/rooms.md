@@ -1,11 +1,13 @@
 ---
 title: ルーム
-description: 自分の部屋を作ってみんなに見てもらおう。
+description: いろいろな種類の家具をたくさん配置し、自分の部屋を作って、みんなに見てもらおう。
 layout: wiki
 rank: 17
 prev: /wiki/usage/groups/
 #next: /wiki/usage/groups/
 ---
-自分の部屋を作ろう。
+![ルーム](/files/images/imports/2019/10/room.png)
 
-ルームでは、
+いろいろな種類の家具をたくさん配置し、自分の部屋を作ろう。
+
+URLを投稿すると作成したルームを共有できる。

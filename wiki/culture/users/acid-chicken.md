@@ -11,7 +11,7 @@ layout: wiki
 ## 関係の深いインスタンス
 以下のインスタンスを運営している。
 
-- [twista - twista.283.cloud](https://twista.283.cloud) - Misskey。アイドルマスター シャイニーカラーズ（シャニマス）のテーマインスタンス。
+- [twista - twista.283.cloud](https://twista.283.cloud) - [Misskey（フォーク）](../../../folks/)。アイドルマスター シャイニーカラーズ（シャニマス）のテーマインスタンス。
 
 ## アカウント
 - [@ac@imastodon.net](https://imastodon.net/@ac)

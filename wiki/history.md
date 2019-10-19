@@ -48,7 +48,7 @@ Misskeyの歴史について簡単に紹介する。
 - 同年7月10日 joinmisskey（当サイト）がaqzにより開設される
 - 同年8月11日 Hostdonのベータプログラムとして、初のMisskeyホスティングサービスの募集申込みが始まる [記事](../../blog/2018/08/12_3_hostdon/)
 - 同12日 Wiki機能をzawazawaからjoinmisskeyに移管。zawazawaは放棄される（ChangeLogは残る）
-- 同20日 misskey.ioが数時間ダウンするものの、村上さんの手により蘇生。 [*](https://joinmisskey.github.io/ja/blog/2018/08/20_2_ddos/)
+- 同20日 misskey.ioが数時間ダウンするものの、村上さんの手により蘇生。 [*](https://join.misskey.page/ja/blog/2018/08/20_2_ddos/)
 
 
 ## daybreak
