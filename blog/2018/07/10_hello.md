@@ -6,7 +6,7 @@ date: 2018-07-10T01:00:00+09:00
 thumbnail: /files/images/imports/2018/07/akibabara.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true

@@ -6,7 +6,7 @@ date: 2018-10-05T20:00:00+09:00
 thumbnail: /files/images/imports/2018/08/yurikamome.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: ニュースリリース
 amp: true

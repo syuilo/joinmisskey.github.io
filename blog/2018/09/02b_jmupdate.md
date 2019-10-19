@@ -6,7 +6,7 @@ date: 2018-09-02T16:45:01+09:00
 thumbnail: /files/images/imports/2018/08/haikyu.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true

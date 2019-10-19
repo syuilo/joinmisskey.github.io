@@ -6,7 +6,7 @@ date: 2019-03-08T11:45:00+09:00
 thumbnail: /files/images/imports/2018/11/taka4.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: 更新
 amp: true

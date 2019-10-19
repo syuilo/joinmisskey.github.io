@@ -6,7 +6,7 @@ date: 2019-04-15T03:30:00+09:00
 thumbnail: /files/images/imports/2019/04/mkio.png
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: misskey.io
 amp: true

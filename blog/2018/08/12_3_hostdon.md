@@ -6,7 +6,7 @@ date: 2018-08-12T09:00:02+09:00
 thumbnail: /files/images/imports/2018/07/fence.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: ニュースリリース
 amp: true

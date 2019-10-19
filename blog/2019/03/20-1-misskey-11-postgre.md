@@ -6,7 +6,7 @@ date: 2019-03-20T02:30:00+09:00
 thumbnail: /files/images/imports/2019/03/kyos.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: 更新
 amp: true

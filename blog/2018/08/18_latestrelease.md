@@ -6,7 +6,7 @@ date: 2018-08-17T11:30:00+09:00
 thumbnail: /files/images/imports/2018/07/station.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: 更新
 amp: true
