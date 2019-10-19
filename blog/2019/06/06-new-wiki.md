@@ -6,7 +6,7 @@ date: 2019-06-06T07:00:00+09:00
 thumbnail: /files/images/imports/2019/03/misskey-rd-bg-bk.png
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true

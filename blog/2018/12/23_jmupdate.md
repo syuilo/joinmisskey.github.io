@@ -6,7 +6,7 @@ date: 2018-12-23T01:45:00+09:00
 thumbnail: /files/images/imports/2018/11/taka1.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: joinmisskey
 amp: true

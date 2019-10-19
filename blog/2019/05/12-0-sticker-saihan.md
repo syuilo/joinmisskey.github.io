@@ -6,7 +6,7 @@ date: 2019-05-12T13:40:00+09:00
 thumbnail: /files/images/imports/2018/12/sticker.png
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: グッズ
 amp: true
