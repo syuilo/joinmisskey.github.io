@@ -19,7 +19,7 @@ misskey.ioのとても強力なサーバーを運用する程度の能力の持�
 以下のMisskeyインスタンスにサーバー資源を提供している。
 
 - [misskey.io](../../instances/misskey.io/)
-- []
+- misskey.dev
 
 ## アカウント
 - [@AureoleArk@misskey.io](https://misskey.io/@AureoleArk)

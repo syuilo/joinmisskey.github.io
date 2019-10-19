@@ -5,11 +5,8 @@ layout: wiki
 rank: 3
 ---
 ### JavaScript / TypeScript / Node.js
-#### mfmf
-Misskeyのソースコードをほぼそのまま利用した、npmから利用できるライブラリ。  
-joinmisskeyで、MFMサンプルページ用にMFMをHTMLにして読み込んだりMFM用のSASSを分離したりするために用いている。
-
-**npm: mfmf** ･ **[tamaina/mfmf on GitHub](https://github.com/tamaina/mfmf)**
+#### corekey
+**npm: corekey** ･ **[marihachi/corekey on GitHub](https://github.com/marihachi/corekey)**
 
 ### Python3
 #### Misskey.py

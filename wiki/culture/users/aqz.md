@@ -20,8 +20,14 @@ aqzの読み方は「アキウス」を推奨している。
 
 なお、自分でこの自分自身の記事を書いた。
 
+## 関係の深いインスタンス
+以下のインスタンスを運営している。
+
+- [mk.a9z.dev](https://mk.a9z.dev)
+
 ## アカウント
-- [@aqz@yuzulia.xyz](https://misskey.io/@aqz)
+- [@aqz@yuzulia.xyz](https://yuzulia.xyz/@aqz)
+- [@aqz@mk.a9z.dev](https://mk.a9z.dev/@aqz)
 - [Twitter @t_ma1n](https://twitter.com/t_ma1n)
 - [Twitter @aqzvy](https://twitter.com/aqzvy)
 - [GitHub @tamaina](https://github.com/tamaina)
