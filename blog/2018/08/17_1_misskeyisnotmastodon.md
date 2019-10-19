@@ -8,7 +8,7 @@ mtimes:
 thumbnail: /files/images/imports/2018/07/sky.jpg
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: 
 amp: true

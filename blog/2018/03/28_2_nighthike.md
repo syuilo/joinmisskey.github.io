@@ -6,7 +6,7 @@ date: 2018-03-28T19:28:54+09:00
 thumbnail: 
 author:
   name: aqz
-  url: https://misskey.io/@aqz
+  url: https://yuzulia.xyz/@aqz
   avatar: aqz
 category: ニュースリリース
 amp: true
