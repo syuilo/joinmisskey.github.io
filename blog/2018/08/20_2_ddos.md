@@ -1,5 +1,5 @@
 ---
-title: 18/8/20 misskey.ioサービス停止について
+title: 18/8/20 misskey.xyzサービス停止について
 description: DDoS攻撃によるサービス停止と新環境について
 layout: blog
 date: 2018-08-20T13:00:01+09:00
@@ -11,10 +11,10 @@ author:
 category: ニュースリリース
 amp: true
 ---
-2018年8月20日、misskey.ioが長時間にわたり停止しました。
+2018年8月20日、misskey.xyzが長時間にわたり停止しました。
 
 ## 経過
-- [**02:19**](https://misskey.m544.net/notes/5b79a6b87c920841f66547a0) misskey.ioに接続できないことを認識
+- [**02:19**](https://misskey.m544.net/notes/5b79a6b87c920841f66547a0) misskey.xyzに接続できないことを認識
 - [**02:23**](https://misskey.m544.net/notes/5b79a7a97c920841f66547fc) サーバーにSSH接続できないことを確認
 - [**02:39**](https://misskey.m544.net/notes/5b79ab3751eabc3fc6ef198e) 原因が[DDoS攻撃](https://ddosmon.net/explore/150.95.142.132)を受けたことによるVPSホスティング会社のインターネット切断と特定
 - サーバー移行作業を開始
@@ -25,7 +25,7 @@ amp: true
 ## 今回の復旧と新環境について
 https://misskey.xyz/notes/5b7a271283a513002a4b234c  
 もし仮にサーバーが復活しても、また攻撃を受ければ再度インターネット遮断の恐れがあり、またアカウント自体の停止も考えられます。サービスを提供できません。  
-そこで、[村上さん(arkjp氏)](https://misskey.io/@AureoleArk)がサーバーを貸してくれることになりました。さらに、データも無事救出され、ユーザーの皆さんのデータが失われずに済みました。  
+そこで、[村上さん(arkjp氏)](https://misskey.xyz/@AureoleArk)がサーバーを貸してくれることになりました。さらに、データも無事救出され、ユーザーの皆さんのデータが失われずに済みました。  
 
 **要するに村上さんのおかげにゃので村上さんを崇めてください**
 
