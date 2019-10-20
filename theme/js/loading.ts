@@ -19,6 +19,7 @@ export class Loading {
     })
 
     onLoad(() => {
+      his.loaded = true
       his.ini.classList.add("hide")
     })
   }
