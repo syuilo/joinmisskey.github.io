@@ -26,8 +26,8 @@ Misskeyは、**Mastodonとの共存**を目指します。
 **あの**Misskeyが**ActivityPubを歌って聴けるように**なります。
 
 ActivityPubは、Mastodonで連合やリモートフォローを支えている規格です。  
-ActivityPubに対応するSNSミニブログサービスと相互に利用することができます。  
-Pawooにいるあの人や:don:にいるあの方を、Misskey上でフォローすることができます。  
+ActivityPubに対応するSNSミニブログサービスと相互に利用できます。  
+Pawooにいるあの人や:don:にいるあの方を、Misskey上でフォローできます。  
 逆にしゅいろをmstdn.jpからフォローすることもできます。
 
 ### ライセンス
