@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-10-20T04:38:29.996Z</updated>
+    <updated>2019-10-20T04:47:15.465Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://join.misskey.page"/>
     <link rel="self" href="https://join.misskey.page/feed.atom"/>
@@ -773,7 +773,7 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[18/8/20 misskey.ioサービス停止について]]></title>
+        <title type="html"><![CDATA[18/8/20 misskey.xyzサービス停止について]]></title>
         <id>https://join.misskey.page/ja/blog/2018/08/20_2_ddos/</id>
         <link href="https://join.misskey.page/ja/blog/2018/08/20_2_ddos/?rel=rss"/>
         <updated>2018-08-20T04:00:01.000Z</updated>

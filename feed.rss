@@ -4,7 +4,7 @@
         <title>Misskeyをはじめよう</title>
         <link>https://join.misskey.page</link>
         <description>いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Sun, 20 Oct 2019 04:38:29 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Oct 2019 04:47:15 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
@@ -517,7 +517,7 @@
             <enclosure url="https://join.misskey.page/files/images/imports/2018/07/akibabara.jpg"/>
         </item>
         <item>
-            <title><![CDATA[18/8/20 misskey.ioサービス停止について]]></title>
+            <title><![CDATA[18/8/20 misskey.xyzサービス停止について]]></title>
             <link>https://join.misskey.page/ja/blog/2018/08/20_2_ddos/?rel=rss</link>
             <guid>https://join.misskey.page/ja/blog/2018/08/20_2_ddos/?rel=rss</guid>
             <pubDate>Mon, 20 Aug 2018 04:00:01 GMT</pubDate>
