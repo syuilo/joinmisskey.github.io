@@ -1,11 +1,11 @@
 ---
 title: 主要なフォークの一覧
-description: MisskeyはライセンスがAGPLv3.0でGitで管理されておりGitHubで公開されているため、フォークも容易だ。ここでは主要なフォークを紹介する。
+description: Misskeyは、ライセンスがAGPLv3.0で、ソースコードがGitで管理されGitHubで公開されているため、フォークも容易だ。主要なフォークを紹介する。
 layout: wiki
 has_child: false
 rank: 3.1
 ---
-MisskeyはライセンスがAGPLv3.0でGitで管理されておりGitHubで公開されているため、フォークも容易だ。ここでは主要なフォークを紹介する。
+Misskeyは、ライセンスがAGPLv3.0で、ソースコードがGitで管理されGitHubで公開されているため、派生ソフトウェアの作成（Git用語で「フォーク」と呼ぶ）も用意だ。ここでは主要なフォークを紹介する。
 
 ## フォーク一覧
 ### v11ベース
