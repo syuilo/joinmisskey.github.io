@@ -11,9 +11,9 @@ author:
 category: joinmisskey
 amp: true
 ---
-ドメイン「misskey.page」を取得し、joinmisskeyのURLをjoin.misskey.pageとしました。
+ドメイン「misskey.page」を取得し、joinmisskeyのURLをjoinmisskey.github.ioから**join.misskey.page**としました。
 
 内容は今まで通り変更ありませんが、トップページやWikiの内容を追加・修正しました。
 
-Androidでjoinmisskeyをインストールしている場合、アンインストールし、新たにインストール（ホームに追加）してください。  
+Androidでjoinmisskeyをインストールしている場合、joinmisskey.github.ioでインストールしたアプリをアンインストールし、新たにインストール（ホームに追加）してください。  
 （R1.10.21追記）
