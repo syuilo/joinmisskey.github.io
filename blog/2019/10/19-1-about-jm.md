@@ -14,3 +14,6 @@ amp: true
 ドメイン「misskey.page」を取得し、joinmisskeyのURLをjoin.misskey.pageとしました。
 
 内容は今まで通り変更ありませんが、トップページやWikiの内容を追加・修正しました。
+
+Androidでjoinmisskeyをインストールしている場合、アンインストールし、新たにインストール（ホームに追加）してください。  
+（R1.10.21追記）
