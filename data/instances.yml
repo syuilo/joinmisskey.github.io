@@ -199,6 +199,8 @@
   langs: ['ja']
 - url: xn--qp9h.ml
   langs: ['ja']
+- url: misskey.nemonet.xyz
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -299,6 +301,8 @@
 - url: catgirl.works
   langs: ['en']
 - url: short.shitpo.st
+  langs: ['en']
+- url: misskey.junna.moe
   langs: ['en']
 #
 ##
