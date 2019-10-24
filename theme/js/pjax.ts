@@ -41,8 +41,6 @@ export const pjaxinit = async () => {
     for (const text of [
       "googlebot",
       "google.com/bot",
-      "google.com/adsbot",
-      "google.com/mobile/adsbot",
       "google.com/feedfetcher",
       "bingbot",
       "bing.com/bingbot",
