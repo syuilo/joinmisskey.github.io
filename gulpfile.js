@@ -323,7 +323,7 @@ async function toamp(htm) {
   // eslint-disable-next-line no-shadow
   const $ = cheerio.load(htm, { decodeEntities: false })
   const promises = []
-  $("img[src], .blogstyle-image > div > img[src]").each((i, el) => {
+  const ampimg = (i, el) => {
     promises.push(async () => {
       // eslint-disable-next-line no-shadow
       // console.log("IMAGE")
@@ -362,7 +362,9 @@ async function toamp(htm) {
       }
       $(el).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
     })
-  })
+  }
+  $("img[src]").each(ampimg)
+  $(".blogstyle-image").children("div").children("img[src]").each(ampimg)
   if (promises.length > 0) await Promise.all(promises)
   $("i").each((i, el) => {
     $(el).replaceWith(icon(
@@ -371,7 +373,7 @@ async function toamp(htm) {
     ).html[0])
   })
 
-  return $.html()
+  return $.html("body")
 }
 
 gulp.task("pug", async () => {

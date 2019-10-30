@@ -2,7 +2,7 @@
 const mkConnectServices = ["Twitter", "GitHub", "Discord"]
 
 const { promisify } = require("util")
-const sass = require("node-sass")
+const sass = require("sass")
 const CleanCss = require("clean-css")
 const htmlToText = require("html-to-text")
 const request = require("request")

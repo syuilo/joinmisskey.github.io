@@ -347,3 +347,10 @@
 #
 - url: miss.waytt.cf
   langs: ['ru', 'en']
+#
+##
+#########################################
+##
+#
+- url: k.kajalinifi.de
+  langs: ['de', 'en']

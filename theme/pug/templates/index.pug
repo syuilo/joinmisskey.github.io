@@ -2,8 +2,12 @@ extends ./default.pug
 
 block main
   #main.padding
-    .container.py-5.bg-white.main-shadow
+    .container.pt-5.pb-3.bg-white.main-shadow
       h1= page.attributes.title
       !=mainHtml
       ul.simpleindex.list-unstyled
         +lis_of_dir(page.meta.permalink, {s: true, unstyled: true})
+
+      block after_article
+        .small.text-right.mt-3
+          +editLink()

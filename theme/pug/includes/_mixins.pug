@@ -87,6 +87,11 @@ mixin embed_youtube_autoplay(vid)
 mixin i18n(target, strs)
   | #{i18n(target, strs)}
 
+mixin editLink()
+  a(href=`https://github.com/joinmisskey/joinmisskey.github.io/edit/${page.meta.src.dir}/${page.meta.src.base}` target="_blank" rel="noopener")
+    +fa_fw('pencil-alt', 'fas')
+    +i18n('edit_this_page')
+
 mixin blog_badges(targetpage)
   div.mr-2
     +fa_fw("folder-open")

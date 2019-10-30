@@ -151,6 +151,11 @@
             "ja": "※このインスタンスの情報は技術的制約またはその特殊性により取得できません",
             "en": "* This instance may be alive but cannot be got informations due to technical issues or its specialty.",
             "fr": "* Les détails concernant cette instance ne peuvent être obtenus en raison de limites techniques ou de particularités propres à l'instance"
+        },
+        "edit_this_page": {
+            "ja": "このページを編集",
+            "en": "このページを編集",
+            "fr": "このページを編集"
         }
     }
 }

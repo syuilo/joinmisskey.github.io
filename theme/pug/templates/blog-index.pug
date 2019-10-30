@@ -90,7 +90,7 @@ block title
 block main
 
   #main.padding
-    .container.py-5.bg-white.main-shadow
+    .container.pt-5.pb-3.bg-white.main-shadow
       h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
       div
         != getTL(mainHtml)
@@ -111,3 +111,7 @@ block main
                   +fa_fw("clock")
                   time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
                 +blog_badges(thispage)
+
+      block after_article
+        .small.text-right.mt-3
+          +editLink()
