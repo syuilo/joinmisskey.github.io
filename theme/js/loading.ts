@@ -22,6 +22,9 @@ export class Loading {
       his.loaded = true
       if (location.pathname !== "/") his.hide()
     })
+    setTimeout(() => {
+      his.hide()
+    }, 7000)
   }
 
   public show = () => {
@@ -31,7 +34,10 @@ export class Loading {
         his.ini.classList.remove("hide")
         his.ini.classList.add("show")
       }
-    }, 300)
+    }, 100)
+    setTimeout(() => {
+      his.hide()
+    }, 8000)
   }
 
   public hide = () => {

@@ -201,6 +201,8 @@
   langs: ['ja']
 - url: misskey.nemonet.xyz
   langs: ['ja']
+- url: community.bluecore.net
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']

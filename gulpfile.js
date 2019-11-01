@@ -18,31 +18,18 @@ const mkdirp = require("mkdirp")
 const webpackStream = require("webpack-stream")
 const webpack = require("webpack")
 const Sitemap = require("sitemap")
-
+const { dom } = require("@fortawesome/fontawesome-svg-core")
 const postcssSorting = require("postcss-sorting")
 const autoprefixer = require("autoprefixer")
 const cssnano = require("cssnano")
-
-const sizeOf = require("image-size")
-const cheerio = require("cheerio")
-
-const url = require("url")
-
-const { dom, library, icon } = require("@fortawesome/fontawesome-svg-core")
-
-library.add(
-  require("@fortawesome/free-solid-svg-icons").fas,
-  require("@fortawesome/free-regular-svg-icons").far,
-  require("@fortawesome/free-brands-svg-icons").fab
-)
 
 const $ = require("gulp-load-plugins")()
 
 $.sass.compiler = require("sass")
 
-const donloadTemp = require("./scripts/downloadTemp")
 const makeHtml = require("./scripts/makeHtml")
 const regheadings = require("./scripts/regheadings")
+const toamp = require("./scripts/builder/toamp")
 
 const makeRss = require("./scripts/builder/registerer/rss")
 
@@ -318,64 +305,6 @@ function searchSidebar(pathe) {
   return null
 }
 
-// eslint-disable-next-line no-shadow
-async function toamp(htm) {
-  // eslint-disable-next-line no-shadow
-  const $ = cheerio.load(htm, { decodeEntities: false })
-  const promises = []
-  const ampimg = (i, el) => {
-    promises.push(async () => {
-      // eslint-disable-next-line no-shadow
-      // console.log("IMAGE")
-      // eslint-disable-next-line no-shadow
-      const src = $(el).attr("src")
-      const alt = $(el).attr("alt")
-      const title = $(el).attr("title")
-      const id = $(el).attr("id")
-      let width = $(el).attr("width")
-      let height = $(el).attr("height")
-      if ((width === undefined || height === undefined) && src.startsWith(`${urlPrefix}/files/`)) {
-        const dims = sizeOf(`.${src.slice(urlPrefix.length)}`)
-        // eslint-disable-next-line prefer-destructuring
-        width = dims.width
-        // eslint-disable-next-line prefer-destructuring
-        height = dims.height
-      } else if ((width === undefined || height === undefined) && (src.startsWith("http") || src.startsWith("//"))) {
-        const Url = url.parse(src)
-        const filename = `${Url.pathname.slice(1).replace(/\//g, "-")}`.slice(-36)
-        const temppath = `${tempDir}amp/${Url.hostname}/`
-        mkdirp.sync(temppath)
-        const v = await donloadTemp(filename, src, temppath, true)
-        glog(v)
-        if (!v || !existFile(`${temppath}${filename}.${v.ext}`)) {
-          glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
-          return
-        }
-        const dims = sizeOf(`${temppath}${filename}.${v.ext}`)
-        // eslint-disable-next-line prefer-destructuring
-        width = dims.width
-        // eslint-disable-next-line prefer-destructuring
-        height = dims.height
-      } else {
-        glog(`${messages.amp.invalid_imageUrl}:\n${src}`)
-        return
-      }
-      $(el).replaceWith(`<amp-img src="${src}" alt="${alt}" title="${title}" id="${id}" width="${width}" height="${height}" layout="responsive"></amp-image>`)
-    })
-  }
-  $("img[src]").each(ampimg)
-  $(".blogstyle-image").children("div").children("img[src]").each(ampimg)
-  if (promises.length > 0) await Promise.all(promises)
-  $("i").each((i, el) => {
-    $(el).replaceWith(icon(
-      { iconName: $(el).attr("data-fa-icon-name"), prefix: $(el).attr("data-fa-prefix") },
-      JSON.parse($(el).attr("data-fa-option").replace(/'/g, "\""))
-    ).html[0])
-  })
-
-  return $.html("body")
-}
-
 gulp.task("pug", async () => {
   const streams = []
   const puglocalses = []
@@ -462,33 +391,26 @@ gulp.task("pug", async () => {
       if (existFile(`theme/pug/templates/amp_${layout}.pug`)) amptemplate += `theme/pug/templates/amp_${layout}.pug`
       else if (existFile(`theme/pug/templates/amp_${site.default.template}.pug`)) amptemplate += `theme/pug/templates/amp_${site.default.template}.pug`
       else throw Error("amp_default.pugが見つかりませんでした。")
-      streams.push(
-        toamp(puglocals.mainHtml, base)
-          .then(
-            (ampHtml) => new Promise((res, rej) => {
-              const newoptions = extend(
-                true,
-                puglocals,
-                { isAmp: true, mainHtml: ampHtml }
-              )
-              gulp.src(amptemplate)
-                .pipe($.pug({ locals: newoptions }))
-                .pipe($.rename(`${page.meta.permalink}amp.html`))
-                .pipe(gulp.dest(dests.root))
-                .on("end", () => {
-                  // glog(colors.green(`✔ ${page.meta.permalink}amp.html`))
-                  res()
-                })
-                .on("error", (err) => {
-                  glog(colors.red(`✖ ${page.meta.permalink} (amp)`))
-                  rej(err)
-                })
-            }), (e) => {
-              glog(colors.red(`Amp Processing Failed at ${page.meta.permalink}`))
-              throw Error(e)
-            }
-          )
-      )
+      const ampHtml = toamp(puglocals.mainHtml, urlPrefix)
+      streams.push(new Promise((res, rej) => {
+        const newoptions = extend(
+          true,
+          puglocals,
+          { isAmp: true, mainHtml: ampHtml }
+        )
+        gulp.src(amptemplate)
+          .pipe($.pug({ locals: newoptions }))
+          .pipe($.rename(`${page.meta.permalink}amp.html`))
+          .pipe(gulp.dest(dests.root))
+          .on("end", () => {
+            // glog(colors.green(`✔ ${page.meta.permalink}amp.html`))
+            res()
+          })
+          .on("error", (err) => {
+            glog(colors.red(`✖ ${page.meta.permalink} (amp)`))
+            rej(err)
+          })
+      }))
     }
   }
 

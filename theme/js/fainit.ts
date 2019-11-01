@@ -15,7 +15,7 @@ export const fainit = async (): Promise<void> => {
           (el.dataset.faOption ? JSON.parse(el.dataset.faOption.replace(/'/g, "\"")) : {}) as IconParams
         )
         el.insertAdjacentElement("beforebegin", fa.item(0))
-        el.parentElement.removeChild(el)
+        el.remove()
       } catch (e) {
         console.log(`FontAwesome: ${el.dataset.faPrefix} ${el.dataset.faIconName}は見つかりませんでした。`)
         console.log(e)
