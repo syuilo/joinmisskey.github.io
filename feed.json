@@ -6,10 +6,10 @@
     "description": "いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
-            "id": "https://join.misskey.page/ja/blog/2019/11/19-2-changes-113400/",
-            "url": "https://join.misskey.page/ja/blog/2019/11/19-2-changes-113400/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/",
+            "url": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/?rel=rss",
             "title": "最近の更新 ～11.35.0",
-            "summary": "広告ブロッカーの警告を削除、リアクションピッカーをカスタマイズできるように など",
+            "summary": "一対一でのトークを連合するように、カスタム絵文字をカテゴリ分け出来るように など",
             "image": "https://join.misskey.page/files/images/imports/2019/11/P_20190812_114755.jpg",
             "date_modified": "2019-11-01T06:45:00.000Z",
             "author": {

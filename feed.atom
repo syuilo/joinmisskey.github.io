@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-11-01T06:43:57.259Z</updated>
+    <updated>2019-11-01T07:16:45.287Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://join.misskey.page"/>
     <link rel="self" href="https://join.misskey.page/feed.atom"/>
@@ -11,10 +11,10 @@
     <rights>© Misskey</rights>
     <entry>
         <title type="html"><![CDATA[最近の更新 ～11.35.0]]></title>
-        <id>https://join.misskey.page/ja/blog/2019/11/19-2-changes-113400/</id>
-        <link href="https://join.misskey.page/ja/blog/2019/11/19-2-changes-113400/?rel=rss"/>
+        <id>https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/</id>
+        <link href="https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/?rel=rss"/>
         <updated>2019-11-01T06:45:00.000Z</updated>
-        <summary type="html"><![CDATA[広告ブロッカーの警告を削除、リアクションピッカーをカスタマイズできるように など]]></summary>
+        <summary type="html"><![CDATA[一対一でのトークを連合するように、カスタム絵文字をカテゴリ分け出来るように など]]></summary>
         <author>
             <name>aqz</name>
             <email/>
