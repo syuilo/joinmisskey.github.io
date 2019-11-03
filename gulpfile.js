@@ -85,7 +85,7 @@ const keys = (() => {
       return null
     }
   // eslint-disable-next-line no-undef
-  } else if ("PATREON_CAMPAIGN" in process.env && "PATREON_BARER" in process.env) {
+  } else if ("PATREON_CAMPAIGN" in process.env && "PATREON_BEARER" in process.env) {
     return {
       patreon: {
         campaign: process.env.PATREON_CAMPAIGN,
