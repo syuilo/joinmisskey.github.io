@@ -36,8 +36,8 @@ jobs:
         git pull origin pages/ja
         git push
         cd ../..
-        npx yarn install
-        npx gulp pages
+        yarn install
+        gulp pages
       # ./push-ja.sh
       env:
         CI: true
