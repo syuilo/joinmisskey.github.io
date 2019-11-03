@@ -76,14 +76,12 @@ const dor = require("./.config/debug-override.json")
 
 if (argv._.some((e) => e === "local-server")) site = extend(this, site, dor)
 
-const ksjson = require("./.config/keys.json")
-
 const keys = (() => {
-  if (existFile("./.config/keys.json")) {
+  if (existFile("./.config/keys.yaml")) {
     try {
-      return ksjson
+      return readyaml("./.config/keys.yaml")
     } catch (e) {
-      glog("There is no './.config/keys.json'.")
+      glog("There is no './.config/keys.yaml'.")
       return null
     }
   // eslint-disable-next-line no-undef
@@ -94,7 +92,10 @@ const keys = (() => {
         bearer: process.env.PATREON_BEARER
       }
     }
-  } else { return {} }
+  } else {
+    glog("There is no keys setting.")
+    return {}
+  }
 })()
 
 const instances = loadyaml("./data/instances.yml")

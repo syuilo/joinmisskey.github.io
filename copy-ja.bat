@@ -2,6 +2,7 @@ git fetch
 cd pages/ja
 git add --all
 git commit -a -m %1
+git pull origin pages/ja
 git push origin pages/ja
 cd ../en
 git commit -a -m %1
