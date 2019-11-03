@@ -22,6 +22,7 @@ jobs:
         git config --global user.name "luckybeast"
         git config --global user.email "remu.teshigawara@gmail.com"
         git remote set-url origin https://tamaina:${GITHUB_TOKEN}@github.com/joinmisskey/joinmisskey.github.io
+        git checkout src
         git worktree add docs master
         git worktree add pages/ja pages/ja
         git worktree add pages/en pages/en
