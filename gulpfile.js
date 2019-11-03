@@ -98,8 +98,6 @@ const keys = (() => {
   }
 })()
 
-glog(keys)
-
 const instances = loadyaml("./data/instances.yml")
 
 const tempDir = "dist/cache/" // 末尾のスラッシュ必要
