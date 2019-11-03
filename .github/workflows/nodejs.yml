@@ -19,6 +19,33 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: BUILD
       run: |
-        update-pages gh-actions-test
+        cd pages/ja
+        git add --all
+        git commit -a -m %1
+        git push
+        cd ../en
+        git pull origin pages/en
+        git pull origin pages/ja
+        git push
+        cd ../fr
+        git pull origin pages/en
+        git pull origin pages/ja
+        git push
+        cd ../..
+        npx gulp pages
+        git fetch 
+        cd docs
+        git add --all
+        git commit -a -m gh-actions-push
+        git push
+        cd ../
+        cd pages/ja
+        git add --all
+        git commit -a -m gh-actions-push
+        git push
+        cd ../..
+        git add --all
+        git commit -a -m gh-actions-push
+        git push
       env:
         CI: true
