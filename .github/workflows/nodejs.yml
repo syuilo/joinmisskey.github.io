@@ -19,11 +19,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: BUILD
       run: |
-        cd pages/ja
-        git add --all
-        git commit -a -m %1
-        git push
-        cd ../en
+        git worktree add docs master
+        git worktree add pages/ja pages/ja
+        git worktree add pages/en pages/en
+        git worktree add pages/fr pages/fr
+        cd pages/en
         git pull origin pages/en
         git pull origin pages/ja
         git push
