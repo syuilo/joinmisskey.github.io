@@ -23,7 +23,7 @@ export class Loading {
       if (location.pathname !== "/") his.hide()
     })
     setTimeout(() => {
-      his.hide()
+      if (location.pathname !== "/") his.hide()
     }, 7000)
   }
 
