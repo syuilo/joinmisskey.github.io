@@ -79,7 +79,7 @@ if (argv._.some((e) => e === "local-server")) site = extend(this, site, dor)
 const keys = (() => {
   if (existFile("./.config/keys.yaml")) {
     try {
-      return readyaml("./.config/keys.yaml")
+      return loadyaml("./.config/keys.yaml")
     } catch (e) {
       glog("There is no './.config/keys.yaml'.")
       return null
@@ -97,6 +97,8 @@ const keys = (() => {
     return {}
   }
 })()
+
+glog(keys)
 
 const instances = loadyaml("./data/instances.yml")
 

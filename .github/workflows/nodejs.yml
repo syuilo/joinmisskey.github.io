@@ -41,5 +41,5 @@ jobs:
       # ./push-ja.sh
       env:
         CI: true
-        PATREON_BARER:  ${{ secrets.PATREON_BARER }}
-        PATREON_CAMPAIGN:  ${{ secrets.PATREON_CAMPAIGN }}
+        PATREON_BARER: ${{ secrets.PATREON_BARER }}
+        PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}

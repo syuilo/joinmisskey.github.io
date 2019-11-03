@@ -41,7 +41,8 @@ async function getContributors() {
 async function getPatrons(patreonUrl, keys) {
   try {
     const res = await get(patreonUrl, { headers: { Authorization: `Bearer ${keys.patreon.bearer}` } })
-    return JSON.parse(res.body)
+    const parsed = JSON.parse(res.body)
+    return parsed
   } catch (e) {
     glog("Cannot get Patreon patrons")
     glog(e)
