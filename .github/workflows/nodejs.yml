@@ -19,6 +19,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: BUILD
       run: |
+        git config --global user.name "luckybeast"
+        git config --global user.email "remu.teshigawara@gmail.com"
+        git remote set-url origin https://tamaina:${GITHUB_TOKEN}@github.com/beet-aizu/github_actions.git
         git worktree add docs master
         git worktree add pages/ja pages/ja
         git worktree add pages/en pages/en
@@ -33,19 +36,9 @@ jobs:
         git push
         cd ../..
         npx gulp pages
-        git fetch 
-        cd docs
-        git add --all
-        git commit -a -m gh-actions-push
-        git push
-        cd ../
-        cd pages/ja
-        git add --all
-        git commit -a -m gh-actions-push
-        git push
-        cd ../..
-        git add --all
-        git commit -a -m gh-actions-push
-        git push
+      # ./push-ja.sh
       env:
         CI: true
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PATREON_BARER:  ${{ secrets.PATREON_BARER }}
+        PATREON_CAMPAIGN:  ${{ secrets.PATREON_CAMPAIGN }}
