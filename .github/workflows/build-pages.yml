@@ -24,7 +24,6 @@ jobs:
       CI: true
       PATREON_BEARER: ${{ secrets.PATREON_BARER }}
       PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
-      LB_TOKEN: ${{ secrets.LB_TOKEN }}
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -35,12 +34,12 @@ jobs:
         git init
         git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
     - name: Git Next
-      run: ./workflows/git-init.sh
+      run: ./workflows/git-init
     - name: Copy Pages
-      run: ./workflows/copy-pages.sh
+      run: ./workflows/copy-pages
     - name: Yarn Install
       run: yarn install
     - name: Build
       run: gulp pages
     - name: Git Push Results
-      run: ./workflows/git-push-results.sh
+      run: ./workflows/git-push-results
