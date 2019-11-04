@@ -37,13 +37,13 @@ jobs:
     - name: Yarn Install
       run: yarn install
     - name: Build Pages
-      if: "!contains('wo:build', github.event.head_commit.message) && !contains('w:build:assets', github.event.head_commit.message) && !contains('w:build:all', github.event.head_commit.message)"
+      if: "!github.event || !contains('wo:build', github.event.head_commit.message) && !contains('w:build:assets', github.event.head_commit.message) && !contains('w:build:all', github.event.head_commit.message)"
       run: gulp pages
     - name: Build Assets & Pages
-      if: "contains('w:build:assets', github.event.head_commit.message) && !contains('w:build:all', github.event.head_commit.message)"
+      if: "github.event && contains('w:build:assets', github.event.head_commit.message) && !contains('w:build:all', github.event.head_commit.message)"
       run: gulp
     - name: Build All
-      if: "!contains('w:build:assets', github.event.head_commit.message) && contains('w:build:all', github.event.head_commit.message)"
+      if: "github.event && !contains('w:build:assets', github.event.head_commit.message) && contains('w:build:all', github.event.head_commit.message)"
       run: gulp all
     - name: Git Push Results
       run: "./.github/workflows/git-push-results.sh"
