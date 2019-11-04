@@ -20,22 +20,27 @@ jobs:
     strategy:
       matrix:
         node-version: [13.x]
+    env:
+      CI: true
+      PATREON_BEARER: ${{ secrets.PATREON_BARER }}
+      PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
+      LB_TOKEN: ${{ secrets.LB_TOKEN }}
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: TASKS
+    - name: Git init
       run: |
         git init
         git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
-        ./workflows/git-init.sh
-        ./workflows/copy-pages.sh
-        yarn install
-        gulp pages
-        ./workflows/git-push-results.sh
-      env:
-        CI: true
-        PATREON_BEARER: ${{ secrets.PATREON_BARER }}
-        PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
-        LB_TOKEN: ${{ secrets.LB_TOKEN }}
+    - name: Git Next
+      run: ./workflows/git-init.sh
+    - name: Copy Pages
+      run: ./workflows/copy-pages.sh
+    - name: Yarn Install
+      run: yarn install
+    - name: Build
+      run: gulp pages
+    - name: Git Push Results
+      run: ./workflows/git-push-results.sh
