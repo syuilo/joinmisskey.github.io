@@ -74,7 +74,7 @@ First, fork this repository, set yours as 'origin' on git and set this one as 'u
 ## LICENSES
 ### CONTENTS
 Files in `pages/**/*`: All rights reserved  
-Files in `files/**/*` or `dist/files/**/*`: No License or the license that the file has in metadata
+Files in `files/**/*` or `dist/**/*`: No License or the license that the file has in metadata
 
 ### SYSTEM
 the others: "maqz" system, under CC0
