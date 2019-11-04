@@ -85,7 +85,8 @@ async function getInstancesInfos(instances) {
   const notesChartsPromises = []
   const instancesInfos = []
   // eslint-disable-next-line no-restricted-syntax
-  for (const instance of instances) {
+  for (let t = 0; t < instances.length; t += 1) {
+    const instance = instances[t]
     metasPromises.push(safePost(`https://${instance.url}/api/meta`, { json: true }))
     statsPromises.push(safePost(`https://${instance.url}/api/stats`, { json: true }))
     usersChartsPromises.push(safePost(`https://${instance.url}/api/charts/users`, { json: { span: "day" } }))
@@ -143,7 +144,10 @@ async function getInstancesInfos(instances) {
         if (meta.features.objectStorage) value += 32
         let v2 = 0
         // eslint-disable-next-line no-restricted-syntax
-        for (const service of mkConnectServices) { if (meta.features[service.toLowerCase()]) { v2 += 16 } }
+        for (let t = 0; t < mkConnectServices.length; t += 1) {
+          const service = mkConnectServices[t]
+          if (meta.features[service.toLowerCase()]) { v2 += 16 }
+        }
         if (v2 > 0) value += v2 + 16
         if (meta.features.serviceWorker) value += 16
       }
@@ -174,7 +178,8 @@ module.exports = async (site, keys, tempDir, instances) => {
   const contributors = await getContributors()
 
   // eslint-disable-next-line no-restricted-syntax
-  for (const contributor of contributors) {
+  for (let t = 0; t < contributors.length; t += 1) {
+    const contributor = contributors[t]
     promises.push(downloadTemp(`github/${contributor.id}`, contributor.avatar_url, tempDir))
   }
   glog("Got contributors from GitHub")
@@ -199,8 +204,8 @@ module.exports = async (site, keys, tempDir, instances) => {
       const n = await getPatrons(patreonUrl, keys)
 
       if (n) {
-        // eslint-disable-next-line no-restricted-syntax
-        for (const e of n.data) {
+        for (let t = 0; t < n.data.length; t += 1) {
+          const e = n.data[t]
           // eslint-disable-next-line no-continue
           if (e.attributes.currently_entitled_amount_cents === 0) continue
           const cet = e.relationships.currently_entitled_tiers
@@ -223,10 +228,10 @@ module.exports = async (site, keys, tempDir, instances) => {
       }
     }
     glog("Got patrons from Patreon")
-    // eslint-disable-next-line no-restricted-syntax
-    for (const tier of patrons) {
-      // eslint-disable-next-line no-restricted-syntax
-      for (const member of tier.members) {
+    for (let m = 0; m < patrons.length; m += 1) {
+      const tier = patrons[m]
+      for (let n = 0; n < tier.members.length; n += 1) {
+        const member = tier.members[n]
         promises.push(downloadTemp(`patreon/${member.id}`, member.attributes.thumb_url, tempDir))
       }
       tier.members.sort((a, b) => b.lifetime_support_cents - a.lifetime_support_cents)

@@ -52,7 +52,9 @@ module.exports = (htm, urlPrefix) => {
     el.remove()
   })
   // eslint-disable-next-line no-restricted-syntax
-  for (const el of Array.from(document.getElementsByTagName("i"))) {
+  const is = Array.from(document.getElementsByTagName("i"))
+  for (let n = 0; n < is.length; n += 1) {
+    const el = is[n]
     try {
       el.insertAdjacentHTML("afterend", icon(
         { iconName: el.dataset.faIconName, prefix: el.dataset.faPrefix },

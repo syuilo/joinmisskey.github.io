@@ -186,7 +186,8 @@ gulp.task("config", () => {
 gulp.task("credit-icons", (cb) => {
   const streams = []
   let ex = false
-  for (const v of base.creditIcons) {
+  for (let t = 0; t < base.creditIcons.length; t += 1) {
+    const v = base.creditIcons[t]
     if (v) {
       ex = true
       streams.push(

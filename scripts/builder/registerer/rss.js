@@ -23,8 +23,8 @@ module.exports = (base, pages, lang) => {
     }
   })
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const page of qpages) {
+  for (let t = 0; t < qpages.length; t += 1) {
+    const page = qpages[t]
     const author = page.attributes.author ? [{
       name: page.attributes.author.name,
       url: page.attributes.author.name
