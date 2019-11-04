@@ -1,0 +1,47 @@
+name: "Build Pages"
+
+on:
+  push:
+    branches:
+    - "src"
+    - "pages/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
+    env:
+      CI: true
+      PATREON_BEARER: ${{ secrets.PATREON_BARER }}
+      PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
+    steps:
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Git init
+      run: |
+        git init
+        git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
+        git config --global user.name "luckybeast"
+        git config --global user.email "remu.teshigawara@gmail.com"
+        git fetch
+        git checkout src
+        ./.github/workflows/git-worktrees.sh
+    - name: Copy Pages
+      run: "./.github/workflows/copy-pages.sh"
+    - name: Yarn Install
+      run: yarn install
+    - name: Build Pages
+      if: "!conatains('wo:build', github.head_commit.message) && !conatains('w:build:assets', github.head_commit.message) && !conatains('w:build:all', github.head_commit.message)"
+      run: gulp pages
+    - name: Build Assets & Pages
+      if: "conatains('w:build:assets', github.head_commit.message) && !conatains('w:build:all', github.head_commit.message)"
+      run: gulp
+    - name: Build All
+      if: "!conatains('w:build:assets', github.head_commit.message) && conatains('w:build:all', github.head_commit.message)"
+      run: gulp all
+    - name: Git Push Results
+      run: "./.github/workflows/git-push-results.sh"

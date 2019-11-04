@@ -795,7 +795,7 @@ gulp.task("prebuild-files",
     (cb) => { cb() }
   ))
 
-gulp.task("full-build",
+gulp.task("all",
   gulp.series(
     "prebuild-files",
     "default",
