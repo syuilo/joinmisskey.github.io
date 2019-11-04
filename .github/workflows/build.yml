@@ -6,7 +6,7 @@ on:
     - "src"
     - "pages/*"
   schedule:
-  - cron:"59 2,14 * * *"
+  - cron: 59 2,14 * * *
 
 jobs:
   build:
