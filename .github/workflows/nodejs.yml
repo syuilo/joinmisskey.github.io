@@ -19,9 +19,9 @@ jobs:
     - name: BUILD
       run: |
         git init
+        git remote set-url origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
         git config --global user.name "luckybeast"
         git config --global user.email "remu.teshigawara@gmail.com"
-        git remote set-url origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
         git fetch
         git checkout src
         git worktree add docs master
