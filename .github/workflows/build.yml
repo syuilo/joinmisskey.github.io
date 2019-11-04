@@ -1,4 +1,4 @@
-name: "Build Pages"
+name: "Build"
 
 on:
   push:
