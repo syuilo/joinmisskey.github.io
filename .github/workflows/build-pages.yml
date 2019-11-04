@@ -29,11 +29,11 @@ jobs:
       run: |
         git init
         git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
-        .github/workflows/git-init.sh
-        .github/workflows/copy-pages.sh
+        ./workflows/git-init.sh
+        ./workflows/copy-pages.sh
         yarn install
         gulp pages
-        .github/workflows/git-push-results.sh
+        ./workflows/git-push-results.sh
       env:
         CI: true
         PATREON_BEARER: ${{ secrets.PATREON_BARER }}
