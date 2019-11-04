@@ -20,6 +20,7 @@ block requires
     const fs = require("fs")
     const numeral = require("numeral")
     const moment = require("moment")
+    const punycode = require("punycode")
     if (locale != 'en') require(`moment/locale/${locale || "ja"}`)
     moment.locale(locale)
     require('moment-timezone')
