@@ -31,4 +31,9 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
       - name: ls
-        run: ls -la
+        run: |
+          ls -a
+          cd ..
+          ls -a
+          cd ..
+          ls -a
