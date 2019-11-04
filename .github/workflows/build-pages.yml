@@ -28,13 +28,14 @@ jobs:
     - name: TASKS
       run: |
         git init
-        git remote add origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
-        ./.github/workflows/git-init.sh
-        ./.github/workflows/copy-pages.sh
+        git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
+        .github/workflows/git-init.sh
+        .github/workflows/copy-pages.sh
         yarn install
         gulp pages
-        ./.github/workflows/git-push-results.sh
+        .github/workflows/git-push-results.sh
       env:
         CI: true
         PATREON_BEARER: ${{ secrets.PATREON_BARER }}
         PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
+        LB_TOKEN: ${{ secrets.LB_TOKEN }}
