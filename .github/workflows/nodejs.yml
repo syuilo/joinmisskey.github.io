@@ -18,6 +18,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: BUILD
       run: |
+        git init
         git config --global user.name "luckybeast"
         git config --global user.email "remu.teshigawara@gmail.com"
         git remote set-url origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
