@@ -12,16 +12,17 @@ jobs:
         node-version: [13.x]
 
     steps:
-    - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: BUILD
       run: |
+        git init
+        git remote add origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
         git config --global user.name "luckybeast"
         git config --global user.email "remu.teshigawara@gmail.com"
-        git remote set-url origin https://luckybeast:${{ secrets.GITHUB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
+        git fetch
         git checkout src
         git worktree add docs master
         git worktree add pages/ja pages/ja
@@ -41,5 +42,5 @@ jobs:
       # ./push-ja.sh
       env:
         CI: true
-        PATREON_BEARER: ${{ secrets.PATREON_BEARER }}
+        PATREON_BEARER: ${{ secrets.PATREON_BARER }}
         PATREON_CAMPAIGN: ${{ secrets.PATREON_CAMPAIGN }}
