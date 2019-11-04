@@ -22,8 +22,8 @@ layout: wiki
 
 また、以下のインスタンスを運営している。
 
-- [misskey.m544.net](../../instances/misskey.m544.net/) - [Misskey（フォーク）](../../../folks/)
-- ~~[💛.tk](https://💛.tk)~~ [🤎.ml](https://🤎.ml) - [Misskey（フォーク）](../../../folks/)
+- [misskey.m544.net](../../instances/misskey.m544.net/) - [Misskey（フォーク）](../../../forks/)
+- ~~[💛.tk](https://💛.tk)~~ [🤎.ml](https://🤎.ml) - [Misskey（フォーク）](../../../forks/)
 - [mst.m544.net](https://mst.m544.net) - Mastodon
 
 ## アカウント
