@@ -3,13 +3,12 @@ git fetch
 cd docs
 git add --all
 git commit -a -m %1
-git push
-cd ../
-cd pages/ja
+git push origin master
+cd ../dist
 git add --all
 git commit -a -m %1
-git push
+git push origin dist
 cd ../..
 git add --all
 git commit -a -m %1
-git push
+git push origin src
