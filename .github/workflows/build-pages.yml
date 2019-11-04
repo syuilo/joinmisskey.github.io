@@ -34,12 +34,12 @@ jobs:
         git init
         git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
     - name: Git Next
-      run: "../joinmisskey.github.io/joinmisskey.github.io/workflows/git-init.sh"
+      run: "../../joinmisskey.github.io/joinmisskey.github.io/workflows/git-init.sh"
     - name: Copy Pages
-      run: "../joinmisskey.github.io/joinmisskey.github.io/workflows/copy-pages.sh"
+      run: "../../joinmisskey.github.io/joinmisskey.github.io/workflows/copy-pages.sh"
     - name: Yarn Install
       run: yarn install
     - name: Build
       run: gulp pages
     - name: Git Push Results
-      run: "../joinmisskey.github.io/joinmisskey.github.io/workflows/git-push-results.sh"
+      run: "../../joinmisskey.github.io/joinmisskey.github.io/workflows/git-push-results.sh"
