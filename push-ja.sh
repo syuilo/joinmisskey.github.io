@@ -1,5 +1,5 @@
 #!/bin/sh
-git fetch 
+git fetch
 cd docs
 git add --all
 git commit -a -m %1

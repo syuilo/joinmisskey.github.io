@@ -36,11 +36,21 @@ jobs:
         cd ../fr
         git pull origin pages/fr
         git pull origin pages/ja
-        git push origin pages/en
+        git push origin pages/fr
         cd ../..
         yarn install
         gulp pages
         ./push-ja.sh auto-built
+        git fetch
+        cd docs
+        git add --all
+        git commit -a -m %1
+        git push origin master
+        cd ../dist
+        git add --all
+        git commit -a -m %1
+        git push origin dist
+        cd ..
       env:
         CI: true
         PATREON_BEARER: ${{ secrets.PATREON_BARER }}
