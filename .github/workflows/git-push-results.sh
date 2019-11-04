@@ -1,3 +1,4 @@
+#!/bin/sh
 git fetch
 cd docs
 git add --all

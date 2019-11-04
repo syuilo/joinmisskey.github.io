@@ -1,11 +1,11 @@
-name: Build Pages
+name: Build Files, Assets & Pages
 
 on:
   push:
     branches:
     - "src"
     - "pages/**"
-    paths-ignore:
+    paths:
     - "theme/**"
     - "!theme/pug/**"
     - "!theme/static/**"
@@ -39,6 +39,6 @@ jobs:
     - name: Yarn Install
       run: yarn install
     - name: Build
-      run: gulp pages
+      run: gulp full-build
     - name: Git Push Results
       run: "./.github/workflows/git-push-results.sh"

@@ -795,12 +795,10 @@ gulp.task("prebuild-files",
     (cb) => { cb() }
   ))
 
-gulp.task("core-with-pf",
+gulp.task("full-build",
   gulp.series(
     "prebuild-files",
-    gulp.parallel("css", "js", "pug", "credit-icons"),
-    gulp.parallel("copy-publish", "make-subfiles"),
-    "make-sw", "last",
+    "default",
     (cb) => { cb() }
   ))
 
