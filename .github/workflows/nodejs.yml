@@ -40,15 +40,14 @@ jobs:
         cd ../..
         yarn install
         gulp pages
-        ./push-ja.sh auto-built
         git fetch
         cd docs
         git add --all
-        git commit -a -m %1
+        git commit -a -m auto-built
         git push origin master
         cd ../dist
         git add --all
-        git commit -a -m %1
+        git commit -a -m auto-built
         git push origin dist
         cd ..
       env:
