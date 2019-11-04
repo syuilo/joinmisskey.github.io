@@ -1,5 +1,5 @@
 {
-    "imageMagick": false,
+    "imageMagick": true,
     "images": {
         "files": {
             "all": {
