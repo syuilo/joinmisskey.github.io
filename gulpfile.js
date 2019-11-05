@@ -687,7 +687,7 @@ gulp.task("pages",
   gulp.series(
     "register",
     gulp.parallel("config", "pug", "credit-icons"),
-    gulp.parallel("copy-prebuildFiles", "make-subfiles"),
+    gulp.parallel("copy-prebuildFiles", "make-subfiles", "copy-theme-static"),
     "copy-f404",
     "copy-docs",
     "clean-dist-docs",
