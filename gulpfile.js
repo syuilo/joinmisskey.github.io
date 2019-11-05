@@ -67,21 +67,12 @@ function loadyaml(filepath) {
 // グローバル気味変数
 const packageJson = require("./package.json")
 const messages = require("./.config/messages.json")
-let site = extend(true,
+const site = extend(true,
   require("./.config/default.json"),
   require("./.config/lang.json"),
-  require("./.config/images.json"))
-
-if (process.env.CI) {
-  site = extend(true,
-    site,
-    // eslint-disable-next-line global-require
-    require("./.config/actions-override.json"))
-}
-
-const dor = require("./.config/debug-override.json")
-
-if (argv._.some((e) => e === "local-server")) site = extend(this, site, dor)
+  require("./.config/images.json"),
+  process.env.CI === "true" ? require("./.config/actions-override.json") : {},
+  argv._.some((e) => e === "local-server") ? require("./.config/debug-override.json") : {})
 
 const keys = (() => {
   if (existFile("./.config/keys.yaml")) {
