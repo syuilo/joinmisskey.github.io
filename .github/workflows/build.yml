@@ -23,6 +23,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Vals
+      run: |
+        echo "SHA: $GITHUB_SHA"
+        echo "REF: $GITHUB_REF"
+        echo "ACTION: $GITHUB_ACTION"
     - name: Git init
       run: |
         git init
