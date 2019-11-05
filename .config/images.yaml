@@ -1,0 +1,50 @@
+imageMagick: false
+images:
+  files:
+    all:
+      image:
+        pngquant:
+        - "--speed=3"
+        mozjpeg:
+        - "-optimize"
+        - "-progressive"
+        concurrent: 10
+      responsive:
+        rotate: true
+        quality: 80
+        compressionLevel: 2
+    responsive:
+    - max: 1600
+      withoutEnlargement: true
+      crop: false
+    - rename:
+        extname: ".webp"
+      max: 1600
+      crop: false
+      withoutEnlargement: true
+      format: webp
+    - max: 720
+      crop: false
+      withoutEnlargement: true
+      progressive: true
+      sharpen: "0.5x0.5+0.5+0.008"
+      rename:
+        suffix: ".720"
+    - max: 720
+      crop: false
+      withoutEnlargement: true
+      progressive: true
+      format: webp
+      sharpen: "0.5x0.5+0.5+0.008"
+      rename: 
+        suffix: ".720"
+        extname: ".webp"
+icons:
+  - path: "/files/images/icons/icon.svg"
+    sizes: 192x192
+    type: "image/svg+xml"
+  - path: "/files/images/icons/icon.png"
+    sizes: 700x700
+    type: "image/png"
+site_card_path: "/files/images/imports/2019/10/thumb.png"
+publisher_image_path: "/files/images/imports/2019/10/publisher.png"

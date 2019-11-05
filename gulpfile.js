@@ -13,7 +13,6 @@ const pump = require("pump")
 const pug = require("pug")
 const glog = require("fancy-log")
 const colors = require("colors")
-const readyaml = require("js-yaml").safeLoad
 const mkdirp = require("mkdirp")
 const webpackStream = require("webpack-stream")
 const webpack = require("webpack")
@@ -30,6 +29,7 @@ $.sass.compiler = require("sass")
 const makeHtml = require("./scripts/makeHtml")
 const regheadings = require("./scripts/regheadings")
 const toamp = require("./scripts/builder/toamp")
+const loadyaml = require("./scripts/builder/loadyaml")
 
 const makeRss = require("./scripts/builder/registerer/rss")
 
@@ -60,17 +60,13 @@ function existFile(file) {
   }
 }
 
-function loadyaml(filepath) {
-  return readyaml(fs.readFileSync(filepath))
-}
-
 // グローバル気味変数
 const packageJson = require("./package.json")
 const messages = require("./.config/messages.json")
 const site = extend(true,
   require("./.config/default.json"),
   require("./.config/lang.json"),
-  require("./.config/images.json"),
+  loadyaml("./.config/images.yaml"),
   process.env.CI === "true" ? require("./.config/actions-override.json") : {},
   argv._.some((e) => e === "local-server") ? require("./.config/debug-override.json") : {})
 
@@ -192,27 +188,26 @@ gulp.task("credit-icons", (cb) => {
         new Promise((res, rej) => {
           glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
           gulp.src(`${tempDir}${v.name}.${v.ext}`)
-            .pipe($.imageResize({
-              format: "png",
-              width: 140,
-              height: 140,
-              crop: true,
-              upscale: false,
-              cover: true,
-              interlace: "line",
-              sharpen: "0x0.75+0.75+0.008",
-              imageMagick: site.imageMagick
+            .pipe($.responsive({
+              "*": {
+                format: "png",
+                min: 140,
+                crop: true,
+                withoutEnlargement: true,
+                progressive: true,
+                sharpen: "0.5x0.5+0.5+0.008",
+                rename: {
+                  dirname: v.name.split("/")[0],
+                  basename: v.name.split("/")[1],
+                  extname: ".png"
+                }
+              }
             }))
             .pipe($.image({
               optipng: false,
               pngquant: ["--speed=3"],
               zopflipng: false,
               concurrent: 10
-            }))
-            .pipe($.rename({
-              dirname: v.name.split("/")[0],
-              basename: v.name.split("/")[1],
-              extname: ".png"
             }))
             .pipe(gulp.dest("dist/files/images/credit"))
             .pipe(gulp.dest("dist/docs/files/images/credit"))
@@ -237,22 +232,19 @@ gulp.task("instance-banners", (cb) => {
         new Promise((res, rej) => {
           glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
           gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
-            .pipe($.imageResize({
+            .pipe($.responsive({
               format: "jpeg",
-              width: 1024,
-              crop: false,
-              upscale: false,
-              cover: false,
-              sharpen: "0x0.75+0.75+0.008",
-              imageMagick: site.imageMagick
+              max: 1024,
+              withoutEnlargement: true,
+              sharpen: "0.5x0.5+0.5+0.008",
+              rename: {
+                extname: ".jpeg"
+              }
             }))
             .pipe($.image({
               jpegRecompress: false,
               mozjpeg: ["-optimize", "-progressive"],
               concurrent: 10
-            }))
-            .pipe($.rename({
-              extname: ".jpeg"
             }))
             .pipe(gulp.dest("dist/files/images/instance-banners"))
             .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
@@ -514,14 +506,6 @@ function imagesBase() {
   ) : imagesAllFalse
 }
 
-
-const gmAutoOrient = $.gm(
-  (gmfile) => gmfile.autoOrient(),
-  {
-    imageMagick: site.imageMagick
-  }
-)
-
 gulp.task("clean-docs", () => del(["docs/**/*", "!docs/.git"], { dot: true }))
 gulp.task("clean-dist-docs", () => del("dist/docs/**/*", { dot: true }))
 gulp.task("clean-dist-files", () => del("dist/files/**/*", { dot: true }))
@@ -778,33 +762,19 @@ gulp.task("image-prebuildFiles", () => {
   const raster = "files/**/*.{png,jpg,jpeg}"
   const gif = "files/**/*.gif"
   const svg = "files/**/*.svg"
-  const { sizes } = site.images.files
-  const streamsrc = gulp.src(raster).pipe(gmAutoOrient)
   const streams = []
-  for (let i = 0; i < sizes.length; i += 1) {
-    streams.push(
-      // eslint-disable-next-line no-loop-func
-      new Promise((res, rej) => {
-        streamsrc
-          .pipe($.imageResize(
-            sizes[i].resize ? extend(
-              true,
-              { imageMagick: site.imageMagick },
-              sizes[i].resize
-            ) : {}
-          ))
-          .pipe($.image(sizes[i].image ? extend(
-            true,
-            imagesBase(),
-            sizes[i].image
-          ) : imagesAllFalse))
-          .pipe($.rename(sizes[i].rename || {}))
-          .pipe(gulp.dest("dist/files"))
-          .on("end", res)
-          .on("error", rej)
-      })
-    )
-  }
+  streams.push(
+    new Promise((res, rej) => {
+      gulp.src(raster)
+        .pipe($.responsive({
+          "*": site.images.files.responsive
+        }, site.images.files.all.responsive))
+        .pipe($.image(imagesBase()))
+        .pipe(gulp.dest("dist/files"))
+        .on("end", res)
+        .on("error", rej)
+    })
+  )
   streams.push(
     new Promise((res, rej) => {
       gulp.src(gif)
@@ -846,7 +816,6 @@ gulp.task("image", () => {
   if (!argv.i) throw Error("ファイル/フォルダ名が指定されていません。 -i <path>を付けて指定してください。")
   const parsed = path.parse(argv.i)
   if (parsed.length <= 0) throw Error("指定されたパスにファイルは見つかりませんでした。")
-  const { sizes } = site.images.files
   const streams = []
   const date = new Date()
   let gif; let svg; let others
@@ -864,7 +833,7 @@ gulp.task("image", () => {
     gif = gulp.src(argv.i)
   } else {
     glog(`image will be saved like as "files/images/imports/${dirname}/${parsed.name}${parsed.ext}"`)
-    others = gulp.src(argv.i).pipe(gmAutoOrient)
+    others = gulp.src(argv.i)
   }
   if (gif) {
     streams.push(
@@ -911,28 +880,19 @@ gulp.task("image", () => {
     )
   }
   if (others) {
-    for (let i = 0; i < sizes.length; i += 1) {
-      streams.push(
-        new Promise((res, rej) => {
-          others
-            .pipe($.imageResize(sizes[i].resize ? extend(
-              true,
-              { imageMagick: site.imageMagick },
-              sizes[i].resize
-            ) : {}))
-            .pipe($.image(sizes[i].image ? extend(
-              true,
-              imagesBase(),
-              sizes[i].image
-            ) : imagesAllFalse))
-            .pipe($.rename(sizes[i].rename || {}))
-            .pipe($.rename({ dirname } || {}))
-            .pipe(gulp.dest("dist/files/images/imports"))
-            .on("end", res)
-            .on("error", rej)
-        })
-      )
-    }
+    streams.push(
+      new Promise((res, rej) => {
+        others
+          .pipe($.responsive({
+            "*": site.images.files.responsive
+          }, site.images.files.all.responsive))
+          .pipe($.image(imagesBase()))
+          .pipe($.rename({ dirname } || {}))
+          .pipe(gulp.dest("dist/files/images/imports"))
+          .on("end", res)
+          .on("error", rej)
+      })
+    )
     streams.push(
       new Promise((res, rej) => {
         others

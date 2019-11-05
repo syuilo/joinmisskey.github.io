@@ -1,11 +1,5 @@
 /* eslint-disable no-console */
-
-const fs = require("fs")
-const readyaml = require("js-yaml").safeLoad
-
-function loadyaml(filepath) {
-  return readyaml(fs.readFileSync(filepath))
-}
+const loadyaml = require("./scripts/builder/loadyaml")
 
 const mylist = loadyaml("./data/instances.yml")
 
