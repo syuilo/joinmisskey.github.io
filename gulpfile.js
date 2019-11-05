@@ -242,7 +242,7 @@ gulp.task("css", (cb) => {
     $.rename("main.css"),
     gulp.dest(cssDestpath)
   ], async (e) => {
-    if (e) throw Error(`SCSS:\n${e}`)
+    if (e) cb(e)
     else glog(colors.green("✔ assets/styles/main.css"))
     cb()
   })
