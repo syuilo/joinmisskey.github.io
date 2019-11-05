@@ -16,14 +16,11 @@ The introduction site of [Misskey](https://github.com/syuilo/misskey)
 
 ### Build
 
-1. Get campaign number and barer token of Patreon and make `./.config/keys.json`: 
+1. Get campaign number and barer token of Patreon API and make `./.config/keys.yaml`: 
   ```
-  {
-      "patreon": {
-          "campaign": "xxxxxxx"
-          "barer": "_……"
-      }
-  }
+  patreon:
+    campaign: xxxxxxx
+    bearer: _.........
   ```
 1. `gulp prebuild-files`  
    Run whenever you append images.  
@@ -42,9 +39,13 @@ gulp image -i <glob-readable-path>
 ```
 
 This command compresses bitmap images and produces:
-- `/files/images/imports/yyyy/mm/<name>.<ext>` - The **long side** is **equal or less than** 1600px
-- `/files/images/imports/yyyy/mm/<name>.720.<ext>` - The **long side** is **equal or less than** 720px
-- `/files/images/imports/yyyy/mm/<name>.720c.jpeg` - The **short side** is **equal to** 720px
+- The **long side** is **equal or less than** 1600px
+  * `/files/images/imports/yyyy/mm/<name>.<ext>`
+  * `/files/images/imports/yyyy/mm/<name>.webp`
+- The **long side** is **equal or less than** 720px
+  * `/files/images/imports/yyyy/mm/<name>.720.<ext>`
+  * `/files/images/imports/yyyy/mm/<name>.720.webp`
+  
 
 Also compresses bector images.
 

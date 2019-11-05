@@ -1,5 +1,5 @@
 {
-    "imageMagick": true,
+    "imageMagick": false,
     "images": {
         "files": {
             "all": {
@@ -17,8 +17,21 @@
                         "crop": false,
                         "upscale": false,
                         "interlace": "line",
+                        "cover": false
+                    },
+                    "image": {}
+                },
+                {
+                    "rename": {
+                        "extname": ".webp"
+                    },
+                    "resize": {
+                        "width": 1600,
+                        "height": 1600,
+                        "crop": false,
+                        "upscale": false,
                         "cover": false,
-                        "sharpen": "0x0.75+0.75+0.008"
+                        "format": "webp"
                     },
                     "image": {}
                 },
@@ -33,41 +46,23 @@
                         "upscale": false,
                         "interlace": "line",
                         "cover": false,
-                        "sharpen": "0x0.75+0.75+0.008"
+                        "sharpen": "0.5x0.5+0.5+0.008"
                     },
                     "image": {}
                 },
                 {
                     "rename": {
-                        "suffix": ".720c",
-                        "extname": ".jpeg"
-                    },
-                    "resize": {
-                        "width": 720,
-                        "height": 720,
-                        "crop": false,
-                        "upscale": true,
-                        "interlace": "line",
-                        "cover": true,
-                        "format": "jpeg",
-                        "sharpen": "0x0.75+0.75+0.008"
-                    },
-                    "image": {}
-                },
-                {
-                    "rename": {
-                        "suffix": ".720c",
+                        "suffix": ".720",
                         "extname": ".webp"
                     },
                     "resize": {
                         "width": 720,
                         "height": 720,
                         "crop": false,
-                        "upscale": true,
-                        "interlace": "line",
-                        "cover": true,
+                        "upscale": false,
+                        "cover": false,
                         "format": "webp",
-                        "sharpen": "0x0.75+0.75+0.008"
+                        "sharpen": "0.5x0.5+0.5+0.008"
                     },
                     "image": {}
                 }

@@ -1,3 +1,4 @@
+const path = require("path")
 const cheerio = require("cheerio")
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 fontawesome.library.add(require("@fortawesome/free-solid-svg-icons").fas, require("@fortawesome/free-regular-svg-icons").far, require("@fortawesome/free-brands-svg-icons").fab)
@@ -24,8 +25,20 @@ module.exports = (htm, urlprefix) => {
   const hs = []
   $("h2, h3, h4, h5, h6").each((i, el) => { hs.push(encodeURIComponent($(el).text())) })
   $("h2, h3, h4, h5, h6").each((i) => { $("h2, h3, h4, h5, h6").eq(i).attr("id", hs[i]) })
+  $("img").attr("loading", "lazy")
   $("img:not(.notblogstyle)").each((i, el) => {
-    const img = $.html($(el))
+    const img = (() => {
+      const imgurl = (() => {
+        if ($(el).is("img[src^=\"/\"]")) return $(el).attr("src")
+        if ($(el).is("img[src^=\"files/\"]")) return `/${$(el).attr("src")}`
+        return null
+      })()
+      if (imgurl) {
+        const iu = path.parse(imgurl)
+        return `<picture><source srcset="${urlprefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlprefix}${iu.dir}/${iu.name}.webp 1600w" type="image/webp"><source srcset="${urlprefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlprefix}${iu.dir}/${iu.base}">${$.html($(el))}</picture>`
+      }
+      return $.html($(el))
+    })()
     const tit = $(el).attr("title")
     const str = `<div class="blogstyle blogstyle-image"><div>${img}${tit && tit.length > 0 ? `<p>${tit}</p>` : ""}</div></div>`
     $(el).after(str)

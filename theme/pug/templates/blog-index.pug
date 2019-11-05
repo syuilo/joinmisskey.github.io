@@ -100,8 +100,8 @@ block main
         each thispage in qpages
           a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
             article.card
-              if ( thispage.meta.thumbnail )
-                img.card-img-top(alt="サムネイル", src=`${site.url.path}${thispage.meta.thumbnail.dir}/${thispage.meta.thumbnail.name}.720${thispage.meta.thumbnail.ext}` lazyload="on")
+              if ( thispage.attributes.thumbnail )
+                +picture({ src:thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy" class="card-img-top" })
               h4.card-title #{thispage.attributes.title}
               p.card-text.px-3 #{thispage.attributes.description}
               - let birthtime = new Date(thispage.meta.birthtime)

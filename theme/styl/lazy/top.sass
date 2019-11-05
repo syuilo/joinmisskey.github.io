@@ -51,50 +51,53 @@
 
         // Mobile
         &:nth-child(3)
-          width: 20vw
-          transform: translateX(32vw) translateY(45vh)
-          z-index: 3
-          background-color: #1a1b20
-          display: none
-          &.show
-            display: block !important
-            animation-name: toppage-scnshts-3
-
-          @media (max-width: map-get($grid-breakpoints, sm))
-            transform: translateX(35vw) translateY(55vh)
+          img
+            width: 20vw
+            transform: translateX(32vw) translateY(45vh)
+            z-index: 3
+            background-color: #1a1b20
+            display: none
             &.show
-              animation-name: toppage-scnshts-3-sm
+              display: block !important
+              animation-name: toppage-scnshts-3
+
+            @media (max-width: map-get($grid-breakpoints, sm))
+              transform: translateX(35vw) translateY(55vh)
+              &.show
+                animation-name: toppage-scnshts-3-sm
 
         // Home
         &:nth-child(2)
-          width: 60vw
-          transform: translateX(10vw) translateY(35vh)
-          z-index: 0
-          display: none
-          &.show
-            display: block !important
-            animation-name: toppage-scnshts-2
-
-          @media (max-width: map-get($grid-breakpoints, sm))
-            transform: translateX(10vw) translateY(45vh)
+          img
+            width: 60vw
+            transform: translateX(10vw) translateY(35vh)
+            z-index: 0
+            display: none
             &.show
-              animation-name: toppage-scnshts-2-sm
+              display: block !important
+              animation-name: toppage-scnshts-2
+
+            @media (max-width: map-get($grid-breakpoints, sm))
+              transform: translateX(10vw) translateY(45vh)
+              &.show
+                animation-name: toppage-scnshts-2-sm
 
         // Deck
         &:nth-child(1)
-          width: 60vw
-          transform: translateX(37vw) translateY(40vh)
-          z-index: 1
-          background-color: #ececec
-          display: none
-          &.show
-            display: block !important
-            animation-name: toppage-scnshts-1
-
-          @media (max-width: map-get($grid-breakpoints, sm))
-            transform: translateX(37vw) translateY(50vh)
+          img
+            width: 60vw
+            transform: translateX(37vw) translateY(40vh)
+            z-index: 1
+            background-color: #ececec
+            display: none
             &.show
-              animation-name: toppage-scnshts-1-sm
+              display: block !important
+              animation-name: toppage-scnshts-1
+
+            @media (max-width: map-get($grid-breakpoints, sm))
+              transform: translateX(37vw) translateY(50vh)
+              &.show
+                animation-name: toppage-scnshts-1-sm
 
         // Ai
         &:nth-child(4)
@@ -159,8 +162,8 @@
                   text-decoration: none
                   background-color: rgba($primary, .3)
 
-              > img
-                width: 100%
+            img
+              width: 100%
 
     h4
       font-size: 16px

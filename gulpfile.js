@@ -72,6 +72,13 @@ let site = extend(true,
   require("./.config/lang.json"),
   require("./.config/images.json"))
 
+if (process.env.CI) {
+  site = extend(true,
+    site,
+    // eslint-disable-next-line global-require
+    require("./.config/actions-override.json"))
+}
+
 const dor = require("./.config/debug-override.json")
 
 if (argv._.some((e) => e === "local-server")) site = extend(this, site, dor)
@@ -192,7 +199,7 @@ gulp.task("credit-icons", (cb) => {
       ex = true
       streams.push(
         new Promise((res, rej) => {
-          glog(":v:")
+          glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
           gulp.src(`${tempDir}${v.name}.${v.ext}`)
             .pipe($.imageResize({
               format: "png",
@@ -201,6 +208,7 @@ gulp.task("credit-icons", (cb) => {
               crop: true,
               upscale: false,
               cover: true,
+              interlace: "line",
               sharpen: "0x0.75+0.75+0.008",
               imageMagick: site.imageMagick
             }))
@@ -217,6 +225,46 @@ gulp.task("credit-icons", (cb) => {
             }))
             .pipe(gulp.dest("dist/files/images/credit"))
             .pipe(gulp.dest("dist/docs/files/images/credit"))
+            .on("end", res)
+            .on("error", rej)
+        })
+      )
+    }
+  }
+  if (!ex) return cb()
+  return Promise.all(streams)
+})
+
+gulp.task("instance-banners", (cb) => {
+  const streams = []
+  let ex = false
+  for (let t = 0; t < base.instancesBanners.length; t += 1) {
+    const v = base.instancesBanners[t]
+    if (v && v.status !== "unchanged") {
+      ex = true
+      streams.push(
+        new Promise((res, rej) => {
+          glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
+          gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
+            .pipe($.imageResize({
+              format: "jpeg",
+              width: 1024,
+              crop: false,
+              upscale: false,
+              cover: false,
+              sharpen: "0x0.75+0.75+0.008",
+              imageMagick: site.imageMagick
+            }))
+            .pipe($.image({
+              jpegRecompress: false,
+              mozjpeg: ["-optimize", "-progressive"],
+              concurrent: 10
+            }))
+            .pipe($.rename({
+              extname: ".jpeg"
+            }))
+            .pipe(gulp.dest("dist/files/images/instance-banners"))
+            .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
             .on("end", res)
             .on("error", rej)
         })
@@ -486,6 +534,7 @@ const gmAutoOrient = $.gm(
 gulp.task("clean-docs", () => del(["docs/**/*", "!docs/.git"], { dot: true }))
 gulp.task("clean-dist-docs", () => del("dist/docs/**/*", { dot: true }))
 gulp.task("clean-dist-files", () => del("dist/files/**/*", { dot: true }))
+gulp.task("clean-dist-cache", () => del("dist/cache/**/*", { dot: true }))
 
 gulp.task("make-sw", (cb) => {
   if (!site.sw) {
@@ -669,6 +718,7 @@ gulp.task("core",
       "css",
       "pug",
       "credit-icons",
+      "instance-banners",
       "js"
     ),
     gulp.parallel("copy-publish", "make-subfiles"),
@@ -686,7 +736,7 @@ gulp.task("default",
 gulp.task("pages",
   gulp.series(
     "register",
-    gulp.parallel("config", "pug", "credit-icons"),
+    gulp.parallel("config", "pug", "credit-icons", "instance-banners"),
     gulp.parallel("copy-prebuildFiles", "make-subfiles", "copy-theme-static"),
     "copy-f404",
     "copy-docs",
@@ -790,7 +840,7 @@ gulp.task("image-prebuildFiles", () => {
 
 gulp.task("prebuild-files",
   gulp.series(
-    "clean-dist-files",
+    gulp.parallel("clean-dist-files", "clean-dist-cache"),
     "image-prebuildFiles",
     (cb) => { cb() }
   ))

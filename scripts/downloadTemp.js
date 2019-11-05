@@ -22,16 +22,16 @@ module.exports = async (name, url, tempDir, alwaysReturn) => {
     if (!local) return false
     if (getHash(remote, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
       await writeFile(`${tempDir}${name}.${ext}`, remote)
-      return { name, ext }
+      return { name, ext, status: "renewed" }
     }
-    if (alwaysReturn) return { name, ext }
+    if (alwaysReturn) return { name, ext, status: "unchanged" }
     return false
   }
   glog(`Getting new image: ${url}`)
   return download(url).then(async (data) => {
     const { ext } = fileType(data)
     await writeFile(`${tempDir}${name}.${ext}`, data)
-    return { name, ext }
+    return { name, ext, status: "created" }
   }).catch((reason) => {
     glog(`Cannot get the image: ${reason}`)
     return false

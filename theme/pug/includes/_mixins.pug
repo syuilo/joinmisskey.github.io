@@ -92,6 +92,13 @@ mixin editLink()
     +fa_fw('pencil-alt', 'fas')
     +i18n('edit_this_page')
 
+mixin picture(img)
+  - const iu = path.parse(img.src)
+  picture
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlPrefix}${iu.dir}/${iu.name}.webp 1600w` type="image/webp")
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlPrefix}${iu.dir}/${iu.base}`)
+    img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
+
 mixin blog_badges(targetpage)
   div.mr-2
     +fa_fw("folder-open")
@@ -145,7 +152,7 @@ mixin instancesList(o, colors, sctrollts)
       if(ilang && itype && versionOk)
         -
           let s = (instance.isAlive && instance.meta.bannerUrl) ?
-          `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('${instance.meta.bannerUrl}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
+          `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('/files/images/instance-banners/${instance.url}.jpeg?${update.getTime().toString(36)}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
           ``
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start.py-3
           h5.noindex

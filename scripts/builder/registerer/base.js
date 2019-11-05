@@ -172,19 +172,23 @@ async function getInstancesInfos(instances) {
 }
 
 module.exports = async (site, keys, tempDir, instances) => {
+  const creditIconsPromises = []
+
   mkdirp.sync(`${tempDir}github/`)
-  mkdirp.sync(`${tempDir}patreon/`)
-  const promises = []
+
+  /* get contrbutors from GitHub API */
   const contributors = await getContributors()
 
   // eslint-disable-next-line no-restricted-syntax
   for (let t = 0; t < contributors.length; t += 1) {
     const contributor = contributors[t]
-    promises.push(downloadTemp(`github/${contributor.id}`, contributor.avatar_url, tempDir))
+    creditIconsPromises.push(downloadTemp(`github/${contributor.id}`, contributor.avatar_url, tempDir))
   }
   glog("Got contributors from GitHub")
 
   /* get patrons from Patreon API */
+
+  mkdirp.sync(`${tempDir}patreon/`)
 
   let patrons = null
   if (keys != null && keys.patreon) {
@@ -232,7 +236,7 @@ module.exports = async (site, keys, tempDir, instances) => {
       const tier = patrons[m]
       for (let n = 0; n < tier.members.length; n += 1) {
         const member = tier.members[n]
-        promises.push(downloadTemp(`patreon/${member.id}`, member.attributes.thumb_url, tempDir))
+        creditIconsPromises.push(downloadTemp(`patreon/${member.id}`, member.attributes.thumb_url, tempDir))
       }
       tier.members.sort((a, b) => b.lifetime_support_cents - a.lifetime_support_cents)
     }
@@ -240,7 +244,14 @@ module.exports = async (site, keys, tempDir, instances) => {
     patrons = patrons.reverse()
   }
 
-  const [creditIcons, instancesInfos, ampcss] = await Promise.all([Promise.all(promises), getInstancesInfos(instances), getAmpCss()])
+  mkdirp.sync(`${tempDir}instance-banners/`)
+  const instancesInfos = await getInstancesInfos(instances)
+
+  const instancesBannersPromises = instancesInfos
+    .filter((instance) => instance.isAlive && instance.meta.bannerUrl)
+    .map((instance) => downloadTemp(`${instance.url}`, instance.meta.bannerUrl, `${tempDir}instance-banners/`, true))
+
+  const [creditIcons, instancesBanners, ampcss] = await Promise.all([Promise.all(creditIconsPromises), Promise.all(instancesBannersPromises), getAmpCss()])
 
   return {
     instancesInfos,
@@ -248,6 +259,7 @@ module.exports = async (site, keys, tempDir, instances) => {
     contributors,
     ampcss,
     creditIcons,
-    mkConnectServices
+    mkConnectServices,
+    instancesBanners
   }
 }
