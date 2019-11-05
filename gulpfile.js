@@ -828,7 +828,6 @@ gulp.task("image-prebuildFiles", () => {
   streams.push(
     new Promise((res, rej) => {
       gulp.src(svg)
-        .pipe($.inkscape({ args: ["-T"] }))
         .pipe($.svgmin())
         .pipe(gulp.dest("dist/files"))
         .on("end", res)
@@ -903,7 +902,6 @@ gulp.task("image", () => {
     streams.push(
       new Promise((res, rej) => {
         svg
-          .pipe($.inkscape({ args: ["-T"] }))
           .pipe($.svgmin())
           .pipe($.rename({ dirname } || {}))
           .pipe(gulp.dest("dist/files/images/imports"))

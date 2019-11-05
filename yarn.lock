@@ -4346,15 +4346,6 @@ gulp-image@5.1.0:
     through2-concurrent "^2.0.0"
     zopflipng-bin "^5.0.0"
 
-gulp-inkscape@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/gulp-inkscape/-/gulp-inkscape-1.1.2.tgz#42f0bb94f458afb96cf4dd632ec2df64e432b0e2"
-  integrity sha512-eia+73LGOUEY+L3RVdH1seUlw+3hVYw5crboqKaQ6wzM3qmlUvfjbR7ppVgETYUuG3K8B/yEv1ru/7JyTdVdzw==
-  dependencies:
-    minimist "^1.2.0"
-    temp "^0.9.0"
-    through2 "^3.0.1"
-
 gulp-load-plugins@2:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/gulp-load-plugins/-/gulp-load-plugins-2.0.1.tgz#8fbff22095301a08c0f73f53f3e2a895a7258bd8"
