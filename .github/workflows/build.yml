@@ -28,6 +28,7 @@ jobs:
         echo "SHA: $GITHUB_SHA"
         echo "REF: $GITHUB_REF"
         echo "ACTION: $GITHUB_ACTION"
+        echo "COMMIT MSG: ${{ github.event.head_commit.message }}"
     - name: Git init
       run: |
         git init
