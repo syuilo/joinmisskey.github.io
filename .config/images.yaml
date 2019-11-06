@@ -19,11 +19,9 @@ images:
         passThroughUnused: false
     responsive:
     - width: 1600
-      height: 1600
       withoutEnlargement: true
       crop: false
     - width: 1600
-      height: 1600
       crop: false
       withoutEnlargement: true
       quality: 97
@@ -31,14 +29,12 @@ images:
       rename:
         extname: ".webp"
     - width: 720
-      height: 720
       crop: false
       withoutEnlargement: true
       sharpen: "0.5x0.5+0.5+0.008"
       rename:
         suffix: ".720"
     - width: 720
-      height: 720
       crop: false
       withoutEnlargement: true
       sharpen: "0.5x0.5+0.5+0.008"
