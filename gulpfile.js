@@ -206,7 +206,7 @@ gulp.task("credit-icons", (cb) => {
             }, site.images.files.all.responsive))
             .pipe($.image({
               optipng: false,
-              pngquant: ["--speed=3"],
+              pngquant: ["--speed=1"],
               zopflipng: false,
               concurrent: 16
             }))
@@ -247,6 +247,7 @@ gulp.task("instance-banners", (cb) => {
             .pipe($.image({
               jpegRecompress: false,
               mozjpeg: ["-optimize", "-progressive"],
+              guetzli: false,
               concurrent: 16
             }))
             .pipe(gulp.dest("dist/files/images/instance-banners"))
