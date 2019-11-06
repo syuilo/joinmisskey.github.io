@@ -767,7 +767,7 @@ gulp.task("image-prebuildFiles", () => {
     new Promise((res, rej) => {
       gulp.src(raster)
         .pipe($.responsive({
-          "*": site.images.files.responsive
+          "**": site.images.files.responsive
         }, site.images.files.all.responsive))
         .pipe($.image(imagesBase()))
         .pipe(gulp.dest("dist/files"))
@@ -884,7 +884,7 @@ gulp.task("image", () => {
       new Promise((res, rej) => {
         others
           .pipe($.responsive({
-            "*": site.images.files.responsive
+            "**": site.images.files.responsive
           }, site.images.files.all.responsive))
           // .pipe($.image(imagesBase()))
           .pipe($.rename({ dirname } || {}))
