@@ -230,6 +230,7 @@ gulp.task("instance-banners", (cb) => {
         new Promise((res, rej) => {
           glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
           gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
+            .pipe($.if(v.ext === "gif"), ())
             .pipe($.responsive({
               "**": {
                 width: 1024,

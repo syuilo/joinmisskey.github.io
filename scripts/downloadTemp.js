@@ -5,22 +5,32 @@ const fileType = require("file-type")
 const glob = require("glob")
 const mkdirp = require("mkdirp")
 const glog = require("fancy-log")
+const sharp = require("sharp")
 const getHash = require("./gethash")
 
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
 
 module.exports = async (name, url, tempDir, alwaysReturn) => {
+  const toPng = (buffer) => sharp(buffer)
+    .toFormat("png")
+    .toBuffer()
+    .then((png) => writeFile(`${tempDir}${name}.png`, png))
+
   mkdirp.sync(tempDir)
   const files = glob.sync(`${tempDir}${name}.{png,jpg,jpeg,gif}`)
   if (files.length > 0) {
     // glog("Getting image: " + url)
     const remote = await download(url).catch(() => false)
     if (!remote) return false
-    const { ext } = fileType(remote)
+    let { ext } = fileType(remote)
     const local = await readFile(`${tempDir}${name}.${ext}`).catch(() => false)
     if (!local) return false
     if (getHash(remote, "sha384", "binary", "base64") !== getHash(local, "sha384", "binary", "base64")) {
+      if (["png", "jpg", "jpeg", "webp"].indexOf(ext) === -1) {
+        await toPng(remote)
+        ext = "png"
+      }
       await writeFile(`${tempDir}${name}.${ext}`, remote)
       return { name, ext, status: "renewed" }
     }
@@ -29,7 +39,11 @@ module.exports = async (name, url, tempDir, alwaysReturn) => {
   }
   glog(`Getting new image: ${url}`)
   return download(url).then(async (data) => {
-    const { ext } = fileType(data)
+    let { ext } = fileType(data)
+    if (["png", "jpg", "jpeg", "webp"].indexOf(ext) === -1) {
+      await toPng(data)
+      ext = "png"
+    }
     await writeFile(`${tempDir}${name}.${ext}`, data)
     return { name, ext, status: "created" }
   }).catch((reason) => {
