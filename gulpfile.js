@@ -189,7 +189,7 @@ gulp.task("credit-icons", (cb) => {
           glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
           gulp.src(`${tempDir}${v.name}.${v.ext}`)
             .pipe($.responsive({
-              "*": {
+              "**": {
                 format: "png",
                 min: 140,
                 crop: true,
@@ -233,12 +233,14 @@ gulp.task("instance-banners", (cb) => {
           glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
           gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
             .pipe($.responsive({
-              format: "jpeg",
-              max: 1024,
-              withoutEnlargement: true,
-              sharpen: "0.5x0.5+0.5+0.008",
-              rename: {
-                extname: ".jpeg"
+              "**": {
+                format: "jpeg",
+                max: 1024,
+                withoutEnlargement: true,
+                sharpen: "0.5x0.5+0.5+0.008",
+                rename: {
+                  extname: ".jpeg"
+                }
               }
             }))
             .pipe($.image({
