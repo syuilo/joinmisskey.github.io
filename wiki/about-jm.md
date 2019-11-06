@@ -21,4 +21,4 @@ Misskeyは[しゅいろ](../culture/users/syuilo/)が中心となり製作して
   * Chaque fichier possède une syntaxe YAML Front Matter avec un `--- ~ ---` au début
 4. Soumettre une demande de fusion après l'édition
 5. aqz et syuilo fusionneront les modifications
-6. Les modifications seront appliquées lorsque aqz les aura construit
+6. GitHub Actionsでビルド後、変更が反映される
