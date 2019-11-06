@@ -192,7 +192,7 @@ gulp.task("credit-icons", (cb) => {
               "**": {
                 width: 140,
                 height: 140,
-                crop: true,
+                // crop: true,
                 withoutEnlargement: true,
                 sharpen: "0.5x0.5+0.5+0.008",
                 // format: "png",
