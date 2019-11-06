@@ -1,5 +1,5 @@
 export const twemojiinit = async () => {
-  const { parse } = await import("twemoji")
+  const { parse } = require("twemoji")
   parse(document.body, {
     ext: ".svg",
     folder: "svg"

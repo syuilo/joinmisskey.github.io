@@ -11,7 +11,7 @@ import onReady from "./onReady"
 import { pjaxinit } from "./pjax"
 import { pjaxLoaded } from "./pjax-loaded"
 import { scrolltoshow } from "./scrolltoshow"
-import { twemojiinit } from "./twemojiinit"
+// import { twemojiinit } from "./twemojiinit"
 
 import { Loading } from "./loading"
 new Loading()
@@ -21,7 +21,7 @@ function contentReady() {
   gototop()
   scrolltoshow()
   importCss()
-  twemojiinit()
+//  twemojiinit()
 }
 
 function contentLoaded() {
