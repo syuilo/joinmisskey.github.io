@@ -21,4 +21,4 @@ Misskeyは[しゅいろ](../culture/users/syuilo/)が中心となり製作して
   * 各ファイルには先頭の`--- ~ ---`でYAML FrontMatterが設定されている
 4. 編集が終わったらプルリクエストを出す
 5. aqzが精査し、OKであればマージする
-6. aqzがビルドすれば、変更が反映される
+6. GitHub Actionsでビルド後、変更が反映される
