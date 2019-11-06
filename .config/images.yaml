@@ -7,7 +7,7 @@ images:
         mozjpeg:
         - "-optimize"
         - "-progressive"
-        concurrent: 10
+        concurrent: 16
       responsive:
         rotate: true
         quality: 80

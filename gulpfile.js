@@ -191,7 +191,8 @@ gulp.task("credit-icons", (cb) => {
             .pipe($.responsive({
               "**": {
                 format: "png",
-                min: 140,
+                width: 140,
+                height: 140,
                 crop: true,
                 withoutEnlargement: true,
                 progressive: true,
@@ -202,12 +203,12 @@ gulp.task("credit-icons", (cb) => {
                   extname: ".png"
                 }
               }
-            }))
+            }, site.images.files.all.responsive))
             .pipe($.image({
               optipng: false,
               pngquant: ["--speed=3"],
               zopflipng: false,
-              concurrent: 10
+              concurrent: 16
             }))
             .pipe(gulp.dest("dist/files/images/credit"))
             .pipe(gulp.dest("dist/docs/files/images/credit"))
@@ -235,18 +236,18 @@ gulp.task("instance-banners", (cb) => {
             .pipe($.responsive({
               "**": {
                 format: "jpeg",
-                max: 1024,
+                width: 1024,
                 withoutEnlargement: true,
                 sharpen: "0.5x0.5+0.5+0.008",
                 rename: {
                   extname: ".jpeg"
                 }
               }
-            }))
+            }, site.images.files.all.responsive))
             .pipe($.image({
               jpegRecompress: false,
               mozjpeg: ["-optimize", "-progressive"],
-              concurrent: 10
+              concurrent: 16
             }))
             .pipe(gulp.dest("dist/files/images/instance-banners"))
             .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
