@@ -197,8 +197,6 @@ gulp.task("credit-icons", (cb) => {
                 sharpen: "0.5x0.5+0.5+0.008",
                 // format: "png",
                 rename: {
-                  dirname: v.name.split("/")[0],
-                  basename: v.name.split("/")[1],
                   extname: ".png"
                 }
               }
@@ -209,8 +207,8 @@ gulp.task("credit-icons", (cb) => {
               zopflipng: false,
               concurrent: 16
             }))
-            .pipe(gulp.dest("dist/files/images/credit"))
-            .pipe(gulp.dest("dist/docs/files/images/credit"))
+            .pipe(gulp.dest(`dist/files/images/credit/${v.name.split("/")[0]}`))
+            .pipe(gulp.dest(`dist/docs/files/images/credit/${v.name.split("/")[0]}`))
             .on("end", res)
             .on("error", rej)
         })
