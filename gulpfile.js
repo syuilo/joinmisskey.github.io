@@ -190,13 +190,12 @@ gulp.task("credit-icons", (cb) => {
           gulp.src(`${tempDir}${v.name}.${v.ext}`)
             .pipe($.responsive({
               "**": {
-                format: "png",
                 width: 140,
                 height: 140,
                 crop: true,
                 withoutEnlargement: true,
-                progressive: true,
                 sharpen: "0.5x0.5+0.5+0.008",
+                // format: "png",
                 rename: {
                   dirname: v.name.split("/")[0],
                   basename: v.name.split("/")[1],
@@ -235,10 +234,10 @@ gulp.task("instance-banners", (cb) => {
           gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
             .pipe($.responsive({
               "**": {
-                format: "jpeg",
                 width: 1024,
                 withoutEnlargement: true,
                 sharpen: "0.5x0.5+0.5+0.008",
+                // format: "jpeg",
                 rename: {
                   extname: ".jpeg"
                 }

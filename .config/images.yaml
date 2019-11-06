@@ -11,7 +11,8 @@ images:
       responsive:
         rotate: true
         quality: 99
-        compressionLevel: 2
+        compressionLevel: 0
+        progressive: true
         errorOnEnlargement: false
         errorOnUnusedConfig: false
         errorOnUnusedImage: false
@@ -25,6 +26,7 @@ images:
       height: 1600
       crop: false
       withoutEnlargement: true
+      quality: 97
       # format: webp
       rename:
         extname: ".webp"
@@ -32,7 +34,6 @@ images:
       height: 720
       crop: false
       withoutEnlargement: true
-      progressive: true
       sharpen: "0.5x0.5+0.5+0.008"
       rename:
         suffix: ".720"
@@ -40,8 +41,8 @@ images:
       height: 720
       crop: false
       withoutEnlargement: true
-      progressive: true
       sharpen: "0.5x0.5+0.5+0.008"
+      quality: 80
       # format: webp
       rename: 
         suffix: ".720"
