@@ -67,7 +67,7 @@ const site = extend(true,
   require("./.config/default.json"),
   require("./.config/lang.json"),
   loadyaml("./.config/images.yaml"),
-  process.env.CI === "true" ? require("./.config/actions-override.json") : {},
+  // process.env.CI === "true" ? loadyaml("./.config/actions-override.yaml") : {},
   argv._.some((e) => e === "local-server") ? require("./.config/debug-override.json") : {})
 
 const keys = (() => {

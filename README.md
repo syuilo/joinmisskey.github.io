@@ -31,8 +31,6 @@ The introduction site of [Misskey](https://github.com/syuilo/misskey)
 `gulp local-server`
 
 ### Compress images
-Install ImageMagick or GraphicsMagick.
-
 #### Add Images
 ```
 gulp image -i <glob-readable-path>
@@ -45,9 +43,8 @@ This command compresses bitmap images and produces:
 - The **long side** is **equal or less than** 720px
   * `/files/images/imports/yyyy/mm/<name>.720.<ext>`
   * `/files/images/imports/yyyy/mm/<name>.720.webp`
-  
 
-Also compresses bector images.
+It also compresses bector images.
 
 #### Recompress All Images
 ```
