@@ -11,7 +11,7 @@ layout: wiki
 ## 概要
 misskey.ioのとても強力なサーバーを運用する程度の能力の持ち主。misskey.io以外にも複数のMisskeyインスタンスへサーバー資源を提供している。
 
-![村上さんのアイコン](/files/images/imports/2018/08/murakami-san.720c.jpeg)
+![村上さんのアイコン](/files/images/imports/2018/08/murakami-san.720.png)
 
 アイコンは「めるアイコン」でお馴染みのMelville氏作。Live2Dモデルである。[*](https://misskey.xyz/notes/5c3df084ce8ff90032f76ed4)
 

@@ -9,9 +9,9 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
       h1.font-weight-normal.loadts.scrollts-fadeInLeftBig.scrollts-e-2.scrollts-u-5.scrollts-nomargin Join Misskey
       p.loadts.scrollts-fadeInLeftBig.scrollts-e-4.scrollts-u-5.scrollts-nomargin Misskey is a forever evolving, sophisticated microblogging platform.
     .scnshts
-      img(src="/files/images/imports/2019/03/top-deck-1403march19.720c.jpeg" alt="Deck(Desktop)").loadts.scrollts-e-1.scrollts-nomargin
-      img(src="/files/images/imports/2019/03/top-home-1403march19.720c.jpeg" alt="Home(Desktop)").loadts.scrollts-e-1.scrollts-nomargin
-      img(src="/files/images/imports/2019/03/top-mobile-1403march19.720c.jpeg" alt="Mobile").loadts.scrollts-e-1.scrollts-nomargin
+      +picture({src:"/files/images/imports/2019/03/top-deck-1403march19.png", alt:"Deck(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin"})
+      +picture({src:"/files/images/imports/2019/03/top-home-1403march19.png", alt:"Home(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin"})
+      +picture({src:"/files/images/imports/2019/03/top-mobile-1403march19.png", alt:"Mobile", class:"loadts scrollts-e-1 scrollts-nomargin"})
       img(src="/files/images/imports/2019/03/ai_svg.svg" alt="Ai").loadts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin
       div.small.loadts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin Ai, the mascot of Misskey
   section#section_1.bg-primary.text-white: .container
@@ -59,7 +59,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
               .s2-card-text
                 h4 Text Formatting
                 p.mb-0 Let's decorate your posts and profile! Formatting by Misskey Flavored Markdown is available.
-            img(src="/files/images/imports/2019/03/mfm.720.png")
+            +picture({src: "/files/images/imports/2019/03/mfm.png", loading: "lazy"})
             a(href="wiki/usage/mfm/").s2-card-link.font-weight-bold MFM構文一覧
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -68,7 +68,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
               .s2-card-text
                 h4 Reactions
                 p.mb-0 投稿への共感を簡単に表現しよう。絵文字を選んで、投稿にリアクションを送れます。
-            img(src="/files/images/imports/2019/03/reaction-2.720.png")
+            +picture({src: "/files/images/imports/2019/03/reaction-2.png", loading: "lazy"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -76,7 +76,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
               .s2-card-text
                 h4 Poll
                 p.mb-0 みんなに意見を聞いてみよう。10個までの選択肢でアンケートを作成できます。複数回答可や有効期限付きにできます。
-            img(src="/files/images/imports/2019/03/vote.720.png")
+            +picture({src: "/files/images/imports/2019/03/vote.png", loading: "lazy"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -84,7 +84,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
               .s2-card-text
                 h4 Drive
                 p.mb-0 ファイルを保存して何回も共有しよう。添付したファイルをドライブで管理したり、ドライブにあらかじめファイルをアップロードしたりできます。
-            img(src="/files/images/imports/2019/03/drive-scrsht.720.png")
+            +picture({src: "/files/images/imports/2019/03/drive-scrsht.png", loading: "lazy"})
             a(href="wiki/usage/drive/").s2-card-link.font-weight-bold ドライブの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -96,7 +96,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
                   | Let's play together! You can battle with other users.
                   br
                   | In Reversi, users' icon show as stones and you can play with #[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") customed rule].
-            img(src="/files/images/imports/2019/03/reversi.720.png")
+            +picture({src: "/files/images/imports/2019/03/reversi.png", loading: "lazy"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -107,7 +107,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
                   | チャットしよう。
                   br
                   | ノートとは別の専用画面で、一対一もしくはグループでチャットができます。
-            img(src="/files/images/imports/2019/10/talk.720.png")
+            +picture({src: "/files/images/imports/2019/10/talk.png", loading: "lazy"})
             a(href="wiki/usage/messaging/").s2-card-link.font-weight-bold トークの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -119,7 +119,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
                   | ジェネレーターを作ったり、文章を書いたりしよう。
                   br
                   | ページでは、テキストやセクションといったブロックを配置し、簡単なプログラムを組めます。
-            img(src="/files/images/imports/2019/10/page.720.png")
+            +picture({src: "/files/images/imports/2019/10/page.png", loading: "lazy"})
             a(href="wiki/usage/pages/").s2-card-link.font-weight-bold ページの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -131,7 +131,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
                   | いろいろな家具を配置して自分の部屋を作ろう。
                   br
                   | 作成したルームはURLでみんなと共有できます。
-            img(src="/files/images/imports/2019/10/room.720.png")
+            +picture({src: "/files/images/imports/2019/10/room.png", loading: "lazy"})
             a(href="wiki/usage/rooms/").s2-card-link.font-weight-bold ルームの詳細
 
     hr#section_2_b
@@ -251,9 +251,9 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
     h2 Misskey is now in internet news! (In Japanese)
     p.m-0
       a(href="http://www.itmedia.co.jp/news/articles/1804/17/news124.html" target="_blank" rel="noopener" title="ActivityPub対応国産SNS「Misskey」、LTLも実装 ―― ITmedia NEWS").p-1.mr-2
-        img(src="/files/images/imports/2018/07/ITmediaNEWS.png" style="height: 33px" alt="ITmedia NEWS")
+        img(src="/files/images/imports/2018/07/ITmediaNEWS.png" style="height: 33px" alt="ITmedia NEWS" loading="lazy")
       a(href="https://www.moongift.jp/2018/07/misskey-%e5%88%86%e6%95%a3%e5%9e%8b%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%96%e3%83%ad%e3%82%b0%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/" target="_blank" rel="noopener" title="Misskey - 分散型マイクロブログサービス ―― MOONGIFT").p-1
-        img(src="/files/images/imports/2018/07/MOONGIFT.png" style="height: 33px" alt="MOONGIFT")
+        img(src="/files/images/imports/2018/07/MOONGIFT.png" style="height: 33px" alt="MOONGIFT" loading="lazy")
 
   section#section_7: .container
     h2.text-center Support contributors
