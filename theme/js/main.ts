@@ -32,6 +32,6 @@ detectOldBrowser()
 onReady(contentReady)
 document.addEventListener("pjax:content", contentReady)
 
-onLoad(contentLoaded)
+// onLoad(contentLoaded)
 window.addEventListener("pjax:load", pjaxLoaded)
-window.addEventListener("pjax:load", contentLoaded)
+// window.addEventListener("pjax:load", contentLoaded)

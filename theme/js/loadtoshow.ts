@@ -14,7 +14,7 @@ export class LoadToShow {
       his.loaded = false
       setTimeout(() => {
         if (!his.loaded) his.show()
-      }, 10000)
+      }, 3200)
     })
 
     window.addEventListener("pjax:load", () => {

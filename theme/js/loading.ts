@@ -37,7 +37,7 @@ export class Loading {
     }, 100)
     setTimeout(() => {
       his.hide()
-    }, 8000)
+    }, 3000)
   }
 
   public hide = () => {
