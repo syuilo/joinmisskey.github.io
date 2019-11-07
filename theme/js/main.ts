@@ -4,7 +4,6 @@ import("bootstrap/js/dist/dropdown.js")
 import { fainit } from "./fainit"
 import { gototop } from "./gototop"
 import importCss from "./import-css"
-import { loadtoshow } from "./loadtoshow"
 import { detectOldBrowser } from "./old-browsers"
 import onLoad from "./onLoad"
 import onReady from "./onReady"
@@ -14,7 +13,9 @@ import { scrolltoshow } from "./scrolltoshow"
 // import { twemojiinit } from "./twemojiinit"
 
 import { Loading } from "./loading"
+import { LoadToShow } from "./loadtoshow"
 new Loading()
+new LoadToShow()
 
 function contentReady() {
   fainit()
@@ -22,10 +23,6 @@ function contentReady() {
   scrolltoshow()
   importCss()
 //  twemojiinit()
-}
-
-function contentLoaded() {
-  loadtoshow()
 }
 
 pjaxinit()
