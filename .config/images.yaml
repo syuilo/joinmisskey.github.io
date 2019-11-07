@@ -24,7 +24,7 @@ images:
     - width: 1600
       crop: false
       withoutEnlargement: true
-      quality: 97
+      quality: 80
       # format: webp
       rename:
         extname: ".webp"
