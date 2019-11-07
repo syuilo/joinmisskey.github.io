@@ -526,10 +526,9 @@ gulp.task("make-sw", (cb) => {
   res += `
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-self.addEventListener("install", function(event) {
-  self.skipWaiting();
-  self.clients.claim();
-})
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+workbox.googleAnalytics.initialize();
 
 workbox.routing.registerRoute(
     /.*\.(?:${site.sw})/,
