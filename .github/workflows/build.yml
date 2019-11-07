@@ -5,8 +5,8 @@ on:
     branches:
       - src
       - 'pages/*'
-#  schedule:
-#  - cron: 30 2,14 * * *
+  schedule:
+  - cron: 30 2,14 * * *
 
 jobs:
   build:
