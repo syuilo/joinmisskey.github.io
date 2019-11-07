@@ -9,9 +9,9 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
       h1.font-weight-normal.loadts.scrollts-fadeInLeftBig.scrollts-e-2.scrollts-u-5.scrollts-nomargin Misskeyを<wbr>はじめよう
       p.loadts.scrollts-fadeInLeftBig.scrollts-e-4.scrollts-u-5.scrollts-nomargin いつまでも進化する、<wbr>洗練されたマイクロブログSNS <wbr>Misskey（ミスキー）
     .scnshts
-      +picture({src:"/files/images/imports/2019/03/top-deck-1403march19.png", alt:"Deck(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin"})
-      +picture({src:"/files/images/imports/2019/03/top-home-1403march19.png", alt:"Home(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin"})
-      +picture({src:"/files/images/imports/2019/03/top-mobile-1403march19.png", alt:"Mobile", class:"loadts scrollts-e-1 scrollts-nomargin"})
+      +picture({src:"/files/images/imports/2019/03/top-deck-1403march19.png", alt:"Deck(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin", sizes: "60vw"})
+      +picture({src:"/files/images/imports/2019/03/top-home-1403march19.png", alt:"Home(Desktop)", class:"loadts scrollts-e-1 scrollts-nomargin", sizes: "60vw"})
+      +picture({src:"/files/images/imports/2019/03/top-mobile-1403march19.png", alt:"Mobile", class:"loadts scrollts-e-1 scrollts-nomargin", sizes: "20vw"})
       img(src="/files/images/imports/2019/03/ai_svg.svg" alt="Ai").loadts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin
       div.small.loadts.scrollts-fadeIn.scrollts-e-3.scrollts-nomargin Ai est la mascotte de Misskey
   section#section_1.bg-primary.text-white: .container
@@ -59,7 +59,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
               .s2-card-text
                 h4 Texte formaté
                 p.mb-0 Vous pouvez décorer votre texte ainsi que votre profile à l'aide du formatage Markdown de Misskey.
-            +picture({src: "/files/images/imports/2019/03/mfm.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/03/mfm.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/mfm/").s2-card-link.font-weight-bold MFM構文一覧
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -68,7 +68,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
               .s2-card-text
                 h4 Réactions
                 p.mb-0 投稿への共感を簡単に表現しよう。絵文字を選んで、投稿にリアクションを送れます。
-            +picture({src: "/files/images/imports/2019/03/reaction-2.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/03/reaction-2.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -76,7 +76,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
               .s2-card-text
                 h4 Sondages
                 p.mb-0 みんなに意見を聞いてみよう。10個までの選択肢でアンケートを作成できます。複数回答可や有効期限付きにできます。
-            +picture({src: "/files/images/imports/2019/03/vote.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/03/vote.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -84,7 +84,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
               .s2-card-text
                 h4 Un lecteur (Drive)
                 p.mb-0 ファイルを保存して何回も共有しよう。添付したファイルをドライブで管理したり、ドライブにあらかじめファイルをアップロードしたりできます。
-            +picture({src: "/files/images/imports/2019/03/drive-scrsht.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/03/drive-scrsht.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/drive/").s2-card-link.font-weight-bold ドライブの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -96,7 +96,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
                   | Jouons ensemble. Vous pouvez jouer contre d'autres utilisateurs.
                   br
                   | 「リバーシ」はユーザーのアイコンが石として表示されるほか#[a(href="https://github.com/syuilo/misskey/issues/1200" target="_blank" rel="noopener") 変則ルール]でも遊ぶことができます。
-            +picture({src: "/files/images/imports/2019/03/reversi.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/03/reversi.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -107,7 +107,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
                   | チャットしよう。
                   br
                   | ノートとは別の専用画面で、一対一もしくはグループでチャットができます。
-            +picture({src: "/files/images/imports/2019/10/talk.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/10/talk.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/messaging/").s2-card-link.font-weight-bold トークの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -119,7 +119,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
                   | ジェネレーターを作ったり、文章を書いたりしよう。
                   br
                   | ページでは、テキストやセクションといったブロックを配置し、簡単なプログラムを組めます。
-            +picture({src: "/files/images/imports/2019/10/page.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/10/page.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/pages/").s2-card-link.font-weight-bold ページの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
@@ -131,7 +131,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
                   | いろいろな家具を配置して自分の部屋を作ろう。
                   br
                   | 作成したルームはURLでみんなと共有できます。
-            +picture({src: "/files/images/imports/2019/10/room.png", loading: "lazy"})
+            +picture({src: "/files/images/imports/2019/10/room.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/rooms/").s2-card-link.font-weight-bold ルームの詳細
 
     hr#section_2_b
@@ -148,7 +148,7 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
               .s2-card-text
                 h4 L'accueil et le Deck
                 p.mb-0 大きいタイムラインが中央に1つある「ホーム」か、カラムを配置し複数のタイムラインを見られる「デッキ」のどちらかを選んで利用できます。
-            img(src="/files/images/imports/2019/07/home-and-deck.svg")
+            img(src="/files/images/imports/2019/11/home-and-deck.svg")
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
