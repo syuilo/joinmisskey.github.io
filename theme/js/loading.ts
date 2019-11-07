@@ -24,7 +24,7 @@ export class Loading {
     })
     setTimeout(() => {
       if (location.pathname !== "/") his.hide()
-    }, 7000)
+    }, 8000)
   }
 
   public show = () => {

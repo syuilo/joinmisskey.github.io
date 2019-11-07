@@ -1,5 +1,5 @@
-import("bootstrap/js/dist/collapse")
-import("bootstrap/js/dist/dropdown")
+import("bootstrap/js/dist/collapse.js")
+import("bootstrap/js/dist/dropdown.js")
 
 import { fainit } from "./fainit"
 import { gototop } from "./gototop"
