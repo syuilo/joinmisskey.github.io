@@ -94,9 +94,10 @@ mixin editLink()
 
 mixin picture(img)
   - const iu = path.parse(img.src)
+  - if (!img.sizes) img.sizes = "100vw, (min-width: 576px) 50vw, (min-width: 1200px) 30vw"
   picture
-    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlPrefix}${iu.dir}/${iu.name}.webp 1600w` type="image/webp")
-    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlPrefix}${iu.dir}/${iu.base}`)
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlPrefix}${iu.dir}/${iu.name}.webp 1600w` type="image/webp" sizes=(img.sizes || "50vw"))
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlPrefix}${iu.dir}/${iu.base}` sizes=(img.sizes || "50vw"))
     img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
 
 mixin blog_badges(targetpage)

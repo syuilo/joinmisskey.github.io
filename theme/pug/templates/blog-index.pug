@@ -101,7 +101,7 @@ block main
           a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
             article.card
               if ( thispage.attributes.thumbnail )
-                +picture({ src: thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy", class: "card-img-top" })
+                +picture({ src: thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy", class: "card-img-top", sizes: "calc(100vw - 30px - 1rem), " })
               h4.card-title #{thispage.attributes.title}
               p.card-text.px-3 #{thispage.attributes.description}
               - let birthtime = new Date(thispage.meta.birthtime)
