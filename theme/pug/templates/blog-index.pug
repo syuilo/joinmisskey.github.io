@@ -113,9 +113,7 @@ block main
                 +blog_badges(thispage)
           if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
             .py-2.px-3.col-12
-              ins(class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1736621122676736" data-ad-slot="1668303105" data-ad-format="auto" data-full-width-responsive="true")
-              script.
-                (adsbygoogle = window.adsbygoogle || []).push({});
+              +ad({ class: "aitaso", slot: "1668303105", format: "horizontal" })
 
       block after_article
         .small.text-right.mt-3

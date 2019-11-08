@@ -2,6 +2,16 @@
 @import "~bootstrap/scss/functions"
 @import "~bootstrap/scss/variables"
 
+
+$toppage-scnshts-1: translateX(37vw) translateY(42vh)
+$toppage-scnshts-1-sm: translateX(37vw) translateY(50vh)
+
+$toppage-scnshts-2: translateX(5vw) translateY(33vh)
+$toppage-scnshts-2-sm: translateX(5vw) translateY(45vh)
+
+$toppage-scnshts-3: translateX(32vw) translateY(45vh)
+$toppage-scnshts-3-sm: translateX(35vw) translateY(55vh)
+
 #toppage
   > section:not(#top)
     padding-top: 4.5em
@@ -13,7 +23,7 @@
 
   #top
     position: relative
-    height: 66vh
+    height: 62vh
     overflow: hidden
     background: $misskey-ai
 
@@ -54,7 +64,7 @@
           z-index: 3
           img
             width: 20vw
-            transform: translateX(32vw) translateY(45vh)
+            transform: $toppage-scnshts-3
             background-color: #1a1b20
             display: none
             z-index: 3
@@ -63,7 +73,7 @@
               animation-name: toppage-scnshts-3
 
             @media (max-width: map-get($grid-breakpoints, sm))
-              transform: translateX(35vw) translateY(55vh)
+              transform: $toppage-scnshts-3-sm
               &.show
                 animation-name: toppage-scnshts-3-sm
 
@@ -71,8 +81,8 @@
         &:nth-child(2)
           z-index: 0
           img
-            width: 70vw
-            transform: translateX(5vw) translateY(35vh)
+            width: 67vw
+            transform: $toppage-scnshts-2
             display: none
             z-index: 0
             &.show
@@ -80,7 +90,7 @@
               animation-name: toppage-scnshts-2
 
             @media (max-width: map-get($grid-breakpoints, sm))
-              transform: translateX(5vw) translateY(45vh)
+              transform: $toppage-scnshts-2-sm
               &.show
                 animation-name: toppage-scnshts-2-sm
 
@@ -89,7 +99,7 @@
           z-index: 1
           img
             width: 60vw
-            transform: translateX(37vw) translateY(40vh)
+            transform: $toppage-scnshts-1
             background-color: #ececec
             display: none
             z-index: 1
@@ -98,7 +108,7 @@
               animation-name: toppage-scnshts-1
 
             @media (max-width: map-get($grid-breakpoints, sm))
-              transform: translateX(37vw) translateY(50vh)
+              transform: $toppage-scnshts-1-sm
               &.show
                 animation-name: toppage-scnshts-1-sm
 
@@ -123,7 +133,7 @@
           text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7,0px 1px 0 #f7f7f7, 0px -1px 0 #f7f7f7,-1px 0px 0 #f7f7f7,1px 0px 0 #f7f7f7
 
           @media (max-width: map-get($grid-breakpoints, sm) - 0.02)
-            transform: translateX(52.5vw) translateY(calc(64vh - 1.6em))
+            transform: translateX(52.5vw) translateY(calc(62vh - 1.6em))
 
   #section_2
     > .container
@@ -181,31 +191,32 @@
 	from
 		transform: translateX(32vw) translateY(95vh)
 	to
-		transform: translateX(32vw) translateY(45vh)
+		transform: $toppage-scnshts-3
 @keyframes toppage-scnshts-3-sm
 	from
 		transform: translateX(35vw) translateY(105vh)
 	to
-		transform: translateX(35vw) translateY(55vh)
+		transform: $toppage-scnshts-3-sm
 
 @keyframes toppage-scnshts-2
 	from
-		transform: translateX(10vw) translateY(85vh)
+		transform: translateX(5vw) translateY(85vh)
 	to
-		transform: translateX(10vw) translateY(35vh)
+		transform: $toppage-scnshts-2
 @keyframes toppage-scnshts-2-sm
 	from
-		transform: translateX(10vw) translateY(95vh)
+		transform: translateX(5vw) translateY(95vh)
 	to
-		transform: translateX(10vw) translateY(45vh)
+		transform: $toppage-scnshts-2-sm
+
 
 @keyframes toppage-scnshts-1
 	from
 		transform: translateX(37vw) translateY(90vh)
 	to
-		transform: translateX(37vw) translateY(40vh)
+		transform: $toppage-scnshts-1
 @keyframes toppage-scnshts-1-sm
 	from
 		transform: translateX(37vw) translateY(100vh)
 	to
-		transform: translateX(37vw) translateY(50vh)
+		transform: $toppage-scnshts-1-sm
