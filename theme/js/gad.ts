@@ -9,6 +9,10 @@ declare global {
 
 export const gad = () => {
   document.querySelectorAll("ins.adsbygoogle").forEach(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({})
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
+    } catch (e) {
+      console.error(e)
+    }
   })
 }
