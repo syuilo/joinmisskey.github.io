@@ -52,8 +52,7 @@ module.exports = (htm, urlPrefix) => {
     })
     picture.remove()
   })
-  // eslint-disable-next-line no-restricted-syntax
-  for (const el of Array.from(document.getElementsByTagName("i"))) {
+  document.querySelectorAll("i").forEach((el) => {
     try {
       el.insertAdjacentHTML("afterend", icon(
         { iconName: el.dataset.faIconName, prefix: el.dataset.faPrefix },
@@ -64,7 +63,7 @@ module.exports = (htm, urlPrefix) => {
       glog(`FontAwesome: ${el.dataset.faPrefix} ${el.dataset.faIconName}は見つかりませんでした。`)
       glog(e)
     }
-  }
-
+  })
+  document.querySelectorAll("ins, script").forEach((el) => el.remove())
   return document.body.innerHTML
 }

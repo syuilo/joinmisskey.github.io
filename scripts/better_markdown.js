@@ -24,7 +24,13 @@ module.exports = (htm, urlprefix) => {
   $("body > h2, body > h3, body > h4, body > h5, body > h6").addClass("blogstyle")
   const hs = []
   $("h2, h3, h4, h5, h6").each((i, el) => { hs.push(encodeURIComponent($(el).text())) })
-  $("h2, h3, h4, h5, h6").each((i) => { $("h2, h3, h4, h5, h6").eq(i).attr("id", hs[i]) })
+  $("h2, h3, h4, h5, h6").each((i) => {
+    $("h2, h3, h4, h5, h6").eq(i).attr("id", hs[i])
+    if (i === 2) {
+      // eslint-disable-next-line quotes
+      $("h2, h3, h4, h5, h6").eq(2).before(`<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1736621122676736" data-ad-slot="9247410221"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>`)
+    }
+  })
   $("img").attr("loading", "lazy")
   $("img:not(.notblogstyle)").each((i, el) => {
     const img = (() => {

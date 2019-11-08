@@ -89,7 +89,7 @@ html(lang=locale, amp)
           script(async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
         
         script(async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js")
-        script(async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js")
+        script(async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js")
 
       block style
         style(amp-custom)!=ampcss
@@ -120,6 +120,9 @@ html(lang=locale, amp)
       block main
         #main
           != mainHtml
+          .pt-2.pb-1
+            amp-ad(width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
+              div(overflow="")
 
     block footer
       #footer.bg-white

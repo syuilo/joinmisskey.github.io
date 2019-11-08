@@ -97,7 +97,7 @@ block main
       h2.font-weight-light.h3= headline
 
       #blog_index.d-flex.flex-row.row.m-0
-        each thispage in qpages
+        each thispage, p in qpages
           a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
             article.card
               if ( thispage.attributes.thumbnail )
@@ -111,6 +111,11 @@ block main
                   +fa_fw("clock")
                   time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
                 +blog_badges(thispage)
+          if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
+            .py-2.px-3.col-12
+              ins(class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1736621122676736" data-ad-slot="1668303105" data-ad-format="auto" data-full-width-responsive="true")
+              script.
+                (adsbygoogle = window.adsbygoogle || []).push({});
 
       block after_article
         .small.text-right.mt-3
