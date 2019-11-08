@@ -8,7 +8,7 @@ declare global {
 }
 
 export const gad = () => {
-  document.querySelectorAll("ins.adsbygoogle").forEach(() => {
+  document.querySelectorAll("ins.adsbygoogle:not([data-adsbygoogle-status='done'])").forEach(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({})
     } catch (e) {
