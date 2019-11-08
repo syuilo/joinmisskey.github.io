@@ -14,8 +14,6 @@ import { twemojiinit } from "./twemojiinit"
 
 import { Loading } from "./loading"
 import { LoadToShow } from "./loadtoshow"
-new Loading()
-new LoadToShow()
 
 function contentReady() {
   fainit()
@@ -29,6 +27,11 @@ function contentReady() {
 pjaxinit()
 
 detectOldBrowser()
+
+onReady(() => {
+  new Loading()
+  new LoadToShow()
+})
 
 onReady(contentReady)
 document.addEventListener("pjax:content", contentReady)
