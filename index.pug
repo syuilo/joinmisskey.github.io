@@ -220,8 +220,8 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
                 p.mb-0 Misskey est sous licence GNU Affero General Public License v3.0 (AGPLv3).
             a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").s2-card-link.font-weight-bold  Licence
 
-  .py-3.container
-    +ad({ class: "aitaso", slot: "4149683131", format: "horizontal", allowFullWidth: "false" })
+  .container
+    +ad({ class: "aitaso", slot: "4149683131", format: "horizontal", allowFullWidth: "true" })
 
   section#section_3.bg-dark.text-white: .container
     h2.text-center Comment débuter ?
@@ -235,21 +235,6 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
 
     p.text-white-50.pt-2 Nous rajoutons continuellement de nouvelles instances. Si vous désirez lister votre propre instance, merci de contacter @aqz@yuzulia.xyz
   
-  section#section_4.bg-success: .container.text-center.text-white
-    .row
-      .col-12.col-md-6
-        .py-3
-          a(href="./blog/").btn.btn-lg.btn-light.text-success
-            +fa("broadcast-tower")
-            |  Blog
-          p.mt-1.mb-0.p-0 Actualité des nouveautés apportées à Misskey, à tout moment.
-      .col-12.col-md-6.scrollts-e-1
-        .py-3
-          a(href="./credit/").btn.btn-lg.btn-light.text-success
-            +fa("users")
-            |  Crédits
-          p.mt-1.mb-0.p-0 Les personnes impliquées dans le développement de Misskey.
-
   section#section_6.bg-white: .container.text-center.text-dark
     h2 Articles
     p.m-0
@@ -285,3 +270,18 @@ description: Misskeyは、いつまでも進化する、洗練されたマイク
     p.text-center Ou contactez #[a(href="https://misskey.io/@syuilo" target="_blank" rel="noopener") le développeur]
     p.text-center
       a(href="wiki/about-jm/").btn.btn-primary.btn-lg joinmisskeyを支援する
+
+  section#section_4.bg-success: .container.text-center.text-white
+    .row
+      .col-12.col-md-6
+        .py-3
+          a(href="./blog/").btn.btn-lg.btn-light.text-success
+            +fa("broadcast-tower")
+            |  Blog
+          p.mt-1.mb-0.p-0 Actualité des nouveautés apportées à Misskey, à tout moment.
+      .col-12.col-md-6.scrollts-e-1
+        .py-3
+          a(href="./credit/").btn.btn-lg.btn-light.text-success
+            +fa("users")
+            |  Crédits
+          p.mt-1.mb-0.p-0 Les personnes impliquées dans le développement de Misskey.
