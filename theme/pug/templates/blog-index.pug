@@ -112,8 +112,8 @@ block main
                   time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
                 +blog_badges(thispage)
           if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
-            .py-2.px-3.col-12
-              +ad({ class: "aitaso", slot: "1668303105", format: "horizontal", allowFullWidth: "true" })
+            .py-2.px-1.col-12
+              +ad({ class: "aitaso", slot: "1668303105", format: "horizontal" })
 
       block after_article
         .small.text-right.mt-3
