@@ -178,85 +178,65 @@ gulp.task("config", () => {
 })
 
 gulp.task("credit-icons", (cb) => {
-  const streams = []
-  let ex = false
-  for (let t = 0; t < base.creditIcons.length; t += 1) {
-    const v = base.creditIcons[t]
-    if (v) {
-      ex = true
-      streams.push(
-        new Promise((res, rej) => {
-          glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
-          gulp.src(`${tempDir}${v.name}.${v.ext}`)
-            .pipe($.responsive({
-              "**": {
-                width: 140,
-                height: 140,
-                // crop: true,
-                withoutEnlargement: true,
-                sharpen: "0.5x0.5+0.5+0.008",
-                // format: "png",
-                rename: {
-                  extname: ".png"
-                }
-              }
-            }, site.images.files.all.responsive))
-            .pipe($.image({
-              optipng: false,
-              pngquant: ["--speed=1"],
-              zopflipng: false,
-              concurrent: 16
-            }))
-            .pipe(gulp.dest(`dist/files/images/credit/${v.name.split("/")[0]}`))
-            .pipe(gulp.dest(`dist/docs/files/images/credit/${v.name.split("/")[0]}`))
-            .on("end", res)
-            .on("error", rej)
-        })
-      )
-    }
-  }
-  if (!ex) return cb()
-  return Promise.all(streams)
+  const filtered = base.creditIcons.filter((e) => e)
+  if (filtered.length === 0) return cb()
+  return Promise.all(filtered.map((v) => new Promise((res, rej) => {
+    glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
+    gulp.src(`${tempDir}${v.name}.${v.ext}`)
+      .pipe($.responsive({
+        "**": {
+          width: 140,
+          height: 140,
+          // crop: true,
+          withoutEnlargement: true,
+          sharpen: "0.5x0.5+0.5+0.008",
+          // format: "png",
+          rename: {
+            extname: ".png"
+          }
+        }
+      }, site.images.files.all.responsive))
+      .pipe($.image({
+        optipng: false,
+        pngquant: ["--speed=1"],
+        zopflipng: false,
+        concurrent: 16
+      }))
+      .pipe(gulp.dest(`dist/files/images/credit/${v.name.split("/")[0]}`))
+      .pipe(gulp.dest(`dist/docs/files/images/credit/${v.name.split("/")[0]}`))
+      .on("end", res)
+      .on("error", rej)
+  })))
 })
 
 gulp.task("instance-banners", (cb) => {
-  const streams = []
-  let ex = false
-  for (let t = 0; t < base.instancesBanners.length; t += 1) {
-    const v = base.instancesBanners[t]
-    if (v && v.status !== "unchanged") {
-      ex = true
-      streams.push(
-        new Promise((res, rej) => {
-          glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
-          gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
-            .pipe($.responsive({
-              "**": {
-                width: 1024,
-                withoutEnlargement: true,
-                sharpen: "0.5x0.5+0.5+0.008",
-                // format: "jpeg",
-                rename: {
-                  extname: ".jpeg"
-                }
-              }
-            }, site.images.files.all.responsive))
-            .pipe($.image({
-              jpegRecompress: false,
-              mozjpeg: ["-optimize", "-progressive"],
-              guetzli: false,
-              concurrent: 16
-            }))
-            .pipe(gulp.dest("dist/files/images/instance-banners"))
-            .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
-            .on("end", res)
-            .on("error", rej)
-        })
-      )
-    }
-  }
-  if (!ex) return cb()
-  return Promise.all(streams)
+  const filtered = base.instancesBanners.filter((e) => e && e.status !== "unchanged")
+  if (filtered.length === 0) return cb()
+  return Promise.all(filtered.map((v) => new Promise((res, rej) => {
+    glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
+    gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
+      .pipe($.responsive({
+        "**": {
+          width: 1024,
+          withoutEnlargement: true,
+          sharpen: "0.5x0.5+0.5+0.008",
+          // format: "jpeg",
+          rename: {
+            extname: ".jpeg"
+          }
+        }
+      }, site.images.files.all.responsive))
+      .pipe($.image({
+        jpegRecompress: false,
+        mozjpeg: ["-optimize", "-progressive"],
+        guetzli: false,
+        concurrent: 16
+      }))
+      .pipe(gulp.dest("dist/files/images/instance-banners"))
+      .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
+      .on("end", res)
+      .on("error", rej)
+  })))
 })
 
 const cssDestpath = `${dests.root}/assets/styles`
