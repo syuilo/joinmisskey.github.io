@@ -14,11 +14,6 @@ block gtag
       window.gaId = '#{site.ga}'
       window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '#{site.ga}', );
 
-//- script(src=`${site.url.path}/assets/jquery.slim.min.js` defer)
-//- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" defer)
-//- script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/popper.min.js" defer)
-//- script(src=`${site.url.path}/assets/bootstrap.bundle.min.js` defer)
-//- script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js" defer)
 script(src=`${site.url.path}/assets/scripts/sw.js` async)
 script(src=`${site.url.path}/assets/scripts/main.js` async)
 
@@ -28,4 +23,4 @@ link(rel="stylesheet" href=`${site.url.path}/assets/styles/main.css`)
 link(rel="stylesheet" href=`${site.url.path}/assets/styles/fonts.css`)
 link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css")
 
-script(data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+<script data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
