@@ -82,13 +82,14 @@ html(lang=locale, amp)
 
       block amp-c
         if(site.social_media.share_button)
-          script(async, custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js") 
+          script(async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js") 
         if(site.disqus)
-          script(async, custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js")
+          script(async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js")
         if(site.ga)
-          script(async, custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+          script(async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
         
-        script(async, custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js")
+        script(async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js")
+        script(async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js")
 
       block style
         style(amp-custom)!=ampcss
