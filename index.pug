@@ -220,8 +220,8 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
                 p.mb-0 Misskey is licensed under GNU Affero General Public License v3.0 (AGPLv3).
             a(href="https://github.com/syuilo/misskey/blob/master/LICENSE" target="_blank" rel="noopener").s2-card-link.font-weight-bold  ライセンス
 
-  .py-3.container
-    +ad({ class: "aitaso", slot: "4149683131", format: "horizontal", allowFullWidth: "false" })
+  .container
+    +ad({ class: "aitaso", slot: "4149683131", format: "horizontal", allowFullWidth: "true" })
 
   section#section_3.bg-dark.text-white: .container
     h2.text-center Getting started
@@ -234,21 +234,6 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
       a(href="./wiki/instances/").scrollts-nomargin.btn.btn-primary.btn-sm Watch more...
 
     p.text-white-50.pt-2 We will add new instances continuously. If you want us to add instances to the list, please send to @aqz@yuzulia.xyz.
-  
-  section#section_4.bg-success: .container.text-center.text-white
-    .row
-      .col-12.col-md-6
-        .py-3
-          a(href="./blog/").btn.btn-lg.btn-light.text-success
-            +fa("broadcast-tower")
-            |  Blog
-          p.mt-1.mb-0.p-0 Notify release notes at any time.
-      .col-12.col-md-6.scrollts-e-1
-        .py-3
-          a(href="./credit/").btn.btn-lg.btn-light.text-success
-            +fa("users")
-            |  Credits
-          p.mt-1.mb-0.p-0 People who join in Misskey development.
 
   section#section_6.bg-white: .container.text-center.text-dark
     h2 Misskey is now in internet news! (In Japanese)
@@ -285,3 +270,18 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
     p.text-center ... or #[a(href="https://misskey.io/@syuilo" target="_blank" rel="noopener") contact the developer]
     p.text-center
       a(href="wiki/about-jm/").btn.btn-primary.btn-lg Support joinmisskey
+
+  section#section_4.bg-success: .container.text-center.text-white
+    .row
+      .col-12.col-md-6
+        .py-3
+          a(href="./blog/").btn.btn-lg.btn-light.text-success
+            +fa("broadcast-tower")
+            |  Blog
+          p.mt-1.mb-0.p-0 Notify release notes at any time.
+      .col-12.col-md-6.scrollts-e-1
+        .py-3
+          a(href="./credit/").btn.btn-lg.btn-light.text-success
+            +fa("users")
+            |  Credits
+          p.mt-1.mb-0.p-0 People who join in Misskey development.
