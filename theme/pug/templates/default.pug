@@ -153,11 +153,11 @@ html(lang=locale)
       block main
         #main
           != mainHtml
-          .pt-2.pb-1.text-center
+          .text-center
             +ad({ class: "aitaso", slot: "4446014841", allowFullWidth: "true" })
 
     block footer
-      #footer.bg-white
+      #footer.bg-white.mt-2
         if( site.disqus )
           .container-fluid.py-5
             #disqus_wrap

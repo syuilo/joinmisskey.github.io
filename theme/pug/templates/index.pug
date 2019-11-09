@@ -2,7 +2,7 @@ extends ./default.pug
 
 block main
   #main.padding
-    .container.pt-5.pb-3.bg-white.main-shadow
+    .container.pt-5.pb-3.mb-2.bg-white.main-shadow
       h1= page.attributes.title
       !=mainHtml
       ul.simpleindex.list-unstyled
@@ -12,5 +12,5 @@ block main
         .small.text-right.mt-3
           +editLink()
 
-    .pt-2.pb-1.text-center
+    .text-center
       +ad({ class: "aitaso", slot: "4446014841", allowFullWidth: "true" })
