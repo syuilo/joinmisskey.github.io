@@ -7,7 +7,7 @@ append meta
 
 block main
   #main.padding
-    .container.pt-5.pb-3.bg-white.main-shadow
+    .container.pt-5.pb-3.mb-2.bg-white.main-shadow
       article#article_maincontent.bg-white
         header.w-100
           h1= page.attributes.title
@@ -30,6 +30,6 @@ block main
               a(href=`${site.url.path}${pageNext.meta.permalink}`)#next.p-3.flex-fill
                 .container #[+i18n('next')]: #{pageNext.attributes.title}
 
-    .pt-2.pb-1.text-center
-      amp-ad(class="aitaso" width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
+    .text-center
+      amp-ad(class="container" width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
         div(overflow="")

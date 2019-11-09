@@ -180,11 +180,11 @@ gulp.task("config", () => {
 gulp.task("credit-icons", async (cb) => {
   const filtered = base.creditIcons.filter((e) => e)
   if (filtered.length === 0) return cb()
-
+  // eslint-disable-next-line consistent-return
   const processIcon = (prefix) => new Promise((res, rej) => {
     const globs = filtered
-      .filter(e => e.name.startsWith(prefix))
-      .map(v => `${tempDir}${v.name}.${v.ext}`)
+      .filter((e) => e.name.startsWith(prefix))
+      .map((v) => `${tempDir}${v.name}.${v.ext}`)
     if (globs.length === 0) return res()
     pump([
       gulp.src(filtered.filter(globs)),
@@ -224,7 +224,7 @@ gulp.task("credit-icons", async (cb) => {
 gulp.task("instance-banners", (cb) => {
   const globs = base.instancesBanners
     .filter((e) => e && e.status !== "unchanged")
-    .map(v => `${tempDir}instance-banners/${v.name}.${v.ext}`)
+    .map((v) => `${tempDir}instance-banners/${v.name}.${v.ext}`)
   if (globs.length === 0) return cb()
   return new Promise((res, rej) => {
     pump([
@@ -250,7 +250,7 @@ gulp.task("instance-banners", (cb) => {
       gulp.dest("dist/docs/files/images/instance-banners")
     ], async (e) => {
       if (e) rej(e)
-      else glog(colors.green(`✔ Instance Banners`))
+      else glog(colors.green("✔ Instance Banners"))
       res()
     })
   })

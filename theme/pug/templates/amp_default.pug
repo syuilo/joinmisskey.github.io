@@ -120,12 +120,12 @@ html(lang=locale, amp)
       block main
         #main
           != mainHtml
-          .pt-2.pb-1.text-center
-            amp-ad(class="aitaso" width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
+          .text-center
+            amp-ad(class="container" width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
               div(overflow="")
 
     block footer
-      #footer.bg-white
+      #footer.bg-white.mt-2
         if( site.disqus )
           .container.py-5
             amp-iframe(width="600" height="140" layout="responsive" sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms" resizable
