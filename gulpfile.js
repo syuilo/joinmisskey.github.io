@@ -182,10 +182,12 @@ gulp.task("credit-icons", async (cb) => {
   if (filtered.length === 0) return cb()
 
   const processIcon = (prefix) => new Promise((res, rej) => {
-    const globs = filtered.filter(e => e.name.startsWith(prefix)).map(v => `${tempDir}${v.name}.${v.ext}`)
+    const globs = filtered
+      .filter(e => e.name.startsWith(prefix))
+      .map(v => `${tempDir}${v.name}.${v.ext}`)
     if (globs.length === 0) return res()
     pump([
-      gulp.src(filtered.filter(globs),
+      gulp.src(filtered.filter(globs)),
       $.responsive({
         "**": {
           width: 140,
