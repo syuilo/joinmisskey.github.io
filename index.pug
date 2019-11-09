@@ -134,6 +134,9 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
             +picture({src: "/files/images/imports/2019/10/room.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
             a(href="wiki/usage/rooms/").s2-card-link.font-weight-bold ルームの詳細
 
+    .text-center
+      +ad({ class: "aitaso", slot: "4149683131", format: "horizontal", allowFullWidth: "false" })
+
     hr#section_2_b
 
     section.s2-item
@@ -162,8 +165,12 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
             .s2-card-grid
               .s2-card-icon.fa-2x: +fa_fw('palette', 'fas')
               .s2-card-text
-                h4 自分好みに調整
-                p.mb-0 画面に関する多岐にわたるオプションがあり、操作や表示を細かく変更できます。
+                h4 テーマ
+                p.mb-0
+                  | Misskey Webの背景や文字、枠線などの色を自由に変更できます。
+                  br
+                  | 作成したテーマはファイルとして保存・共有できます。
+            a(href="https://assets.msky.cafe/" target="_blank" rel="noopener").s2-card-link.font-weight-bold Assets Storeで<br>テーマを見る
 
     hr#section_2_a
 
@@ -192,7 +199,7 @@ description: Misskey, A forever evolving, sophisticated microblogging platform. 
 
     hr#section_2_c
 
-    section.s2-item
+    section.s2-item.pb-0
       h3.text-center Open source
       p.text-center Misskeyはオープンソースソフトウェアです。誰でも開発や翻訳に参加できます。リポジトリをフォークし、独自の拡張を追加することもできます。
       p.text-center
