@@ -177,13 +177,14 @@ gulp.task("config", () => {
     )
 })
 
-gulp.task("credit-icons", (cb) => {
+gulp.task("credit-icons", async (cb) => {
   const filtered = base.creditIcons.filter((e) => e)
   if (filtered.length === 0) return cb()
-  return Promise.all(filtered.map((v) => new Promise((res, rej) => {
-    glog(`Compressing ${tempDir}${v.name}.${v.ext}`)
-    gulp.src(`${tempDir}${v.name}.${v.ext}`)
-      .pipe($.responsive({
+
+  const processIcon = (prefix) => new Promise((res, rej) => {
+    pump([
+      gulp.src(filtered.filter(e => e.name.startsWith(prefix)).map(v => `${tempDir}${v.name}.${v.ext}`)),
+      $.responsive({
         "**": {
           width: 140,
           height: 140,
@@ -195,27 +196,34 @@ gulp.task("credit-icons", (cb) => {
             extname: ".png"
           }
         }
-      }, site.images.files.all.responsive))
-      .pipe($.image({
+      }, site.images.files.all.responsive),
+      $.image({
         optipng: false,
         pngquant: ["--speed=1"],
         zopflipng: false,
         concurrent: 16
-      }))
-      .pipe(gulp.dest(`dist/files/images/credit/${v.name.split("/")[0]}`))
-      .pipe(gulp.dest(`dist/docs/files/images/credit/${v.name.split("/")[0]}`))
-      .on("end", res)
-      .on("error", rej)
-  })))
+      }),
+      gulp.dest(`dist/files/images/credit/${prefix}`),
+      gulp.dest(`dist/docs/files/images/credit/${prefix}`)
+    ], async (e) => {
+      if (e) rej(e)
+      else glog(colors.green(`✔ Icons (${prefix})`))
+      res()
+    })
+  })
+
+  await processIcon("github")
+  await processIcon("patreon")
+  return cb()
 })
 
 gulp.task("instance-banners", (cb) => {
   const filtered = base.instancesBanners.filter((e) => e && e.status !== "unchanged")
   if (filtered.length === 0) return cb()
-  return Promise.all(filtered.map((v) => new Promise((res, rej) => {
-    glog(`Compressing ${tempDir}instance-banners/${v.name}.${v.ext}`)
-    gulp.src(`${tempDir}instance-banners/${v.name}.${v.ext}`)
-      .pipe($.responsive({
+  return new Promise((res, rej) => {
+    pump([
+      gulp.src(filtered.map(v => `${tempDir}instance-banners/${v.name}.${v.ext}`)),
+      $.responsive({
         "**": {
           width: 1024,
           withoutEnlargement: true,
@@ -225,18 +233,21 @@ gulp.task("instance-banners", (cb) => {
             extname: ".jpeg"
           }
         }
-      }, site.images.files.all.responsive))
-      .pipe($.image({
+      }, site.images.files.all.responsive),
+      $.image({
         jpegRecompress: false,
         mozjpeg: ["-optimize", "-progressive"],
         guetzli: false,
         concurrent: 16
-      }))
-      .pipe(gulp.dest("dist/files/images/instance-banners"))
-      .pipe(gulp.dest("dist/docs/files/images/instance-banners"))
-      .on("end", res)
-      .on("error", rej)
-  })))
+      }),
+      gulp.dest("dist/files/images/instance-banners"),
+      gulp.dest("dist/docs/files/images/instance-banners")
+    ], async (e) => {
+      if (e) rej(e)
+      else glog(colors.green(`✔ Instance Banners`))
+      res()
+    })
+  })
 })
 
 const cssDestpath = `${dests.root}/assets/styles`
