@@ -24,7 +24,7 @@ export const gad = (): void => {
           if (entry.isIntersecting) adpush(entry.target, o)
         }
       }, {
-          rootMargin: "60% 0px",
+          rootMargin: "130% 0px",
           threshold: 0
       })
 
