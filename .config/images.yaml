@@ -18,10 +18,10 @@ images:
         errorOnUnusedImage: false
         passThroughUnused: false
     responsive:
-    - width: 1600
+    - width: 1200
       withoutEnlargement: true
       crop: false
-    - width: 1600
+    - width: 1200
       crop: false
       withoutEnlargement: true
       quality: 80
@@ -40,8 +40,23 @@ images:
       sharpen: "0.5x0.5+0.5+0.008"
       quality: 80
       # format: webp
-      rename: 
+      rename:
         suffix: ".720"
+        extname: ".webp"
+    - width: 320
+      crop: false
+      withoutEnlargement: true
+      sharpen: "0.5x0.5+0.5+0.008"
+      rename:
+        suffix: ".320"
+    - width: 320
+      crop: false
+      withoutEnlargement: true
+      sharpen: "0.5x0.5+0.5+0.008"
+      quality: 70
+      # format: webp
+      rename:
+        suffix: ".320"
         extname: ".webp"
 icons:
   - path: "/files/images/icons/icon.svg"
