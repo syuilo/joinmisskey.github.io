@@ -182,8 +182,10 @@ gulp.task("credit-icons", async (cb) => {
   if (filtered.length === 0) return cb()
 
   const processIcon = (prefix) => new Promise((res, rej) => {
+    const globs = filtered.filter(e => e.name.startsWith(prefix)).map(v => `${tempDir}${v.name}.${v.ext}`)
+    if (globs.length === 0) return res()
     pump([
-      gulp.src(filtered.filter(e => e.name.startsWith(prefix)).map(v => `${tempDir}${v.name}.${v.ext}`)),
+      gulp.src(filtered.filter(globs),
       $.responsive({
         "**": {
           width: 140,
@@ -218,11 +220,13 @@ gulp.task("credit-icons", async (cb) => {
 })
 
 gulp.task("instance-banners", (cb) => {
-  const filtered = base.instancesBanners.filter((e) => e && e.status !== "unchanged")
-  if (filtered.length === 0) return cb()
+  const globs = base.instancesBanners
+    .filter((e) => e && e.status !== "unchanged")
+    .map(v => `${tempDir}instance-banners/${v.name}.${v.ext}`)
+  if (globs.length === 0) return cb()
   return new Promise((res, rej) => {
     pump([
-      gulp.src(filtered.map(v => `${tempDir}instance-banners/${v.name}.${v.ext}`)),
+      gulp.src(globs),
       $.responsive({
         "**": {
           width: 1024,
