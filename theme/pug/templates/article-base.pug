@@ -2,14 +2,13 @@ extends ./default.pug
 
 block main
   #main.padding.row
-    .p-0.px-xl-2.col-12.col-xl-9
+    .d-none.d-xl-block.col-xl-3.p-0.order-1
+      +ad({ class: "px-2 sade d-none d-xl-block", slot: "2773092095", format: "vertical", allowFullWidth: "false" })
+    .p-0.col-12.px-xl-2.col-xl-9.order-0
       .container.pt-5.pb-3.mb-2.bg-white.main-shadow
         block contents
         block after_article
           .small.text-right.mt-3
             +editLink()
-    .d-none.d-xl-block.col-xl-3.p-0
-      +ad({ class: "px-2 sade d-none d-xl-block", slot: "2773092095", format: "vertical", allowFullWidth: "false" })
-
-    .text-center.py-3.px-0.col-12.w-100
+    .text-center.py-3.order-2
       +ad({ class: "container p-0", slot: "4446014841", allowFullWidth: "true" })
