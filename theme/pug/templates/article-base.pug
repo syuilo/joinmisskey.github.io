@@ -1,0 +1,15 @@
+extends ./default.pug
+
+block main
+  #main.padding.row
+    .p-0.px-xl-2.col-12.col-xl-9
+      .container.pt-5.pb-3.mb-2.bg-white.main-shadow
+        block contents
+        block after_article
+          .small.text-right.mt-3
+            +editLink()
+    .d-none.d-xl-block.p-0
+      +ad({ class: "px-2 sade d-none d-xl-block", slot: "2773092095", format: "vertical", allowFullWidth: "false" })
+
+    .text-center.py-3
+      +ad({ class: "container p-0", slot: "4446014841", allowFullWidth: "true" })

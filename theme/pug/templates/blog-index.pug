@@ -1,4 +1,4 @@
-extends ../templates/default.pug
+extends ./article-base.pug
 
 append preset
   - 
@@ -87,37 +87,27 @@ append preset
 block title
   title #{page.attributes.title} - #[+i18n('blog')] - #{site.names[locale] || site.name}
 
-block main
+block contents
+  h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
+  div
+    != getTL(mainHtml)
+  h2.font-weight-light.h3= headline
 
-  #main.padding
-    .container.pt-5.pb-3.mb-2.bg-white.main-shadow
-      h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
-      div
-        != getTL(mainHtml)
-      h2.font-weight-light.h3= headline
-
-      #blog_index.d-flex.flex-row.row.m-0
-        each thispage, p in qpages
-          a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
-            article.card
-              if ( thispage.attributes.thumbnail )
-                +picture({ src: thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy", class: "card-img-top", sizes: "calc(100vw - 30px - 1rem), (min-width: 576px) 494px, (min-width: 768px) 329px, (min-width: 992px) 449px, (min-width: 1200px) 354px" })
-              h4.card-title #{thispage.attributes.title}
-              p.card-text.px-3 #{thispage.attributes.description}
-              - let birthtime = new Date(thispage.meta.birthtime)
-              - let mtime = new Date(thispage.meta.mtime)
-              footer.card-footer
-                div.mr-2
-                  +fa_fw("clock")
-                  time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
-                +blog_badges(thispage)
-          if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
-            .py-2.px-1.col-12
-              +ad({ class: "aitaso", slot: "1668303105", format: "horizontal" })
-
-      block after_article
-        .small.text-right.mt-3
-          +editLink()
-
-    .text-center.py-3
-      +ad({ class: "container p-0", slot: "4446014841", allowFullWidth: "true" })
+  #blog_index.d-flex.flex-row.row.m-0
+    each thispage, p in qpages
+      a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
+        article.card
+          if ( thispage.attributes.thumbnail )
+            +picture({ src: thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy", class: "card-img-top", sizes: "calc(100vw - 30px - 1rem), (min-width: 576px) 494px, (min-width: 768px) 329px, (min-width: 992px) 449px, (min-width: 1200px) 354px" })
+          h4.card-title #{thispage.attributes.title}
+          p.card-text.px-3 #{thispage.attributes.description}
+          - let birthtime = new Date(thispage.meta.birthtime)
+          - let mtime = new Date(thispage.meta.mtime)
+          footer.card-footer
+            div.mr-2
+              +fa_fw("clock")
+              time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
+            +blog_badges(thispage)
+      if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
+        .py-2.px-1.col-12
+          +ad({ class: "aitaso container", slot: "1668303105", format: "horizontal", allowFullWidth: "false" })

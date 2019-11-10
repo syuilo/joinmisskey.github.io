@@ -101,7 +101,7 @@ mixin picture(img)
     img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
 
 mixin ad(setting)
-  ins.adsbygoogle(class=setting.class style="display:block;" data-ad-client="ca-pub-1736621122676736" data-ad-slot=setting.slot data-ad-format=(setting.format || "auto") data-full-width-responsive=(setting.allowFullWidth || "false"))
+  ins.adsbygoogle(class=setting.class style=(setting.style || "display:block;") data-ad-client="ca-pub-1736621122676736" data-ad-slot=setting.slot data-ad-format=(setting.format || "auto") data-full-width-responsive=(setting.allowFullWidth || "false"))
 
 mixin blog_badges(targetpage)
   div.mr-2

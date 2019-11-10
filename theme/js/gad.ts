@@ -7,6 +7,8 @@ declare global {
   }
 }
 
+import { breakpoints, getMediaDims } from "./vals"
+
 const adpush = (target?: Element, o?: IntersectionObserver): void => {
   try {
     (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -28,9 +30,19 @@ export const gad = (): void => {
           threshold: 0
       })
 
-    els.forEach(el => observer.observe(el))
+    els.forEach(el => {
+      const classContains = (token: string) => el.classList.contains(token)
+      for (const [bp, px] of Object.entries(breakpoints)) {
+        if (classContains("d-none")
+          && classContains(`d-${bp}-block`)
+          && getMediaDims().width >= px) return adpush()
+        else if (classContains(`d-${bp}-none`)
+          && getMediaDims().width < px)  return adpush()
+      }
+      observer.observe(el)
+    })
   } else {
     console.log("v")
-    els.forEach(() => adpush())
+    els.forEach(el => adpush(el))
   }
 }

@@ -187,7 +187,7 @@ gulp.task("credit-icons", async (cb) => {
       .map((v) => `${tempDir}${v.name}.${v.ext}`)
     if (globs.length === 0) return res()
     pump([
-      gulp.src(filtered.filter(globs)),
+      gulp.src(globs),
       $.responsive({
         "**": {
           width: 140,

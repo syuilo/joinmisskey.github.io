@@ -1,16 +1,7 @@
-extends ./default.pug
+extends ./article-base.pug
 
-block main
-  #main.padding
-    .container.pt-5.pb-3.mb-2.bg-white.main-shadow
-      h1= page.attributes.title
-      !=mainHtml
-      ul.simpleindex.list-unstyled
-        +lis_of_dir(page.meta.permalink, {s: true, unstyled: true})
-
-      block after_article
-        .small.text-right.mt-3
-          +editLink()
-
-    .text-center.py-3
-      +ad({ class: "container p-0", slot: "4446014841", allowFullWidth: "true" })
+block contents
+  h1= page.attributes.title
+  !=mainHtml
+  ul.simpleindex.list-unstyled
+    +lis_of_dir(page.meta.permalink, {s: true, unstyled: true})
