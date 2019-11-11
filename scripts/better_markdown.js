@@ -33,7 +33,7 @@ module.exports = (htm, urlprefix) => {
     }
   })
   $("img").attr("loading", "lazy")
-  $("img:not(.notblogstyle)").each((i, el) => {
+  $("img:not(.notblogstyle):not([src$='.svg'])").each((i, el) => {
     const img = (() => {
       const imgurl = (() => {
         if ($(el).is("img[src^=\"/\"]")) return $(el).attr("src")
