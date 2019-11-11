@@ -11,26 +11,25 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
           a.nav-link(href=`/${locale || 'ja'}/`)
             +fa_fw("home")
             span.d-inline.d-md-none.d-lg-inline
-              |  
+              | &ensp;
               +i18n("home")
         li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale || 'ja'}/blog/`) == 0 ? "active" : "" ))
           a.nav-link(href=`/${locale || 'ja'}/blog/`)
             +fa_fw("broadcast-tower")
             span.d-inline.d-md-none.d-lg-inline
-              |  
+              | &ensp;
               +i18n("blog")
         li.nav-item.px-md-3(class=( page.meta.permalink.indexOf(`/${locale || 'ja'}/wiki/`) == 0 ? "active" : "" ))
           a.nav-link(href=`/${locale || 'ja'}/wiki/`)
             +fa_fw("book")
             span.d-inline.d-md-none.d-lg-inline
-              |  Wiki
+              | &ensp;Wiki
     .dropleft
       button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
-        a.dropdown-item(href=`/ja${page.meta.permalink.slice(locale.length + 1)}?moved`) 🇯🇵 日本語
-        a.dropdown-item(href=`/en${page.meta.permalink.slice(locale.length + 1)}?moved`) English
-        a.dropdown-item(href=`/fr${page.meta.permalink.slice(locale.length + 1)}?moved`) French
+        each lang in site.locales
+          a.dropdown-item(href=`/${lang}${page.meta.permalink.slice(locale.length + 1)}?moved`)= site.i18n.nihongo[lang]
   if(isAmp)
     button.hamburger(on='tap:sidebar1.toggle')
       +fa("bars", "fas")
