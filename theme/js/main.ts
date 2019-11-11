@@ -1,19 +1,16 @@
-import("bootstrap/js/dist/collapse.js")
-import("bootstrap/js/dist/dropdown.js")
+import { fainit } from "./lib/fainit"
+import { gad } from "./lib/gad"
+import { gototop } from "./lib/gototop"
+import importCss from "./lib/import-css"
+import { detectOldBrowser } from "./lib/old-browsers"
+import onReady from "./lib/onReady"
+import { pjaxinit } from "./lib/pjax"
+import { pjaxLoaded } from "./lib/pjax-loaded"
+import { scrolltoshow } from "./lib/scrolltoshow"
+import { twemojiinit } from "./lib/twemojiinit"
 
-import { fainit } from "./fainit"
-import { gad } from "./gad"
-import { gototop } from "./gototop"
-import importCss from "./import-css"
-import { detectOldBrowser } from "./old-browsers"
-import onReady from "./onReady"
-import { pjaxinit } from "./pjax"
-import { pjaxLoaded } from "./pjax-loaded"
-import { scrolltoshow } from "./scrolltoshow"
-import { twemojiinit } from "./twemojiinit"
-
-import { Loading } from "./loading"
-import { LoadToShow } from "./loadtoshow"
+import { Loading } from "./lib/loading"
+import { LoadToShow } from "./lib/loadtoshow"
 
 function contentReady() {
   fainit()

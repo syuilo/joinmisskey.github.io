@@ -3,7 +3,7 @@ import { config, IconName, IconParams, IconPrefix } from "@fortawesome/fontaweso
 config.autoAddCss = false
 
 export const fainit = async (): Promise<void> => {
-  const { getNode } = await import("../../scripts/falib")
+  const { getNode } = await import("../../../scripts/falib")
   for (const el of Array.from(document.getElementsByTagName("i"))) {
     if (!el.hasChildNodes()) {
       try {

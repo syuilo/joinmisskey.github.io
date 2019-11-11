@@ -3,6 +3,7 @@ import onLoad from "./onLoad"
 export class Loading {
   public ini: HTMLElement
   public loaded = false
+  public readied = false
 
   constructor(ini: HTMLElement = document.getElementById("ini")) {
     this.ini = ini
@@ -15,6 +16,7 @@ export class Loading {
 
     window.addEventListener("pjax:load", () => {
       his.loaded = true
+      his.readied = false
       his.hide()
     })
 
@@ -25,6 +27,13 @@ export class Loading {
     setTimeout(() => {
       if (location.pathname !== "/") his.hide()
     }, 8000)
+
+    document.addEventListener("pjax:ready", () => {
+      his.readied = true
+      setTimeout(() => {
+        his.hide()
+      }, 3000)
+    })
   }
 
   public show = () => {
@@ -36,7 +45,7 @@ export class Loading {
       }
     }, 100)
     setTimeout(() => {
-      his.hide()
+      if (his.readied) his.hide()
     }, 3000)
   }
 

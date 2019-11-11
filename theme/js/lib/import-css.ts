@@ -1,5 +1,5 @@
 export default () => {
-  const top = require("../styl/lazy/top.sass")
+  const top = require("../../styl/lazy/top.sass")
   top.unuse()
 
   const p = window.location.pathname

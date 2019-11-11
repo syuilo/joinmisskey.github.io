@@ -9,7 +9,6 @@ const path = require("path")
 const del = require("del")
 const minimist = require("minimist")
 const pump = require("pump")
-// const request = require("request")
 const pug = require("pug")
 const glog = require("fancy-log")
 const colors = require("colors")
@@ -32,14 +31,6 @@ const toamp = require("./scripts/builder/toamp")
 const loadyaml = require("./scripts/builder/loadyaml")
 
 const makeRss = require("./scripts/builder/registerer/rss")
-
-// const exec = require("child_process").exec
-// const join = path.join
-// const moment = require("moment")
-// const numeral = require("numeral")
-// const inquirer = require("inquirer")
-
-// promisify
 
 const writeFile = promisify(fs.writeFile)
 const readFile = promisify(fs.readFile)
@@ -281,6 +272,7 @@ gulp.task("js", (cb) => {
   const wpackconf = {
     entry: {
       main: "./theme/js/main.ts",
+      bootstrap: "./theme/js/bootstrap.ts",
       sw: "./theme/js/sw.ts"
     },
     output: {
@@ -532,6 +524,22 @@ workbox.routing.registerRoute(
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: "assets-cache",
     })
+);
+
+workbox.routing.registerRoute(
+  /^https:\/\/cdn\.jsdelivr\.net/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'jsdelivr',
+    plugins: [
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200],
+      }),
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 160,
+      }),
+    ],
+  })
 );
 `
 
