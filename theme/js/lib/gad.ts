@@ -9,13 +9,26 @@ declare global {
 
 import { breakpoints, getMediaDims } from "./vals"
 
-const adpush = (target?: Element, o?: IntersectionObserver): void => {
+const test = (el: Element): void | Element => {
+  const classContains = (token: string) => el.classList.contains(token)
+  for (const [bp, px] of Object.entries(breakpoints)) {
+    if (classContains("d-none")
+      && classContains(`d-${bp}-block`)
+      && getMediaDims().width >= px) return el.remove()
+    else if (classContains(`d-${bp}-none`)
+      && getMediaDims().width < px) return el.remove()
+  }
+  return el
+}
+
+const adpush = (target: Element, o?: IntersectionObserver): void => {
+  if (!test(target)) return
   try {
     (window.adsbygoogle = window.adsbygoogle || []).push({})
   } catch (e) {
     console.error(e)
   }
-  if (target && o) o.unobserve(target)
+  if (o) o.unobserve(target)
 }
 
 export const gad = (): void => {
@@ -31,15 +44,7 @@ export const gad = (): void => {
       })
 
     els.forEach(el => {
-      const classContains = (token: string) => el.classList.contains(token)
-      for (const [bp, px] of Object.entries(breakpoints)) {
-        if (classContains("d-none")
-          && classContains(`d-${bp}-block`)
-          && getMediaDims().width >= px) return adpush()
-        else if (classContains(`d-${bp}-none`)
-          && getMediaDims().width < px)  return adpush()
-      }
-      observer.observe(el)
+      if (test(el)) observer.observe(el)
     })
   } else {
     console.log("v")
