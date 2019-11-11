@@ -6,6 +6,8 @@ query:
   category: 更新
   root: /blog/
 ---
-人力で作業しているため、記事の内容はずいぶん適当です。また、Misskeyのリリース間隔の短さ、そして編集者の多忙により、基本的に何回かのリリースをまとめて記事にしています。
+人間が記事を作成しているため、不正確な記述あるかもしれません。正確な履歴は[Changelog](https://github.com/syuilo/misskey/blob/develop/CHANGELOG.md)もしくはGitソースコードを直接ご覧ください。  
+基本的に何回かのリリースをまとめて記事にしていますので、速報性はありません。  
+ご了承ください。
 
 [リリース一覧 (GitHub)](https://github.com/syuilo/misskey/releases)
