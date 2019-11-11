@@ -33,14 +33,14 @@ module.exports = (htm, urlprefix) => {
     }
   })
   $("img").attr("loading", "lazy")
-  $("img:not(.notblogstyle):not([src$='.svg'])").each((i, el) => {
+  $("img:not(.notblogstyle)").each((i, el) => {
     const img = (() => {
       const imgurl = (() => {
         if ($(el).is("img[src^=\"/\"]")) return $(el).attr("src")
         if ($(el).is("img[src^=\"files/\"]")) return `/${$(el).attr("src")}`
         return null
       })()
-      if (imgurl) {
+      if (imgurl && imgurl.match(/png$|jpg$|jpeg$|gif$|webp$/)) {
         const iu = path.parse(imgurl)
         const sizes = "calc(100vw - 30px), (min-width: 576px) 510px, (min-width: 768px) 40em"
         return `<picture><source srcset="${urlprefix}${iu.dir}/${iu.name}.320.webp 320w, ${urlprefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlprefix}${iu.dir}/${iu.name}.webp 1200w" type="image/webp" sizes="${sizes}"><source srcset="${urlprefix}${iu.dir}/${iu.name}.320${iu.ext} 320, ${urlprefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlprefix}${iu.dir}/${iu.base} 1200w" sizes="${sizes}">${$.html($(el))}</picture>`
