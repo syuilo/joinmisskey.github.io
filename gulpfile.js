@@ -527,7 +527,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  /^https:\/\/cdn\.jsdelivr\.net/,
+  /^https:\\/\\/cdn\\.jsdelivr\\.net/,
   new workbox.strategies.CacheFirst({
     cacheName: 'jsdelivr',
     plugins: [
@@ -536,9 +536,9 @@ workbox.routing.registerRoute(
       }),
       new workbox.expiration.Plugin({
         maxAgeSeconds: 60 * 60 * 24 * 365,
-        maxEntries: 160,
-      }),
-    ],
+        maxEntries: 160
+      })
+    ]
   })
 );
 `
