@@ -14,9 +14,9 @@ const test = (el: Element): void | Element => {
   for (const [bp, px] of Object.entries(breakpoints)) {
     if (classContains("d-none")
       && classContains(`d-${bp}-block`)
-      && getMediaDims().width >= px) return el.remove()
-    else if (classContains(`d-${bp}-none`)
       && getMediaDims().width < px) return el.remove()
+    else if (classContains(`d-${bp}-none`)
+      && getMediaDims().width >= px) return el.remove()
   }
   return el
 }
