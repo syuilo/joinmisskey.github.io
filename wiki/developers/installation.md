@@ -22,7 +22,7 @@ OSの違い、Misskey本体や依存するソフトウェアのバージョン�
   メモリは1GB程度あればよい。  
   Amazon EC2なら`micro`のつくインスタンスタイプが最低限。
 - 独自のドメインを購入し、CloudFlareを使用する。
-  * ドメインは[Google Domains](https://domains.google)などで予め用意しておくこと。
+  * ドメインは[Google Domains](https://domains.google/intl/ja_jp/)などで予め用意しておくこと。
   * ここではドメインを`example.tld`として解説を進めるので、自分が買ったドメインに適宜置き換えて読むこと。
 - CloudFlareとサーバーとの通信にはHTTPSを使用し、証明書の生成にLet's Encryptを使用する。
 - Misskeyの実行ではDockerは使用しないが、証明書の生成で利用することになる。  
