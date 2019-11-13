@@ -15,7 +15,7 @@ Twitterアカウントを持っていない場合、作成する必要がある�
 [この記事(A)](https://masatoshihanai.com/php-twitter-bot-01/#Twitter_APIdeveloper_account)や[この記事(B)](https://www.torikun.com/entry/twitter-developer-api#Twitter-Developer%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9)を参考にDeveloper Accountとして認証し、アプリを作成する。  
 （記事AはDeveloper Accountの認証まで、記事Bはアプリの作成まで解説されている）
 
-アプリのコールバックURLは`https://(your-misskey-instance)/api/tw/cb`というように指定す（(your-misskey-instance)は自分のインスタンスのドメインに置き換える）。
+アプリのコールバックURLは`https://(your-misskey-instance)/api/tw/cb`というように指定する（(your-misskey-instance)は自分のインスタンスのドメインに置き換える）。
 
 ### 3. キーをデータベースに登録
 `管理画面` > `インスタンス` > `Twitter連携`で`Twitter連携を有効にする`を有効にし、 Consumer Id と Consumer Secret を記入する。
