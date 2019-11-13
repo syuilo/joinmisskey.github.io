@@ -9,19 +9,18 @@ rank: 98
 ### セットアップから自力で行う
 Misskeyを自力で運営するには、VPSを借りるか自分でサーバーを設備する必要がある。
 
-[セットアップガイド](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md) / [運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)
+[**インストール方法詳説**](installation/)  
+[セットアップガイド](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)  
+[運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)
 
 #### わからないことがあったら
 エラーが発生したなどわからないことがあれば、まず開発者に聞いてみよう。  
-@syuilo@misskey.ioをはじめとする共同開発者に、困っていることの詳細を載せてをリプライを送ってほしい。
+@syuilo@misskey.ioをはじめとする共同開発者に、困っていることの詳細を載せてリプライを送ってほしい。
 
 もしくは、[Fedeloper Folum](https://forum.fedeloper.jp/)で質問してみよう。
 
 ### ホスティングサービスを利用する
-Misskeyのセットアップを省き、Misskeyのインスタンスを貸し出すサービスを利用できるかもしれない。
-
-~~ベータテストとして[Hostdon Beta ProgramでMisskeyのインスタンスを借りることができる。](https://beta.hostdon.jp/)[(ブログ記事)](../../blog/2018/08/12_3_hostdon/)~~  
-申し込みは終了した。
+サーバーがなくともMisskeyのインスタンスをホスティングし貸し出すサービスが将来的にできるかもしれないが、今はそのようなサービスはない。
 
 ### インスタンスの運営
 [運営ガイド](https://github.com/syuilo/misskey/blob/master/docs/manage.ja.md)にしたがって自分をadminにすると、管理画面（URL: `/admin`）が利用できるようになる。
