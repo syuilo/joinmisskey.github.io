@@ -101,7 +101,13 @@ mixin picture(img)
     img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
 
 mixin ad(setting)
-  ins.adsbygoogle(class=setting.class style=(setting.style || "display:block;") data-ad-client="ca-pub-1736621122676736" data-ad-slot=setting.slot data-ad-format=(setting.format || "auto") data-full-width-responsive=(setting.allowFullWidth || "false"))
+  ins.adsbygoogle(
+    class=setting.class
+    style=(setting.style || "display:block;")
+    data-ad-client="ca-pub-1736621122676736"
+    data-ad-slot=setting.slot data-ad-format=(setting.format || "auto")
+    data-full-width-responsive=(setting.allowFullWidth || "false")
+    data-ad-layout-key=setting.layoutKey)
 
 mixin blog_badges(targetpage)
   div.mr-2
@@ -128,38 +134,44 @@ mixin instancesList(o, colors, sctrollts)
       let c2 = colors ? `text-${colors[1]}` : 'text-muted'
       let lgrgb = colors && colors[3] == 'dark' ? '52, 58, 64' : '255, 255, 255'
       let num = 0
-    each instance, r in instancesInfos
-      -
+
+    -
+      const filteredInstances = instancesInfos.filter((instance, i) => {
         const versionOk = instance.isAlive ? !semver.satisfies(instance.meta.version, ">= 10.46.0 < 10.102.4 || >= 11.0.0-alpha.1 < 11.20.2") : true
+        if (!versionOk) return false
+        const ilang = instance.langs ? instance.langs.some(e => e == locale) : true
+        if (!ilang) return false
         const iregi = instance.notSuspended || (instance.isAlive && (instance.meta.features ? instance.meta.features.registration : !instance.meta.disableRegistration))
         const alive = !instance.suspended && (instance.notSuspended || instance.isAlive)
-        const ilang = instance.langs ? instance.langs.some(e => e == locale) : true
         if(alive && iregi && ilang) num += 1
-        let itype = true
         switch(o){
           case 'selected':
-            itype = alive && iregi && num < 7
+            if (alive && iregi && num <= 7) return true
             break
           case 'nonselected':
-            itype = alive && iregi && num >= 7
+            if (alive && iregi && num > 7) return true
             break
           case 'registration-open':
-            itype = alive && iregi
+            if (alive && iregi) return true
             break
           case 'suspended':
-            itype = !alive
+            if (!alive) return true
             break
           case 'registration-closed':
-            itype = alive && !iregi
+            if (alive && !iregi) return true
             break
         }
-      if(ilang && itype && versionOk)
+        return false
+      })
+
+    if(filteredInstances.length > 0)
+      each instance, r in filteredInstances
         -
           let s = (instance.isAlive && instance.meta.bannerUrl) ?
           `background: linear-gradient(rgb(${lgrgb}, .76), rgba(${lgrgb}, .9)), url('/files/images/instance-banners/${instance.url}.jpeg?${update.getTime().toString(36)}'); background-size: cover; background-clip: padding-box; background-position: center; text-shadow: 0 0 1.2px rgb(${lgrgb}), 0 0 1.2px rgb(${lgrgb});` :
           ``
         a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start.py-3
-          h5.noindex
+          h4.noindex
             if(instance.name || (instance.isAlive && instance.meta.name && instance.meta.name !== 'Misskey' && instance.meta.name !== instance.url))
               | #{instance.name || instance.meta.name}<span class="${c2}"> - #{instance.url}</span>
             else
@@ -254,5 +266,8 @@ mixin instancesList(o, colors, sctrollts)
             .instance-infos.d-flex.flex-wrap.small(class=c2)
               +i18n('instance_notSuspended')
 
+        if(!colors && filteredInstances.length - (r + 1) > 4 && r % 12 === 6)
+          +ad({ slot: "5852721006", format: "fluid", layoutKey: "-ga-v+1v-6k+dm" })
+
     else
-      +i18n('none')
+      +i18n("none")
