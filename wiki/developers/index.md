@@ -41,8 +41,7 @@ BountySourceでGitHubのIssueに対し報奨金を付けることができる。
 MisskeyはAPIを公開している。(Misskey Web自体もAPIを利用して通信している。)  
 Misskey APIの使い方についてはインスタンスごとのドキュメント`/docs/ja-JP/about`を参照されたい。
 
-MisskeyのAPIだけでなく、ActivityPubでサーバーと通信しノートを管理できる。
-
+MisskeyのAPIだけでなく、ActivityPubでサーバーと通信しノートを管理できる。[<small>参考</small>](https://argrath.ub32.org/slide/2019/0830/builderscon.html#/)
 ## 翻訳
 Crowdin上でMisskeyの翻訳に参加できる。  
 [→ Misskeyの翻訳](https://github.com/syuilo/misskey/blob/master/docs/translate.ja.md)
