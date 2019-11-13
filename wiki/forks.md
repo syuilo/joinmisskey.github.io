@@ -9,25 +9,6 @@ Misskeyのソースコードは、ライセンスがAGPLv3.0で、GitHubで公�
 
 ## フォーク一覧
 ### v11ベース
-#### twista
-[硫酸鶏（acid chicken）氏](../culture/users/acid-chicken/)によるフォーク。twistaという名は、『アイドルマスター シャイニーカラーズ』に登場するSNSの名称と同じである。先頭tは小文字である。
-
-**[346design/twista.283.cloud on GitHub](https://github.com/346design/twista.283.cloud)** ･ **[twista Help](https://twista-docs.283.cloud)**
-
-##### 主な追加機能
-- 名前のトークン
-- `@everyone`、`@info`
-- MFMの構文追加 (Mochimochi Fuwafuwa Markup)
-  * アバター絵文字
-  * 吹き出し構文
-  * ルビ
-  * 明朝体
-  * OpenTypeフラグ
-  * など
-- imastodon.netのLTLを表示
-
-[詳細な差分はこちらに記載されている。](https://github.com/346design/twista.283.cloud/blob/twista/README.md)
-
 #### Groundpolis
 [Xeltica氏](../culture/users/xeltica/)によるフォーク。総合的なUIの改良ほか多種多様な機能の改良・追加がある。
 
@@ -45,6 +26,25 @@ Misskeyのソースコードは、ライセンスがAGPLv3.0で、GitHubで公�
 [詳細な差分はこちらに記載されている。](https://github.com/Xeltica/Groundpolis/blob/develop/DIFFERENCE.md)
 
 ### v10ベース
+#### twista
+[硫酸鶏（acid chicken）氏](../culture/users/acid-chicken/)によるフォーク。twistaという名は、『アイドルマスター シャイニーカラーズ』に登場するSNSの名称である『ツイスタ』から採られている。先頭tは小文字である。
+
+**[346design/twista.283.cloud on GitHub](https://github.com/346design/twista.283.cloud)** ･ **[twista Help](https://twista-docs.283.cloud)**
+
+##### 主な追加機能
+- 名前のトークン
+- `@everyone`、`@info`
+- MFMの構文追加 (Mochimochi Fuwafuwa Markup)
+  * アバター絵文字
+  * 吹き出し構文
+  * ルビ
+  * 明朝体
+  * OpenTypeフラグ
+  * など
+- imastodon.netなどのLTLを表示
+
+[詳細な差分はこちらに記載されている。](https://github.com/346design/twista.283.cloud/blob/twista/README.md)
+
 #### めいすきー
 [めいめい（mei23）氏](../culture/users/mei23/)によるフォーク。「ニコフレ」に似た拡張が特徴的で、他にもUIの利便性向上や管理面でも改造が加えられている。
 
