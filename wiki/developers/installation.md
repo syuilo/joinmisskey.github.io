@@ -430,7 +430,7 @@ NODE_ENV=production npx yarn build
 ビルドにはメモリが2GB程度必要と言われている。
 
 1. Node.jsをインストール（サーバーと同じバージョン）
-2. Git cloneもしくはGitHubからMisskeyのソースをダウンロードする
+2. Git clone、もしくはGitHubからMisskeyのソースをダウンロードする
 3. サーバーと同様の`.config/default.yml`を作成
 4. `npx yarn install`
 5. `NODE_ENV=production npx yarn build`
