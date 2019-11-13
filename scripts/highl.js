@@ -1,6 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable spaced-comment */
-/* eslint-disable no-console */
 const Prism = require("prismjs")
 const cheerio = require("cheerio")
 
@@ -10,7 +7,7 @@ module.exports = (htm) => {
     const cl = $(el).attr("class")
 
     const langcl = cl ? cl.split(" ")
-      .find(e => e.startsWith("language-") || e.startsWith("lang-")) : null
+      .find((e) => e.startsWith("language-") || e.startsWith("lang-")) : null
 
     if (!langcl) {
       $(el).addClass("language-javascript")
