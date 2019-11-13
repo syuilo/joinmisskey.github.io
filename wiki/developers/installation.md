@@ -1,5 +1,5 @@
 ---
-title: インストール方法詳説
+title: Misskeyインストール方法詳説
 description: UbuntuへのMisskeyのインストール方法を一挙手一投足で解説する。
 layout: wiki
 rank: 1
