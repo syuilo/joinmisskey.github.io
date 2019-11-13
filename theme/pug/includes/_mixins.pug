@@ -266,8 +266,9 @@ mixin instancesList(o, colors, sctrollts)
             .instance-infos.d-flex.flex-wrap.small(class=c2)
               +i18n('instance_notSuspended')
 
-        if(!colors && filteredInstances.length - (r + 1) > 4 && r % 12 === 6)
-          +ad({ slot: "5852721006", format: "fluid", layoutKey: "-ga-v+1v-6k+dm" })
+        if(!colors && r % 12 === 3)
+          .list-group-item.p-0
+            +ad({ slot: "5852721006", format: "fluid", layoutKey: "-gc-u+28-6q+c7" })
 
     else
       +i18n("none")
