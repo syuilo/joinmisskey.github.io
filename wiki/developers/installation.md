@@ -31,7 +31,7 @@ OSの違い、Misskeyや依存するソフトウェアのバージョンアッ�
   MisskeyをDockerでインストールする方法は[公式の『Dockerを使ったMisskey構築方法』](https://github.com/syuilo/misskey/blob/master/docs/docker.ja.md)を参照のこと。
 - ElasticSearchは使用しない。
 - ほとんどのコマンドにroot権限が必要なため、**root**でコマンドを実行していく。  
-  一般ユーザーでログインしている場合は`su -`を実行すればrootに切り替わる。
+  一般ユーザーでログインしている場合は`sudo su -`を実行すればrootに切り替わる。
 
 ## nanoの使い方
 今回はテキストエディターにnanoを使う。次のように起動する。
@@ -115,7 +115,7 @@ systemctl enable postgresql
 psqlを起動。
 
 ```bash
--u postgres psql
+sudo -u postgres psql
 ```
 
 ユーザーを作成。ユーザー名を`misskey`、パスワードを`hoge`としている。  
