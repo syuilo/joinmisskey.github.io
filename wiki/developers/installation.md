@@ -425,12 +425,12 @@ su - misskey
 NODE_ENV=production npx yarn build
 ```
 
-### サーバーマシンでビルドできない場合
-サーバーマシンが貧弱すぎてサーバーでビルドするのがが不可能な場合、ローカル環境（Windowsでもよい）でビルドしSCPやSFTPで転送することでも対応できる。  
-ビルドについてはメモリが2GB程度必要だ。
+### サーバーでビルドできない場合
+サーバーのマシンスペックが低すぎてビルドが不可能な場合、ローカル環境（Windows、Macでもよい）でビルドしSFTPやSCPで転送することでも対応できる。  
+ビルドにはメモリが2GB程度必要と言われている。
 
 1. Node.jsをインストール（サーバーと同じバージョン）
-2. Git clone、
+2. Git cloneもしくはGitHubからMisskeyのソースをダウンロードする
 3. サーバーと同様の`.config/default.yml`を作成
 4. `npx yarn install`
 5. `NODE_ENV=production npx yarn build`
