@@ -528,7 +528,8 @@ VPSはディスク容量が制限されており単価が高いため、オブ�
 管理画面のインスタンスタブ（`/admin/instance`）の**ドライブの設定**でオブジェクトストレージを設定できる。
 
 公式インスタンスの[misskey.io](../../culture/instances/misskey.io/)では、オブジェクトストレージにDigital Ocean Spacesを利用している。  
-[こちらのリンク <small>https://m.do.co/c/bb9c27bc1a07</small>](https://m.do.co/c/bb9c27bc1a07)からDigital Oceanに登録すると$50分のクレジットがもらえるのでぜひ登録してみてほしい。
+[こちらのリンク <small>https://m.do.co/c/bb9c27bc1a07</small>](https://m.do.co/c/bb9c27bc1a07)からDigital Oceanに登録すると、**$50分のクレジットがもらえる**のでぜひ登録してみてほしい。  
+クレジットカードを持っていない方も、PayPalアカウントで登録できる。
 
 ### 外部ストレージにシンボリックリンクを張る
 自宅サーバーなどでオブジェクトストレージを契約するほどではないものの、ストレージの容量が足りない等の理由で保存先を変更したい場合がある。  
