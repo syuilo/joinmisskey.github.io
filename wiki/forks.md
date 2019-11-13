@@ -23,7 +23,7 @@ Misskeyのソースコードは、ライセンスがAGPLv3.0で、GitHubで公�
 - 言語の追加（タメ口、ねこ語など）
 - 投稿範囲「ログインユーザー」
 
-[詳細な差分はこちらに記載されている。](https://github.com/Xeltica/Groundpolis/blob/develop/DIFFERENCE.md)
+[差分の詳細はこちらに記載されている。](https://github.com/Xeltica/Groundpolis/blob/develop/DIFFERENCE.md)
 
 ### v10ベース
 #### twista
@@ -43,7 +43,7 @@ Misskeyのソースコードは、ライセンスがAGPLv3.0で、GitHubで公�
   * など
 - imastodon.netなどのLTLを表示
 
-[詳細な差分はこちらに記載されている。](https://github.com/346design/twista.283.cloud/blob/twista/README.md)
+[差分の詳細はこちらに記載されている。](https://github.com/346design/twista.283.cloud/blob/twista/README.md)
 
 #### めいすきー
 [めいめい（mei23）氏](../culture/users/mei23/)によるフォーク。「ニコフレ」に似た拡張が特徴的で、他にもUIの利便性向上や管理面でも改造が加えられている。
@@ -59,4 +59,4 @@ Misskeyのソースコードは、ライセンスがAGPLv3.0で、GitHubで公�
 - 時限削除機能
 - 投稿ボタンに公開範囲を二種類プリセット可能に
 
-[詳細な差分はこちらに記載されている。](https://mei23.github.io/misskey_m544_diff.html)
+[差分の詳細はこちらに記載されている。](https://mei23.github.io/misskey_m544_diff.html)
