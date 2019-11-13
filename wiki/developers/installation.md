@@ -1,34 +1,33 @@
 ---
 title: Misskeyインストール方法詳説
-description: UbuntuへのMisskeyのインストール方法を一挙手一投足で解説する。
+description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 layout: wiki
 rank: 1
 ---
 ## はじめに
-この記事では、[リポジトリに同梱されている『Misskey構築の手引き』 (setup.md)](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)を基に、サーバーへMisskeyをインストールし公開する方法を一挙手一投足で解説する。
+この記事では、[リポジトリに同梱されている『Misskey構築の手引き』 (setup.md)](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)を基に、サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 
-Bashのコマンド入力、いくつかの設定ファイルの編集、そしてブラウザの操作だけで設定が完了するようにしている。インストールするソフトウェアについて短く解説しているが、気にする必要はない。
+Bashのコマンド入力、いくつかの設定ファイルの編集、そしてブラウザの操作だけで設定が完了するようにしている。インストールするソフトウェアについて簡単に説明しているが、気にする必要はない。
 
 大まかな流れは上の**目次**をクリックし展開することで確認できる。
 
-この記事では、具体性を重視し、特定の環境に特化した記述をしている。
+この記事では、具体性を重視し、特定の環境に特化した記述をしている。  
+OSの違い、Misskey本体や依存するソフトウェアのバージョンアップで変わってしまった部分等あるかもしれないが、ご容赦願いたい。
 
-OSの違い、Misskeyや依存するソフトウェアのバージョンアップなどで変わってしまった部分等あるかもしれないが、ご容赦願いたい。
-
-わからない単語については、[『「分かりそう」で「分からない」でも「分かった」気になれるIT用語辞典』](https://wa3.i-3-i.info/)というサイトで調べて分かった気になってほしい。
+わからない単語については、[『「分かりそう」で「分からない」でも「分かった」気になれるIT用語辞典』](https://wa3.i-3-i.info/)で調べて分かった気になってほしい。
 
 ## 環境と条件
 - OSは**Ubuntu 18.04.1 LTS**を利用する。
 - ハードウェア要件としては、CPUは最近のものなら最小限で動く。アーキテクチャは**amd64**として解説を進める。  
   メモリは1GB程度あればよい。  
   Amazon EC2なら`micro`のつくインスタンスタイプが最低限。
-- nginxを使用する。
 - 独自のドメインを購入し、CloudFlareを使用する。
-  * ここでは`example.tld`として解説を進めるので、適宜置き換えられよ。
-  * ドメインの購入は[Google Domains](https://domains.google/)などを利用し各自で行っておくこと。
+  * ドメインは[Google Domains](https://domains.google)などで予め用意しておくこと。
+  * ここではドメインを`example.tld`として解説を進めるので、自分が買ったドメインに適宜置き換えて読むこと。
 - CloudFlareとサーバーとの通信にはHTTPSを使用し、証明書の生成にLet's Encryptを使用する。
 - Misskeyの実行ではDockerは使用しないが、証明書の生成で利用することになる。  
-  MisskeyをDockerでインストールする方法は[公式の『Dockerを使ったMisskey構築方法』](https://github.com/syuilo/misskey/blob/master/docs/docker.ja.md)を参照のこと。
+  MisskeyをDockerで実行する方法は[公式の『Dockerを使ったMisskey構築方法』](https://github.com/syuilo/misskey/blob/master/docs/docker.ja.md)を参照のこと。
+- nginxを使用する。
 - ElasticSearchは使用しない。
 - ほとんどのコマンドにroot権限が必要なため、**root**でコマンドを実行していく。  
   一般ユーザーでログインしている場合は`sudo su -`を実行すればrootに切り替わる。
@@ -91,8 +90,6 @@ node -v
 PostgreSQLは、オブジェクト関係データベース管理システムであり、Misskeyが種々のデータを保存するために必要不可欠なソフトだ。
 
 #### インストール
-シェルスクリプトを利用してインストールする。
-
 ```bash
 wget https://salsa.debian.org/postgresql/postgresql-common/raw/master/pgdg/apt.postgresql.org.sh
 sh apt.postgresql.org.sh -i -v 12
@@ -216,7 +213,7 @@ ufw status
 
 ### CloudFlare
 CloudFlareは、自分のドメインに対してDNSサーバー・リバースプロキシ・CDNをいっぺんに提供してくれるたいへん便利なサービスである。  
-CloudFlareを経由せずにサーバーを公開することも可能だが、たいへん便利なので設定しておく。
+CloudFlareを経由せずにサーバーを公開することも可能だが、たいへん便利なので導入することをお勧めする。
 
 [CloudFlareにサインアップ](https://dash.cloudflare.com/sign-up)し、購入したドメインを案内に従って登録する。  
 DNSの登録画面でサーバーのIPアドレスを入力しておくとよい。  
@@ -269,7 +266,7 @@ dns_cloudflare_api_key = xxxxxxxxxxxxxxxxxxxxxxxxxx
 chmod 600 /etc/cloudflare/cloudflare.ini
 ```
 
-準備ができたのでコマンドを実行する。**途中の`example.tld`2箇所は自分のものに置き換えること**。
+準備ができたのでコマンドを実行する。**途中の2箇所の`example.tld`は自分のものに置き換えること**。
 
 ```bash
 docker run -it --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -v "/etc/cloudflare:/etc/cloudflare" --dns=8.8.8.8 certbot/dns-cloudflare:latest certonly -d example.tld -d *.example.tld --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare/cloudflare.ini --dns-cloudflare-propagation-seconds 50
@@ -278,7 +275,7 @@ docker run -it --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencr
 **Congratulations!**と表示されたらOK。生成された`.pem`ファイルのパスは今後使うので記録しておくこと。
 
 #### 証明書の更新をcronで設定
-取得した証明書は3か月で切れてしまうので、cronで設定する。
+取得した証明書は3か月で切れてしまうので、自動で更新するようにcronで設定する。
 
 ```bash
 nano /etc/cron.d/certbot
@@ -331,10 +328,10 @@ npx yarn install
 nano .config/default.yml
 ```
 
-次の内容を貼り付け、適宜置き換える。記述の変更が必要な箇所は`●`で、これまでの中で設定した値を用いる箇所は`〇`で示した。  
-この設定ファイルはYAML形式で書かれており、行頭のスペース（もちろん半角）などを間違えるとMisskeyが動かないので、注意すること。
+次の内容を貼り付け、適宜置き換える。設定値の変更が必要な箇所は`●`で、これまでの流れの中で設定した値を用いる箇所は`〇`で示した。  
+この設定ファイルはYAML形式で書かれており、行頭のスペースの数などを間違えるとMisskeyが動かないので、特に注意すること。
 
-設定できる値と記述方法は`.config/example.yml`に書かれている。
+設定できる値と記述方法は[`.config/example.yml`](https://github.com/syuilo/misskey/blob/develop/.config/example.yml)に書かれている。
 
 ```yaml
 # ● Misskeyを公開するURL
@@ -449,7 +446,11 @@ npx yarn run init
 NODE_ENV=production yarn start
 ```
 
-**Now listening on port 3000 on http://example.tld** と表示されたら、設定したURLにアクセスしてみよう。
+**Now listening on port 3000 on http://example.tld** と表示されたら、設定したURLにアクセスする。
+
+Misskeyのウェルカムページが表示されるはずだ。
+
+アカウントの作成、ノートの作成やファイルのアップロードといった一通りの操作が正しく行えるか確認しよう。
 
 ### アクセスできない場合
 #### CloudFlareのDNSを確認する
