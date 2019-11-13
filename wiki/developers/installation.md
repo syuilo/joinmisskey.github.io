@@ -392,7 +392,7 @@ nano /etc/nginx/conf.d/misskey.conf
 
 変更を保存する。
 
-設定ファイルがきちんとしているか確認。
+設定ファイルがきちんと機能するか確認。
 
 ```bash
 nginx -t
