@@ -44,7 +44,7 @@ nano /path/to/file
 
 終了は<kbd>Ctrl+X</kbd>で、変更を保存するか聞かれた場合<kbd>Y</kbd>(Yes)を入力し<kbd>Enter</kbd>すると保存できる。
 
-下部にコマンド一覧が表示されるが、`^`を<kbd>Ctrl</kbd>、`M-`を<kbd>Alt</kbd>と読み替える。
+下部にコマンド一覧が表示されるので、`^`を<kbd>Ctrl</kbd>、`M-`を<kbd>Alt</kbd>と読み替えて参考にしよう。
 
 ## ユーザーの作成
 Misskeyはrootで実行しない方がよいため、専用のユーザーを作成する。
