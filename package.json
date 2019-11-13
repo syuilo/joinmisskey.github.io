@@ -1,14 +1,13 @@
 {
   "name": "join.misskey.page",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "main": "docs/index.html",
   "description": "join.misskey.page",
   "scripts": {
     "build-files": "gulp prebuild-files",
     "build2deploy": "gulp",
-    "build-all": "gulp prebuild-files && gulp",
-    "build-pages": "gulp pages",
-    "netlify": "npm install; git worktree add pages/ja pages/ja; git worktree add pages/en pages/en; gulp netlify"
+    "build-all": "gulp all",
+    "build-pages": "gulp pages"
   },
   "repository": {
     "type": "git",
