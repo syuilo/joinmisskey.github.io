@@ -429,8 +429,9 @@ NODE_ENV=production npx yarn build
 サーバーのマシンスペックが低すぎてビルドが不可能な場合、ローカル環境（Windows、Macでもよい）でビルドしSFTPやSCPで転送することでも対応できる。  
 ビルドにはメモリが2GB程度必要と言われている。
 
-1. Node.jsをインストール（サーバーと同じバージョン）
-2. Git cloneもしくはGitHubからMisskeyのソースをダウンロードする
+1. サーバーと同じバージョンのNode.jsをインストール
+  * Windowsではnが利用できないので注意。
+2. Git clone、もしくはGitHubからMisskeyのソースをダウンロードする
 3. サーバーと同様の`.config/default.yml`を作成
 4. `npx yarn install`
 5. `NODE_ENV=production npx yarn build`
