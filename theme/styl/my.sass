@@ -23,7 +23,7 @@ h6, .h6
 
 b,
 strong
-  font-weight: 700
+  font-weight: 700 !important
 
 table
   width: auto !important
@@ -65,9 +65,6 @@ ul.simpleindex > li
   @media (max-width: map-get($grid-breakpoints, sm) - 0.02)
     padding: 1em .6em 1em 4.0em
 
-b
-  font-weight: 700 !important
-
 *:not(pre) > code
   border-radius: 2px
   line-height: 1.171875em
@@ -90,8 +87,6 @@ pre
 
 .main-shadow
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2)
-  text-align: justify
-  word-break: break-word
 
 .aitaso
   display: block
@@ -108,3 +103,7 @@ pre
     top: calc(81px + 1.6rem)
     left: 0
     display: block
+
+p
+  text-align: justify
+  word-break: break-word
