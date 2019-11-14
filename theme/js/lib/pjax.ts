@@ -24,7 +24,7 @@ export const pjaxinit = async () => {
       onReady(() => {
         const search = qs.parse(window.location.search, { ignoreQueryPrefix: true })
         search.moved = ""
-        pjax.replace(`/${targetlang}${window.permalink}?${search}${window.location.hash}`)
+        pjax.replace(`/${targetlang}${window.permalink}?${qs.stringify(search)}${window.location.hash}`)
         // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
     }
