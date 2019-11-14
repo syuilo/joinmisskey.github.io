@@ -1,3 +1,4 @@
+import * as qs from "qs"
 import onReady from "./onReady"
 import window from "./window"
 
@@ -21,7 +22,9 @@ export const pjaxinit = async () => {
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       onReady(() => {
-        pjax.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`)
+        const search = qs.parse(window.location.search, { ignoreQueryPrefix: true })
+        search.moved = ""
+        pjax.replace(`/${targetlang}${window.permalink}?${search}${window.location.hash}`)
         // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
     }

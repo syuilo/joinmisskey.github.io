@@ -14,6 +14,7 @@ const msgs = {
 const s = (pjax: Pjax) => {
   let locale = location.pathname.split("/")[1]
   if (window.locales.indexOf(locale) === -1) locale = "ja"
+  const q = (qs.parse(window.location.search, { ignoreQueryPrefix: true })).q
   const btn = document.getElementById("searchButton") as HTMLButtonElement
   const input = document.getElementById("searchInput") as HTMLInputElement
   const scriptId = "searchScript"
@@ -30,7 +31,7 @@ const s = (pjax: Pjax) => {
   const showResult = () => {
     const h1 = document.querySelector("#main h1")
     h1.textContent = msgs[locale].replace("{0}",
-      decodeURIComponent((qs.parse(window.location.search, { ignoreQueryPrefix: true })).q)
+      decodeURIComponent(q)
     )
     window.google.search.cse.element.go()
   }
@@ -42,7 +43,7 @@ const s = (pjax: Pjax) => {
   btn.onclick = () => move()
   input.onkeypress = e => e.charCode === 13 ? move() : void(0)
 
-  if (location.pathname.startsWith(`/${locale}/search/`) && location.search.startsWith(`?q=`)) {
+  if (location.pathname.startsWith(`/${locale}/search/`) && q) {
     if (
       "google" in window &&
       "search" in window.google &&
