@@ -4,18 +4,19 @@ description: Misskeyインスタンスの一覧。あなたに合ったインス
 layout: wiki
 has_child: false
 rank: 2
+next: /wiki/instances/registration-closed/
 ---
-p
-  | #[a(href="./whats-instance/#インスタンスとは？").font-weight-bold Qu’est ce qu’une instance ?] / 
-  | #[a(href="./whats-instance/#このリストについて").font-weight-bold À propos de cette liste] / 
-  | #[a(href="./registration-closed/").font-weight-bold 招待制インスタンスの一覧] / 
-  | #[a(href="./suspended/").font-weight-bold Liste des instances fermées]
+p.
+  #[a(href="whats-instance/#インスタンスとは？").font-weight-bold Qu’est ce qu’une instance ?]#[br]
+  #[a(href="whats-instance/#このリストについて").font-weight-bold À propos de cette liste]#[br]
+  #[a(href="registration-closed/") 招待制インスタンスの一覧]#[br]
+  #[a(href="suspended/") Liste des instances fermées]
 
 details
   summary Légende
 
   ul.fa-ul
-    li #[span.fa-li: +fa_fw('lock')]: Codes d’invitation (une invitation par l’administrateur de l’instance est requise pour l’inscription) / #[+fa_fw('lock-open')]: Nouveaux inscrits
+    li #[span.fa-li: +fa_fw('lock')]: Codes d’invitation (une invitation par l’administrateur de l’instance est requise pour l’inscription)#[br]- #[+fa_fw('lock-open')]: Nouveaux inscrits
     li #[span.fa-li: +fa_fw('comments')]: Calendrier local activé
     li #[span.fa-li: +fa_fw('search')]: Recherche disponible
     li #[span.fa-li: +fa_fw('shield-alt')]: Protection contre les bots via reCAPTCHA activée

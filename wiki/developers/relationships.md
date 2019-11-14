@@ -2,7 +2,9 @@
 title: 他のサービスとの連携を設定する
 description: Twitter、GitHubおよびDiscordでの認証を利用することができる。これには管理者側での設定が必要である。
 layout: wiki
-rank: 2
+rank: 2.1
+prev: /wiki/developers/email/
+next: /wiki/developers/moderation/
 ---
 ## Twitter
 一時期話題になったことだが、Twitterアプリの作成には使用用途を記入し審査を受ける必要がある。  

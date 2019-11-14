@@ -3,6 +3,7 @@ title: Misskeyインストール方法詳説
 description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 layout: wiki
 rank: 1
+next: /wiki/developers/email/
 ---
 ## はじめに
 この記事では、[リポジトリに同梱されている『Misskey構築の手引き』 (setup.md)](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)を基に、サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
@@ -122,10 +123,10 @@ sudo -u postgres psql
 create role misskey LOGIN CREATEDB PASSWORD 'hoge';
 ```
 
-データベースを作成。データベース名:`mk1`、オーナーを`misskey`としている。
+データベースを作成。データベース名を`mk1`、オーナーを`misskey`としている。
 
 ```sql
-create database misskey owner misskey;
+create database mk1 owner misskey;
 ```
 
 ### Redis
