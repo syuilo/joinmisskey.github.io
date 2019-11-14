@@ -6,13 +6,11 @@ const glob = require("glob")
 const frontMatter = require("front-matter")
 const url = require("url")
 
-const getHash = require("../../gethash")
-
 function isMetaPage(site, permalink) {
-  return site.metaPages.some(i => permalink === `/${i}/`)
+  return site.metaPages.some((i) => permalink === `/${i}/`)
 }
 
-module.exports = async (site, src, urlPrefix) => {
+module.exports = (site, src, urlPrefix) => {
   const promises = []
   const srcs = glob.sync(src.pages)
 
@@ -32,9 +30,6 @@ module.exports = async (site, src, urlPrefix) => {
     page.meta.src = srcp
     page.meta.src.subdir = subdir
 
-    page.meta.hash = {}
-    page.meta.hash.md5 = getHash(file, "md5", "binary", "hex")
-    page.meta.hash.sha384 = getHash(file, "sha384", "binary", "base64")
     page.stats = await promisify(fs.stat)(val)
 
     page.body = page.body.replace(/\r\n?/gi, "\n") // 文字コードをLFにそろえる
@@ -93,7 +88,5 @@ module.exports = async (site, src, urlPrefix) => {
       doit(srcs[p], p, srcs, path.parse(site.pages_src.path))
     )
   }
-  let result = await Promise.all(promises)
-  result = result.filter(el => !!el)
-  return result
+  return Promise.all(promises).then((r) => r.filter((el) => el))
 }
