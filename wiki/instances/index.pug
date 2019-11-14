@@ -4,18 +4,19 @@ description: Misskeyインスタンスの一覧。あなたに合ったインス
 layout: wiki
 has_child: false
 rank: 2
+next: /wiki/instances/registration-closed/
 ---
-p
-  | #[a(href="./whats-instance/#インスタンスとは？").font-weight-bold インスタンスとは？] / 
-  | #[a(href="./whats-instance/#このリストについて").font-weight-bold このリストについて] / 
-  | #[a(href="./registration-closed/").font-weight-bold 招待制インスタンスの一覧] / 
-  | #[a(href="./suspended/").font-weight-bold 閉鎖しているインスタンスの一覧]
+p.
+  #[a(href="whats-instance/#インスタンスとは？").font-weight-bold インスタンスとは？]#[br]
+  #[a(href="whats-instance/#このリストについて").font-weight-bold このリストについて]#[br]
+  #[a(href="registration-closed/") 招待制インスタンスの一覧]#[br]
+  #[a(href="suspended/") 閉鎖しているインスタンスの一覧]
 
 details
   summary 凡例
 
   ul.fa-ul
-    li #[span.fa-li: +fa_fw('lock')]: 招待制（登録にはインスタンス管理者が発行したコードが必要）/ #[+fa_fw('lock-open')]: 新規登録可
+    li #[span.fa-li: +fa_fw('lock')]: 招待制（登録にはインスタンス管理者が発行したコードが必要#[br]- #[+fa_fw('lock-open')]: 新規登録可
     li #[span.fa-li: +fa_fw('comments')]: ローカルタイムラインが有効
     li #[span.fa-li: +fa_fw('search')]: 検索が有効
     li #[span.fa-li: +fa_fw('shield-alt')]: reCAPTCHAによるボット防御が有効
