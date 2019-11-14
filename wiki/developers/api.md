@@ -34,13 +34,13 @@ axios.post("https://misskey.io/api/notes/create", {i: "1248aBCDeFGH1632", text: 
 #### 1. アプリケーションの作成
 まず、各インスタンスでアプリケーションを登録し、シークレットキー`appSecret`を取得する。
 
-アプリケーションの登録時にはパーミッションの設定が必要なので、まずは各インスタンスの`/api-doc`（例: https://misskey.io/api-doc）で必要なパーミッションを確認しよう。
+アプリケーションの登録時にはパーミッションの設定が必要なので、まずは各インスタンスの`/api-doc`（例: https://misskey.io/api-doc ）で必要なパーミッションを確認しよう。
 
 `appSecret`は、次の2つの方法で取得できる。  
 ここでは仮に`fAb12cD34Ef56gH78Ij16kL32Mn64oPf`というappSecretを取得したものとして進める。
 
 ##### 開発者センターから作成
-各インスタンスのデベロッパーセンター`/dev`（例: https://misskey.io/dev）でアプリケーションを作成し`appSecret`を取得する。
+各インスタンスのデベロッパーセンター`/dev`（例: https://misskey.io/dev ）でアプリケーションを作成し`appSecret`を取得する。
 
 ##### APIで取得
 `app/create`エンドポイントを利用することでもアプリケーションを作成できる。
@@ -100,4 +100,4 @@ axios.post("https://misskey.io/api/notes/create", {
 ```
 
 ## 様々なエンドポイントを利用する
-各インスタンスの`/api-doc`（例: https://misskey.io/api-doc）にアクセスすることで、そのインスタンスで利用できるAPIの一覧と必要なパーミッションを見ることができる。
+各インスタンスの`/api-doc`（例: https://misskey.io/api-doc ）にアクセスすることで、そのインスタンスで利用できるAPIの一覧と必要なパーミッションを見ることができる。
