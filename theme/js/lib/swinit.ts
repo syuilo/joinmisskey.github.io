@@ -1,9 +1,4 @@
-declare global {
-  // tslint:disable-next-line: interface-name
-  interface Window {
-    jm_pathToWorker: any
-  }
-}
+import window from "./window"
 
 export const swinit = async (): Promise<void> => {
   if (typeof window.jm_pathToWorker === "string" && "serviceWorker" in navigator) {

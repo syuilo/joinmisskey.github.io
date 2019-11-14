@@ -41,6 +41,16 @@
             "en": "Nobody",
             "fr": "Personne"
         },
+        "search": {
+            "ja": "検索",
+            "en": "Search",
+            "fr": "Recherche"
+        },
+        "search_placeholder": {
+            "ja": "検索語句を入力",
+            "en": "検索語句を入力",
+            "fr": "検索語句を入力"
+        },
         "email": {
             "ja": "Eメール",
             "en": "E-mail",

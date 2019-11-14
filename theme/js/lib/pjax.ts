@@ -1,21 +1,12 @@
 import onReady from "./onReady"
-
-declare global {
-  // tslint:disable-next-line: interface-name
-  interface Window {
-    currentLocale: string
-    permalink: string
-    locales: string[]
-    pathname: string
-  }
-}
+import window from "./window"
 
 const userLanguage = navigator.language
 
 export const pjaxinit = async () => {
   const { Pjax } = await import("pjax-api")
 
-  const pj = new Pjax({
+  const pjax = new Pjax({
     areas: [
       "#main, #breadcrumb, #mainnav, #updateTime, #ini_inner",
       "body"
@@ -30,7 +21,7 @@ export const pjaxinit = async () => {
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       onReady(() => {
-        pj.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`)
+        pjax.replace(`/${targetlang}${window.permalink}?moved${window.location.hash}`)
         // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
       })
     }
@@ -76,5 +67,5 @@ export const pjaxinit = async () => {
     }
   }
 
-  return pj
+  return pjax
 }

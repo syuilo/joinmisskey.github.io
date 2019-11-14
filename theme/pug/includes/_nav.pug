@@ -24,8 +24,12 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
             +fa_fw("book")
             span.d-inline.d-md-none.d-lg-inline
               | &ensp;Wiki
+      #search.input-group
+        input#searchInput.form-control(type="search" placeholder=i18n("search_placeholder") aria-label=i18n("search"))
+        .input-group-append
+          button#searchButton.btn.btn-primary #[+fa_fw("search")] #[+i18n("search")]
     .dropleft
-      button.btn.btn-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+      button.btn.btn-outline-primary.text-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
         each lang in site.locales

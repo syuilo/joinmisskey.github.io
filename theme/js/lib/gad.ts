@@ -1,11 +1,4 @@
-declare global {
-  // tslint:disable-next-line: interface-name
-  interface Window {
-    adsbygoogle: {
-      push(a: any): void
-    }
-  }
-}
+import window from "./window"
 
 import { breakpoints, getMediaDims } from "./vals"
 

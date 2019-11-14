@@ -11,6 +11,7 @@ import { twemojiinit } from "./lib/twemojiinit"
 
 import { Loading } from "./lib/loading"
 import { LoadToShow } from "./lib/loadtoshow"
+import { searchinit } from "./lib/searchinit"
 
 function contentReady() {
   fainit()
@@ -21,16 +22,18 @@ function contentReady() {
   twemojiinit()
 }
 
-pjaxinit()
-
 detectOldBrowser()
 
 onReady(() => {
+  contentReady()
   new Loading()
   new LoadToShow()
 })
 
-onReady(contentReady)
 document.addEventListener("pjax:content", contentReady)
 
 window.addEventListener("pjax:load", pjaxLoaded)
+
+pjaxinit().then(pjax => {
+  searchinit(pjax)
+})

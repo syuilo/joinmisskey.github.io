@@ -1,15 +1,4 @@
-declare global {
-  // tslint:disable-next-line: interface-name
-  interface Window {
-    DISQUS: {
-      reset(a: any): void
-    }
-    twttr: any
-    disqus_config: any
-    gaId: string
-    gtag(...xs: any): void
-  }
-}
+import window from "./window"
 
 export const pjaxLoaded = (): void => {
   if (window.gtag) {
