@@ -12,7 +12,8 @@ const msgs = {
 }
 
 const s = (pjax: Pjax) => {
-  const locale = window.currentLocale === "false" ? window.locales[0] : window.currentLocale
+  let locale = location.pathname.split("/")[1]
+  if (window.locales.indexOf(locale) === -1) locale = "ja"
   const btn = document.getElementById("searchButton") as HTMLButtonElement
   const input = document.getElementById("searchInput") as HTMLInputElement
   const scriptId = "searchScript"
