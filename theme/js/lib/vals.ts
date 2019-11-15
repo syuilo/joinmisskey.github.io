@@ -12,7 +12,7 @@ export const getMediaDims = () => ({
 })
 
 export const cses = {
-  ja: "partner-pub-1736621122676736:3935691027",
+  ja: "014994922126240360327:fjvgx6f8dju",
   en: "014994922126240360327:tifjsd5prhg",
   fr: "014994922126240360327:vpwvcwyxxnw"
 }
