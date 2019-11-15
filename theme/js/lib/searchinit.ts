@@ -74,5 +74,5 @@ const s = (pjax: Pjax) => {
 
 export const searchinit = (pjax: Pjax) => {
   onReady(() => s(pjax))
-  // window.addEventListener("pjax:load", () => s(pjax))
+  window.addEventListener("pjax:load", () => s(pjax))
 }
