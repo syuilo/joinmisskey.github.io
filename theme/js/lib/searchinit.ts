@@ -69,7 +69,6 @@ const s = (pjax: Pjax) => {
       script.onload = () => setTimeout(() => showResult(), 300)
     }*/
   }
-
 }
 
 export const searchinit = (pjax: Pjax) => {
