@@ -1,7 +1,7 @@
 // tslint:disable: object-literal-sort-keys
 import Pjax from "pjax-api"
 import * as qs from "qs"
-import onLoad from "./onLoad"
+import onReady from "./onReady"
 import { cses } from "./vals"
 import window from "./window"
 
@@ -73,6 +73,6 @@ const s = (pjax: Pjax) => {
 }
 
 export const searchinit = (pjax: Pjax) => {
-  onLoad(() => s(pjax))
-  window.addEventListener("pjax:load", () => s(pjax))
+  onReady(() => s(pjax))
+  // window.addEventListener("pjax:load", () => s(pjax))
 }
