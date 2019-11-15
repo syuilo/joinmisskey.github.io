@@ -27,7 +27,7 @@ module.exports = (htm, urlprefix) => {
   $("h2, h3, h4, h5, h6").each((i) => {
     const $els = $("h2, h3, h4, h5, h6")
     $els.eq(i).attr("id", hs[i])
-    if ($els.length - (i + 1) >= 4 && i % 8 === 3) {
+    if ($els.length - (i + 1) >= 3 && i % 7 === 3) {
       // eslint-disable-next-line quotes
       $els.eq(i).before(`<ins class="adsbygoogle mt-5" style="display:block; text-align:left;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1736621122676736" data-ad-slot="9247410221"></ins>`)
     }
