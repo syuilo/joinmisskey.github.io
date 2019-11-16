@@ -1,6 +1,5 @@
 // tslint:disable: object-literal-sort-keys
 import Pjax from "pjax-api"
-import * as qs from "qs"
 import onReady from "./onReady"
 import { cses } from "./vals"
 import window from "./window"
@@ -14,7 +13,7 @@ const msgs = {
 const s = (pjax: Pjax) => {
   let locale = location.pathname.split("/")[1]
   if (window.locales.indexOf(locale) === -1) locale = "ja"
-  const q = (qs.parse(window.location.search, { ignoreQueryPrefix: true })).q
+  const q = (new URLSearchParams(location.search)).get("q")
   const btn = document.getElementById("searchButton") as HTMLButtonElement
   const input = document.getElementById("searchInput") as HTMLInputElement
   const scriptId = "searchScript"
@@ -45,7 +44,7 @@ const s = (pjax: Pjax) => {
 
   const move = () => {
     // if (input.value) pjax.replace(`/${locale}/search/?q=${encodeURIComponent(input.value)}`)
-    location.href = `/${locale}/search/?q=${encodeURIComponent(input.value)}`
+    location.href = `/${locale}/search/?q=${encodeURIComponent(input.value)}&moved`
   }
 
   btn.onclick = () => move()
