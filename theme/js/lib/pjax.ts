@@ -65,7 +65,9 @@ export const pjaxinit = async () => {
         move_locale("en")
       }
     } else {
-      history.replaceState(null, null, window.location.href.replace(/\?[^#]*/, ""))
+      const search = new URLSearchParams(location.search)
+      search.delete("moved")
+      history.replaceState(null, null, `?${search.toString()}`)
     }
   }
 
