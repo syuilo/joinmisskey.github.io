@@ -43,20 +43,20 @@ images:
       rename:
         suffix: ".720"
         extname: ".webp"
-    - width: 320
+    - width: 360
       crop: false
       withoutEnlargement: true
       sharpen: "0.5x0.5+0.5+0.008"
       rename:
-        suffix: ".320"
-    - width: 320
+        suffix: ".360"
+    - width: 360
       crop: false
       withoutEnlargement: true
       sharpen: "0.5x0.5+0.5+0.008"
       quality: 70
       # format: webp
       rename:
-        suffix: ".320"
+        suffix: ".360"
         extname: ".webp"
 icons:
   - path: "/files/images/icons/icon.svg"

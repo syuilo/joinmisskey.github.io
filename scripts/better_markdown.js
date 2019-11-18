@@ -43,7 +43,7 @@ module.exports = (htm, urlprefix) => {
       if (imgurl && imgurl.match(/png$|jpg$|jpeg$|gif$|webp$/)) {
         const iu = path.parse(imgurl)
         const sizes = "calc(100vw - 30px), (min-width: 576px) 510px, (min-width: 768px) 40em"
-        return `<picture><source srcset="${urlprefix}${iu.dir}/${iu.name}.320.webp 320w, ${urlprefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlprefix}${iu.dir}/${iu.name}.webp 1200w" type="image/webp" sizes="${sizes}"><source srcset="${urlprefix}${iu.dir}/${iu.name}.320${iu.ext} 320, ${urlprefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlprefix}${iu.dir}/${iu.base} 1200w" sizes="${sizes}">${$.html($(el))}</picture>`
+        return `<picture><source srcset="${urlprefix}${iu.dir}/${iu.name}.360.webp 360w, ${urlprefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlprefix}${iu.dir}/${iu.name}.webp 1200w" type="image/webp" sizes="${sizes}"><source srcset="${urlprefix}${iu.dir}/${iu.name}.360${iu.ext} 360w, ${urlprefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlprefix}${iu.dir}/${iu.base} 1200w" sizes="${sizes}">${$.html($(el))}</picture>`
       }
       return $.html($(el))
     })()
