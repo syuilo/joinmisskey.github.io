@@ -3,6 +3,6 @@ export const removeMoved = () => {
     const search = new URLSearchParams(location.search)
     search.delete("moved")
     const str = search.toString()
-    history.replaceState(null, null, `${str ? `./` : `?${str}`}${location.hash}`)
+    history.replaceState(null, null, `${str ? `?${str}` : `./`}${location.hash}`)
   }
 }
