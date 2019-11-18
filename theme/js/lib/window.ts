@@ -6,6 +6,8 @@ interface IWindow extends Window {
   pathname: string
   jm_pathToWorker: any
   gaId: string
+  dataLayer: any[]
+  styleRequires: string[]
 
   DISQUS: {
     reset(a: any): void

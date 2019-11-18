@@ -13,8 +13,7 @@ export const pjaxinit = async () => {
     ],
     update: {
       css: false,
-      head: "meta",
-      script: false
+      head: "meta"
     }
   })
 
@@ -64,10 +63,6 @@ export const pjaxinit = async () => {
       } else if (window.currentLocale !== "en") {
         move_locale("en")
       }
-    } else {
-      const search = new URLSearchParams(location.search)
-      search.delete("moved")
-      history.replaceState(null, null, `?${search.toString()}`)
     }
   }
 

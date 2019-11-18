@@ -12,7 +12,4 @@ export const pjaxLoaded = (): void => {
       reload: true
     })
   }
-  if (window.location.search.indexOf("moved") >= 0) {
-    history.replaceState(null, null, window.location.href.replace(/\?.*$/, ""))
-  }
 }

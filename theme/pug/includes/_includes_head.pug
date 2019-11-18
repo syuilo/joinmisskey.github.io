@@ -1,18 +1,15 @@
-if(site.sw)
-  script.
-    jm_pathToWorker = '#{urlPrefix}/service_worker.js'
-script.
+script#page_variables.
   var pathname = "/#{site.url.path}";
   var currentLocale = "#{locale}";
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
+  var styleRequires = !{JSON.stringify(page.attributes.styleRequires)};
+  !{site.ga ? `var gaId = "${site.ga};"` : ""}
+  !{site.sw ? `var jm_pathToWorker = "${urlPrefix}/service_worker.js"` : ""}
 
 block gtag
   if(site.ga)
     script(src=`https://www.googletagmanager.com/gtag/js?id=${site.ga}` async)
-    script.
-      window.gaId = '#{site.ga}'
-      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '#{site.ga}', );
 
 script(data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
 

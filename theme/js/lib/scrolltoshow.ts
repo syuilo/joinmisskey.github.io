@@ -1,7 +1,14 @@
+import { ImportCss } from "./import-css"
 import { tsShow } from "./toshow"
 
-export const scrolltoshow = (): void => {
+export const scrolltoshow = (importCss: ImportCss): void => {
   const els = Array.from(document.getElementsByClassName("scrollts"))
+  if (els.length > 0) importCss.append("scrolltoshow")
+  else {
+    importCss.unuse("scrolltoshow")
+    return
+  }
+
   if (IntersectionObserver !== undefined && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, o) => {
         for (const entry of entries) {

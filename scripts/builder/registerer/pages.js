@@ -80,6 +80,10 @@ module.exports = (site, src, urlPrefix) => {
       page.attributes.tags = page.attributes.tag.split(" ")
       delete page.attributes.tag
     }
+
+    if (!page.attributes.styleRequires) {
+      page.attributes.styleRequires = []
+    }
     return page
   }
 

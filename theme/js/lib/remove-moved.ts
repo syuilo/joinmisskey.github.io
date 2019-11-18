@@ -1,0 +1,8 @@
+export const removeMoved = () => {
+  if (location.search && location.search.indexOf("moved") > -1) {
+    const search = new URLSearchParams(location.search)
+    search.delete("moved")
+    const str = search.toString()
+    history.replaceState(null, null, `${str.length ? `./` : `?${str}`}${location.hash}`)
+  }
+}

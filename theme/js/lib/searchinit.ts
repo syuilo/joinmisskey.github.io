@@ -48,7 +48,7 @@ const s = (pjax: Pjax) => {
   }
 
   btn.onclick = () => move()
-  input.onkeypress = e => e.charCode === 13 ? move() : void(0)
+  input.onkeypress = e => e.charCode === 13 ? move() : void 0
 
   if (location.pathname.startsWith(`/${locale}/search/`) && q) {
     const h1 = document.querySelector("#main h1")

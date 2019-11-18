@@ -7,7 +7,6 @@ const fs = require("fs")
 const { promisify } = require("util")
 const path = require("path")
 const del = require("del")
-const minimist = require("minimist")
 const pump = require("pump")
 const pug = require("pug")
 const glog = require("fancy-log")
@@ -36,7 +35,7 @@ const writeFile = promisify(fs.writeFile)
 const readFile = promisify(fs.readFile)
 
 // arg
-const argv = minimist(process.argv.slice(2))
+const argv = require("./scripts/argv")
 
 // debug
 const DEBUG = !!(argv._.indexOf("debug") > -1 || argv.debug)
@@ -54,12 +53,7 @@ function existFile(file) {
 // グローバル気味変数
 const packageJson = require("./package.json")
 const messages = require("./.config/messages.json")
-const site = extend(true,
-  require("./.config/default.json"),
-  require("./.config/lang.json"),
-  loadyaml("./.config/images.yaml"),
-  // process.env.CI === "true" ? loadyaml("./.config/actions-override.yaml") : {},
-  argv._.some((e) => e === "local-server") ? require("./.config/debug-override.json") : {})
+const site = require("./scripts/site")
 
 const keys = (() => {
   if (existFile("./.config/keys.yaml")) {
@@ -268,43 +262,9 @@ gulp.task("css", (cb) => {
   })
 })
 
-gulp.task("js", (cb) => {
-  const wpackconf = {
-    entry: {
-      main: "./theme/js/main.ts",
-      bootstrap: "./theme/js/bootstrap.ts",
-      sw: "./theme/js/sw.ts"
-    },
-    output: {
-      filename: "[name].js",
-      publicPath: `${site.url.path}/assets/scripts/`
-    },
-    resolve: {
-      extensions: [".ts", ".tsx", ".js", ".sass", ".scss"],
-      modules: ["node_modules"]
-    },
-    module: {
-      rules: [
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
-            "css-loader",
-            "sass-loader"
-          ]
-        },
-        {
-          test: /\.tsx?$/,
-          loader: "ts-loader",
-          options: {
-            appendTsSuffixTo: [/\.s[ac]ss$/]
-          }
-        }
-      ]
-    },
-    mode: "production"
-  }
+const wpackconf = require("./webpack.config.js")
 
+gulp.task("js", (cb) => {
   webpackStream(wpackconf, webpack)
     .pipe(gulp.dest(`${dests.root}/assets/scripts`))
     .on("end", () => {

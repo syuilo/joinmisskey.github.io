@@ -3,7 +3,7 @@
       "baseUrl": ".",
       "paths": { "*": ["types/*"] },
         "sourceMap": true,
-        "target": "es5",
+        "target": "es2017",
         "moduleResolution": "node",
         "module": "esnext",
         "lib": ["dom", "es6"]
