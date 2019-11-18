@@ -148,20 +148,6 @@ systemctl status redis-server
 
 activeならOK。
 
-### Git
-Gitはバージョン管理ソフトである。
-
-```
-apt update
-apt install -y git
-```
-
-バージョンを確認する。
-
-```
-git --version
-```
-
 ### nginx
 nginxは、主としてリバースプロキシに用いられるWebサーバーソフトである。Misskeyには必須ではないが、キャッシュ等をするとパフォーマンスが向上するためインストールしておく。
 
@@ -189,6 +175,14 @@ systemctl enable nginx
 http://localhost にアクセスし、**Welcome to nginx!**と表示されればOK。
 
 <small>https://nginx.org/en/linux_packages.html#Ubuntu</small>
+
+### その他
+Git（バージョン管理ソフト）およびbuild-essential（Misskeyのビルド時に必要）をインストールする。
+
+```
+apt update
+apt install -y git build-essential
+```
 
 ## 追加の設定とインストール
 サーバーをインターネットに公開する準備をする。
