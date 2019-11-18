@@ -159,10 +159,10 @@
   resolved "https://registry.yarnpkg.com/@types/ua-parser-js/-/ua-parser-js-0.7.33.tgz#4a92089511574e12928a7cb6b99a01831acd1dd7"
   integrity sha512-ngUKcHnytUodUCL7C6EZ+lVXUjTMQb+9p/e1JjV5tN9TVzS98lHozWEFRPY1QcCdwFeMsmVWfZ3DPPT/udCyIw==
 
-"@types/workbox-window@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.2.tgz#700daeaf029918ef1143896c8cbee63d6d357523"
-  integrity sha512-q1uvj0T2gYNivUSZjuZmSnmDqX+TzCOQw6Q8Tnk/3RApUIf3phDXBNCDAMhxOODhQnh/ba8s7xTNXPpX6Z3WxQ==
+"@types/workbox-window@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.3.tgz#47f91df7ce7eea5c151a6beb3e8398c7db8ee538"
+  integrity sha512-iIq2obSq3gvzhwFxg+/02v4VqfHjRg9hpEjoM68TKYcmCAe9QGlFsJ5qPZkJKUuZDVW7cUoR3iiA2jIALFU6Ag==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
