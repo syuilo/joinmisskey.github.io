@@ -159,10 +159,10 @@
   resolved "https://registry.yarnpkg.com/@types/ua-parser-js/-/ua-parser-js-0.7.33.tgz#4a92089511574e12928a7cb6b99a01831acd1dd7"
   integrity sha512-ngUKcHnytUodUCL7C6EZ+lVXUjTMQb+9p/e1JjV5tN9TVzS98lHozWEFRPY1QcCdwFeMsmVWfZ3DPPT/udCyIw==
 
-"@types/workbox-window@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.2.tgz#700daeaf029918ef1143896c8cbee63d6d357523"
-  integrity sha512-q1uvj0T2gYNivUSZjuZmSnmDqX+TzCOQw6Q8Tnk/3RApUIf3phDXBNCDAMhxOODhQnh/ba8s7xTNXPpX6Z3WxQ==
+"@types/workbox-window@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.3.tgz#47f91df7ce7eea5c151a6beb3e8398c7db8ee538"
+  integrity sha512-iIq2obSq3gvzhwFxg+/02v4VqfHjRg9hpEjoM68TKYcmCAe9QGlFsJ5qPZkJKUuZDVW7cUoR3iiA2jIALFU6Ag==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -8329,7 +8329,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.1
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-prebuild-install@^5.3.2:
+prebuild-install@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.3.tgz#ef4052baac60d465f5ba6bf003c9c1de79b9da8e"
   integrity sha512-GV+nsUXuPW2p8Zy7SarF/2W/oiK8bFQgJcncoJ0d7kRpekEA0ftChjfEaF9/Y+QJEc/wFR7RAEa8lYByuUIe2g==
@@ -9276,10 +9276,10 @@ sass-loader@8:
     schema-utils "^2.1.0"
     semver "^6.3.0"
 
-sass@^1.22.12:
-  version "1.23.3"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.3.tgz#f07503b9e8d2bcf06ef69e8beea5d085589b1620"
-  integrity sha512-1DKRZxJMOh4Bme16AbWTyYeJAjTlrvw2+fWshHHaepeJfGq2soFZTnt0YhWit+bohtDu4LdyPoEj6VFD4APHog==
+sass@^1.23.6:
+  version "1.23.6"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.23.6.tgz#7cce6dbeac1b8caeb33301a817642ee2708f7d7e"
+  integrity sha512-awBvj9xrAuiS2TOCcYSUGCmaBV3UW6fVSK4oJ2LHS8IRfnRLc5EJihw90C7ZJ/skcEwFGSf9/XO5NlMiKupBCg==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
@@ -9491,16 +9491,16 @@ shallow-clone@^3.0.0:
   dependencies:
     kind-of "^6.0.2"
 
-sharp@^0.23.1, sharp@^0.23.2:
-  version "0.23.2"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.23.2.tgz#5f8b77513aa1f7e4d0dd969a3904ced75486c1d7"
-  integrity sha512-BSo0tq6Jtzwa6GDKvVMNNPCP/HLczrFLGVcorYv7OtxlKx4UPHy7x9DdfT8F+PK7FCFDemVRwtsjWpvaJI9v6w==
+sharp@^0.23.1, sharp@^0.23.3:
+  version "0.23.3"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.23.3.tgz#549770a4c671b9bd221f00639452a3eb803a0ed1"
+  integrity sha512-pjT4zyviQteXMC1Z8USIiSwQFQbZTlU5J59/UoygE25hh+sSb7PSYI/MZ2MCB1COtxWQuoUAaG3TYIOLon26Mg==
   dependencies:
     color "^3.1.2"
     detect-libc "^1.0.3"
     nan "^2.14.0"
     npmlog "^4.1.2"
-    prebuild-install "^5.3.2"
+    prebuild-install "^5.3.3"
     semver "^6.3.0"
     simple-get "^3.1.0"
     tar "^5.0.5"
