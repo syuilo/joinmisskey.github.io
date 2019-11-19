@@ -21,14 +21,11 @@ export class ImportCss {
 
   public appendLinkTag = (url: string, s?: string) => {
     const style = document.createElement("link")
-    const his = this
     style.rel = "stylesheet"
     style.href = url
     style.disabled = false
-    window.requestAnimationFrame(() => {
-      if (s) his[s] = document.head.appendChild(style)
-      else his.basics.push(document.head.appendChild(style))
-    })
+    if (s) this.lazies[s] = document.head.appendChild(style)
+    else this.basics.push(document.head.appendChild(style))
   }
 
   public renew = () => {
