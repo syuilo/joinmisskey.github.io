@@ -24,7 +24,7 @@ axios.post("https://misskey.io/api/notes/create", {i: "1248aBCDeFGH1632", text: 
 自分のアカウントから「Hello Misskey API World!」という文章が投稿されたはずだ。
 
 ### 自分のアカウントのiを取得する
-自分のアカウントのiは設定のAPIタブ（`/settings/api`）のTokenに表示されている。
+自分のアカウントのiは設定のAPIタブ（`/i/settings/api`）のTokenに表示されている。
 
 ここで取得できるiは特別なiで、アカウントの全ての情報を操作できるため、インターネット上に公開したり第三者に教えたりしてはいけない。
 
@@ -101,3 +101,5 @@ axios.post("https://misskey.io/api/notes/create", {
 
 ## 様々なエンドポイントを利用する
 各インスタンスの`/api-doc`（例: https://misskey.io/api-doc ）にアクセスすることで、そのインスタンスで利用できるAPIの一覧と必要なパーミッションを見ることができる。
+
+Misskey Webの設定のAPIタブ（`/i/settings/api`）のAPIコンソールでAPIをテストできる。APIコンソールで実行した内容は実際に反映される。
