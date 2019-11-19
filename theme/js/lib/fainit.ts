@@ -1,6 +1,4 @@
-import { config, IconName, IconParams, IconPrefix } from "@fortawesome/fontawesome-svg-core"
-
-config.autoAddCss = false
+import { IconName, IconParams, IconPrefix } from "@fortawesome/fontawesome-svg-core"
 
 export const fainit = async (): Promise<void> => {
   const { getNode } = await import("../../../scripts/falib")

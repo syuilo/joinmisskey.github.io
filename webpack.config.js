@@ -1,5 +1,4 @@
 const path = require("path")
-
 const site = require("./scripts/site")
 
 module.exports = {
@@ -14,26 +13,19 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "*lazy-style": path.resolve(__dirname, "theme/styl/lazy")
+      _style: path.resolve(__dirname, "theme/styl/"),
+      "_style-lazy": path.resolve(__dirname, "theme/styl/lazy/")
     },
-    extensions: [".ts", ".tsx", ".js", ".sass", ".scss"],
+    extensions: [".ts", ".tsx", ".js"],
     modules: ["node_modules"]
   },
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          { loader: "style-loader", options: { injectType: "lazyStyleTag" } },
-          "css-loader",
-          "sass-loader"
-        ]
-      },
-      {
         test: /\.tsx?$/,
         loader: "ts-loader",
         options: {
-          appendTsSuffixTo: [/\.s[ac]ss$/]
+          // appendTsSuffixTo: [/\.s[ac]ss$/]
         }
       }
     ]

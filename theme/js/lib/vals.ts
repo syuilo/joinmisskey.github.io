@@ -16,3 +16,11 @@ export const cses = {
   en: "014994922126240360327:tifjsd5prhg",
   fr: "014994922126240360327:vpwvcwyxxnw"
 }
+
+export const csses = [
+  "https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css",
+  "https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css",
+  "https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css",
+  "/assets/styles/main.css",
+  "/assets/styles/fonts.css"
+]

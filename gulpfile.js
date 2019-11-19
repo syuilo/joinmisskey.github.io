@@ -15,7 +15,6 @@ const mkdirp = require("mkdirp")
 const webpackStream = require("webpack-stream")
 const webpack = require("webpack")
 const Sitemap = require("sitemap")
-const { dom } = require("@fortawesome/fontawesome-svg-core")
 const postcssSorting = require("postcss-sorting")
 const autoprefixer = require("autoprefixer")
 const cssnano = require("cssnano")
@@ -245,19 +244,20 @@ const cssDestpath = `${dests.root}/assets/styles`
 
 gulp.task("css", (cb) => {
   pump([
-    gulp.src("theme/styl/main.sass"),
+    gulp.src(["theme/styl/main.sass", "theme/styl/fonts.scss", "theme/styl/lazy/*.s[ac]ss"]),
     $.sass({ sourceMap: true }),
-    $.header(dom.css()),
     $.postcss([
       postcssSorting(),
       autoprefixer(),
       cssnano()
     ]),
-    $.rename("main.css"),
+    $.rename({
+      extname: ".css"
+    }),
     gulp.dest(cssDestpath)
   ], async (e) => {
     if (e) cb(e)
-    else glog(colors.green("✔ assets/styles/main.css"))
+    else glog(colors.green("✔ Styles"))
     cb()
   })
 })
@@ -690,7 +690,7 @@ gulp.task("watcher",
   ))
 
 gulp.task("watch", () => {
-  gulp.watch(["theme/**/*", `!${tempDir}**/*`, "pages/**/*", "./.config/**/*", "./scripts/**/*"], gulp.series("watcher", "server", (cb) => { cb() }))
+  gulp.watch(["theme/**/*", "!theme/js/**/*", `!${tempDir}**/*`, "pages/**/*", "./.config/**/*", "./scripts/**/*"], gulp.series("watcher", "server", (cb) => { cb() }))
   gulp.watch(["files/**/*", "./.config/**/*"], gulp.series("watcher", (cb) => { cb() }))
 })
 

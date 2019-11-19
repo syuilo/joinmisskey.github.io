@@ -1,11 +1,15 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": { "*": ["types/*"] },
-        "sourceMap": true,
-        "target": "es2017",
-        "moduleResolution": "node",
-        "module": "esnext",
-        "lib": ["dom", "es6"]
-    }
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "*": ["types/*"],
+      "_style/*": ["theme/styl/*"],
+      "_style-lazy/*": ["theme/styl/lazy/*"]
+    },
+    "sourceMap": true,
+    "target": "es2017",
+    "moduleResolution": "node",
+    "module": "esnext",
+    "lib": ["dom", "es2020"]
+  }
 }

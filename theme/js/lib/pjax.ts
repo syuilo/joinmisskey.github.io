@@ -11,6 +11,9 @@ export const pjaxinit = async () => {
       "#main, #breadcrumb, #mainnav, #updateTime, #ini_inner",
       "body"
     ],
+    fetch: {
+      wait: 200
+    },
     update: {
       css: false,
       head: "meta"
