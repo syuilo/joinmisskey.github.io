@@ -6,7 +6,7 @@ rank: 1
 ---
 Misskeyの機能をひととおり利用できる、いわゆる「クライアント」と呼ばれるアプリ・ソフトウェアの一覧。  
 
-ネイティブアプリだけでなく、[Misskey Webをインストールする](#Misskey%20Web%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)こともできる。
+ストアアプリだけでなく、[Misskey Webをインストールする](#Misskey%20Web%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)こともできる。
 
 ## デスクトップ
 ### マルチOS
@@ -34,8 +34,7 @@ GPL 3.0([GitHub:cutls/TheDesk](https://github.com/cutls/TheDesk))
 **今のところ、iOS上で動作するMisskeyクライアントは確認されていない。**
 
 ## Misskey Webをインストールする
-MisskeyはPWAであり、モバイルOSやブラウザの機能によってMisskeyのようなWebサイトをアプリのようにホーム画面に登録することが可能だ。  
-なお、joinmisskeyも同様の方法でホーム画面に追加できるようになっている。
+Misskey Webは、モバイルOSやブラウザの機能によってストアアプリのようにホーム画面に登録することができる。
 
 ### Chrome
 Google Chromeを使うと、Android（かデスクトップOS）でネイティブアプリケーションのように端末へMisskeyをインストールできる。  
