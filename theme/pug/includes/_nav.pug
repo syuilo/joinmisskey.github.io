@@ -29,7 +29,7 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
         .input-group-append
           button#searchButton.btn.btn-primary #[+fa_fw("search")] #[+i18n("search")]
     .dropleft
-      button.btn.btn-outline-primary.text-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+      button.btn.btn-outline-primary.dropdown-toggle(type="button" id="locale_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
         each lang in site.locales
