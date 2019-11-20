@@ -17,7 +17,7 @@ module.exports = async (name, url, tempDir, alwaysReturn) => {
       sharp(buffer)
         .toFormat("png")
         .toBuffer()
-        .then((png) => writeFile(`${tempDir}${name}.png`, png)),
+        .then(png => writeFile(`${tempDir}${name}.png`, png)),
       writeFile(`${tempDir}${name}.${ext}`, buffer)
     ]
   )
@@ -44,7 +44,7 @@ module.exports = async (name, url, tempDir, alwaysReturn) => {
     return false
   }
   glog(`Getting new image: ${url}`)
-  return download(url).then(async (data) => {
+  return download(url).then(async data => {
     let { ext } = fileType(data)
     if (["png", "jpg", "jpeg", "webp"].indexOf(ext) === -1) {
       await toPng(data, ext)
@@ -52,7 +52,7 @@ module.exports = async (name, url, tempDir, alwaysReturn) => {
     }
     await writeFile(`${tempDir}${name}.${ext}`, data)
     return { name, ext, status: "created" }
-  }).catch((reason) => {
+  }).catch(reason => {
     glog(`Cannot get the image: ${reason}`)
     return false
   })

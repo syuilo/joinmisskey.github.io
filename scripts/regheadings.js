@@ -1,4 +1,4 @@
-module.exports = (htm) => {
+module.exports = htm => {
   let headingHtml
   const headings = []
   const regHeading = /<h([1-6])(.*?)>([^]*?)<\/h(\1)>/gi

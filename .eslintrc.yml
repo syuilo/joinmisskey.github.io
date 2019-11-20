@@ -5,3 +5,4 @@ rules:
   comma-dangle: [error, never]
   semi: [error, never]
   quotes: [error, double]
+  arrow-parens: [error, as-needed]

@@ -8,4 +8,4 @@ module.exports = extend(true,
   require("../.config/lang.json"),
   loadyaml(path.join(__dirname, "../.config/images.yaml")),
   // process.env.CI === "true" ? loadyaml("../.config/actions-override.yaml") : {},
-  argv._.some((e) => e === "local-server") ? require("../.config/debug-override.json") : {})
+  argv._.some(e => e === "local-server") ? require("../.config/debug-override.json") : {})

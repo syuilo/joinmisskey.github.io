@@ -6,7 +6,7 @@ module.exports = (base, pages, lang) => {
     return -1
   })
 
-  const qpages = pages.filter((e) => e.meta.permalink.indexOf(`/${lang}/blog/`) === 0
+  const qpages = pages.filter(e => e.meta.permalink.indexOf(`/${lang}/blog/`) === 0
                               && e.attributes.layout === "blog" // blogレイアウトが適用されている
                               && e.attributes.draft !== true //
                               && e.attributes.published === true)

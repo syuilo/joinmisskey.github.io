@@ -1,6 +1,5 @@
 import * as allSettled from "promise.allsettled"
 import onReady from "./onReady"
-import { csses } from "./vals"
 import window from "./window"
 
 export class ImportCss {
@@ -11,40 +10,40 @@ export class ImportCss {
 
   constructor() {
     // basic style loading
-    const his = this
-    csses.map(url => this.appendLinkTag(url))
+    this.basics = Array.from(document.querySelectorAll("link.base-style[rel=\"preload\"]"))
+
+    for (const basic of this.basics) {
+      basic.rel = "stylesheet"
+      basic.as = ""
+    }
 
     // lazy style loading
+    const lazies = Array.from(document.querySelectorAll("link.lazy-style[rel=\"preload\"]")) as HTMLLinkElement[]
+
+    for (const lazy of lazies) {
+      this.lazies[lazy.dataset.name] = lazy
+    }
+
     onReady(this.renew)
     document.addEventListener("pjax:ready", this.renew)
   }
 
-  public appendLinkTag = (url: string, s?: string) => {
-    const style = document.createElement("link")
-    style.rel = "stylesheet"
-    style.href = url
-    style.disabled = false
-    if (s) this.lazies[s] = document.head.appendChild(style)
-    else this.basics.push(document.head.appendChild(style))
-  }
-
   public renew = () => {
-    window.styleRequires.map(this.append)
+    window.styleRequires.map(this.use)
     for (const [s] of Object.entries(this.lazies)) {
       if (!window.styleRequires.includes(s)) this.unuse(s)
     }
 
     if (window.currentLocale !== "false") {
-      this.append(`fonts-${window.currentLocale}`)
+      this.use(`fonts-${window.currentLocale}`)
     }
     window.locales.map(l => l === window.currentLocale ? void 0 : this.unuse(`fonts-${l}`))
   }
 
-  public append = (s: string) => {
+  public use = (s: string) => {
     if (s in this.lazies && this.lazies[s].disabled) {
+      if (this.lazies[s].rel === "preload") this.lazies[s].rel = "stylesheet"
       this.lazies[s].disabled = false
-    } else {
-      this.appendLinkTag(`/assets/styles/${s}.css`, s)
     }
   }
 

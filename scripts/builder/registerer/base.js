@@ -11,6 +11,8 @@ const extend = require("extend")
 const semver = require("semver")
 const glog = require("fancy-log")
 const colors = require("colors")
+const glob = require("glob")
+const path = require("path")
 
 const fontawesome = require("@fortawesome/fontawesome-svg-core")
 const downloadTemp = require("../../downloadTemp")
@@ -54,7 +56,7 @@ async function getAmpCss() {
   let ampcss = ""
   try {
     ampcss += "/*Based on Bootstrap v4.1.3 (https://getbootstrap.com)|Copyright 2011-2018 The Bootstrap Authors|Copyright 2011-2018 Twitter, Inc.|Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/\n"
-    ampcss += (await promisify(sass.render)({ file: "theme/styl/amp_main.sass" })).css.toString()
+    ampcss += (await promisify(sass.render)({ file: "theme/styl/amp/amp_main.sass" })).css.toString()
     ampcss += "\n"
     ampcss += fontawesome.dom.css()
     ampcss += "\n"
@@ -71,7 +73,7 @@ async function getAmpCss() {
 
 function safePost(url, options) {
   return post(url, options).then(
-    (res) => {
+    res => {
       if (res && res.statusCode === 200) return res
       return false
     }
@@ -121,12 +123,12 @@ async function getInstancesInfos(instances) {
       // (セマンティックバージョニングに影響があるかないか程度に色々な値を考慮する)
       if (usersChart) {
         // 2.
-        const arr = usersChart.local.total.filter((e) => e !== 0)
+        const arr = usersChart.local.total.filter(e => e !== 0)
         value += ((arr[0] - arr[arr.length - 1]) / arr.length) * 15
       }
       if (notesChart) {
         // 3.
-        const arr = notesChart.local.total.filter((e) => e !== 0)
+        const arr = notesChart.local.total.filter(e => e !== 0)
         value += ((arr[0] - arr[arr.length - 1]) / arr.length) * 0.6
       }
 
@@ -174,7 +176,7 @@ async function getInstancesInfos(instances) {
 module.exports = async (site, keys, tempDir, instances) => {
   const creditIconsPromises = []
 
-  mkdirp.sync(`${tempDir}github/`)
+  await promisify(mkdirp)(`${tempDir}github/`)
 
   /* get contrbutors from GitHub API */
   const contributors = await getContributors()
@@ -188,7 +190,7 @@ module.exports = async (site, keys, tempDir, instances) => {
 
   /* get patrons from Patreon API */
 
-  mkdirp.sync(`${tempDir}patreon/`)
+  await promisify(mkdirp)(`${tempDir}patreon/`)
 
   let patrons = null
   if (keys != null && keys.patreon) {
@@ -215,14 +217,14 @@ module.exports = async (site, keys, tempDir, instances) => {
           const cet = e.relationships.currently_entitled_tiers
           const tierLv = cet.data.length
           for (let i = patrons.length - 1; i < tierLv; i += 1) {
-            const tier = n.included.find((g) => g.id === cet.data[i].id && g.type === "tier")
+            const tier = n.included.find(g => g.id === cet.data[i].id && g.type === "tier")
             patrons.push({
               title: tier.attributes.title,
               lv: tierLv,
               members: []
             })
           }
-          const patron = n.included.find((g) => g.id === e.relationships.user.data.id && g.type === "user")
+          const patron = n.included.find(g => g.id === e.relationships.user.data.id && g.type === "user")
           patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
           patrons[tierLv].members.push(patron)
         }
@@ -244,14 +246,18 @@ module.exports = async (site, keys, tempDir, instances) => {
     patrons = patrons.reverse()
   }
 
-  mkdirp.sync(`${tempDir}instance-banners/`)
+  await promisify(mkdirp)(`${tempDir}instance-banners/`)
   const instancesInfos = await getInstancesInfos(instances)
 
   const instancesBannersPromises = instancesInfos
-    .filter((instance) => instance.isAlive && instance.meta.bannerUrl)
-    .map((instance) => downloadTemp(`${instance.url}`, instance.meta.bannerUrl, `${tempDir}instance-banners/`, true))
+    .filter(instance => instance.isAlive && instance.meta.bannerUrl)
+    .map(instance => downloadTemp(`${instance.url}`, instance.meta.bannerUrl, `${tempDir}instance-banners/`, true))
 
-  const [creditIcons, instancesBanners, ampcss] = await Promise.all([Promise.all(creditIconsPromises), Promise.all(instancesBannersPromises), getAmpCss()])
+  const [creditIcons, instancesBanners, ampcss] = await Promise.all([
+    Promise.all(creditIconsPromises),
+    Promise.all(instancesBannersPromises),
+    getAmpCss()
+  ])
 
   return {
     instancesInfos,
@@ -260,6 +266,8 @@ module.exports = async (site, keys, tempDir, instances) => {
     ampcss,
     creditIcons,
     mkConnectServices,
-    instancesBanners
+    instancesBanners,
+    baseStyles: (await promisify(glob)("theme/styl/*.s[ac]ss")).map(p => path.parse(p).name),
+    lazyStyles: (await promisify(glob)("theme/styl/lazy/*.s[ac]ss")).map(p => path.parse(p).name)
   }
 }

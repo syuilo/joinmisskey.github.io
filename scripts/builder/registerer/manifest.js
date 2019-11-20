@@ -1,6 +1,6 @@
 const extend = require("extend")
 
-module.exports = (site) => {
+module.exports = site => {
   const icons = []
   for (let i = 0; i < site.icons.length; i += 1) {
     const icon = site.icons[i]

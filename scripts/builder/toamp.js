@@ -15,8 +15,8 @@ const messages = require("../../.config/messages.json")
 module.exports = (htm, urlPrefix) => {
   const { window } = new JSDOM(htm)
   const { document } = window
-  document.querySelectorAll("picture").forEach((picture) => {
-    picture.querySelectorAll("img").forEach((el) => {
+  document.querySelectorAll("picture").forEach(picture => {
+    picture.querySelectorAll("img").forEach(el => {
       const src = el.getAttribute("src")
       const alt = el.getAttribute("alt")
       const title = el.getAttribute("title")
@@ -52,7 +52,7 @@ module.exports = (htm, urlPrefix) => {
     })
     picture.remove()
   })
-  document.querySelectorAll("i").forEach((el) => {
+  document.querySelectorAll("i").forEach(el => {
     try {
       el.insertAdjacentHTML("afterend", icon(
         { iconName: el.dataset.faIconName, prefix: el.dataset.faPrefix },
@@ -64,6 +64,6 @@ module.exports = (htm, urlPrefix) => {
       glog(e)
     }
   })
-  document.querySelectorAll("ins, script").forEach((el) => el.remove())
+  document.querySelectorAll("ins, script").forEach(el => el.remove())
   return document.body.innerHTML
 }

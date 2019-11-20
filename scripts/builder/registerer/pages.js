@@ -7,12 +7,12 @@ const frontMatter = require("front-matter")
 const url = require("url")
 
 function isMetaPage(site, permalink) {
-  return site.metaPages.some((i) => permalink === `/${i}/`)
+  return site.metaPages.some(i => permalink === `/${i}/`)
 }
 
-module.exports = (site, src, urlPrefix) => {
+module.exports = async (site, src, urlPrefix) => {
   const promises = []
-  const srcs = glob.sync(src.pages)
+  const srcs = await promisify(glob)(src.pages)
 
   async function doit(val, i, arr, srcpath) {
     let page = {}
@@ -92,5 +92,5 @@ module.exports = (site, src, urlPrefix) => {
       doit(srcs[p], p, srcs, path.parse(site.pages_src.path))
     )
   }
-  return Promise.all(promises).then((r) => r.filter((el) => el))
+  return Promise.all(promises).then(r => r.filter(el => el))
 }

@@ -24,7 +24,7 @@ module.exports = (htm, urlprefix) => {
   $("body > h2, body > h3, body > h4, body > h5, body > h6").addClass("blogstyle")
   const hs = []
   $("h2, h3, h4, h5, h6").each((i, el) => { hs.push(encodeURIComponent($(el).text())) })
-  $("h2, h3, h4, h5, h6").each((i) => {
+  $("h2, h3, h4, h5, h6").each(i => {
     const $els = $("h2, h3, h4, h5, h6")
     $els.eq(i).attr("id", hs[i])
     if ($els.length - (i + 1) >= 3 && i % 7 === 3) {
@@ -59,7 +59,7 @@ module.exports = (htm, urlprefix) => {
   $(":not([data-mfm]) > a[href^=\"http\"], :not([data-mfm]) > a[href^=\"//\"]").append(String.raw`<i class="fa fas external-link-alt" data-fa-prefix="fas" data-fa-icon-name="external-link-alt" data-fa-option="{'classes':['fa-fw', 'fa-sm']}"></i>`)
   const as = []
   $("a[href^=\"http\"], a[href^=\"//\"]").each((i, el) => { as.push($(el).text()) })
-  $("a[href^=\"http\"], a[href^=\"//\"]").each((i) => {
+  $("a[href^=\"http\"], a[href^=\"//\"]").each(i => {
     const e = $("a[href^=\"http\"], a[href^=\"//\"]").eq(i)
     const text = as[i]
     e.attr({ target: "_blank", rel: "noopener" })

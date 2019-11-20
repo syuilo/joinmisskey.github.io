@@ -5,7 +5,7 @@ export const scrolltoshow = (importCss: ImportCss): void => {
   const els = Array.from(document.getElementsByClassName("scrollts"))
 
   if (els.length > 0) {
-    importCss.append("scrolltoshow")
+    importCss.use("scrolltoshow")
   } else {
     importCss.unuse("scrolltoshow")
     return

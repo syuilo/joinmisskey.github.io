@@ -1,13 +1,13 @@
 const Prism = require("prismjs")
 const cheerio = require("cheerio")
 
-module.exports = (htm) => {
+module.exports = htm => {
   const $ = cheerio.load(htm, { decodeEntities: false })
   $("code").each((i, el) => {
     const cl = $(el).attr("class")
 
     const langcl = cl ? cl.split(" ")
-      .find((e) => e.startsWith("language-") || e.startsWith("lang-")) : null
+      .find(e => e.startsWith("language-") || e.startsWith("lang-")) : null
 
     if (!langcl) {
       $(el).addClass("language-javascript")
