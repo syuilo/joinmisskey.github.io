@@ -173,8 +173,9 @@ mixin instancesList(o, colors, sctrollts)
         if(instance.isAlive)
           a(href=`https://${instance.url}` target="_blank" rel="noopener" class=c style=s data-instance-value=instance.value).instance.list-group-item.list-group-item-action.flex-column.align-items-start.py-3
             h4.noindex
-              if(instance.name || (instance.meta.name && instance.meta.name !== 'Misskey' && instance.meta.name !== instance.url))
-                | #{instance.name || instance.meta.name}<span class="${c2}"> - #{instance.url}</span>
+              if(instance.name || (instance.meta.name && instance.meta.name !== 'Misskey' && instance.meta.name !== punycode.toUnicode(instance.url)))
+                | #{instance.name || instance.meta.name}
+                small.font-weight-light(class=c2)  - #{instance.url}
               else
                 = punycode.toUnicode(instance.url)
             if(instance.description)
