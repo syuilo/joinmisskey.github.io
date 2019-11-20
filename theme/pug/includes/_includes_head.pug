@@ -4,7 +4,7 @@ script#page_variables.
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
   var styleRequires = !{JSON.stringify(page.attributes.styleRequires)};
-  !{site.ga ? `var gaId = "${site.ga};"` : ""}
+  !{site.ga ? `var gaId = "${site.ga}";` : ""}
   !{site.sw ? `var jm_pathToWorker = "${urlPrefix}/service_worker.js"` : ""}
 
 block gtag
