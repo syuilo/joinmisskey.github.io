@@ -37,12 +37,15 @@ gulp image -i <glob-readable-path>
 ```
 
 This command compresses bitmap images and produces:
-- The **long side** is **equal or less than** 1600px
+- The **long side** is **equal or less than** 1200px
   * `/files/images/imports/yyyy/mm/<name>.<ext>`
   * `/files/images/imports/yyyy/mm/<name>.webp`
 - The **long side** is **equal or less than** 720px
   * `/files/images/imports/yyyy/mm/<name>.720.<ext>`
   * `/files/images/imports/yyyy/mm/<name>.720.webp`
+- The **long side** is **equal or less than** 360px
+  * `/files/images/imports/yyyy/mm/<name>.360.<ext>`
+  * `/files/images/imports/yyyy/mm/<name>.360.webp`
 
 It also compresses bector images.
 

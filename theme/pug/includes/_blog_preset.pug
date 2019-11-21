@@ -43,8 +43,8 @@
 
 if(page.meta.thumbnail)
   -
-    thsrc = `${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720${page.meta.thumbnail.ext}`
-    thdims = sizeOf( `dist${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}.720${page.meta.thumbnail.ext}` )
+    thsrc = `${site.url.path}${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}${page.meta.thumbnail.ext}`
+    thdims = sizeOf( `dist${page.meta.thumbnail.dir}/${page.meta.thumbnail.name}${page.meta.thumbnail.ext}` )
     thwidth = thdims.width
     thheight = thdims.height
 else
