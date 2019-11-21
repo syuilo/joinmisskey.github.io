@@ -66,6 +66,8 @@ Misskeyで使えるテーマを共有するサービス。
 **[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)**
 
 ### ActivityPub / Fediverse
+[ActivityPub](../../culture/words/activitypub/)等を利用し、Fediverseを横断的に利用できるサービス。
+
 #### distdn.org ユーザーマッチング
 Fediverseのなかからあなたと似た人を探すことができる。
 
