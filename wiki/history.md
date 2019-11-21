@@ -41,7 +41,7 @@ Misskeyの歴史について簡単に紹介する。
   - 原因は@aqzによるリモートの大量フォローであると思われる
 - このころ、i18nなどの多言語化や、インスタンスの立て方などのユーザーコンテンツが整備され始める
 - 同15日
-  - ~~[OpenCollective](https://opencollective.com/misskey)~~と[Patreon](https://www.patreon.com/syuilo)のアカウント開設
+  - ~~[OpenCollective](https://opencollective.com/misskey)~~ と[Patreon](https://www.patreon.com/syuilo)のアカウント開設
   - misskey.wtf開設
     * Knzk.me氏によって開設→現在は閉鎖
 - 同年7月10日 joinmisskey（当サイト）がaqzにより開設される
