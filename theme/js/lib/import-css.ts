@@ -25,7 +25,7 @@ export class ImportCss {
     }
 
     this.renew()
-    document.addEventListener("pjax:content", this.renew)
+    document.addEventListener("pjax:ready", this.renew)
   }
 
   public renew = () => {
