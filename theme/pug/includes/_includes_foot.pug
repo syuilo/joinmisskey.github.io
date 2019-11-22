@@ -1,15 +1,1 @@
-//- script(src=`${site.url.path}/assets/pjax-api.min.js`)
-//-script(src="https://cdn.jsdelivr.net/npm/pjax-api@3.23.0/dist/pjax-api.min.js")
-//-script.
-  var Pjax = require('pjax-api').Pjax;
-  new Pjax({  areas: ['#main, #breadcrumb, #mainnav, #updateTime', 'body'], update: { head: 'meta' }  });
-
-if(site.disqus)
-  script.pjax-reload
-    .
-      var disqus_config = function() {
-        this.page.url = "#{page.meta.url.href}";
-        this.page.identifier = "#{site.url.host}#{site.url.path}#{page.meta.permalink}";
-      }
-  script
-    | (function() {var d = document, s = d.createElement('script');s.src = 'https://#{site.disqus}.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();
+//- なにもありません

@@ -3,7 +3,6 @@ script#page_variables.
   var currentLocale = "#{locale}";
   var locales = !{JSON.stringify(site.locales)};
   var permalink = "#{page.meta.permalink.slice(locale.length + 1)}";
-  var styleRequires = !{JSON.stringify(page.attributes.styleRequires)};
   !{site.ga ? `var gaId = "${site.ga}";` : ""}
   !{site.sw ? `var jm_pathToWorker = "${urlPrefix}/service_worker.js"` : ""}
 
@@ -13,15 +12,29 @@ block gtag
 
 script(data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
 
-link(rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css" as="style" class="base-style")
-link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css" as="style" class="base-style")
-link(rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css" as="style" class="base-style")
-link(rel="preload" href=`${site.url.path}/assets/styles/fonts.css` as="style" class="base-style")
-link(rel="stylesheet" href=`${site.url.path}/assets/styles/main.css`)
+link(rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css" as="style")
+link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css" as="style")
+link(rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css" as="style")
+link(rel="preload" href=`${site.url.path}/assets/styles/fonts.css` as="style")
 
 each lazyStyle in lazyStyles
-  link(rel="preload" href=`${site.url.path}/assets/styles/${lazyStyle}.css` as="style" class="lazy-style" data-name=lazyStyle disabled)
+  if(lazyStyle === `fonts-${locale}` || page.attributes.styleRequires.includes(lazyStyle))
+    link(rel="preload" href=`${site.url.path}/assets/styles/${lazyStyle}.css` as="style")
+
+link(rel="stylesheet" href=`${site.url.path}/assets/styles/main.css`)
+
+link(rel="preload" href=`https://twemoji.maxcdn.com/v/latest/twemoji.min.js` as="script")
 
 script(src=`${site.url.path}/assets/scripts/sw.js` async)
 script(src=`${site.url.path}/assets/scripts/bootstrap.js` async)
 script(src=`${site.url.path}/assets/scripts/main.js` async)
+
+-
+  const cses = {
+    ja: "014994922126240360327:fjvgx6f8dju",
+    en: "014994922126240360327:tifjsd5prhg",
+    fr: "014994922126240360327:vpwvcwyxxnw"
+  }
+
+if (page.meta.permalink.slice(locale.length + 1) === "/search/")
+  script(src=`https://cse.google.com/cse.js?cx=${cses[locale]}` async)

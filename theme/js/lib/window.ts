@@ -7,7 +7,8 @@ interface IWindow extends Window {
   jm_pathToWorker: any
   gaId: string
   dataLayer: any[]
-  styleRequires: string[]
+
+  twemoji: any
 
   DISQUS: {
     reset(a: any): void

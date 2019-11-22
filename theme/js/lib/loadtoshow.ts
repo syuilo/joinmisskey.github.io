@@ -10,17 +10,6 @@ export class LoadToShow {
     this.ini = ini
     const his = this
 
-    window.addEventListener("pjax:fetch", () => {
-      his.loaded = false
-      setTimeout(() => {
-        if (!his.loaded) his.show()
-      }, 3200)
-    })
-
-    window.addEventListener("pjax:load", () => {
-      his.loaded = true
-      his.show()
-    })
     onLoad(() => {
       his.loaded = true
       his.show()

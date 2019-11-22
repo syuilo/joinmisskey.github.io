@@ -3,30 +3,13 @@ import window from "./window"
 
 const userLanguage = navigator.language
 
-export const pjaxinit = async () => {
-  const { Pjax } = await import("pjax-api")
-
-  const pjax = new Pjax({
-    areas: [
-      "#main, #breadcrumb, #mainnav, #updateTime, #ini_inner",
-      "body"
-    ],
-    fetch: {
-      wait: 200
-    },
-    update: {
-      css: false,
-      head: "meta"
-    }
-  })
-
+export const localeMove = () => {
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
       onReady(() => {
         const search = new URLSearchParams(location.search)
         search.append("moved", "")
-        pjax.replace(`/${targetlang}${window.permalink}?${search.toString()}${window.location.hash}`)
-        // window.location.href = `/${targetlang}${window.permalink}?moved${window.location.hash}`
+        location.href = `/${targetlang}${window.permalink}?${search.toString()}${window.location.hash}`
       })
     }
   }
@@ -68,6 +51,4 @@ export const pjaxinit = async () => {
       }
     }
   }
-
-  return pjax
 }

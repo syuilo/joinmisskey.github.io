@@ -1,5 +1,4 @@
 import onLoad from "./onLoad"
-import onReady from "./onReady"
 
 export class Loading {
   public ini: HTMLElement
@@ -8,45 +7,25 @@ export class Loading {
 
   constructor(ini: HTMLElement = document.getElementById("ini")) {
     this.ini = ini
-    const his = this
-
-    window.addEventListener("pjax:fetch", () => {
-      his.loaded = false
-      his.readied = false
-      his.show()
+    onLoad(() => {
+      this.loaded = true
+      this.hide()
     })
 
-    window.addEventListener("pjax:load", this.onload)
-    onLoad(this.onload)
-
-    document.addEventListener("pjax:ready", this.onready)
-    onReady(this.onready)
-  }
-
-  public onready = () => {
     this.readied = true
     const his = this
     setTimeout(() => {
       his.hide()
     }, 3000)
-  }
 
-  public onload = () => {
-    this.loaded = true
-    this.hide()
+    window.onunload = () => this.show()
   }
 
   public show = () => {
-    const his = this
-    setTimeout(() => {
-      if (!his.loaded) {
-        his.ini.classList.remove("hide")
-        his.ini.classList.add("show")
-      }
-    }, 100)
-    setTimeout(() => {
-      if (his.readied) his.hide()
-    }, 3000)
+    if (!this.loaded) {
+      this.ini.classList.remove("hide")
+      this.ini.classList.add("show")
+    }
   }
 
   public hide = () => {
