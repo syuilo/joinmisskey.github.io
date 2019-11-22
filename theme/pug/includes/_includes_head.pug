@@ -20,7 +20,7 @@ link(rel="stylesheet" href=`${site.url.path}/assets/styles/fonts.css`)
 if(locale === "ja")
   link(rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css" as="style")
   link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css" as="style")
-if(lazyStyle.includes(`fonts-${locale}`))
+if(lazyStyles.includes(`fonts-${locale}`))
   link(rel="preload" href=`${site.url.path}/assets/styles/fonts-${locale}.css` as="style")
 
 link(rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css" as="style")
