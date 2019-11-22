@@ -27,8 +27,5 @@ onReady(() => {
   searchinit()
   gototop()
   new LoadToShow()
-})
-
-onLoad(() => {
   gad()
 })
