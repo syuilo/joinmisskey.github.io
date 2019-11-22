@@ -12,14 +12,15 @@ block gtag
 
 script(data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
 
-link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-c/mplus-c-light.latain.woff2" as="font")
-link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-p/mplus-p-regular.latain.woff2" as="font")
-link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-p/mplus-p-bold.latain.woff2" as="font")
-link(rel="stylesheet" href=`${site.url.path}/assets/styles/fonts.css`)
+link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-c/mplus-c-light.latain.woff2" as="font" crossorigin)
+link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-p/mplus-p-regular.latain.woff2" as="font" crossorigin)
+link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/mplus-p/mplus-p-bold.latain.woff2" as="font" crossorigin)
+link(rel="preload" href=`${site.url.path}/assets/styles/fonts.css` as="style")
 
 if(locale === "ja")
   link(rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css" as="style")
   link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css" as="style")
+  
 if(lazyStyles.includes(`fonts-${locale}`))
   link(rel="preload" href=`${site.url.path}/assets/styles/fonts-${locale}.css` as="style")
 
