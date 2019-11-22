@@ -1,4 +1,5 @@
 import onLoad from "./onLoad"
+import onReady from "./onReady"
 
 export class Loading {
   public ini: HTMLElement
@@ -11,29 +12,28 @@ export class Loading {
 
     window.addEventListener("pjax:fetch", () => {
       his.loaded = false
+      his.readied = false
       his.show()
     })
 
-    window.addEventListener("pjax:load", () => {
-      his.loaded = true
-      his.readied = false
-      his.hide()
-    })
+    window.addEventListener("pjax:load", this.onload)
+    onLoad(this.onload)
 
-    onLoad(() => {
-      his.loaded = true
-      if (location.pathname !== "/") his.hide()
-    })
+    onReady(this.onready)
+    document.addEventListener("pjax:ready", this.onready)
+  }
+
+  public onready = () => {
+    this.readied = true
+    const his = this
     setTimeout(() => {
-      if (location.pathname !== "/") his.hide()
-    }, 8000)
+      his.hide()
+    }, 3000)
+  }
 
-    document.addEventListener("pjax:ready", () => {
-      his.readied = true
-      setTimeout(() => {
-        his.hide()
-      }, 3000)
-    })
+  public onload = () => {
+    this.loaded = true
+    this.hide()
   }
 
   public show = () => {
@@ -50,6 +50,7 @@ export class Loading {
   }
 
   public hide = () => {
+    if (location.pathname !== "/") return
     this.ini.classList.remove("show")
     this.ini.classList.add("hide")
   }

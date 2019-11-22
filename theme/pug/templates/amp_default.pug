@@ -100,18 +100,15 @@ html(lang=locale, amp)
       ul.py-5.list-unstyled.bg-white.h-100
         li: a(href=`/${locale}/`).d-block.py-2.px-4
           +fa_fw("home")
-          |  
+          | &ensp;
           +i18n("home")
         li: a(href=`/${locale}/blog/`).d-block.py-2.px-4
           +fa_fw("broadcast-tower")
-          |  
+          | &ensp;
           +i18n("blog")
         li: a(href=`/${locale}/wiki/`).d-block.py-2.px-4
           +fa_fw("book")
-          |  Wiki
-        li: a(href="https://assets.msky.cafe/" target="_blank" rel="noopener").d-block.py-2.px-4
-          +fa_fw("store-alt")
-          |  Assets Store
+          | &ensp;Wiki
 
     block wo_footer
       block nav
@@ -121,8 +118,7 @@ html(lang=locale, amp)
         #main
           != mainHtml
           .text-center.py-3
-            amp-ad(class="container" width="100vw" height="320" type="adsense" data-ad-client="ca-pub-1736621122676736" data-ad-slot="4446014841" data-auto-format="rspv" data-full-width="")
-              div(overflow="")
+            +ad({ class: "container p-0", width: "100vw", height: "320", slot: "4446014841", autoFormat: "rspv", fullWidth: "" })
 
     block footer
       #footer.bg-white.mt-2

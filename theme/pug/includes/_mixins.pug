@@ -101,13 +101,25 @@ mixin picture(img)
     img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
 
 mixin ad(setting)
-  ins.adsbygoogle(
-    class=setting.class
-    style=(setting.style || "display:block;")
-    data-ad-client="ca-pub-1736621122676736"
-    data-ad-slot=setting.slot data-ad-format=(setting.format || "auto")
-    data-full-width-responsive=(setting.allowFullWidth || "false")
-    data-ad-layout-key=setting.layoutKey)
+  if(!isAmp)
+    ins.adsbygoogle(
+      class=setting.class
+      style=(setting.style || "display:block;")
+      data-ad-client="ca-pub-1736621122676736"
+      data-ad-slot=setting.slot data-ad-format=(setting.format || "auto")
+      data-full-width-responsive=(setting.allowFullWidth || "false")
+      data-ad-layout-key=setting.layoutKey)
+  else
+    amp-ad(
+      class=setting.class
+      width=setting.width
+      height=setting.height
+      type="adsense"
+      data-ad-client="ca-pub-1736621122676736"
+      data-ad-slot=setting.slot
+      data-auto-format=setting.autoFormat
+      data-full-width=setting.fullWidth)
+      div(overflow="")
 
 mixin blog_badges(targetpage)
   div.mr-2
