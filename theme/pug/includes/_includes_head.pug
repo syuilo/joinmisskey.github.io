@@ -16,8 +16,9 @@ script(data-ad-client="ca-pub-1736621122676736" async src="https://pagead2.googl
 link(rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.3.0/dist/css/yakuhanjp.min.css" as="style" class="base-style")
 link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fonts@v7.2.0/dist/NasuM/NasuM.css" as="style" class="base-style")
 link(rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css" as="style" class="base-style")
-each baseStyle in baseStyles
-  link(rel="preload" href=`${site.url.path}/assets/styles/${baseStyle}.css` as="style" class="base-style")
+link(rel="preload" href=`${site.url.path}/assets/styles/fonts.css` as="style" class="base-style")
+link(rel="stylesheet" href=`${site.url.path}/assets/styles/main.css`)
+
 each lazyStyle in lazyStyles
   link(rel="preload" href=`${site.url.path}/assets/styles/${lazyStyle}.css` as="style" class="lazy-style" data-name=lazyStyle disabled)
 
