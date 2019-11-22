@@ -3,7 +3,7 @@ title: joinmisskeyのアップデート内容
 description: joinmisskeyを断続的にアップデートし、改良を加えました。
 layout: blog
 date: 2019-11-23T08:05:00+09:00
-thumbnail: /files/images/imports/2019/11/marching1.png
+thumbnail: /files/images/imports/2019/11/marching1.jpg
 author:
   name: aqz
   url: https://yuzulia.xyz/@aqz
