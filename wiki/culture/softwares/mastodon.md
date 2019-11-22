@@ -3,7 +3,7 @@ title: Mastodon
 description: Eugen Rochkoによるオープンソースの非中央集権型マイクロブログSNS
 layout: wiki
 ---
-**Mastodon**（マストドン）とは、2016年から[Eugen Rochko（Gargron）](https://ja.mstdn.wiki/Eugen_Rochko)により開発されているオープンソースの[非中央集権型マイクロブログSNS](/decentralized-social-networking-service#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)である。インスタンス間の通信に[ActivityPub](/activitypub)を用いる（v1では[OStatus](/ostatus)を使用）。
+**Mastodon**（マストドン）とは、2016年から[Eugen Rochko（Gargron）](https://ja.mstdn.wiki/Eugen_Rochko)により開発されているオープンソースの[非中央集権型マイクロブログSNS](../../words/decentralized-social-networking-service/#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)である。インスタンス間の通信に[ActivityPub](../../words/activitypub/)を用いる（v1ではOStatusを使用）。
 
 *[マストドン日本語Wiki](https://ja.mstdn.wiki/)および[マストドン日本語Wikiの「Mastodon」の項](https://ja.mstdn.wiki/Mastodon)、[ニコニコ大百科の「Mastodon」の項](https://dic.nicovideo.jp/a/mastodon)、[Wikipediaの「マストドン (ミニブログ)」の項](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%B9%E3%83%88%E3%83%89%E3%83%B3_(%E3%83%9F%E3%83%8B%E3%83%96%E3%83%AD%E3%82%B0))も参照。*
 
@@ -25,6 +25,6 @@ layout: wiki
   Mastodon開発者であるEugen Rochko（Gargron）氏によって2016年3月に開設された、世界初のMastodonインスタンス。本家に近いインスタンスであるためユーザー数が多く、世界二位である。[*](https://ja.mstdn.wiki/Mastodon.social)
 
 ## 外部リンク
-- [GitHub tootsuite/mastodon](https://github.com/tootsuite/mastodon)
+- [tootsuite/mastodon on GitHub](https://github.com/tootsuite/mastodon)
 - https://joinmastodon.org/ - Mastodonの公式サイト。インスタンスリストやドキュメントを提供している。
 - [マストドン日本語Wiki](https://ja.mstdn.wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8)

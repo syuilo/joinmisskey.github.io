@@ -12,12 +12,15 @@ ActivityPubとは、[脱中央集権](../decentralization/)型のソーシャル
 
 全てのデータは[ActivityStreams 2.0](https://www.w3.org/TR/activitystreams-core/)フォーマットとして扱うことになっており、サーバー・サーバー間連合プロトコルとクライアント・サーバー間プロトコルの2つが定められている。
 
-## 実装するソフトウェア
-このWikiに記事があるソフトウェアのみ記載。
+## 実装する主なソフトウェア
 
 ### サーバー・サーバー間連合プロトコル
 - [Misskey](../../softwares/misskey/)
 - [Mastodon](../../softwares/mastodon/)
+- Pleroma
+- Hubzilla
+- PeerTube
+- microblog.pub
 
 ## 関連項目
 - [脱中央集権](../decentralization/)
@@ -29,7 +32,7 @@ ActivityPubとは、[脱中央集権](../decentralization/)型のソーシャル
 ### 公式
 - [W3C勧告「ActivityPub」](https://www.w3.org/TR/activitypub/)
 - [activitypub.rocks](https://activitypub.rocks/)
-- [GitHub w3c/activitypub](https://github.com/w3c/activitypub/)
+- [w3c/activitypub on GitHub](https://github.com/w3c/activitypub/)
 
 ### 個人
 - [ActivityPubの概要, nullkal](https://qiita.com/nullkal/items/accc5d62836a930b3cd9)
