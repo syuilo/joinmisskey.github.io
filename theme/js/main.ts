@@ -15,9 +15,9 @@ import { LoadToShow } from "./lib/loadtoshow"
 import { searchinit } from "./lib/searchinit"
 
 detectOldBrowser()
+gainit()
 localeMove()
 removeMoved()
-gainit()
 twemojiinit()
 fainit()
 
