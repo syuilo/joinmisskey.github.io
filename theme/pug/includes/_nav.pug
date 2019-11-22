@@ -51,11 +51,11 @@ nav(aria-label="breadcrumb")#breadcrumb.bg-transparent
             span.sr-only
               +i18n('home')
         - let dirpl = `/${locale ? locale : 'ja'}/`
-        - for( let i = 2; i < dirs.length - 2; i++){                // i = 3 の場合
+        - for( let i = 2; i < dirs.length - (dirs[dirs.length - 1] === "" ? 2 : 1); i++){                // i = 3 の場合
         -   let nowdir = dirs[i]                                    // "bar"
         -   dirpl = `${dirpl}${nowdir}/`                            // /foo/bar/
         -   let indexPage = pages.find(e => e.meta.permalink === dirpl)
-        -   if( indexPage != undefined && i < dirs.length - 2 ){
+        -   if( indexPage != undefined ){
         -     const title = (indexPage.attributes['title-breadcrumb'] || indexPage.attributes.title) || dirs[i] || "index"
         -     if (!!title) {
           li.breadcrumb-item
