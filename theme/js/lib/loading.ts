@@ -50,7 +50,7 @@ export class Loading {
   }
 
   public hide = () => {
-    if (location.pathname !== "/") return
+    if (location.pathname === "/") return
     this.ini.classList.remove("show")
     this.ini.classList.add("hide")
   }
