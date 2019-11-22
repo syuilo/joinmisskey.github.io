@@ -5,7 +5,6 @@ import { gototop } from "./lib/gototop"
 import { importCss } from "./lib/import-css"
 import { localeMove } from "./lib/locale-move"
 import { detectOldBrowser } from "./lib/old-browsers"
-import onLoad from "./lib/onLoad"
 import onReady from "./lib/onReady"
 import { removeMoved } from "./lib/remove-moved"
 import { scrolltoshow } from "./lib/scrolltoshow"
@@ -18,8 +17,8 @@ detectOldBrowser()
 gainit()
 localeMove()
 removeMoved()
-twemojiinit()
 fainit()
+twemojiinit()
 
 onReady(() => {
   importCss()
