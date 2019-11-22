@@ -3,7 +3,7 @@ title: ActivityPub
 description: ActivityPubとは、脱中央集権型のソーシャルネットワーキングプロトコルである。W3C勧告。
 layout: wiki
 ---
-ActivityPubとは、[脱中央集権](../decentralization/)型のソーシャルネットワーキングプロトコルである。W3C勧告。
+ActivityPubとは、[脱中央集権](decentralization)型のソーシャルネットワーキングプロトコルである。W3C勧告。
 
 *[通信用語の基礎知識の「ActivityPub」の項](https://www.wdic.org/w/WDIC/ActivityPub)、[Wikipediaの「ActivityPub」の項](https://ja.wikipedia.org/wiki/ActivityPub)、[マストドン日本語Wikiの「ActivityPub」の項](https://ja.mstdn.wiki/ActivityPub)も参照。*
 
@@ -15,18 +15,18 @@ ActivityPubとは、[脱中央集権](../decentralization/)型のソーシャル
 ## 実装する主なソフトウェア
 
 ### サーバー・サーバー間連合プロトコル
-- [Misskey](../../softwares/misskey/)
-- [Mastodon](../../softwares/mastodon/)
+- [Misskey](../softwares/misskey)
+- [Mastodon](../softwares/mastodon)
 - Pleroma
 - Hubzilla
 - PeerTube
 - microblog.pub
 
 ## 関連項目
-- [脱中央集権](../decentralization/)
-- [分散SNS](../decentralized-social-networking-service/)
-- [Fediverse](../fediverse/)
-- [インスタンス](../instance/)
+- [脱中央集権](decentralization)
+- [分散SNS](decentralized-social-networking-service)
+- [Fediverse](fediverse)
+- [インスタンス](instance)
 
 ## 外部リンク
 ### 公式

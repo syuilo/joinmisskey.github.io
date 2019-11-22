@@ -6,7 +6,7 @@ has_child: false
 rank: 199
 ---
 ## joinmisskeyの製作・管理について
-Misskeyは[しゅいろ](../culture/users/syuilo/)が中心となり製作しているが、joinmisskeyの製作・編集は[aqz](../culture/users/aqz/)が行っている。
+Misskeyは[しゅいろ](culture/users/syuilo)が中心となり製作しているが、joinmisskeyの製作・編集は[aqz](culture/users/aqz)が行っている。
 
 ## joinmisskeyを支援する
 もしこのサイトの情報が役に立ったならば、ぜひ支援をお願いしたい。

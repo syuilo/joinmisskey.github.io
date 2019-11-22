@@ -16,7 +16,7 @@ Misskeyを自力で構築・運営するには、VPSを借りるか自分でサ�
 #### わからないことがあったら
 エラーが発生したなどわからないことがあれば、まず開発者に聞いてみよう。
 
-[syuilo](../culture/users/syuilo/)や[aqz](../culture/users/aqz/)など開発者に、エラーログ等困っていることの詳細をリプライで送ってほしい。
+[syuilo](culture/users/syuilo)や[aqz](culture/users/aqz)など開発者に、エラーログ等困っていることの詳細をリプライで送ってほしい。
 
 もしくは、[Fedeloper Folum](https://forum.fedeloper.jp/)で質問してみよう。
 

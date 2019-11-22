@@ -3,7 +3,7 @@ title: めいめい
 description: めいめい（mei23）は、Misskeyの開発者（Collaborator）。friends.nicoの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
 layout: wiki
 ---
-**めいめい（mei23）**は、[Misskey](../../softwares/misskey/)の開発者（Collaborator）。friends.nico→best-friends.chatの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
+**めいめい（mei23）**は、[Misskey](../softwares/misskey)の開発者（Collaborator）。friends.nico→best-friends.chatの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
 年齢や職業は不明。
 
 [**めいめいの個人サイト** mei23.github.io](https://mei23.github.io/)
@@ -22,8 +22,8 @@ layout: wiki
 
 また、以下のインスタンスを運営している。
 
-- [misskey.m544.net](../../instances/misskey.m544.net/) - [Misskey（フォーク）](../../../forks/)
-- ~~[💛.tk](https://💛.tk)~~ [🤎.ml](https://🤎.ml) - [Misskey（フォーク）](../../../forks/)
+- [misskey.m544.net](../instances/misskey.m544.net) - [Misskey（フォーク）](../../forks)
+- ~~[💛.tk](https://💛.tk)~~ [🤎.ml](https://🤎.ml) - Misskey（フォーク）
 - [mst.m544.net](https://mst.m544.net) - Mastodon
 
 ## アカウント

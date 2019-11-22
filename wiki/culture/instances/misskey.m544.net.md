@@ -3,7 +3,7 @@ title: misskey.m544.net
 description: misskey.m544.netは、めいめいが運営しているインスタンス。
 layout: wiki
 ---
-[**misskey.m544.net**](https://misskey.m544.net)は、[めいめい](../../users/mei23/)が運営しているMisskeyインスタンス。
+[**misskey.m544.net**](https://misskey.m544.net)は、[めいめい](../users/mei23)が運営しているMisskeyインスタンス。
 
 [**インスタンス公式ページ**](https://mei23.github.io/misskey_m544_net)
 
@@ -16,4 +16,4 @@ misskey.m544.netにインストールされているMisskeyには、いくつか
 ## ユーザー
 misskey.m544.netを頻繁に利用し、このWikiに記事があるユーザーの一覧
 
-- [めいめい](../../users/mei23/)
+- [めいめい](../users/mei23)

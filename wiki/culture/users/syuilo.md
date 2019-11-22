@@ -3,7 +3,7 @@ title: syuilo
 description: syuilo（しゅいろ）は、Misskeyの開発者（Owner）、また作曲家。
 layout: wiki
 ---
-syuilo（しゅいろ）は、[Misskey](../../softwares/misskey/)の開発者（Owner）、また作曲家。Twitterのフォロワー数は15000を超えている（2018年12月23日現在）。  
+syuilo（しゅいろ）は、[Misskey](../softwares/misskey)の開発者（Owner）、また作曲家。Twitterのフォロワー数は15000を超えている（2018年12月23日現在）。  
 1997年12月06日生まれで、現在は無職。
 
 ## 概要
