@@ -21,8 +21,7 @@ export class LoadToShow {
   }
 
   public show = (): void => {
-    const els = Array.from(document.getElementsByClassName("loadts"))
-    for (const el of els) {
+    for (const el of document.getElementsByClassName("loadts") as unknown as HTMLElement[]) {
       tsShow(el)
     }
   }

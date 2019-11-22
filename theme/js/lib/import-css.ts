@@ -1,7 +1,6 @@
 export const importCss = () => {
-  const preloads = Array.from(document.querySelectorAll("link[rel=\"preload\"][as=\"style\"]")) as HTMLLinkElement[]
-
-  for (const preload of preloads) {
+  for (const preload
+    of document.querySelectorAll("link[rel=\"preload\"][as=\"style\"]") as unknown as HTMLLinkElement[]) {
     const href = preload.href
     const style = document.createElement("link")
     style.rel = "stylesheet"

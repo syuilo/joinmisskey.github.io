@@ -1,7 +1,7 @@
 import { tsShow } from "./toshow"
 
 export const scrolltoshow = (): void => {
-  const els = Array.from(document.getElementsByClassName("scrollts"))
+  const els = document.getElementsByClassName("scrollts") as unknown as HTMLElement[]
 
   if (IntersectionObserver !== undefined && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, o) => {

@@ -2,8 +2,7 @@ import { IconName, IconParams, IconPrefix } from "@fortawesome/fontawesome-svg-c
 import { getNode } from "../../../scripts/falib"
 
 export const fainit = async (): Promise<void> => {
-  const is = document.getElementsByTagName("i")
-  for (const el of Array.from(is)) {
+  for (const el of document.getElementsByTagName("i") as unknown as HTMLUnknownElement[]) {
     if (!el.hasChildNodes()) {
       try {
         const fa = getNode(
