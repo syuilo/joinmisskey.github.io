@@ -3,7 +3,7 @@ title: Dolphin
 description: syuiloによるMisskeyの派生ソフトウェア
 layout: wiki
 ---
-**Dolphin**は、2019年10月から[syuilo](../users/syuilo)により開発されているオープンソースの[分散マイクロブログソフトウェア](../words/decentralized-social-networking-service#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/)である。  
+**Dolphin**は、2019年10月から[syuilo](../users/syuilo)により開発されているオープンソースの[分散マイクロブログソフトウェア](../words/decentralized-social-networking-service#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)である。  
 1人もしくは少人数インスタンス用途向けであり、[Misskey](misskey)の派生ソフトウェアである。
 
 ![スクショ](files/images/imports/2019/11/dolphin-ss.jpg)
