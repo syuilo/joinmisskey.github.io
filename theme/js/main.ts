@@ -11,7 +11,6 @@ import { removeMoved } from "./lib/remove-moved"
 import { scrolltoshow } from "./lib/scrolltoshow"
 import { twemojiinit } from "./lib/twemojiinit"
 
-import { Loading } from "./lib/loading"
 import { LoadToShow } from "./lib/loadtoshow"
 import { searchinit } from "./lib/searchinit"
 
@@ -24,7 +23,6 @@ twemojiinit()
 fainit()
 
 onReady(() => {
-  new Loading()
   scrolltoshow()
   searchinit()
   gototop()

@@ -81,71 +81,7 @@ html(lang=locale)
           meta(name="twitter:description", content=page.attributes.description)
           meta(name="twitter:site", content=site.social_media.twitter.stalk)
 
-      block js_head
-
-      block style
-        style
-          :clean-css:sass
-            #ini
-              position: fixed
-              display: flex
-              visibility: visible
-              z-index: 101
-              top: 0
-              left: 0
-              width: 100vw
-              height: 100vh
-              background: #fff
-              cursor: wait
-              transition: visibility .2s
-              text-align: center !important
-
-              & > #ini_inner
-                margin: auto
-
-                > svg
-                  width: 64px
-                  height: 64px
-                  animation: ini-svg .6s infinite linear
-
-              &.hide
-                pointer-events: none
-                visibility: hidden
-                animation: ini-hide .2s ease
-
-              &.show
-                visibility: visible
-                animation: ini-show .2s ease
-
-            @keyframes ini-svg
-              from
-                transform: rotate(0deg)
-              to
-                transform: rotate(360deg)
-
-            @keyframes ini-show
-              from
-                opacity: 0
-              to
-                opacity: 1
-
-            @keyframes ini-hide
-              from
-                opacity: 1
-                visibility: visible
-              to
-                opacity: 0
-                visibility: hidden
-
   body
-    div#ini
-      #ini_inner
-        svg(viewBox="0 0 50 50").mb-2.
-          <path fill=#{site._theme_color} d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" />
-        div
-          if(page.meta.dirs.length < 3)
-            a(href="/ja/") Skip
-
     block wo_footer
       block nav
         #nav
