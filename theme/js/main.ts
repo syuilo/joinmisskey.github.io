@@ -17,11 +17,11 @@ detectOldBrowser()
 gainit()
 localeMove()
 removeMoved()
-fainit()
 twemojiinit()
 
 onReady(() => {
   importCss()
+  fainit()
   scrolltoshow()
   searchinit()
   gototop()
