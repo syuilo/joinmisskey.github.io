@@ -3,8 +3,8 @@ title: ルーム
 description: いろいろな種類の家具をたくさん配置し、自分の部屋を作って、みんなに見てもらおう。
 layout: wiki
 rank: 17
-prev: /wiki/usage/groups/
-#next: /wiki/usage/groups/
+prev: /wiki/usage/groups
+#next: /wiki/usage/groups
 ---
 ![ルーム](/files/images/imports/2019/10/room.png)
 

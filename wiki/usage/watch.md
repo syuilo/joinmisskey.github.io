@@ -3,8 +3,8 @@ title: 通知
 description: ノートに付いた反応は通知欄に表示される。
 layout: wiki
 rank: 6
-prev: /wiki/usage/interactions/
-next: /wiki/usage/notemenu/
+prev: /wiki/usage/interactions
+next: /wiki/usage/notemenu
 ---
 自分のノートに付いた反応（リプライ、リノート、リアクション）は通知に表示される。
 

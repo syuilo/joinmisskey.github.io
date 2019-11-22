@@ -3,8 +3,8 @@ title: 添付ファイルとドライブ
 description: ノートに添付されたファイルはドライブに保存され、管理できる。
 layout: wiki
 rank: 9
-prev: /wiki/usage/messaging/
-next: /wiki/usage/profile/
+prev: /wiki/usage/messaging
+next: /wiki/usage/profile
 ---
 ノートに添付された画像や動画、設定したアイコンやバナーはすべて**ドライブ**に保存される。  
 

@@ -3,8 +3,8 @@ title: フォローなど
 description: フォロー・ミュート・ブロック、非公開アカウントについて。
 layout: wiki
 rank: 2
-prev: /wiki/usage/timelines/
-next: /wiki/usage/list/
+prev: /wiki/usage/timelines
+next: /wiki/usage/list
 ---
 ## フォローなどを行う
 それぞれの操作は、対象のユーザーのページで行える。

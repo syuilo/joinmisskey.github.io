@@ -3,7 +3,7 @@ title: APIの利用方法
 description: MisskeyのAPIの利用方法について簡単に解説する。
 layout: wiki
 rank: 4
-next: /wiki/developers/websocket/
+next: /wiki/developers/websocket
 ---
 ここでは、Node.js上で[HTTPクライアント「axios」](https://github.com/axios/axios)を使用し、APIを操作してみる。
 

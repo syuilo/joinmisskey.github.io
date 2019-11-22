@@ -3,8 +3,8 @@ title: グループ
 description: ユーザーグループを作成し、複数人でのトークを楽しもう。
 layout: wiki
 rank: 17
-prev: /wiki/usage/pages/
-next: /wiki/usage/rooms/
+prev: /wiki/usage/pages
+next: /wiki/usage/rooms
 ---
 ユーザーグループを作成し、複数人での[トーク](messaging)を楽しもう。
 

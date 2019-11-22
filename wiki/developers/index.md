@@ -10,7 +10,7 @@ rank: 98
 Misskeyを自力で構築・運営するには、VPSを借りるか自分でサーバーを設備する必要がある。  
 とは言っても、最近のマシンならば最小限より少し上程度のスペックで動作するため、身構える必要はない。
 
-[**Misskeyインストール方法詳説**](installation/)  
+[**Misskeyインストール方法詳説**](installation)  
 [セットアップガイド](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)
 
 #### わからないことがあったら
@@ -41,8 +41,8 @@ BountySourceでGitHubのIssueに対し報奨金を付けることができる。
 MisskeyはAPIを公開している。  
 Misskey Web自体も同様のAPIを利用して通信しているため、サードパーティのアプリケーションでもほぼ全ての操作を行える。
 
-[**APIの利用方法**](api/)  
-[**ストリーミングAPIの利用方法**](websocket/)
+[**APIの利用方法**](api)  
+[**ストリーミングAPIの利用方法**](websocket)
 
 ActivityPubでインスタンスと通信することもできる。[<small>参考</small>](https://argrath.ub32.org/slide/2019/0830/builderscon.html#/)
 

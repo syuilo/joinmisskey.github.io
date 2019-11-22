@@ -3,8 +3,8 @@ title: リスト
 description: ユーザーのリストを作成して投稿を捕捉できる。
 layout: wiki
 rank: 3
-prev: /wiki/usage/follow/
-next: /wiki/usage/hashtag/
+prev: /wiki/usage/follow
+next: /wiki/usage/hashtag
 ---
 ユーザーのリストを作成して、各ユーザーの投稿を捕捉できる。
 

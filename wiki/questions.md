@@ -4,8 +4,8 @@ description: Misskeyに関するよくある疑問・質問まとめ。
 layout: wiki
 has_child: false
 rank: 1
-prev: /wiki/first/
-next: /wiki/usage/
+prev: /wiki/first
+next: /wiki/usage
 ---
 Misskeyに関するよくある疑問・質問まとめ  
 [用語の解説はこちら](first)

@@ -3,8 +3,8 @@ title: ウィジェット
 description: ウィジェットで様々な情報を見られる。
 layout: wiki
 rank: 15
-prev: /wiki/usage/search/
-next: /wiki/usage/pages/
+prev: /wiki/usage/search
+next: /wiki/usage/pages
 ---
 ウィジェットは、デスクトップホームの両脇、デッキのウィジェットカラム、モバイルのウィジェット画面の中で、自由に配置することができる。  
 それぞれのウィジェットで、さまざまな情報を表示したり一定の操作を行ったりすることができる。
