@@ -22,7 +22,7 @@ ChromeでYouTube・ニコニコ動画・ツイキャスの動画・配信を開�
 
 ### Bot
 #### Ai
-***[→ 「藍」を参照](../../ai/)***
+***[→ 「藍」を参照](../ai)***
 
 #### GitHub Notifier
 GitHubを監視して通知してくれるBot。
@@ -66,7 +66,7 @@ Misskeyで使えるテーマを共有するサービス。
 **[Misskey Assets Store (MiAS)](https://assets.msky.cafe/)**
 
 ### ActivityPub / Fediverse
-[ActivityPub](../../culture/words/activitypub/)等を利用し、Fediverseを横断的に利用できるサービス。
+[ActivityPub](../culture/words/activitypub)等を利用し、Fediverseを横断的に利用できるサービス。
 
 #### distdn.org ユーザーマッチング
 Fediverseのなかからあなたと似た人を探すことができる。

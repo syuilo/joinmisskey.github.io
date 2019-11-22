@@ -14,4 +14,4 @@ amp: true
 joinmisskeyを更新しました。
 
 今回は、**インスタンスリストの並べ替えを計算で行うようになりました。**  
-詳細は[インスタンスリストについて](../../../../wiki/instances/whats-instance/)をご覧ください。
+詳細は[インスタンスリストについて](../../../wiki/instances/whats-instance)をご覧ください。

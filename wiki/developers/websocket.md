@@ -14,7 +14,7 @@ WebSocket通信のテストには、Google Chrome拡張機能の[Browser WebSock
 ## ストリームに接続する
 WebSocket通信のエンドポイントは、misskey.ioなら次のとおりである。
 
-`i`は自分のものに置き換えること。[`i`の取得方法についてはこちらを参照](../api)。
+`i`は自分のものに置き換えること。[`i`の取得方法についてはこちらを参照](api)。
 
 ```pure
 wss://misskey.io/streaming?i=1248aBCDeFGH1632

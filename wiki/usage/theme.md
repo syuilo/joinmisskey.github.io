@@ -48,4 +48,4 @@ Misskey Webでは、テーマ機能によってその配色を自由に変更で
 [Misskey Assets Store (MiAS)](https://assets.msky.cafe/)は、テーマを共有するサイトである。  
 他の人が作ったテーマを探し、また、自分で作ったテーマをアップロードことができる。
 
-MiASは[村上さん](../../culture/users/AureoleArk)が運営している。
+MiASは[村上さん](../culture/users/AureoleArk)が運営している。

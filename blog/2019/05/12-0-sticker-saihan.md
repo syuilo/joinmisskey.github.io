@@ -13,4 +13,4 @@ amp: true
 ---
 [Misskey Cafe Store](https://msky-cafe.booth.pm/)より、Misskeyロゴステッカーが再販されます！
 
-詳細は[前回の記事](../../../2018/12/023_sticker/)をご覧ください！
+詳細は[前回の記事](../../2018/12/023_sticker)をご覧ください！
