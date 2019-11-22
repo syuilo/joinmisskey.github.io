@@ -25,7 +25,8 @@ const adpush = (target: Element, o?: IntersectionObserver): void => {
 }
 
 export const gad = (): void => {
-  const els = document.querySelectorAll("ins.adsbygoogle:not([data-adsbygoogle-status='done'])")
+  const els = document.querySelectorAll(
+    "ins.adsbygoogle:not([data-adsbygoogle-status='done'])") as unknown as HTMLUnknownElement[]
   if (IntersectionObserver !== undefined && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, o) => {
         for (const entry of entries) {
@@ -36,11 +37,9 @@ export const gad = (): void => {
           threshold: 0
       })
 
-    els.forEach(el => {
-      if (test(el)) observer.observe(el)
-    })
+    for (const el of els) if (test(el)) observer.observe(el)
   } else {
     console.log("v")
-    els.forEach(el => adpush(el))
+    for (const el of els) if (test(el)) adpush(el)
   }
 }
