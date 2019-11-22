@@ -14,14 +14,14 @@ export const searchinit = () => {
   const input = document.getElementById("searchInput") as HTMLInputElement
 
   const move = () => {
-    location.href = `/${locale}/search/?q=${encodeURIComponent(input.value)}&moved`
+    location.href = `/${locale}/search?q=${encodeURIComponent(input.value)}&moved`
   }
 
   btn.onclick = () => move()
   input.onkeypress = e => e.charCode === 13 ? move() : void 0
 
   const q = (new URLSearchParams(location.search)).get("q")
-  if (location.pathname.startsWith(`/${locale}/search/`) && q) {
+  if (location.pathname.startsWith(`/${locale}/search`) && q) {
     const h1 = document.querySelector("#main h1")
     h1.textContent = msgs[locale].replace("{0}",
       decodeURIComponent(q)

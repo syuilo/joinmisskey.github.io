@@ -7,7 +7,7 @@ const frontMatter = require("front-matter")
 const url = require("url")
 
 function isMetaPage(site, permalink) {
-  return site.metaPages.some(i => permalink === `/${i}/`)
+  return site.metaPages.some(i => permalink === `/${i}`)
 }
 
 module.exports = async (site, src, urlPrefix) => {
@@ -51,8 +51,6 @@ module.exports = async (site, src, urlPrefix) => {
     if (page.meta.permalink.indexOf("/") !== 0) page.meta.permalink = `/${page.meta.permalink}`
     if (page.meta.permalink.lastIndexOf("index") === page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") !== -1) {
       page.meta.permalink = page.meta.permalink.slice(0, -5)
-    } else if (page.meta.permalink.lastIndexOf("/") !== page.meta.permalink.length - 1) {
-      page.meta.permalink = `${page.meta.permalink}/`
     }
 
     page.meta.dirs = page.meta.permalink.split("/")

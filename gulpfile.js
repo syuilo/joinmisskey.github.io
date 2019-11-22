@@ -365,7 +365,9 @@ gulp.task("pug", async () => {
       globals: Object.keys(base).concat(Object.keys(puglocals))
     })
 
-    streams.push(writeFile(`${dests.root}${page.meta.permalink}index.html`, html, "utf8"))
+    const index = page.meta.dirs[page.meta.dirs.length - 1] === "" ? "index" : ""
+
+    streams.push(writeFile(`${dests.root}${page.meta.permalink}${index}.html`, html, "utf8"))
 
     /*
      *                            AMP処理部
@@ -380,7 +382,7 @@ gulp.task("pug", async () => {
         ...puglocals,
         globals: Object.keys(base).concat(Object.keys(puglocals))
       })
-      streams.push(writeFile(`${dests.root}${page.meta.permalink}amp.html`, ahtml, "utf8"))
+      streams.push(writeFile(`${dests.root}${page.meta.permalink}${index}.amp.html`, ahtml, "utf8"))
     }
   }
 
@@ -411,13 +413,6 @@ gulp.task("copy-files", cb => {
   pump([
     gulp.src(src.files, { dot: true }),
     gulp.dest(`${dests.root}/files`)
-  ], cb)
-})
-gulp.task("copy-f404", cb => {
-  pump([
-    gulp.src("dist/docs/404/index.html", { dot: true }),
-    $.rename("404.html"),
-    gulp.dest("./docs")
   ], cb)
 })
 
@@ -454,7 +449,7 @@ gulp.task("make-sw", cb => {
     return null
   }
   const destName = "service_worker"
-  const offline = pages.some(e => e.meta.permalink === "/offline/")
+  const offline = pages.some(e => e.meta.permalink === "/offline")
   let res = ""
   res = `/* workbox ${base.update.toJSON()} */
 `
@@ -493,7 +488,7 @@ workbox.routing.registerRoute(
   if (offline) {
     res += `workbox.precaching.precacheAndRoute([
     {
-        url: "/offline/",
+        url: "/offline",
         revision: "${base.update.getTime()}",
     }
 ]);
@@ -505,7 +500,7 @@ self.addEventListener("fetch", function(event) {
           return response || fetch(event.request);
       })
       .catch(function() {
-          return caches.match("/offline/");
+          return caches.match("/offline");
       })
   );
 });
@@ -614,7 +609,6 @@ gulp.task("wait-10sec", cb => {
 gulp.task("last",
   gulp.series(
     "clean-docs",
-    "copy-f404",
     "copy-docs",
     "clean-dist-docs",
     cb => { cb() }
@@ -664,7 +658,6 @@ gulp.task("pages",
     "register",
     gulp.parallel("config", "pug", gulp.series("credit-icons", "instance-banners", cb => { cb() })),
     gulp.parallel("copy-prebuildFiles", "make-subfiles", "copy-theme-static"),
-    "copy-f404",
     "copy-docs",
     "clean-dist-docs",
     cb => { cb() }

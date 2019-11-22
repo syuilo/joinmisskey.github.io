@@ -23,11 +23,11 @@ html(lang=locale, amp)
           *
       block canonical
         link(rel="canonical", href=page.meta.url.href)
-        link(rel="amphtml", href=`${page.meta.url.href}amp.html`)
+        link(rel="amphtml", href=`${page.meta.url.href}.amp.html`)
 
         if(page.meta.locale)
           each locale in site.locales
-            link(rel="alternate" hreflang=locale href=`${urlPrefix}/${locale}/${page.meta.dirs.slice(2).join("/")}amp.html`)
+            link(rel="alternate" hreflang=locale href=`${urlPrefix}/${locale}/${page.meta.dirs.slice(2).join("/")}.amp.html`)
 
       block seo
         meta(name="author" content=site.author)
