@@ -19,8 +19,8 @@ export class Loading {
     window.addEventListener("pjax:load", this.onload)
     onLoad(this.onload)
 
-    onReady(this.onready)
     document.addEventListener("pjax:ready", this.onready)
+    onReady(this.onready)
   }
 
   public onready = () => {
