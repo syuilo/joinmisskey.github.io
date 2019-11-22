@@ -3,7 +3,7 @@ title: Misskeyインストール方法詳説
 description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 layout: wiki
 rank: 1
-next: /wiki/developers/email/
+next: /wiki/developers/email
 ---
 ## はじめに
 この記事では、[リポジトリに同梱されている『Misskey構築の手引き』 (setup.md)](https://github.com/syuilo/misskey/blob/master/docs/setup.ja.md)を基に、サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。

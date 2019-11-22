@@ -3,8 +3,8 @@ title: ノートメニュー
 description: "ノートの下部にあるボタンの解説②: お気に入り・ピン止め・ノート元で見る"
 layout: wiki
 rank: 7
-prev: /wiki/usage/watch/
-next: /wiki/usage/messaging/
+prev: /wiki/usage/watch
+next: /wiki/usage/messaging
 ---
 ノートの下部にあるボタンの解説その②。  
 …を選択すると、ノートに対して各種操作を行える。

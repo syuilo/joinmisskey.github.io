@@ -3,8 +3,8 @@ title: 外部サービス連携・Eメール設定
 description: あなたのアカウントと他のサービスのアカウントやEメールアドレスを関連付けできる。
 layout: wiki
 rank: 11
-prev: /wiki/usage/profile/
-next: /wiki/usage/security/
+prev: /wiki/usage/profile
+next: /wiki/usage/security
 ---
 ## Eメール設定
 インスタンスで有効になっているとき、アカウントとEメールアドレスを関連付けできる。`設定` > `プロフィール` で設定しよう。

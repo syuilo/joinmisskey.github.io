@@ -3,8 +3,8 @@ title: ハッシュタグ
 description: ハッシュタグを活用しよう。ノートと自己紹介にハッシュタグを追加できる。
 layout: wiki
 rank: 3.1
-prev: /wiki/usage/list/
-next: /wiki/usage/post/
+prev: /wiki/usage/list
+next: /wiki/usage/post
 ---
 ハッシュタグを付加すると、簡単にノートやユーザーを見つけてもらうことができる。  
 `#Misskey `のように、先頭に`#`を付加し、末尾を半角空白または改行にすることで、単語や文をハッシュタグにできる。
