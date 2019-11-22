@@ -3,7 +3,7 @@ title: モデレーション機能
 description: Misskeyのモデレーション機能について、admin/モデレーター目線で簡単に説明する。
 layout: wiki
 rank: 3
-prev: /wiki/developers/relationships/
+prev: /wiki/developers/relationships
 ---
 Misskeyのモデレーション機能について、admin/モデレーター目線で簡単に説明する。
 

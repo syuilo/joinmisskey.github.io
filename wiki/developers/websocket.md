@@ -3,7 +3,7 @@ title: ストリーミングAPIの利用方法
 description: MisskeyのストリーミングAPIの利用方法について簡単に解説する。
 layout: wiki
 rank: 5
-prev: /wiki/developers/api/
+prev: /wiki/developers/api
 ---
 MisskeyのWebSocket通信によるストリーミングAPIでは、リアルタイムなイベントの受信や通常のAPI操作が行える。
 

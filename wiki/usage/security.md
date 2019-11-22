@@ -3,8 +3,8 @@ title: セキュリティ
 description: アカウントのパスワードを変更したり、アカウントのログインに二段階認証を適用したりできる。
 layout: wiki
 rank: 12
-prev: /wiki/usage/integration/
-next: /wiki/usage/theme/
+prev: /wiki/usage/integration
+next: /wiki/usage/theme
 ---
 `設定` > `セキュリティ`でセキュリティに関する設定を行える。
 

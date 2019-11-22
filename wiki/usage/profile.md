@@ -3,8 +3,8 @@ title: プロフィール
 description: 他のユーザーについて知り、自分についての情報を知ってもらおう。
 layout: wiki
 rank: 10
-prev: /wiki/usage/drive/
-next: /wiki/usage/integration/
+prev: /wiki/usage/drive
+next: /wiki/usage/integration
 ---
 [外部サービス連携とEメールについては別ページを参照のこと。](integration)
 

@@ -3,8 +3,8 @@ title: デザイン設定・テーマ
 description: 画面のデザインを設定で様々にカスタムできる。また、テーマによって画面の配色を変えられる。テーマは共有できる。
 layout: wiki
 rank: 13
-prev: /wiki/usage/security/
-next: /wiki/usage/search/
+prev: /wiki/usage/security
+next: /wiki/usage/search
 ---
 ## デザイン設定
 `設定` > `デザイン`でさまざまなデザインを変更できる。  
