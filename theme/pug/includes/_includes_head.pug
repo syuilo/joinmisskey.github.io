@@ -17,11 +17,13 @@ link(rel="preload" href="https://cdn.jsdelivr.net/gh/tamaina/The-Japanese-Web-Fo
 link(rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.0/animate.min.css" as="style")
 link(rel="preload" href=`${site.url.path}/assets/styles/fonts.css` as="style")
 
-each lazyStyle in lazyStyles
-  if(lazyStyle === `fonts-${locale}` || page.attributes.styleRequires.includes(lazyStyle))
-    link(rel="preload" href=`${site.url.path}/assets/styles/${lazyStyle}.css` as="style")
-
 link(rel="stylesheet" href=`${site.url.path}/assets/styles/main.css`)
+
+each lazyStyle in lazyStyles
+  if(page.attributes.styleRequires.includes(lazyStyle))
+    link(rel="stylesheet" href=`${site.url.path}/assets/styles/${lazyStyle}.css`)
+  else if(lazyStyle === `fonts-${locale}`)
+    link(rel="preload" href=`${site.url.path}/assets/styles/${lazyStyle}.css` as="style")
 
 link(rel="preload" href=`https://twemoji.maxcdn.com/v/latest/twemoji.min.js` as="script")
 
