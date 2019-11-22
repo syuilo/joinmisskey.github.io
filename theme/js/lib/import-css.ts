@@ -24,7 +24,7 @@ export class ImportCss {
       this.lazies[lazy.dataset.name] = lazy
     }
 
-    onReady(this.renew)
+    this.renew()
     document.addEventListener("pjax:ready", this.renew)
   }
 

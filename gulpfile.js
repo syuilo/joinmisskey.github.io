@@ -837,7 +837,7 @@ gulp.task("image", () => {
           .pipe($.responsive({
             "**": site.images.files.responsive
           }, site.images.files.all.responsive))
-          // .pipe($.image(imagesBase()))
+          .pipe($.image(imagesBase()))
           .pipe($.rename({ dirname } || {}))
           .pipe(gulp.dest("dist/files/images/imports"))
           .on("end", res)
