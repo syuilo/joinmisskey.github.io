@@ -11,5 +11,5 @@ author:
 category: joinmisskey
 amp: true
 ---
-- [クレジット](../../../../credit/)ページを作成しました。  
+- [クレジット](../../../credit)ページを作成しました。  
   コントリビューターとパトロンはjoinmisskeyのビルド時に自動で更新されます。

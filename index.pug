@@ -20,8 +20,8 @@ styleRequires: ["top"]
     p.text-center Envie de plonger, pendant un instant, dans le nouveau Web loin de l'agitation de la ville.
     p.mt-1.text-center
       a(href="#section_3").btn.btn-lg.btn-outline-primary.bg-white.mr-2.scrollts.scrollts-flipInX.scrollts-nomargin Utilisation
-      a(href="wiki/developers/").btn.btn-lg.btn-primary.scrollts.scrollts-flipInX.scrollts-nomargin Administration
-  section#section_dolphin(style="background-color: #50a6c9").text-white: a(href="wiki/culture/softwares/dolphin/").d-block.text-white.text-center.container
+      a(href="wiki/developers").btn.btn-lg.btn-primary.scrollts.scrollts-flipInX.scrollts-nomargin Administration
+  section#section_dolphin(style="background-color: #50a6c9").text-white: a(href="wiki/culture/softwares/dolphin").d-block.text-white.text-center.container
     img(src="/files/images/imports/2019/10/dolphin-w.svg" alt="dolphin" style="width: 40%; max-width: 16rem").scrollts.scrollts-zoomIn
     p.mt-4.mb-0.text-center 小規模インスタンス用姉妹ソフト#[b  Dolphin]
   section#section_2.bg-white: .container
@@ -52,7 +52,7 @@ styleRequires: ["top"]
                 p.mb-0
                   +fa_fw('eye-slash')
                   |  Vous pouvez cacher vos messages et médias sensibles
-            a(href="wiki/usage/post/").s2-card-link.font-weight-bold ノートの詳細
+            a(href="wiki/usage/post").s2-card-link.font-weight-bold ノートの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -61,7 +61,7 @@ styleRequires: ["top"]
                 h4 Texte formaté
                 p.mb-0 Vous pouvez décorer votre texte ainsi que votre profile à l'aide du formatage Markdown de Misskey.
             +picture({src: "/files/images/imports/2019/03/mfm.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
-            a(href="wiki/usage/mfm/").s2-card-link.font-weight-bold MFM構文一覧
+            a(href="wiki/usage/mfm").s2-card-link.font-weight-bold MFM構文一覧
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -86,7 +86,7 @@ styleRequires: ["top"]
                 h4 Un lecteur (Drive)
                 p.mb-0 ファイルを保存して何回も共有しよう。添付したファイルをドライブで管理したり、ドライブにあらかじめファイルをアップロードしたりできます。
             +picture({src: "/files/images/imports/2019/11/drive.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
-            a(href="wiki/usage/drive/").s2-card-link.font-weight-bold ドライブの詳細
+            a(href="wiki/usage/drive").s2-card-link.font-weight-bold ドライブの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -109,7 +109,7 @@ styleRequires: ["top"]
                   br
                   | ノートとは別の専用画面で、一対一もしくはグループでチャットができます。
             +picture({src: "/files/images/imports/2019/10/talk.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
-            a(href="wiki/usage/messaging/").s2-card-link.font-weight-bold トークの詳細
+            a(href="wiki/usage/messaging").s2-card-link.font-weight-bold トークの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -121,7 +121,7 @@ styleRequires: ["top"]
                   br
                   | ページでは、テキストやセクションといったブロックを配置し、簡単なプログラムを組めます。
             +picture({src: "/files/images/imports/2019/10/page.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
-            a(href="wiki/usage/pages/").s2-card-link.font-weight-bold ページの詳細
+            a(href="wiki/usage/pages").s2-card-link.font-weight-bold ページの詳細
         article.col-12.col-md-6.col-xl-4
           .card.scrollts.scrollts-fadeInLeftSmall
             .s2-card-grid
@@ -133,7 +133,7 @@ styleRequires: ["top"]
                   br
                   | 作成したルームはURLでみんなと共有できます。
             +picture({src: "/files/images/imports/2019/10/room.png", loading: "lazy", sizes: "calc(100vw - 1rem), (min-width: 576px) 524px, (min-width: 768px) 344px, (min-width: 992px) 464px, (min-width: 1200px) 364px"})
-            a(href="wiki/usage/rooms/").s2-card-link.font-weight-bold ルームの詳細
+            a(href="wiki/usage/rooms").s2-card-link.font-weight-bold ルームの詳細
 
     hr#section_2_b
 
@@ -251,7 +251,7 @@ styleRequires: ["top"]
   section#section_7: .container
     h2.text-center Soutenir le projet
     p.text-center
-      a(href="./credit/#patrons").btn.btn-lg.btn-light.text-primary.mr-2
+      a(href="credit#patrons").btn.btn-lg.btn-light.text-primary.mr-2
         | Liste des Mécènes
       a(href="https://github.com/syuilo/misskey/blob/master/docs/DONATORS.md" target="_blank" rel="noopener").btn.btn-lg.btn-light.text-primary
          | Liste des donateurs
@@ -274,19 +274,19 @@ styleRequires: ["top"]
       | Bountysource
     p.text-center Ou contactez #[a(href="https://misskey.io/@syuilo" target="_blank" rel="noopener") le développeur]
     p.text-center
-      a(href="wiki/about-jm/").btn.btn-primary.btn-lg joinmisskeyを支援する
+      a(href="wiki/about-jm").btn.btn-primary.btn-lg joinmisskeyを支援する
 
   section#section_4.bg-success: .container.text-white
     .row
       .col-12.col-md-6
         .py-3
-          a(href="./blog/").btn.btn-lg.btn-outline-light
+          a(href="blog/").btn.btn-lg.btn-outline-light
             +fa("broadcast-tower")
             |  Blog
           p.mt-1.mb-0.p-0 Actualité des nouveautés apportées à Misskey, à tout moment.
       .col-12.col-md-6.scrollts-e-1
         .py-3
-          a(href="./credit/").btn.btn-lg.btn-outline-light
+          a(href="credit/").btn.btn-lg.btn-outline-light
             +fa("users")
             |  Crédits
           p.mt-1.mb-0.p-0 Les personnes impliquées dans le développement de Misskey.

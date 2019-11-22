@@ -58,6 +58,6 @@ Eugen氏が運営するmastodon.socialは新規登録を閉じ、代替の登録
 ### 新しいインスタンス
 [misskey.jp](https://misskey.jp)、[misskeyちほー](https://mk.kemono-friends.info)が開設された模様です。
 
-**インスタンス一覧** : [Wiki](../../../../wiki/instances/) / [fediverse network](https://fediverse.network/misskey)
+**インスタンス一覧** : [Wiki](../../../wiki/instances) / [fediverse network](https://fediverse.network/misskey)
 
 自分でサーバーを立てて[新規登録を停止し](https://github.com/yuzulabo/misskey/pull/1)一人だけで利用する「おひとり様インスタンス」も立ち始めています。

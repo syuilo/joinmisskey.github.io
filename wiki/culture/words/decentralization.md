@@ -5,7 +5,7 @@ layout: wiki
 ---
 **脱中央集権**（**分散化**、非中央集権 英:decentralization）とは、中央集権に対立する概念である。政治における地方分権も同様の語であるが、ここでは特にインターネット上のサービスにおける脱中央集権・分散化について扱う。
 
-なお、[Misskey](../../softwares/misskey/)は脱中央集権を強くは標榜していないし中央集権を標榜してもいない。
+なお、[Misskey](../softwares/misskey)は脱中央集権を強くは標榜していないし中央集権を標榜してもいない。
 
 ## 概要
 インターネット上のサービスにおいて、脱中央集権のねらいは大きく分けて以下の3点にまとめられる。
@@ -28,12 +28,12 @@ layout: wiki
   ただし、分散SNSはオープンソースソフトウェアを利用するため初期投資額が抑えられる故に多くのインスタンスが出現し競争原理が働くため、ユーザーは最終的にそのメリットを享受できる。
 
 ## 脱中央集権の例
-- Misskey、[Mastodon](../../softwares/mastodon/)などの[分散マイクロブログソフトウェア](/decentralized-social-networking-service#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)
+- Misskey、[Mastodon](../softwares/mastodon)などの[分散マイクロブログソフトウェア](/decentralized-social-networking-service#%E5%88%86%E6%95%A3%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%96%E3%83%AD%E3%82%B0%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)
 - WinnyをはじめとするP2Pファイル共有ソフト
 - Bitcoinをはじめとするブロックチェーンによる暗号通貨
 
 ## 関連項目
-- [分散SNS](../decentralized-social-networking-service/)
+- [分散SNS](decentralized-social-networking-service)
 
 ## 外部リンク
 - [分散型ソーシャル・ネットワーク - Wikpedia](https://ja.wikipedia.org/wiki/%E5%88%86%E6%95%A3%E5%9E%8B%E3%82%BD%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%AB%E3%83%BB%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF)
