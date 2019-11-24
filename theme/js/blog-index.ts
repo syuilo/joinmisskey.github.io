@@ -33,15 +33,16 @@ onReady(() => {
   // tslint:disable-next-line: forin
   for (const I in paginationItems) {
     const i = Number(I)
-    if (i !== 0 || !i) continue
-    const item = paginationItems[i]
+    if (i === 0 || i) {
+      const item = paginationItems[i]
 
-    if (i === page) item.classList.add("active")
-    else if ( pagesNum > 6 && i !== 0 && i !== page - 1 && i !== page + 1 && i !== pagesNum) item.style.display = "none"
+      if (i === page) item.classList.add("active")
+      else if ( pagesNum > 6 && i !== 0 && i !== page - 1 && i !== page + 1 && i !== pagesNum) item.style.display = "none"
 
-    if (pagesNum <= 6) return
-    else
-    if (i === page - 1 && i !== 1) item.insertAdjacentHTML("beforebegin", htm)
-    if (i === page + 1 && i !== pagesNum - 1) item.insertAdjacentHTML("afterend", htm)
+      if (pagesNum <= 6) return
+      else
+      if (i === page - 1 && i !== 1) item.insertAdjacentHTML("beforebegin", htm)
+      if (i === page + 1 && i !== pagesNum - 1) item.insertAdjacentHTML("afterend", htm)
+    }
   }
 })
