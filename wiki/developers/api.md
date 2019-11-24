@@ -13,8 +13,8 @@ next: /wiki/developers/websocket
 MisskeyのAPIでは、APIキーとも呼ばれるキーを`i`として本文に含めることでAPIを利用できる。  
 様々な場面で`i`という名前で扱われるため、ここではこのAPIキーを単に`i`と呼ぶことにする。
 
-実際にAPIから投稿してみよう。
-`1248aBCDeFGH1632`を自分の`i`に書き換え、次のコードを実行してみよう。なお、自分が登録しているインスタンスがmisskey.ioでない場合は自分のインスタンスのURLに置き換えて実行しよう。
+では、まずは実際にAPIから投稿してみよう。  
+次のコードを、`1248aBCDeFGH1632`を自分の`i`に書き換えて実行してみよう。自分が登録しているインスタンスがmisskey.ioでない場合は自分のインスタンスのURLに置き換えて実行しよう。
 
 ```javascript
 axios.post("https://misskey.io/api/notes/create", {i: "1248aBCDeFGH1632", text: "Hello Misskey API World!"})
