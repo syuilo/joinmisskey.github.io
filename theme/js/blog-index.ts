@@ -23,7 +23,7 @@ onReady(() => {
   for (const N in articles) {
     const n = Number(N)
     if (n === 0 || n) {
-      const article = articles[n]
+      const article = articles[N]
       if (n >= min && n < max) article.style.display = "block"
       else article.style.display = "none"
     }
@@ -34,7 +34,7 @@ onReady(() => {
   for (const I in paginationItems) {
     const i = Number(I)
     if (i === 0 || i) {
-      const item = paginationItems[i]
+      const item = paginationItems[I]
 
       if (i === page) item.classList.add("active")
       else if ( pagesNum > 6 && i !== 0 && i !== page - 1 && i !== page + 1 && i !== pagesNum) item.style.display = "none"
