@@ -1,5 +1,5 @@
 ---
-title: joinmisskeyのアップデート内容
+title: joinmisskeyのアップデート
 description: joinmisskeyを断続的にアップデートし、改良を加えました。
 layout: blog
 date: 2019-11-23T08:05:00+09:00
