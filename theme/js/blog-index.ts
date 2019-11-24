@@ -46,5 +46,5 @@ onReady(() => {
   }
 
   const h1 = document.querySelector("#article_maincontent h1")
-  h1.insertAdjacentHTML("beforeend", `&nbsp;<small class="font-weight-light">${page + 1}/${pagesNum + 1}</small>`)
+  h1.insertAdjacentHTML("beforeend", `<small class="font-weight-light">&nbsp;(${page + 1}/${pagesNum + 1})</small>`)
 })
