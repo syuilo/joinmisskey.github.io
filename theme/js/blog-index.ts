@@ -40,7 +40,6 @@ onReady(() => {
       else if ( pagesNum > 6 && i !== 0 && i !== page - 1 && i !== page + 1 && i !== pagesNum) item.style.display = "none"
 
       if (pagesNum <= 6) continue
-      else
       if (i === page - 1 && i !== 1) item.insertAdjacentHTML("beforebegin", htm)
       if (i === page + 1 && i !== pagesNum - 1) item.insertAdjacentHTML("afterend", htm)
     }
