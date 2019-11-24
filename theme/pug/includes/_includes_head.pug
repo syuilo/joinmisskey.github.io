@@ -9,6 +9,8 @@ script#page_variables.
 script(src=`${site.url.path}/assets/scripts/sw.js` async)
 script(src=`${site.url.path}/assets/scripts/bootstrap.js` async)
 script(src=`${site.url.path}/assets/scripts/main.js` async)
+if(page.attributes.layout === "blog-index")
+  script(src=`${site.url.path}/assets/scripts/blog-index.js` async)
 
 block gtag
   if(site.ga)

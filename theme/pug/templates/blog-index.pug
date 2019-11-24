@@ -6,24 +6,22 @@ append preset
     const indexname = "ブログ"
     const indexHeadline = "記事一覧"
   -
-    pages.sort(function(a,b) {
-      if(( a.meta.mtime || a.meta.birthtime ) < ( b.meta.mtime || b.meta.birthtime )) { return 1 } else { return -1 }
-    });
+    let queries = []
 
-    let queries = [], qpages = []
-    
     let rootpath = (() => {
       if(page.attributes.query && page.attributes.query.root) return `/${locale}${page.attributes.query.root}`
       else return page.meta.permalink
     })()
 
-    // 「${indexname}」として表示するページの条件を指定し、Array.filter()関数でqpagesに代入します。
+    let qpages = pages.filter(e => (e.meta.permalink.startsWith(rootpath) &&
+      e.attributes.layout === indexPrefix &&
+      e.attributes.draft != true &&
+      e.attributes.published == true))
 
-    qpages = pages.filter(e => e.meta.permalink.indexOf(rootpath) == 0
-                            && e.attributes.layout == indexPrefix           // blogレイアウトが適用されている
-                            && e.attributes.draft != true              // 
-                            && e.attributes.published == true
-                          )
+    qpages.sort((a, b) => {
+      if ((a.meta.mtime || a.meta.birthtime) < (b.meta.mtime || b.meta.birthtime)) return 1
+      return -1
+    })
 
     function addQuery(q, n){
       if( typeof q === "string" ){ queries.push( {"type": n, "query": q} ) }
@@ -47,9 +45,7 @@ append preset
     }
 
     if( page.attributes.query ) {
-
       // front-matter のquery設定があれば適用します
-
       if( page.attributes.query.path ) qpages = pathFilter(page.attributes.query.path, qpages)
       if( page.attributes.query.directory ) qpages = pathFilter(page.attributes.query.directory, qpages)
       if( page.attributes.query.directories ) qpages = pathFilter(page.attributes.query.directories, qpages)
@@ -62,11 +58,14 @@ append preset
       if(queries != []){
         qpages = qpages.filter(function(e,i,a){
           for( m = 0; m < queries.length; m++ ){
-            if( !!e.attributes[queries[m].type] ){ if( e.attributes[queries[m].type].find(f => f === queries[m].query ) !== undefined ) { return true } }
+            if( !!e.attributes[queries[m].type] ){
+              if( e.attributes[queries[m].type].find(f => f === queries[m].query ) !== undefined ) {
+                return true
+              }
+            }
           }
         })
       }
-
     }
   -
     // 見出しを設定します。
@@ -93,9 +92,12 @@ block contents
     != getTL(mainHtml)
   h2.font-weight-light.h3= headline
 
+  .py-2.px-0
+    +ad({ class: "aitaso", slot: "1668303105", format: "horizontal", allowFullWidth: "false" })
+
   #blog_index.d-flex.flex-row.row.m-0
     each thispage, p in qpages
-      a(href=`${site.url.path}${thispage.meta.permalink}`).blog-index-item
+      a.blog-index-item(href=`${site.url.path}${thispage.meta.permalink}` style="display: none;")
         article.card
           if ( thispage.attributes.thumbnail )
             +picture({ src: thispage.attributes.thumbnail, alt: "サムネイル", loading: "lazy", class: "card-img-top", sizes: "calc(100vw - 30px - 1rem), (min-width: 576px) 494px, (min-width: 768px) 329px, (min-width: 992px) 449px, (min-width: 1200px) 354px" })
@@ -108,6 +110,9 @@ block contents
               +fa_fw("clock")
               time(datetime=thispage.meta.mtime)=moment(thispage.meta.mtime).tz('Asia/Tokyo').format('llll z')
             +blog_badges(thispage)
-      if(p !== 0 && (p+1) % 12 === 6 && qpages.length - (p+1) >= 4)
-        .py-2.px-0.col-12
-          +ad({ class: "aitaso", slot: "1668303105", format: "horizontal", allowFullWidth: "false" })
+
+  nav#pagination_container.pt-4
+    ul.pagination.justify-content-center
+      each undef, q in Array(Math.floor(qpages.length / 18))
+        li.page-item
+          a.page-link(href=`?page=${q + 1}`)= q + 1

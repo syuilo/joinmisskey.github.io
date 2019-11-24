@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     main: "./theme/js/main.ts",
     bootstrap: "./theme/js/bootstrap.ts",
-    sw: "./theme/js/sw.ts"
+    sw: "./theme/js/sw.ts",
+    "blog-index": "./theme/js/blog-index.ts"
   },
   output: {
     filename: "[name].js",

@@ -33,7 +33,7 @@ nav#mainnav.navbar.navbar-expand-md.navbar-light.flex-row.p-0
         | A文
       .dropdown-menu.m-2(aria-labelledby="locale_dropdown")
         each lang in site.locales
-          a.dropdown-item(href=`/${lang}${page.meta.permalink.slice(locale.length + 1)}?moved`)= site.i18n.nihongo[lang]
+          button.nihongo.dropdown-item(data-lang=lang)= site.i18n.nihongo[lang]
   if(isAmp)
     button.hamburger(on='tap:sidebar1.toggle')
       +fa("bars", "fas")

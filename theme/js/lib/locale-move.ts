@@ -1,16 +1,11 @@
-import onReady from "./onReady"
 import window from "./window"
 
-const userLanguage = navigator.language
+const userLanguage = localStorage.getItem("locale") || navigator.language
 
 export const localeMove = () => {
   function move_locale(targetlang: string) {
     if (targetlang !== window.currentLocale) {
-      onReady(() => {
-        const search = new URLSearchParams(location.search)
-        search.append("moved", "")
-        location.href = `/${targetlang}${window.permalink}?${search.toString()}${window.location.hash}`
-      })
+      location.href = `/${targetlang}${window.permalink}${location.search}${location.hash}`
     }
   }
 
@@ -38,17 +33,15 @@ export const localeMove = () => {
   }
 
   if (
-    (window.currentLocale !== "false" || window.location.pathname === window.pathname)
+    (window.currentLocale !== "false" || location.pathname === window.pathname)
     && iAmNotRobot()
   ) {
-    if (window.location.search.indexOf("moved") === -1) {
-      if (window.locales.indexOf(userLanguage) >= 0) {
-        move_locale(userLanguage)
-      } else if (window.locales.indexOf(userLanguage.slice(0, 2)) >= 0) {
-        move_locale(userLanguage.slice(0, 2))
-      } else if (window.currentLocale !== "en") {
-        move_locale("en")
-      }
+    if (window.locales.indexOf(userLanguage) >= 0) {
+      move_locale(userLanguage)
+    } else if (window.locales.indexOf(userLanguage.slice(0, 2)) >= 0) {
+      move_locale(userLanguage.slice(0, 2))
+    } else if (window.currentLocale !== "en") {
+      move_locale("en")
     }
   }
 }

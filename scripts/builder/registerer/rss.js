@@ -1,15 +1,15 @@
 const { Feed } = require("feed")
 
 module.exports = (base, pages, lang) => {
-  pages.sort((a, b) => {
+  const qpages = pages.filter(e => e.meta.permalink.indexOf(`/${lang}/blog/`) === 0
+    && e.attributes.layout === "blog" // blogレイアウトが適用されている
+    && e.attributes.draft !== true //
+    && e.attributes.published === true)
+
+  qpages.sort((a, b) => {
     if ((a.meta.mtime || a.meta.birthtime) < (b.meta.mtime || b.meta.birthtime)) { return 1 }
     return -1
   })
-
-  const qpages = pages.filter(e => e.meta.permalink.indexOf(`/${lang}/blog/`) === 0
-                              && e.attributes.layout === "blog" // blogレイアウトが適用されている
-                              && e.attributes.draft !== true //
-                              && e.attributes.published === true)
 
   const feed = new Feed({
     title: base.site.names ? base.site.names[lang] : base.site.name,
