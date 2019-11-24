@@ -454,24 +454,44 @@ gulp.task("make-sw", cb => {
   res = `/* workbox ${base.update.toJSON()} */
 `
 
-  res += `
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+  res += `importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 workbox.googleAnalytics.initialize();
 
 workbox.routing.registerRoute(
-    /.*\.(?:${site.sw})/,
-    new workbox.strategies.StaleWhileRevalidate({
-        cacheName: "assets-cache",
-    })
+  /.*\\.(?:${site.sw})/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "assets-cache",
+  })
 );
 
 workbox.routing.registerRoute(
-  /^https:\\/\\/cdn\\.jsdelivr\\.net/,
+  /.*(?:googleapis|gstatic)\\.com/,
+  new workbox.strategies.StaleWhileRevalidate(),
+);
+
+workbox.routing.registerRoute(
+  /^https:\\/\\/cdn.jsdelivr.net//,
   new workbox.strategies.CacheFirst({
     cacheName: 'jsdelivr',
+    plugins: [
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200],
+      }),
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 160
+      })
+    ]
+  })
+);
+
+workbox.routing.registerRoute(
+  /\\.(?:png|jpg|jpeg|webp|svg|gif)\\?v=${site.image_compressing_strategy_version}$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'images',
     plugins: [
       new workbox.cacheableResponse.Plugin({
         statuses: [0, 200],
@@ -561,6 +581,7 @@ gulp.task("make-browserconfig", cb => {
   })
 })
 
+
 gulp.task("make-sitemap", cb => {
   const urls = pages.filter(e => e.meta.locale).map(e => ({
     url: e.meta.permalink,
@@ -574,6 +595,12 @@ gulp.task("make-sitemap", cb => {
 
   fs.writeFile("dist/docs/sitemap.xml", sitemap.toString(), () => {
     glog(colors.green("✔ sitemap.xml")); cb()
+  })
+})
+
+gulp.task("make-image_compressing_strategy_version_file", cb => {
+  fs.writeFile("dist/image_compressing_strategy_version", site.image_compressing_strategy_version, () => {
+    glog(colors.green("✔ image_compressing_strategy_version")); cb()
   })
 })
 
@@ -746,6 +773,7 @@ gulp.task("prebuild-files",
   gulp.series(
     gulp.parallel("clean-dist-files", "clean-dist-cache"),
     "image-prebuildFiles",
+    "make-image_compressing_strategy_version_file",
     cb => { cb() }
   ))
 

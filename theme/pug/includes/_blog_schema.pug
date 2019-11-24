@@ -9,7 +9,7 @@
     "headline": page.attributes.title,
     "image": {
       "@type": "ImageObject" ,
-      "url": `${urlPrefix}${thsrc}`,
+      "url": `${urlPrefix}${thsrc}?v=${image_compressing_strategy_version}`,
       "height": thheight,
       "width": thwidth
     },
@@ -24,7 +24,7 @@
       "name": site.name,
       "logo": {
         "@type": "ImageObject" ,
-        "url": `${urlPrefix}${site.publisher_image_path}`,
+        "url": `${urlPrefix}${site.publisher_image_path}?v=${image_compressing_strategy_version}`,
         "height": pheight,
         "width": pwidth
       }

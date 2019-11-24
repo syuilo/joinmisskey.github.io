@@ -48,8 +48,8 @@ html(lang=locale)
       block icons
         link(rel="icon", href=`${site.url.path}/favicon.ico`, type="image/vnd.microsoft.icon")
         each icon in site.icons
-          link(rel="apple-touch-icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes)
-          link(rel="icon", href=`${site.url.path}${icon.path}`, sizes=icon.sizes, type=icon.type)
+          link(rel="apple-touch-icon", href=`${site.url.path}${icon.path}?v=${image_compressing_strategy_version}`, sizes=icon.sizes)
+          link(rel="icon", href=`${site.url.path}${icon.path}?v=${image_compressing_strategy_version}`, sizes=icon.sizes, type=icon.type)
 
       block theme_color
         meta(name="theme-color", content=site._theme_color)
@@ -59,9 +59,9 @@ html(lang=locale)
         meta(property="og:title", content=page.attributes.title)
         meta(property="og:description", content=page.attributes.description)
         if ( !!page.meta.thumbnail )
-          meta(property="og:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
+          meta(property="og:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}?v=${image_compressing_strategy_version}`)
         else if ( !!site.site_card_path )
-          meta(property="og:image", content=`${urlPrefix}${site.site_card_path}`)
+          meta(property="og:image", content=`${urlPrefix}${site.site_card_path}?v=${image_compressing_strategy_version}`)
         else
           meta(property="og:image", content=`/favicon.ico`)
         meta(property="og:url", content=page.meta.url.href)
@@ -69,15 +69,15 @@ html(lang=locale)
 
       block twitter_card
         if ( site.social_media.twitter.card )
-          if ( !!page.meta.thumbnail )
+          if ( page.meta.thumbnail )
             meta(name="twitter:card", content="summary_large_image")
-            meta(name="twitter:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}`)
-          else if ( !!site.site_card_path )
-            meta(name="twitter:card", content="summary_large_image")
-            meta(name="twitter:image", content=`${urlPrefix}${site.site_card_path}`)
+            meta(name="twitter:image", content=`${urlPrefix}${page.meta.thumbnail.dir}/${page.meta.thumbnail.base}?v=${image_compressing_strategy_version}`)
+          else if ( site.site_card_path )
+            meta(name="twitter:card", content="summary")
+            meta(name="twitter:image", content=`${urlPrefix}${site.site_card_path}?v=${image_compressing_strategy_version}`)
           else
             meta(name="twitter:card", content="summary")
-          meta(name="twitter:title", content=`${page.attributes.title} - ${site.names[locale] || site.name}`)
+          meta(name="twitter:title", content=`${page.attributes.title}`)
           meta(name="twitter:description", content=page.attributes.description)
           meta(name="twitter:site", content=site.social_media.twitter.stalk)
 

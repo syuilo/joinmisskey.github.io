@@ -99,10 +99,11 @@ mixin editLink()
 mixin picture(img)
   - const iu = path.parse(img.src)
   - if (!img.sizes) img.sizes = "100vw, (min-width: 576px) 50vw, (min-width: 1200px) 30vw"
+  - const suf = `?v=${image_compressing_strategy_version}`
   picture
-    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.360.webp 360w, ${urlPrefix}${iu.dir}/${iu.name}.720.webp 720w, ${urlPrefix}${iu.dir}/${iu.name}.webp 1200w` type="image/webp" sizes=img.sizes)
-    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.360${iu.ext} 360w, ${urlPrefix}${iu.dir}/${iu.name}.720${iu.ext} 720w, ${urlPrefix}${iu.dir}/${iu.base}` sizes=img.sizes)
-    img(src=img.src alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.360.webp${suf} 360w, ${urlPrefix}${iu.dir}/${iu.name}.720.webp${suf} 720w, ${urlPrefix}${iu.dir}/${iu.name}.webp${suf} 1200w` type="image/webp" sizes=img.sizes)
+    source(srcset=`${urlPrefix}${iu.dir}/${iu.name}.360${iu.ext}${suf} 360w, ${urlPrefix}${iu.dir}/${iu.name}.720${iu.ext}${suf} 720w, ${urlPrefix}${iu.dir}/${iu.base}${suf}` sizes=img.sizes)
+    img(src=`${img.src}${suf}` alt=img.alt class=img.class id=img.id title=img.title loading=img.loading)
 
 mixin ad(setting)
   if(!isAmp)

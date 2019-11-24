@@ -60,6 +60,6 @@
         "start_url": "/",
         "display": "standalone"
     },
-    "sw": "js|css|png|jpeg|jpg|svg|webp|svgz",
+    "sw": "js|css",
     "metaPages": ["404", "offline"]
 }
