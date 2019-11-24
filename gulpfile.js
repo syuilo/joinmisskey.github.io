@@ -473,7 +473,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  /^https:\\/\\/cdn.jsdelivr.net//,
+  /^https:\\/\\/cdn.jsdelivr.net/,
   new workbox.strategies.CacheFirst({
     cacheName: 'jsdelivr',
     plugins: [
