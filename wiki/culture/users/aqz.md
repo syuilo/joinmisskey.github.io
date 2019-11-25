@@ -3,10 +3,10 @@ title: aqz / tamaina
 description: aqz / tamainaは、joinmisskeyの開発・運営者。aqzの読み方は「アキウス」を推奨している。
 layout: wiki
 ---
-**aqz**/**tamaina**は、群馬県在住の男性。joinmisskey（このサイト）の開発・編集者である。  
-2000年12月26日生まれで、現在は無職。
+**aqz**/**tamaina**は、プログラマかつ[Misskey](../softwares/misskey)の開発者（Collaborator）。joinmisskeyの開発・編集をしている。群馬県在住、男性。  
+2000年12月26日生まれ。現在は無職。
 
-[**aqz/tamainaの個人サイト** tamaina.github.io](https://tamaina.github.io)
+[**aqz/tamainaの個人サイト** a9z.dev](https://a9z.dev)
 
 ## 概要
 joinmisskeyを編集・開発している。また、Misskeyの現在のロゴの作成者でもある。
@@ -16,9 +16,7 @@ aqzの読み方は「アキウス」を推奨している。
 
 ![aqzのアイコン](/files/images/imports/2019/03/forTwitter_ico_1231.png "aqzがよく利用するアイコンのひとつ（古明地こいし）")
 
-アイコン（アバター）は、aqzの際には東方Projectの古明地こいしのアイコン、tamainaの際には主に鉄道関連のオブジェクトを撮影した写真を使用する傾向にあるが、一部で東方Projectの橙のアイコンを使用している。古明地こいしと橙の絵の作者は「連絡が取れないし、まだインターネットで活動しているとしても現在のハンドルネームが何なのか知らない」（本人談）。
-
-なお、自分でこの自分自身の記事を書いた。
+アイコン（アバター）は、aqzの際には東方Projectの古明地こいしのアイコン、tamainaの際には主に鉄道関連のオブジェクトを撮影した写真を使用する傾向にあるが、一部で東方Projectの橙のアイコンを使用している。これらの絵の作者については、連絡が取れないし、まだインターネットで活動しているとしても現在のハンドルネームが何なのか知らない。
 
 ## 関係の深いインスタンス
 以下のインスタンスを運営している。
@@ -26,8 +24,8 @@ aqzの読み方は「アキウス」を推奨している。
 - [mk.a9z.dev](https://mk.a9z.dev)
 
 ## アカウント
-- [@aqz@yuzulia.xyz](https://yuzulia.xyz/@aqz)
-- [@aqz@mk.a9z.dev](https://mk.a9z.dev/@aqz)
+- [mk.a9z.dev@aqz](https://mk.a9z.dev/@aqz)
+- [yuzulia.xyz@aqz](https://yuzulia.xyz/@aqz)
 - [Twitter @t_ma1n](https://twitter.com/t_ma1n)
 - [Twitter @aqzvy](https://twitter.com/aqzvy)
 - [GitHub @tamaina](https://github.com/tamaina)

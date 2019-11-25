@@ -22,7 +22,7 @@ ChromeでYouTube・ニコニコ動画・ツイキャスの動画・配信を開�
 
 ### Bot
 #### Ai
-***[→ 「藍」を参照](../ai)***
+***[→ 「藍」を参照](../culture/softwares/ai)***
 
 #### GitHub Notifier
 GitHubを監視して通知してくれるBot。
