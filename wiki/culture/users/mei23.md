@@ -3,7 +3,7 @@ title: めいめい
 description: めいめい（mei23）は、Misskeyの開発者（Collaborator）。friends.nicoの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
 layout: wiki
 ---
-**めいめい（mei23）**は、[Misskey](../softwares/misskey)の開発者（Collaborator）。friends.nico→best-friends.chatの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
+**めいめい（mei23）**は、プログラマかつ[Misskey](../softwares/misskey)の開発者（Collaborator）。friends.nico→best-friends.chatの人気ユーザーであり、複数のMisskeyインスタンスを運営している。
 年齢や職業は不明。
 
 [**めいめいの個人サイト** mei23.github.io](https://mei23.github.io/)
@@ -13,7 +13,7 @@ layout: wiki
 
 自称***お嬢様***で、「なのだわ」という語尾が特徴的。語感が似ているため「ちんちん」と共に言及されがちである。
 
-[Misskeyのプルリクエストの内容と数](https://github.com/syuilo/misskey/pulls?q=is%3Apr+author%3Amei23+is%3Aclosed)からして凄腕のプログラマーであることが見て取れる。MisskeyのActivityPub関連の実装はめいめい氏による貢献がなければ成り立っていないだろう。
+[Misskeyのプルリクエストの内容と数](https://github.com/syuilo/misskey/pulls?q=is%3Apr+author%3Amei23+is%3Aclosed)からして凄腕のプログラマーであることが見て取れる。MisskeyのActivityPub関連の実装はめいめい氏による貢献があって初めて成り立っている。
 
 アイコン（アバター）は、ローゼンメイデンの第5ドール。
 
