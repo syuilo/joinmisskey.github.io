@@ -26,7 +26,7 @@ Twitterアカウントを持っていない場合、作成する必要がある�
 GitHubの連携の設定はとても簡単。
 
 ### 1. GitHubアカウントを作成
-Discordアカウントを持っていない場合、作成する必要がある。
+GitHubアカウントを持っていない場合、作成する必要がある。
 
 ### 2. OAuth Appを作成
 https://github.com/settings/developers にアクセスし`New Oauth App`をクリック。
