@@ -17,6 +17,10 @@ onReady(() => {
   if (page <= pagesNum) {
     const canonical = document.querySelector("link[rel=\"canonical\"]") as HTMLLinkElement
     canonical.href = `${canonical.href}?page=${page + 1}`
+
+    for (const alternate of document.querySelectorAll("link[rel=\"alternate\"]") as unknown as HTMLLinkElement[]) {
+      alternate.href = `${alternate.href}?page=${page + 1}`
+    }
   }
 
   // tslint:disable-next-line: forin
@@ -45,6 +49,6 @@ onReady(() => {
     }
   }
 
-  const h1 = document.querySelector("#article_maincontent h1")
+  const h1 = document.querySelector("#main h1")
   h1.insertAdjacentHTML("beforeend", `<small class="font-weight-light">&nbsp;(${page + 1}/${pagesNum + 1})</small>`)
 })
