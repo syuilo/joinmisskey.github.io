@@ -3,7 +3,7 @@ title: 硫酸鶏
 description: 硫酸鶏（Acid Chicken）は、Misskeyの開発者（Collaborator）。
 layout: wiki
 ---
-**硫酸鶏（Acid Chicken**、アシッドチキン<b>）</b>は、プログラマかつ[Misskey](../software/misskey)の開発者（Collaborator）。  
+**硫酸鶏（Acid Chicken**、アシッドチキン<b>）</b>は、プログラマかつ[Misskey](../softwares/misskey)の開発者（Collaborator）。  
 2001年11月29日生まれで、現在は学生。
 
 [**硫酸鶏（Acid Chicken）の個人サイト** acid-chicken.com](https://acid-chicken.com)
