@@ -12,7 +12,7 @@ onReady(() => {
   const paginationContainer = document.getElementById("pagination_container")
   const paginationItems = paginationContainer.querySelectorAll(".page-item") as NodeListOf<HTMLLIElement>
   if (articles.length === 0 && !indexContainer && !paginationContainer) return
-  const pagesNum = Math.floor(articles.length / num) - 1
+  const pagesNum = Math.floor(articles.length / num)
 
   if (page <= pagesNum) {
     const canonical = document.querySelector("link[rel=\"canonical\"]") as HTMLLinkElement

@@ -2,7 +2,7 @@
 const htmlmin = require("html-minifier").minify
 const pug = require("pug")
 const glog = require("fancy-log")
-const kramed = require("kramed")
+const marked = require("marked")
 const betterMarkdown = require("./better_markdown")
 const highl = require("./highl")
 
@@ -20,7 +20,7 @@ module.exports = (page, puglocals, urlPrefix) => {
   let mainHtml
   switch (page.meta.src.ext) {
   case ".md":
-    mainHtml = kramed(page.body)
+    mainHtml = marked(page.body)
     mainHtml = betterMarkdown(mainHtml, urlPrefix, puglocals.site.image_compressing_strategy_version)
     // mainHtml = maly(mainHtml)
     mainHtml = htmlmin(mainHtml, {

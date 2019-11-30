@@ -84,7 +84,7 @@ append preset
     if(!page.attributes.title) page.attributes.title = headline
 
 block title
-  title #{page.attributes.title} - #[+i18n('blog')] - #{site.names[locale] || site.name}
+  title #{page.attributes.title} - #[+i18n('blog')]
 
 block contents
   h1.pb-2 #[+i18n('blog')]: #{page.attributes.title}
@@ -113,6 +113,6 @@ block contents
 
   nav#pagination_container.pt-4
     ul.pagination.justify-content-center
-      each undef, q in Array(Math.floor(qpages.length / 18))
+      each undef, q in Array(Math.floor(qpages.length / 18) + 1)
         li.page-item
           a.page-link(href=`?page=${q + 1}`)= q + 1
