@@ -2,7 +2,7 @@
 title: 開発者・運営者向け情報
 description: インスタンス運営方法 / Misskey本体開発 / API など
 layout: index
-has_child: false
+has_child: true
 rank: 98
 ---
 ## インスタンスを構築する
