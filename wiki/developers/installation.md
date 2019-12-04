@@ -91,10 +91,22 @@ node -v
 PostgreSQLは、オブジェクト関係データベース管理システムであり、Misskeyが種々のデータを保存するために必要不可欠なソフトだ。
 
 #### インストール
+##### if: Raspberry Piのなど場合
+Raspberry Piなどのarmhf機では、通常通りaptでインストールしよう。
+
+```bash
+apt install postgresql
+```
+
+##### else: それ以外の場合
+シェルスクリプトを実行し、最新バージョンをインストールしよう。
+
 ```bash
 wget https://salsa.debian.org/postgresql/postgresql-common/raw/master/pgdg/apt.postgresql.org.sh
 sh apt.postgresql.org.sh -i -v 12
 ```
+
+##### endif;
 
 systemctlでデーモンの状態を確認。
 
@@ -133,6 +145,7 @@ create database mk1 owner misskey;
 Redisは、NoSQLのインメモリデータベースソフトであり、MisskeyのAPIや連合との通信等を管理するために利用する。
 
 ```bash
+apt install software-properties-common
 add-apt-repository ppa:chris-lea/redis-server
 apt update
 apt install redis-server
