@@ -1,5 +1,6 @@
 ---
-title: Misskeyインストール方法詳説
+title: Ubuntu版Misskeyインストール方法詳説
+title-breadcrumb: Raspberry Pi
 description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 layout: wiki
 rank: 1
@@ -18,20 +19,16 @@ OSの違い、Misskey本体や依存するソフトウェアのバージョン�
 わからない単語については、[『「分かりそう」で「分からない」でも「分かった」気になれるIT用語辞典』](https://wa3.i-3-i.info/)で調べて分かった気になってほしい。
 
 ## 環境と条件
-- OSは**Ubuntu 18.04.1 LTS**を利用する。
-- ハードウェア要件としては、CPUは最近のものなら最小限で動く。アーキテクチャは**amd64**として解説を進める。  
-  メモリは1GB程度あればよい。  
-  Amazon EC2なら`micro`のつくインスタンスタイプが最低限。
+- OSは[**Raspbian Buster**](http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian/images/)を利用する。
+- **Raspberry Pi 4 Model B**の**RAM 4GBモデル**で動作を確認した。
 - 独自のドメインを購入し、CloudFlareを使用する。
   * ドメインは[Google Domains](https://domains.google/intl/ja_jp/)などで予め用意しておくこと。
   * ここではドメインを`example.tld`として解説を進めるので、自分が買ったドメインに適宜置き換えて読むこと。
 - CloudFlareとサーバーとの通信にはHTTPSを使用し、証明書の生成にLet's Encryptを使用する。
-- Misskeyの実行ではDockerは使用しないが、証明書の生成で利用することになる。  
-  MisskeyをDockerで実行する方法は[公式の『Dockerを使ったMisskey構築方法』](https://github.com/syuilo/misskey/blob/master/docs/docker.ja.md)を参照のこと。
 - nginxを使用する。
 - ElasticSearchは使用しない。
 - ほとんどのコマンドにroot権限が必要なため、**root**でコマンドを実行していく。  
-  一般ユーザーでログインしている場合は`sudo su -`を実行すればrootに切り替わる。
+  `sudo su -`を実行すればrootに切り替わる。
 
 ## nanoの使い方
 今回はテキストエディターにnanoを使う。次のように起動する。
@@ -51,17 +48,6 @@ Misskeyはrootで実行しない方がよいため、専用のユーザーを作
 
 ```bash
 adduser --disabled-password --disabled-login misskey
-```
-
-また、作業用のユーザーとして`user`というユーザーを使用するものとする。  
-misskeyの他にユーザーがあれば`user`をそれに置き換えること。  
-なければ、以下のようにして作業用ユーザーを作成する。
-
-```bash
-adduser user
-# パスワードを設定（覚えておくこと）
-
-usermod -aG sudo user
 ```
 
 ## 基本的なソフトウェアのインストールと設定
@@ -91,22 +77,9 @@ node -v
 PostgreSQLは、オブジェクト関係データベース管理システムであり、Misskeyが種々のデータを保存するために必要不可欠なソフトだ。
 
 #### インストール
-##### if: Raspberry Piのなど場合
-Raspberry Piなどのarmhf機では、通常通りaptでインストールしよう。
-
 ```bash
-apt install postgresql
+apt install -y postgresql
 ```
-
-##### else: それ以外の場合
-シェルスクリプトを実行し、最新バージョンをインストールしよう。
-
-```bash
-wget https://salsa.debian.org/postgresql/postgresql-common/raw/master/pgdg/apt.postgresql.org.sh
-sh apt.postgresql.org.sh -i -v 12
-```
-
-##### endif;
 
 systemctlでデーモンの状態を確認。
 
@@ -145,17 +118,14 @@ create database mk1 owner misskey;
 Redisは、NoSQLのインメモリデータベースソフトであり、MisskeyのAPIや連合との通信等を管理するために利用する。
 
 ```bash
-apt install software-properties-common
-add-apt-repository ppa:chris-lea/redis-server
-apt update
-apt install redis-server
+apt install -y redis-server
 systemctl start redis-server
 systemctl enable redis-server
 ```
 
 systemctlでデーモンの状態を確認。
 
-```
+```bash
 systemctl status redis-server
 ```
 
@@ -165,10 +135,6 @@ activeならOK。
 nginxは、主としてリバースプロキシに用いられるWebサーバーソフトである。Misskeyには必須ではないが、キャッシュ等をするとパフォーマンスが向上するためインストールしておく。
 
 ```bash
-apt install -y curl gnupg2 ca-certificates lsb-release
-echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" | tee /etc/apt/sources.list.d/nginx.list
-curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add -
-apt update
 apt install -y nginx
 ```
 
@@ -192,7 +158,7 @@ http://localhost にアクセスし、**Welcome to nginx!**と表示されれば
 ### その他
 Git（バージョン管理ソフト）およびbuild-essential（Misskeyのビルド時に必要）をインストールする。
 
-```
+```bash
 apt update
 apt install -y git build-essential
 ```
@@ -202,6 +168,12 @@ apt install -y git build-essential
 
 ### ファイヤーウォール
 今回は、ファイヤーウォールとしてufwを使用する。
+
+まずはインストールする。
+
+```bash
+apt install -y ufw
+```
 
 次では、接続許可をホワイトリスト形式とし、22番SSHポートを接続回数制限を設けながら開放、80番HTTPポート及び443番HTTPSポートを開放とした。
 
@@ -228,24 +200,13 @@ DNSの登録画面でサーバーのIPアドレスを入力しておくとよい
 ドメインを購入した所によっては適用に3日程度かかる場合がある。
 
 ### Certbot (Let's Encrypt) の設定
-HTTPS･WSS通信に使用する証明書をCloudFlareを使う方式でLet's Encryptから取得する。
-
-#### Dockerのインストール
-Dockerについての説明は[こちら](https://knowledge.sakura.ad.jp/13265/)が詳しいが、今は気にすることはない。
+certbotとCloudFlareプラグインをインストール
 
 ```bash
-wget https://get.docker.com/ -O get-docker.sh
-sh get-docker.sh
+apt install -y certbot python3-certbot-dns-cloudflare
 ```
 
-dockerのバージョンを確認する。
-
-```bash
-docker version
-```
-
-#### Certbotで証明書を取得
-まず、CloudFlareの情報を記載した設定ファイル`/etc/cloudflare/cloudflare.ini`を作成する。
+CloudFlareの情報を記載した設定ファイル`/etc/cloudflare/cloudflare.ini`を作成する。
 
 ```bash
 mkdir /etc/cloudflare
@@ -277,31 +238,14 @@ chmod 600 /etc/cloudflare/cloudflare.ini
 準備ができたのでコマンドを実行する。**途中の2箇所の`example.tld`は自分のものに置き換えること**。
 
 ```bash
-docker run -it --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -v "/etc/cloudflare:/etc/cloudflare" --dns=8.8.8.8 certbot/dns-cloudflare:latest certonly -d example.tld -d *.example.tld --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare/cloudflare.ini --dns-cloudflare-propagation-seconds 50
+certbot certonly --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare/cloudflare.ini --dns-cloudflare-propagation-seconds 60 --server https://acme-v02.api.letsencrypt.org/directory -d example.tld -d *.example.tld --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare/cloudflare.ini --dns-cloudflare-propagation-seconds 50
 ```
 
 **Congratulations!**と表示されたらOK。生成された`.pem`ファイルのパスは今後使うので記録しておくこと。
 
-#### 証明書の更新をcronで設定
-取得した証明書は3か月で切れてしまうので、自動で更新するようにcronで設定する。
+cronの設定はインストールと同時に行われているため不要。
 
-```bash
-nano /etc/cron.d/certbot
-```
-
-次を貼り付けて保存する。ちなみにこれは毎月1日4時0分に更新するという内容である。
-
-```pure
-00 04 01 * * root /usr/bin/docker run -it --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -v "/etc/cloudflare:/etc/cloudflare" --dns=8.8.8.8 certbot/dns-cloudflare:latest renew
-```
-
-cronを再起動。
-
-```bash
-systemctl restart cron
-```
-
-<small>https://blog.hanhans.net/2018/12/05/update-certificate/</small>
+<small>https://qiita.com/ooxif/items/99ad3c93d4d6862d45f0</small>
 
 ## Misskeyのインストール
 これで前準備はあらかた終わったので、Misskeyを準備していく。
