@@ -13,10 +13,11 @@ append preset
       else return page.meta.permalink
     })()
 
-    let qpages = pages.filter(e => (e.meta.permalink.startsWith(rootpath) &&
+    let qpages = pages.filter(e => !e.canonical &&
+      e.meta.permalink.startsWith(rootpath) &&
       e.attributes.layout === indexPrefix &&
       e.attributes.draft != true &&
-      e.attributes.published == true))
+      e.attributes.published == true)
 
     qpages.sort((a, b) => {
       if ((a.meta.mtime || a.meta.birthtime) < (b.meta.mtime || b.meta.birthtime)) return 1

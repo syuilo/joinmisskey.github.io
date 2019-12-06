@@ -12,8 +12,10 @@ function isMetaPage(site, permalink) {
 
 module.exports = async (site, src, urlPrefix) => {
   const promises = []
+  const pages = []
   const srcs = await promisify(glob)(src.pages)
 
+  // eslint-disable-next-line consistent-return
   async function doit(val, i, arr, srcpath) {
     let page = {}
     const srcp = path.parse(val)
@@ -48,8 +50,8 @@ module.exports = async (site, src, urlPrefix) => {
       if (subdir !== "") page.meta.permalink = `/${subdir}/${page.meta.src.name}`
       else page.meta.permalink = `/${page.meta.src.name}`
     } else { page.meta.permalink = page.attributes.permalink }
-    if (page.meta.permalink.indexOf("/") !== 0) page.meta.permalink = `/${page.meta.permalink}`
-    if (page.meta.permalink.lastIndexOf("index") === page.meta.permalink.length - 5 && page.meta.permalink.indexOf("index") !== -1) {
+    if (!page.meta.permalink.startsWith("/")) page.meta.permalink = `/${page.meta.permalink}`
+    if (page.meta.permalink.endsWith("/index") && page.meta.permalink.indexOf("index") !== -1) {
       page.meta.permalink = page.meta.permalink.slice(0, -5)
     }
 
@@ -82,7 +84,28 @@ module.exports = async (site, src, urlPrefix) => {
     if (!page.attributes.styleRequires) {
       page.attributes.styleRequires = []
     }
-    return page
+
+    pages.push(page)
+
+    if (!page.meta.permalink.endsWith("/") && typeof page.attributes.anotherUrls !== "object") {
+      page.attributes.anotherUrls = [`${page.meta.permalink}/`]
+    }
+
+    if (typeof page.attributes.anotherUrls === "object" && page.attributes.anotherUrls.length > 0) {
+      for (let u = 0; u < page.attributes.anotherUrls.length; u += 1) {
+        const permalink = page.attributes.anotherUrls[u]
+        pages.push(extend(true, {}, page, {
+          canonical: page.meta.permalink,
+          meta: {
+            permalink,
+            canonicalDirs: page.meta.dirs,
+            dirs: permalink.split("/"),
+            canonicalUrl: page.meta.url,
+            url: url.parse(`${urlPrefix}${permalink}`)
+          }
+        }))
+      }
+    }
   }
 
   for (let p = 0; p < srcs.length; p += 1) {
@@ -90,5 +113,8 @@ module.exports = async (site, src, urlPrefix) => {
       doit(srcs[p], p, srcs, path.parse(site.pages_src.path))
     )
   }
-  return Promise.all(promises).then(r => r.filter(el => el))
+
+  await Promise.all(promises)
+
+  return pages.filter(el => el)
 }

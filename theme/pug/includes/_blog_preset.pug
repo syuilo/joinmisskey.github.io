@@ -3,15 +3,14 @@
     function(el, i, array){
       let elem_time = new Date(el.meta.mtime)
       let page_time = new Date(page.meta.mtime)
-
-      return ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
+      return !el.canonical && ( elem_time.getTime() < page_time.getTime() && el.attributes.layout == page.attributes.layout )
     }
   ), pagesFuture = pages.filter(
     function(el, i, array){
       let elem_time = new Date(el.meta.mtime)
       let page_time = new Date(page.meta.mtime)
 
-      return (elem_time.getTime() > page_time.getTime() && el.attributes.layout == page.attributes.layout )
+      return !el.canonical && (elem_time.getTime() > page_time.getTime() && el.attributes.layout == page.attributes.layout )
     }
   )
   function mapping_pages_time(el, index, array){

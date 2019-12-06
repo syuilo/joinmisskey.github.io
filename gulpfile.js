@@ -351,12 +351,12 @@ gulp.task("pug", async () => {
     if (site.sidebar && sidebarPaths.length > 0) {
       puglocals.sidebarHtml = pug.render(`${base.themePug.script}\n${base.themePug.mixin}\n${sidebarReads[puglocals.sidebarpath]}`, renderBase)
     }
-    const mainHtml = makeHtml(page, renderBase, urlPrefix)
+    const mainHtml = page.canonical ? `This page is moved to <a href="${page.canonical}">${page.canonical}</a>` : makeHtml(page, renderBase, urlPrefix)
 
     const { layout } = page.attributes
 
     puglocals.mainHtml = mainHtml
-    puglocals.headings = regheadings(puglocals.mainHtml)
+    puglocals.headings = page.canonical ? [] : regheadings(puglocals.mainHtml)
 
     const html = (compilers[layout] || compilers.default)({
       filters: pugfilters,
@@ -583,7 +583,7 @@ gulp.task("make-browserconfig", cb => {
 
 
 gulp.task("make-sitemap", cb => {
-  const urls = pages.filter(e => e.meta.locale).map(e => ({
+  const urls = pages.filter(e => !e.canonical && e.meta.locale).map(e => ({
     url: e.meta.permalink,
     links: site.locales.map(lang => ({ lang, url: `/${lang}/${e.meta.dirs.slice(2).join("/")}` }))
   }))
