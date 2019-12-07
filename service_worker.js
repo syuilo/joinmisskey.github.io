@@ -1,22 +1,57 @@
-/* workbox 2019-11-03T03:31:20.620Z */
-
+/* workbox 2019-12-07T09:01:07.648Z */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-self.addEventListener("install", function(event) {
-  self.skipWaiting();
-  self.clients.claim();
-})
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
+workbox.googleAnalytics.initialize();
 
 workbox.routing.registerRoute(
-    /.*.(?:js|css|png|jpeg|jpg|svg|svgz|woff2)/,
-    new workbox.strategies.StaleWhileRevalidate({
-        cacheName: "assets-cache",
-    })
+  /.*\.(?:js|css)/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "assets-cache",
+  })
+);
+
+workbox.routing.registerRoute(
+  /.*(?:googleapis|gstatic)\.com/,
+  new workbox.strategies.StaleWhileRevalidate(),
+);
+
+workbox.routing.registerRoute(
+  /^https:\/\/cdn\.jsdelivr\.net/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'jsdelivr',
+    plugins: [
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200],
+      }),
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 160
+      })
+    ]
+  })
+);
+
+workbox.routing.registerRoute(
+  /\.(?:png|jpg|jpeg|webp|svg|gif)\?v=1.0.0$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new workbox.cacheableResponse.Plugin({
+        statuses: [0, 200],
+      }),
+      new workbox.expiration.Plugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 160
+      })
+    ]
+  })
 );
 workbox.precaching.precacheAndRoute([
     {
-        url: "/offline/",
-        revision: "1572751880620",
+        url: "/offline",
+        revision: "1575709267648",
     }
 ]);
 
@@ -27,7 +62,7 @@ self.addEventListener("fetch", function(event) {
           return response || fetch(event.request);
       })
       .catch(function() {
-          return caches.match("/offline/");
+          return caches.match("/offline");
       })
   );
 });

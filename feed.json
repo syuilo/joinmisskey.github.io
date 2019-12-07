@@ -6,8 +6,19 @@
     "description": "いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）",
     "items": [
         {
-            "id": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/",
-            "url": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/11/23-1-about-jm",
+            "url": "https://join.misskey.page/ja/blog/2019/11/23-1-about-jm?rel=rss",
+            "title": "joinmisskeyのアップデート",
+            "summary": "joinmisskeyを断続的にアップデートし、改良を加えました。",
+            "image": "https://join.misskey.page/files/images/imports/2019/11/marching1.jpg",
+            "date_modified": "2019-11-22T23:05:00.000Z",
+            "author": {
+                "name": "aqz"
+            }
+        },
+        {
+            "id": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500",
+            "url": "https://join.misskey.page/ja/blog/2019/11/01-1-changes-113500?rel=rss",
             "title": "最近の更新 ～11.35.0",
             "summary": "一対一でのトークを連合するように、カスタム絵文字をカテゴリ分け出来るように など",
             "image": "https://join.misskey.page/files/images/imports/2019/11/P_20190812_114755.jpg",
@@ -17,8 +28,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400/",
-            "url": "https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400",
+            "url": "https://join.misskey.page/ja/blog/2019/10/19-2-changes-113400?rel=rss",
             "title": "最近の更新 ～11.34.0",
             "summary": "広告ブロッカーの警告を削除、リアクションピッカーをカスタマイズできるように など",
             "image": "https://join.misskey.page/files/images/imports/2019/10/P_20190812_124323.jpg",
@@ -28,8 +39,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/10/19-1-about-jm/",
-            "url": "https://join.misskey.page/ja/blog/2019/10/19-1-about-jm/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/10/19-1-about-jm",
+            "url": "https://join.misskey.page/ja/blog/2019/10/19-1-about-jm?rel=rss",
             "title": "join.misskey.pageへ移転",
             "summary": "ドメイン「misskey.page」を取得し、URLをjoin.misskey.pageとしました。",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -39,8 +50,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/09/03-1-changes-113104/",
-            "url": "https://join.misskey.page/ja/blog/2019/09/03-1-changes-113104/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/09/03-1-changes-113104",
+            "url": "https://join.misskey.page/ja/blog/2019/09/03-1-changes-113104?rel=rss",
             "title": "最近の更新 ～11.31.4",
             "summary": "誰がリアクションしたかわかるように、メモウィジェットの内容が保存されるように など",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -50,8 +61,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/08/20-1-changes-112900/",
-            "url": "https://join.misskey.page/ja/blog/2019/08/20-1-changes-112900/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/08/20-1-changes-112900",
+            "url": "https://join.misskey.page/ja/blog/2019/08/20-1-changes-112900?rel=rss",
             "title": "最近の更新 ～11.29.0",
             "summary": "ルームの追加など",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -61,8 +72,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/08/17-1-changes-112701/",
-            "url": "https://join.misskey.page/ja/blog/2019/08/17-1-changes-112701/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/08/17-1-changes-112701",
+            "url": "https://join.misskey.page/ja/blog/2019/08/17-1-changes-112701?rel=rss",
             "title": "最近の更新 ～11.27.1",
             "summary": "WebAuthnサポート、削除して編集、通知のフィルタリングの追加など。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -72,8 +83,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/06/11-1-changes-112003/",
-            "url": "https://join.misskey.page/ja/blog/2019/06/11-1-changes-112003/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/06/11-1-changes-112003",
+            "url": "https://join.misskey.page/ja/blog/2019/06/11-1-changes-112003?rel=rss",
             "title": "最近の更新 ～11.20.3",
             "summary": "セキュリティアップデートが含まれます。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -83,10 +94,10 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/06/06-new-wiki/",
-            "url": "https://join.misskey.page/ja/blog/2019/06/06-new-wiki/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/06/06-new-wiki",
+            "url": "https://join.misskey.page/ja/blog/2019/06/06-new-wiki?rel=rss",
             "title": "Misskey Wiki開設",
-            "summary": "Misskey Wikiが開設されました。joinmisskeyのWikiはそちらに移転します。",
+            "summary": "Misskey Wikiが開設されました。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
             "date_modified": "2019-06-05T22:00:00.000Z",
             "author": {
@@ -94,8 +105,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/05/27-1-changes-112000/",
-            "url": "https://join.misskey.page/ja/blog/2019/05/27-1-changes-112000/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/05/27-1-changes-112000",
+            "url": "https://join.misskey.page/ja/blog/2019/05/27-1-changes-112000?rel=rss",
             "title": "最近の更新 ～11.20.0",
             "summary": "公式アカウントフラグの廃止とおすすめアカウント機能の追加 / Misskey Pagesの改良 ほか",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -105,8 +116,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/05/12-0-sticker-saihan/",
-            "url": "https://join.misskey.page/ja/blog/2019/05/12-0-sticker-saihan/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/05/12-0-sticker-saihan",
+            "url": "https://join.misskey.page/ja/blog/2019/05/12-0-sticker-saihan?rel=rss",
             "title": "ステッカー再販",
             "summary": "Misskeyロゴステッカーが再販されます！",
             "image": "https://join.misskey.page/files/images/imports/2018/12/sticker.png",
@@ -116,8 +127,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/05/12-1-changes-111200/",
-            "url": "https://join.misskey.page/ja/blog/2019/05/12-1-changes-111200/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/05/12-1-changes-111200",
+            "url": "https://join.misskey.page/ja/blog/2019/05/12-1-changes-111200?rel=rss",
             "title": "最近の更新 ～11.12.0",
             "summary": "公式アカウントフラグの廃止とおすすめアカウント機能の追加 / Misskey Pagesの改良 ほか",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -127,8 +138,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/05/01-0-changes-110700/",
-            "url": "https://join.misskey.page/ja/blog/2019/05/01-0-changes-110700/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/05/01-0-changes-110700",
+            "url": "https://join.misskey.page/ja/blog/2019/05/01-0-changes-110700?rel=rss",
             "title": "最近の更新 ～11.7.0",
             "summary": "祝 令和改元 新天皇即位 / ページ（Misskey Pages）追加ほか",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -138,8 +149,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/04/15-1-misskey-io-move/",
-            "url": "https://join.misskey.page/ja/blog/2019/04/15-1-misskey-io-move/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/04/15-1-misskey-io-move",
+            "url": "https://join.misskey.page/ja/blog/2019/04/15-1-misskey-io-move?rel=rss",
             "title": "公式インスタンスがmisskey.ioになります",
             "summary": "Misskey史上初の公式インスタンス移転です。Misskey v11リリースに伴い、misskey.xyzからmisskey.ioに引っ越しとなります。",
             "image": "https://join.misskey.page/files/images/imports/2019/04/mkio.png",
@@ -149,8 +160,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12/",
-            "url": "https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12",
+            "url": "https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12?rel=rss",
             "title": "Misskey <<daybreak>> v11.0.0 Released!!",
             "summary": "Misskeyの新しいバージョン「daybreak」がリリースされました。データベースソフトウェアをPostgreSQLに変更しました。",
             "image": "https://join.misskey.page/files/images/imports/2019/04/dbk-lg.png",
@@ -160,8 +171,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/04/14-0-changes/",
-            "url": "https://join.misskey.page/ja/blog/2019/04/14-0-changes/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/04/14-0-changes",
+            "url": "https://join.misskey.page/ja/blog/2019/04/14-0-changes?rel=rss",
             "title": "最近の更新 ～10.100.0",
             "summary": "ドライブのファイル表示の改善など",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -171,8 +182,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/03/20-1-misskey-11-postgre/",
-            "url": "https://join.misskey.page/ja/blog/2019/03/20-1-misskey-11-postgre/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/03/20-1-misskey-11-postgre",
+            "url": "https://join.misskey.page/ja/blog/2019/03/20-1-misskey-11-postgre?rel=rss",
             "title": "Misskey 11? ――Postgre SQL化",
             "summary": "MisskeyのデータベースをPostgreSQLに対応させるプロジェクトが進行中です。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/kyos.jpg",
@@ -182,8 +193,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/03/18-1-changes-customreaction/",
-            "url": "https://join.misskey.page/ja/blog/2019/03/18-1-changes-customreaction/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/03/18-1-changes-customreaction",
+            "url": "https://join.misskey.page/ja/blog/2019/03/18-1-changes-customreaction?rel=rss",
             "title": "最近の更新 ～v10.97.2 リアクション自由化など",
             "summary": "リアクションが自由に、ほか。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/customreact.png",
@@ -193,8 +204,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/",
-            "url": "https://join.misskey.page/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL",
+            "url": "https://join.misskey.page/ja/blog/2019/03/08-3-misskey-xyz-disable-localTL?rel=rss",
             "title": "misskey.ioの直近の変化についてまとめ",
             "summary": "misskey.ioはMisskeyの公式インスタンスですが、ローカルタイムラインが無効になるなど変化がありました。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -204,8 +215,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/03/08-2-about-jm/",
-            "url": "https://join.misskey.page/ja/blog/2019/03/08-2-about-jm/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/03/08-2-about-jm",
+            "url": "https://join.misskey.page/ja/blog/2019/03/08-2-about-jm?rel=rss",
             "title": "joinmisskeyブログの更新についてのおしらせ",
             "summary": "各バージョンの詳細についてはリリースノートをご覧いただくようお願いします。",
             "image": "https://join.misskey.page/files/images/imports/2019/03/misskey-rd-bg-bk.png",
@@ -215,8 +226,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2019/03/08-1-changes/",
-            "url": "https://join.misskey.page/ja/blog/2019/03/08-1-changes/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2019/03/08-1-changes",
+            "url": "https://join.misskey.page/ja/blog/2019/03/08-1-changes?rel=rss",
             "title": "最近の機能追加 - Recently Added & Updated Features",
             "summary": "ここ2か月間のアップデートの情報を一挙に抜粋してご紹介します！",
             "image": "https://join.misskey.page/files/images/imports/2018/11/taka4.jpg",
@@ -226,8 +237,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/31_update10730/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/31_update10730/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/31_update10730",
+            "url": "https://join.misskey.page/ja/blog/2018/12/31_update10730?rel=rss",
             "title": "最近の更新 ～10.73.0",
             "summary": "多くのUIの改良が行われました。",
             "image": "https://join.misskey.page/files/images/imports/2018/11/taka3.jpg",
@@ -237,8 +248,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/28_update10690/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/28_update10690/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/28_update10690",
+            "url": "https://join.misskey.page/ja/blog/2018/12/28_update10690?rel=rss",
             "title": "最近の更新 ～10.69.0",
             "summary": "多くのUIの改良が行われました。",
             "image": "https://join.misskey.page/files/images/imports/2018/11/taka2.jpg",
@@ -248,8 +259,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/23_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/23_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/23_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/12/23_jmupdate?rel=rss",
             "title": "joinmisskeyのRSSのURLが変更になりました",
             "summary": "RSS2, JSON1, Atom1に対応。",
             "image": "https://join.misskey.page/files/images/imports/2018/11/taka1.jpg",
@@ -259,8 +270,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/22_update10661/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/22_update10661/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/22_update10661",
+            "url": "https://join.misskey.page/ja/blog/2018/12/22_update10661?rel=rss",
             "title": "最近の更新 ～10.66.1",
             "summary": "ユーザーのRSSフィードを取得できるように など",
             "image": "https://join.misskey.page/files/images/imports/2018/11/opa.jpg",
@@ -270,8 +281,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/202_update10650r/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/202_update10650r/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/202_update10650r",
+            "url": "https://join.misskey.page/ja/blog/2018/12/202_update10650r?rel=rss",
             "title": "Misskey 10.65.0(正)(続)",
             "summary": "前回の記事の続きですので、前回の記事も合わせてご覧ください。",
             "image": "https://join.misskey.page/files/images/imports/2018/11/jikou.jpg",
@@ -281,8 +292,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/20_update106500/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/20_update106500/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/20_update106500",
+            "url": "https://join.misskey.page/ja/blog/2018/12/20_update106500?rel=rss",
             "title": "最近の更新 ～10.65.0(仮)",
             "summary": "リリースはまだですが、次期バージョンの内容をひとあし先にお伝えします。",
             "image": "https://join.misskey.page/files/images/imports/2018/10/tama.jpg",
@@ -292,8 +303,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/172_update10641/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/172_update10641/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/172_update10641",
+            "url": "https://join.misskey.page/ja/blog/2018/12/172_update10641?rel=rss",
             "title": "Misskey 10.64.1",
             "summary": "notes/deleteにレートリミットが付き、リアクションのアニメーションが追加された",
             "image": "https://join.misskey.page/files/images/imports/2018/10/popcorn.jpg",
@@ -303,8 +314,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/17_update10640/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/17_update10640/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/17_update10640",
+            "url": "https://join.misskey.page/ja/blog/2018/12/17_update10640?rel=rss",
             "title": "Misskey 10.64.0",
             "summary": "検索窓にユーザー名(@username)を入力するとそのユーザーのページに移動するように など",
             "image": "https://join.misskey.page/files/images/imports/2018/10/kankuuJR.jpg",
@@ -314,8 +325,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/13_update10631/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/13_update10631/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/13_update10631",
+            "url": "https://join.misskey.page/ja/blog/2018/12/13_update10631?rel=rss",
             "title": "Misskey 10.63.1",
             "summary": "バグ修正が中心",
             "image": "https://join.misskey.page/files/images/imports/2018/10/kakigoori.jpg",
@@ -325,8 +336,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/11_update10630/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/11_update10630/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/11_update10630",
+            "url": "https://join.misskey.page/ja/blog/2018/12/11_update10630?rel=rss",
             "title": "最近の更新 ～10.63.0",
             "summary": "タグ設定の改良、404エラーページの追加、多くのリファクタリング ほか",
             "image": "https://join.misskey.page/files/images/imports/2018/10/kaisatsu.jpg",
@@ -336,8 +347,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/06_update10620/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/06_update10620/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/06_update10620",
+            "url": "https://join.misskey.page/ja/blog/2018/12/06_update10620?rel=rss",
             "title": "Misskey 10.62.0",
             "summary": "MFM斜体・小さい文字構文追加、デッキのカラムの幅を変えられるように など",
             "image": "https://join.misskey.page/files/images/imports/2018/10/international.jpg",
@@ -347,8 +358,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/04_update10610/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/04_update10610/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/04_update10610",
+            "url": "https://join.misskey.page/ja/blog/2018/12/04_update10610?rel=rss",
             "title": "Misskey 10.61.0",
             "summary": "MFM 打消し線構文追加",
             "image": "https://join.misskey.page/files/images/imports/2018/10/frankfurt.jpg",
@@ -358,8 +369,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/03_update10604/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/03_update10604/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/03_update10604",
+            "url": "https://join.misskey.page/ja/blog/2018/12/03_update10604?rel=rss",
             "title": "最近の更新 ～10.60.4",
             "summary": "特に驚くような機能はありません。",
             "image": "https://join.misskey.page/files/images/imports/2018/10/crepe.jpg",
@@ -369,8 +380,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/024_update10600/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/024_update10600/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/024_update10600",
+            "url": "https://join.misskey.page/ja/blog/2018/12/024_update10600?rel=rss",
             "title": "最近の更新 ～10.60.0",
             "summary": "MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など",
             "image": "https://join.misskey.page/files/images/imports/2018/10/closed.jpg",
@@ -380,8 +391,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/023_sticker/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/023_sticker/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/023_sticker",
+            "url": "https://join.misskey.page/ja/blog/2018/12/023_sticker?rel=rss",
             "title": "Misskeyロゴステッカー(第一弾)販売開始",
             "summary": "Misskey Cafe Storeより、Misskeyロゴステッカーが販売開始されます",
             "image": "https://join.misskey.page/files/images/imports/2018/12/sticker.png",
@@ -391,8 +402,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/022_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/022_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/022_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss",
             "title": "joinmisskey更新",
             "summary": "スクリプトの改良",
             "image": "https://join.misskey.page/files/images/imports/2018/09/wet.jpg",
@@ -402,8 +413,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/12/02_update10593/",
-            "url": "https://join.misskey.page/ja/blog/2018/12/02_update10593/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/12/02_update10593",
+            "url": "https://join.misskey.page/ja/blog/2018/12/02_update10593?rel=rss",
             "title": "最近の更新 ～10.59.3",
             "summary": "MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/kwsk2.jpg",
@@ -413,8 +424,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/25_update1057/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/25_update1057/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/25_update1057",
+            "url": "https://join.misskey.page/ja/blog/2018/11/25_update1057?rel=rss",
             "title": "最近の更新 ～10.57.2",
             "summary": "GitHub NotifierがMisskeyリポジトリから分離される など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/kwsk.jpg",
@@ -424,8 +435,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/24_update1057/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/24_update1057/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/24_update1057",
+            "url": "https://join.misskey.page/ja/blog/2018/11/24_update1057?rel=rss",
             "title": "Misskey 10.57.0",
             "summary": "リモートにも引用が伝達されるように など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/highway.jpg",
@@ -435,8 +446,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/22_update10562/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/22_update10562/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/22_update10562",
+            "url": "https://join.misskey.page/ja/blog/2018/11/22_update10562?rel=rss",
             "title": "最近の更新 ～10.56.2",
             "summary": "入れ子のMFMも認識するように など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/bananamocchi.jpg",
@@ -446,8 +457,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/20_update10550/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/20_update10550/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/20_update10550",
+            "url": "https://join.misskey.page/ja/blog/2018/11/20_update10550?rel=rss",
             "title": "最近の更新 ～10.55.0",
             "summary": "モデレーターやDiscord連携の追加 など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/antainer.jpg",
@@ -457,8 +468,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/14_update10494/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/14_update10494/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/14_update10494",
+            "url": "https://join.misskey.page/ja/blog/2018/11/14_update10494?rel=rss",
             "title": "最近の更新 ～10.49.6",
             "summary": "ワードミュートや絵文字ピッカーの追加 など",
             "image": "https://join.misskey.page/files/images/imports/2018/09/AEFDD8F1-D7B7-425F-B24B-1802CF8CDFB9.jpg",
@@ -468,8 +479,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/10_2_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/10_2_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/10_2_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/11/10_2_jmupdate?rel=rss",
             "title": "joinmisskey更新",
             "summary": "インスタンスリストの並べ替えを計算で行うように",
             "image": "https://join.misskey.page/files/images/imports/2018/08/photographers.jpg",
@@ -479,8 +490,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/10_update10462/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/10_update10462/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/10_update10462",
+            "url": "https://join.misskey.page/ja/blog/2018/11/10_update10462?rel=rss",
             "title": "最近の更新 ～10.46.2",
             "summary": "モバイルで画像をダイアログで表示するように など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/keibajoato.jpg",
@@ -490,8 +501,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/05_3_update10390/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/05_3_update10390/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/05_3_update10390",
+            "url": "https://join.misskey.page/ja/blog/2018/11/05_3_update10390?rel=rss",
             "title": "最近の更新 ～10.39.0",
             "summary": "投稿本文がTwEmojiで表示されるように など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/tanbo.jpg",
@@ -501,8 +512,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/05_2_update10386/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/05_2_update10386/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/05_2_update10386",
+            "url": "https://join.misskey.page/ja/blog/2018/11/05_2_update10386?rel=rss",
             "title": "最近の更新 ～10.38.6",
             "summary": "絵文字登録フォームに便利情報を表示 など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/bus.jpg",
@@ -512,8 +523,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/05_update10385/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/05_update10385/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/05_update10385",
+            "url": "https://join.misskey.page/ja/blog/2018/11/05_update10385?rel=rss",
             "title": "最近の更新 ～10.38.5",
             "summary": "GitHubと連携できるようになった など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/bus.jpg",
@@ -523,8 +534,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/04_3_update10383/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/04_3_update10383/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/04_3_update10383",
+            "url": "https://join.misskey.page/ja/blog/2018/11/04_3_update10383?rel=rss",
             "title": "最近の更新 ～10.38.3",
             "summary": "スマホ/タブレットからでも管理者ページを使えるように など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/bus.jpg",
@@ -534,8 +545,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/04_2_jm/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/04_2_jm/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/04_2_jm",
+            "url": "https://join.misskey.page/ja/blog/2018/11/04_2_jm?rel=rss",
             "title": "蛇足",
             "summary": "push通知のテストがてら何か書きます",
             "image": "https://join.misskey.page/files/images/icons/icon.png",
@@ -545,8 +556,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/04_update10380/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/04_update10380/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/04_update10380",
+            "url": "https://join.misskey.page/ja/blog/2018/11/04_update10380?rel=rss",
             "title": "最近の更新 ～10.38.1",
             "summary": "カスタム絵文字がリモートと共有されるようになったり、管理画面がリニューアルされたりなど",
             "image": "https://join.misskey.page/files/images/imports/2018/08/metro13000.jpg",
@@ -556,8 +567,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/11/01_update10370/",
-            "url": "https://join.misskey.page/ja/blog/2018/11/01_update10370/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/11/01_update10370",
+            "url": "https://join.misskey.page/ja/blog/2018/11/01_update10370?rel=rss",
             "title": "最近の更新 ～10.37.0",
             "summary": "カスタム絵文字機能追加",
             "image": "https://join.misskey.page/files/images/imports/2018/08/yakatabune2.jpg",
@@ -567,8 +578,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/10/29_update103400/",
-            "url": "https://join.misskey.page/ja/blog/2018/10/29_update103400/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/10/29_update103400",
+            "url": "https://join.misskey.page/ja/blog/2018/10/29_update103400?rel=rss",
             "title": "Misskey 10.34.0",
             "summary": "ユーザーブロック機能追加",
             "image": "https://join.misskey.page/files/images/imports/2018/08/yakatabune1.jpg",
@@ -578,8 +589,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/10/28_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/10/28_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/10/28_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/10/28_jmupdate?rel=rss",
             "title": "joinmisskey更新",
             "summary": "見た目を新しいMisskeyと同じにしたり、RSSフィードを設置したりしました。",
             "image": "https://join.misskey.page/files/images/imports/2018/08/resortview.jpg",
@@ -589,8 +600,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/10/27_update103/",
-            "url": "https://join.misskey.page/ja/blog/2018/10/27_update103/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/10/27_update103",
+            "url": "https://join.misskey.page/ja/blog/2018/10/27_update103?rel=rss",
             "title": "最近の更新 ～10.33.0",
             "summary": "デッキ及び統計を中心に、様々な機能追加と不具合修正が行われました。",
             "image": "https://join.misskey.page/files/images/imports/2018/08/115.jpg",
@@ -600,8 +611,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/10/13_update10/",
-            "url": "https://join.misskey.page/ja/blog/2018/10/13_update10/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/10/13_update10",
+            "url": "https://join.misskey.page/ja/blog/2018/10/13_update10?rel=rss",
             "title": "最近の更新 ～10.11.1",
             "summary": "パフォーマンスの向上やサーバー設定の改良がメインです。",
             "image": "https://join.misskey.page/files/images/imports/2018/08/kiha110-3.jpg",
@@ -611,8 +622,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/10/05_mias/",
-            "url": "https://join.misskey.page/ja/blog/2018/10/05_mias/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/10/05_mias",
+            "url": "https://join.misskey.page/ja/blog/2018/10/05_mias?rel=rss",
             "title": "Misskey Assets Store公開",
             "summary": "Arksoftより、Misskeyテーマを手軽に共有できるサービスが公開されました。",
             "image": "https://join.misskey.page/files/images/imports/2018/08/yurikamome.jpg",
@@ -622,8 +633,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/09/29_update8630/",
-            "url": "https://join.misskey.page/ja/blog/2018/09/29_update8630/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/09/29_update8630",
+            "url": "https://join.misskey.page/ja/blog/2018/09/29_update8630?rel=rss",
             "title": "最近の更新 ～8.63.0",
             "image": "https://join.misskey.page/files/images/imports/2018/08/hijiriishi.jpg",
             "date_modified": "2018-09-28T21:30:00.000Z",
@@ -632,8 +643,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/09/09_update8311/",
-            "url": "https://join.misskey.page/ja/blog/2018/09/09_update8311/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/09/09_update8311",
+            "url": "https://join.misskey.page/ja/blog/2018/09/09_update8311?rel=rss",
             "title": "最近の更新 ～8.33.1",
             "image": "https://join.misskey.page/files/images/imports/2018/08/bigsight-p.jpg",
             "date_modified": "2018-09-09T14:59:00.000Z",
@@ -642,8 +653,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/09/02b_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/09/02b_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/09/02b_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/09/02b_jmupdate?rel=rss",
             "title": "joinmisskey更新",
             "image": "https://join.misskey.page/files/images/imports/2018/08/haikyu.jpg",
             "date_modified": "2018-09-02T07:45:01.000Z",
@@ -652,8 +663,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/09/02a_update8211/",
-            "url": "https://join.misskey.page/ja/blog/2018/09/02a_update8211/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/09/02a_update8211",
+            "url": "https://join.misskey.page/ja/blog/2018/09/02a_update8211?rel=rss",
             "title": "最近の更新 ～8.21.1",
             "image": "https://join.misskey.page/files/images/imports/2018/08/kiha110-2.jpg",
             "date_modified": "2018-09-02T07:45:00.000Z",
@@ -662,8 +673,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/26_update8-14-0/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/26_update8-14-0/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/26_update8-14-0",
+            "url": "https://join.misskey.page/ja/blog/2018/08/26_update8-14-0?rel=rss",
             "title": "最近の更新 ～8.14.0",
             "summary": "Pleromaに繋がらない問題の修正、他バグ修正など",
             "image": "https://join.misskey.page/files/images/imports/2018/08/ana.jpg",
@@ -673,8 +684,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/24b_update8-5-0/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/24b_update8-5-0/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/24b_update8-5-0",
+            "url": "https://join.misskey.page/ja/blog/2018/08/24b_update8-5-0?rel=rss",
             "title": "最近の更新 ～8.5.1",
             "summary": "特に目立った変更はないです",
             "image": "https://join.misskey.page/files/images/imports/2018/08/home.jpg",
@@ -684,8 +695,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/24a_jmupdate/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/24a_jmupdate/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/24a_jmupdate",
+            "url": "https://join.misskey.page/ja/blog/2018/08/24a_jmupdate?rel=rss",
             "title": "joinmisskey更新",
             "image": "https://join.misskey.page/files/images/imports/2018/08/11.jpg",
             "date_modified": "2018-08-23T22:00:01.000Z",
@@ -694,8 +705,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/24_update8-3-1/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/24_update8-3-1/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/24_update8-3-1",
+            "url": "https://join.misskey.page/ja/blog/2018/08/24_update8-3-1?rel=rss",
             "title": "最近の更新 ～8.3.1",
             "summary": "特に目立った変更はないです",
             "image": "https://join.misskey.page/files/images/imports/2018/08/e7.jpg",
@@ -705,8 +716,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/22_update7-3-0/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/22_update7-3-0/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/22_update7-3-0",
+            "url": "https://join.misskey.page/ja/blog/2018/08/22_update7-3-0?rel=rss",
             "title": "最近の更新 ～7.3.0",
             "summary": "Catがリモートに伝播したりなど",
             "image": "https://join.misskey.page/files/images/imports/2018/07/akibabara.jpg",
@@ -716,8 +727,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/20_2_ddos/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/20_2_ddos/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/20_2_ddos",
+            "url": "https://join.misskey.page/ja/blog/2018/08/20_2_ddos?rel=rss",
             "title": "18/8/20 misskey.xyzサービス停止について",
             "summary": "DDoS攻撃によるサービス停止と新環境について",
             "image": "https://join.misskey.page/files/images/imports/2018/07/omachikudasai.jpg",
@@ -727,8 +738,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/20_1_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/20_1_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/20_1_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/08/20_1_latestrelease?rel=rss",
             "title": "最近の更新 ～7.1.1",
             "summary": "バグ修正など",
             "image": "https://join.misskey.page/files/images/imports/2018/07/hirasawa.jpg",
@@ -738,8 +749,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/18_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/18_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/18_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/08/18_latestrelease?rel=rss",
             "title": "最近の更新 ～6.4.1",
             "summary": "バグ修正など",
             "image": "https://join.misskey.page/files/images/imports/2018/07/station.jpg",
@@ -749,8 +760,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/17_2_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/17_2_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/17_2_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/08/17_2_latestrelease?rel=rss",
             "title": "最近の更新 ～6.2.0",
             "summary": "いろいろ更新しました。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/flower.jpg",
@@ -760,8 +771,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/17_1_misskeyisnotmastodon/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/17_1_misskeyisnotmastodon/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/17_1_misskeyisnotmastodon",
+            "url": "https://join.misskey.page/ja/blog/2018/08/17_1_misskeyisnotmastodon?rel=rss",
             "title": "🤜MISSKEY IS NOT MASTODON🤛",
             "summary": "MisskeyはMastodonではありません。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/sky.jpg",
@@ -771,8 +782,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/12_3_hostdon/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/12_3_hostdon/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/12_3_hostdon",
+            "url": "https://join.misskey.page/ja/blog/2018/08/12_3_hostdon?rel=rss",
             "title": "Misskeyの無料ホスティング(β)",
             "summary": "MastodonホスティングサービスのHostodonが、Hostdon Beta Program 第一弾として、Misskeyの無料ホスティングを始めます。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/fence.jpg",
@@ -782,8 +793,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/12_2_joinmisskey_update/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/12_2_joinmisskey_update/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/12_2_joinmisskey_update",
+            "url": "https://join.misskey.page/ja/blog/2018/08/12_2_joinmisskey_update?rel=rss",
             "title": "joinmisskeyを改良しました",
             "summary": "このサイトをもう少しいい感じにしました。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/manhole.jpg",
@@ -793,8 +804,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/08/12_1_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/08/12_1_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/08/12_1_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/08/12_1_latestrelease?rel=rss",
             "title": "最近の更新😇 (H30/8/12) ～5.22.1",
             "summary": "misskey.io内ではコミケの話はほとんどないので、Misskeyの薄い本は当分の間出版されないかもしれません。最近の更新をお知らせします。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/denchu.jpg",
@@ -804,8 +815,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/07/29_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/07/29_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/07/29_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/07/29_latestrelease?rel=rss",
             "title": "最近の更新 (H30/7/29)",
             "summary": "異例の台風に襲われています。Misskeyの直近の更新をお知らせします。ソーシャルタイムライン、サーバーの管理・導入性の向上など。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/e2337000.jpg",
@@ -815,8 +826,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/07/10_latestrelease/",
-            "url": "https://join.misskey.page/ja/blog/2018/07/10_latestrelease/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/07/10_latestrelease",
+            "url": "https://join.misskey.page/ja/blog/2018/07/10_latestrelease?rel=rss",
             "title": "最近の更新 (H30/7/10)",
             "summary": "暑くなってきました……。Misskeyの直近の更新をお知らせします。検索機能が充実しました。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/e235.jpg",
@@ -826,8 +837,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/07/10_hello/",
-            "url": "https://join.misskey.page/ja/blog/2018/07/10_hello/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/07/10_hello",
+            "url": "https://join.misskey.page/ja/blog/2018/07/10_hello?rel=rss",
             "title": "「Misskeyをはじめよう」公開！",
             "summary": "joinmastodonなどに倣って、joinmisskeyにあたるものを公開しました。",
             "image": "https://join.misskey.page/files/images/imports/2018/07/akibabara.jpg",
@@ -837,8 +848,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/06/06/",
-            "url": "https://join.misskey.page/ja/blog/2018/06/06/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/06/06",
+            "url": "https://join.misskey.page/ja/blog/2018/06/06?rel=rss",
             "title": "ChangeLog ～2.26.2",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -848,8 +859,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/05/27/",
-            "url": "https://join.misskey.page/ja/blog/2018/05/27/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/05/27",
+            "url": "https://join.misskey.page/ja/blog/2018/05/27?rel=rss",
             "title": "ChangeLog ～2.18.0",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -859,8 +870,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/05/21/",
-            "url": "https://join.misskey.page/ja/blog/2018/05/21/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/05/21",
+            "url": "https://join.misskey.page/ja/blog/2018/05/21?rel=rss",
             "title": "ChangeLog ～2.15.0",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -870,8 +881,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/04/22/",
-            "url": "https://join.misskey.page/ja/blog/2018/04/22/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/04/22",
+            "url": "https://join.misskey.page/ja/blog/2018/04/22?rel=rss",
             "title": "ChangeLog ～0.0.5089",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -881,8 +892,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/04/21/",
-            "url": "https://join.misskey.page/ja/blog/2018/04/21/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/04/21",
+            "url": "https://join.misskey.page/ja/blog/2018/04/21?rel=rss",
             "title": "ChangeLog ～0.0.5064",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -892,8 +903,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/04/16/",
-            "url": "https://join.misskey.page/ja/blog/2018/04/16/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/04/16",
+            "url": "https://join.misskey.page/ja/blog/2018/04/16?rel=rss",
             "title": "ChangeLog: nighthike",
             "summary": "nighthike初の更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -903,8 +914,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/03/28_2_nighthike/",
-            "url": "https://join.misskey.page/ja/blog/2018/03/28_2_nighthike/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/03/28_2_nighthike",
+            "url": "https://join.misskey.page/ja/blog/2018/03/28_2_nighthike?rel=rss",
             "title": "nighthikeにむけて",
             "summary": "Misskeyは次期バージョン「nighthike」に移行します。",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -914,8 +925,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/03/28_1/",
-            "url": "https://join.misskey.page/ja/blog/2018/03/28_1/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/03/28_1",
+            "url": "https://join.misskey.page/ja/blog/2018/03/28_1?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -925,8 +936,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2018/03/16/",
-            "url": "https://join.misskey.page/ja/blog/2018/03/16/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2018/03/16",
+            "url": "https://join.misskey.page/ja/blog/2018/03/16?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -936,8 +947,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/12/16/",
-            "url": "https://join.misskey.page/ja/blog/2017/12/16/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/12/16",
+            "url": "https://join.misskey.page/ja/blog/2017/12/16?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -947,8 +958,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/11/08/",
-            "url": "https://join.misskey.page/ja/blog/2017/11/08/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/11/08",
+            "url": "https://join.misskey.page/ja/blog/2017/11/08?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -958,8 +969,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/09/08/",
-            "url": "https://join.misskey.page/ja/blog/2017/09/08/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/09/08",
+            "url": "https://join.misskey.page/ja/blog/2017/09/08?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -969,8 +980,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/08/30/",
-            "url": "https://join.misskey.page/ja/blog/2017/08/30/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/08/30",
+            "url": "https://join.misskey.page/ja/blog/2017/08/30?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -980,8 +991,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/08/29/",
-            "url": "https://join.misskey.page/ja/blog/2017/08/29/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/08/29",
+            "url": "https://join.misskey.page/ja/blog/2017/08/29?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -991,8 +1002,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/08/24/",
-            "url": "https://join.misskey.page/ja/blog/2017/08/24/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/08/24",
+            "url": "https://join.misskey.page/ja/blog/2017/08/24?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -1002,8 +1013,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/08/12/",
-            "url": "https://join.misskey.page/ja/blog/2017/08/12/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/08/12",
+            "url": "https://join.misskey.page/ja/blog/2017/08/12?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
@@ -1013,8 +1024,8 @@
             }
         },
         {
-            "id": "https://join.misskey.page/ja/blog/2017/08/11/",
-            "url": "https://join.misskey.page/ja/blog/2017/08/11/?rel=rss",
+            "id": "https://join.misskey.page/ja/blog/2017/08/11",
+            "url": "https://join.misskey.page/ja/blog/2017/08/11?rel=rss",
             "title": "ChangeLog",
             "summary": "更新情報",
             "image": "https://join.misskey.page/files/images/imports/2019/10/thumb.png",
