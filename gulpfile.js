@@ -373,7 +373,7 @@ gulp.task("pug", async () => {
      *                            AMP処理部
      *                                                                  */
 
-    if (page.attributes.amp) {
+    if (!page.canonical && page.attributes.amp) {
       puglocals.mainHtml = toamp(puglocals.mainHtml, urlPrefix)
       puglocals.isAmp = true
       const ahtml = (compilers[`amp_${layout}`] || compilers.amp_default)({
