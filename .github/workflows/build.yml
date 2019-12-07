@@ -34,6 +34,7 @@ jobs:
         echo "COMMIT MSG: ${{ github.event.head_commit.message }}"
     - name: Git init
       run: |
+        echo "${{secrets.LB_TOKEN}}"
         git init
         git remote add origin https://luckybeast:${{ secrets.LB_TOKEN }}@github.com/joinmisskey/joinmisskey.github.io
         git config --global user.name "luckybeast"
