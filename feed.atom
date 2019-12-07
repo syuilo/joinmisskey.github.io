@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-12-07T09:39:56.762Z</updated>
+    <updated>2019-12-07T09:46:04.861Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://join.misskey.page"/>
     <link rel="self" href="https://join.misskey.page/feed.atom"/>
@@ -178,11 +178,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[最近の更新 ～10.100.0]]></title>
-        <id>https://join.misskey.page/ja/blog/2019/04/14-0-changes</id>
-        <link href="https://join.misskey.page/ja/blog/2019/04/14-0-changes?rel=rss"/>
+        <title type="html"><![CDATA[Misskey <<daybreak>> v11.0.0 Released!!]]></title>
+        <id>https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12</id>
+        <link href="https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12?rel=rss"/>
         <updated>2019-04-14T14:00:00.000Z</updated>
-        <summary type="html"><![CDATA[ドライブのファイル表示の改善など]]></summary>
+        <summary type="html"><![CDATA[Misskeyの新しいバージョン「daybreak」がリリースされました。データベースソフトウェアをPostgreSQLに変更しました。]]></summary>
         <author>
             <name>aqz</name>
             <email/>
@@ -190,11 +190,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Misskey <<daybreak>> v11.0.0 Released!!]]></title>
-        <id>https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12</id>
-        <link href="https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12?rel=rss"/>
+        <title type="html"><![CDATA[最近の更新 ～10.100.0]]></title>
+        <id>https://join.misskey.page/ja/blog/2019/04/14-0-changes</id>
+        <link href="https://join.misskey.page/ja/blog/2019/04/14-0-changes?rel=rss"/>
         <updated>2019-04-14T14:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Misskeyの新しいバージョン「daybreak」がリリースされました。データベースソフトウェアをPostgreSQLに変更しました。]]></summary>
+        <summary type="html"><![CDATA[ドライブのファイル表示の改善など]]></summary>
         <author>
             <name>aqz</name>
             <email/>
@@ -442,11 +442,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[joinmisskey更新]]></title>
-        <id>https://join.misskey.page/ja/blog/2018/12/022_jmupdate</id>
-        <link href="https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss"/>
+        <title type="html"><![CDATA[最近の更新 ～10.59.3]]></title>
+        <id>https://join.misskey.page/ja/blog/2018/12/02_update10593</id>
+        <link href="https://join.misskey.page/ja/blog/2018/12/02_update10593?rel=rss"/>
         <updated>2018-12-01T18:55:00.000Z</updated>
-        <summary type="html"><![CDATA[スクリプトの改良]]></summary>
+        <summary type="html"><![CDATA[MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など]]></summary>
         <author>
             <name>aqz</name>
             <email/>
@@ -454,11 +454,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[最近の更新 ～10.59.3]]></title>
-        <id>https://join.misskey.page/ja/blog/2018/12/02_update10593</id>
-        <link href="https://join.misskey.page/ja/blog/2018/12/02_update10593?rel=rss"/>
+        <title type="html"><![CDATA[joinmisskey更新]]></title>
+        <id>https://join.misskey.page/ja/blog/2018/12/022_jmupdate</id>
+        <link href="https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss"/>
         <updated>2018-12-01T18:55:00.000Z</updated>
-        <summary type="html"><![CDATA[MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など]]></summary>
+        <summary type="html"><![CDATA[スクリプトの改良]]></summary>
         <author>
             <name>aqz</name>
             <email/>
