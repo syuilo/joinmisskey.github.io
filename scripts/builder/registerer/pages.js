@@ -20,7 +20,7 @@ module.exports = async (site, src, urlPrefix) => {
     let page = {}
     const srcp = path.parse(val)
 
-    if (srcp.name === "sidebar") return false // 名前がsidebarのとき弾く
+    if (srcp.name === "sidebar") return // 名前がsidebarのとき弾く
     let subdir = srcp.dir.replace(srcpath.base, "")
     if (subdir.indexOf("/") === 0) subdir = subdir.slice(1)
     if (!subdir) subdir = ""
@@ -116,5 +116,5 @@ module.exports = async (site, src, urlPrefix) => {
 
   await Promise.all(promises)
 
-  return pages.filter(el => el)
+  return pages
 }
