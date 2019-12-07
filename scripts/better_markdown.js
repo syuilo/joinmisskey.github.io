@@ -45,7 +45,7 @@ module.exports = (htm, urlprefix, image_compressing_strategy_version) => {
         if ($(el).is("img[src^=\"files/\"]")) return `/${$(el).attr("src")}${suf}`
         return null
       })()
-      if (imgurl && imgurl.match(`png${suf}$|jpg${suf}$|jpeg${suf}$|gif${suf}$|webp${suf}$`)) {
+      if (imgurl && imgurl.match(`png${suf}$|jpg${suf}$|jpeg${suf}$|gif${suf}$|webp${suf}$`.replace("?", "\\?"))) {
         const iu = path.parse(imgurl)
         const sizes = "calc(100vw - 30px), (min-width: 576px) 510px, (min-width: 768px) 40em"
         return `<picture><source srcset="${urlprefix}${iu.dir}/${iu.name}.360.webp${suf} 360w, ${urlprefix}${iu.dir}/${iu.name}.720.webp${suf} 720w, ${urlprefix}${iu.dir}/${iu.name}.webp${suf} 1200w" type="image/webp" sizes="${sizes}"><source srcset="${urlprefix}${iu.dir}/${iu.name}.360${iu.ext}${suf} 360w, ${urlprefix}${iu.dir}/${iu.name}.720${iu.ext}${suf} 720w, ${urlprefix}${iu.dir}/${iu.base}${suf} 1200w" sizes="${sizes}">${$.html($(el))}</picture>`
