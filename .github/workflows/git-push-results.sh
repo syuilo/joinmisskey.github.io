@@ -9,6 +9,3 @@ git add --all
 git commit -a -m "auto-built from $GITHUB_SHA"
 git push --force-with-lease origin dist
 cd ..
-git add --all
-git commit -a -m "auto-built @$GITHUB_SHA"
-git push origin src
