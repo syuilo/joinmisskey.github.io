@@ -351,7 +351,7 @@ gulp.task("pug", async () => {
     if (site.sidebar && sidebarPaths.length > 0) {
       puglocals.sidebarHtml = pug.render(`${base.themePug.script}\n${base.themePug.mixin}\n${sidebarReads[puglocals.sidebarpath]}`, renderBase)
     }
-    const mainHtml = page.canonical ? `This page is moved to <a href="${page.canonical}">${page.canonical}</a>` : makeHtml(page, renderBase, urlPrefix)
+    const mainHtml = page.canonical ? `This page has been moved to <a href="${page.canonical}">${page.canonical}</a>` : makeHtml(page, renderBase, urlPrefix)
 
     const { layout } = page.attributes
 
@@ -374,7 +374,7 @@ gulp.task("pug", async () => {
      *                                                                  */
 
     if (!page.canonical && page.attributes.amp) {
-      puglocals.mainHtml = toamp(puglocals.mainHtml, urlPrefix)
+      puglocals.mainHtml = page.canonical ? puglocals.mainHtml : toamp(puglocals.mainHtml, urlPrefix)
       puglocals.isAmp = true
       const ahtml = (compilers[`amp_${layout}`] || compilers.amp_default)({
         filters: pugfilters,
