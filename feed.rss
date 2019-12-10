@@ -4,7 +4,7 @@
         <title>Misskeyをはじめよう</title>
         <link>https://join.misskey.page</link>
         <description>いつまでも進化する、洗練されたマイクロブログSNS Misskey（ミスキー）</description>
-        <lastBuildDate>Tue, 10 Dec 2019 02:35:42 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Dec 2019 08:35:48 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>© Misskey</copyright>
@@ -298,20 +298,20 @@
             <enclosure url="https://join.misskey.page/files/images/imports/2018/12/sticker.png"/>
         </item>
         <item>
-            <title><![CDATA[joinmisskey更新]]></title>
-            <link>https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss</link>
-            <guid>https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss</guid>
-            <pubDate>Sat, 01 Dec 2018 18:55:00 GMT</pubDate>
-            <description><![CDATA[スクリプトの改良]]></description>
-            <enclosure url="https://join.misskey.page/files/images/imports/2018/09/wet.jpg"/>
-        </item>
-        <item>
             <title><![CDATA[最近の更新 ～10.59.3]]></title>
             <link>https://join.misskey.page/ja/blog/2018/12/02_update10593?rel=rss</link>
             <guid>https://join.misskey.page/ja/blog/2018/12/02_update10593?rel=rss</guid>
             <pubDate>Sat, 01 Dec 2018 18:55:00 GMT</pubDate>
             <description><![CDATA[MFM中央揃え構文の追加やサーバーで表示に最適な画像を生成するように など]]></description>
             <enclosure url="https://join.misskey.page/files/images/imports/2018/09/kwsk2.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[joinmisskey更新]]></title>
+            <link>https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss</link>
+            <guid>https://join.misskey.page/ja/blog/2018/12/022_jmupdate?rel=rss</guid>
+            <pubDate>Sat, 01 Dec 2018 18:55:00 GMT</pubDate>
+            <description><![CDATA[スクリプトの改良]]></description>
+            <enclosure url="https://join.misskey.page/files/images/imports/2018/09/wet.jpg"/>
         </item>
         <item>
             <title><![CDATA[最近の更新 ～10.57.2]]></title>
