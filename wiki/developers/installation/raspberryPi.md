@@ -1,5 +1,5 @@
 ---
-title: Ubuntu版Misskeyインストール方法詳説
+title: Raspberry Pi版Misskeyインストール方法詳説
 title-breadcrumb: Raspberry Pi
 description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
 layout: wiki
