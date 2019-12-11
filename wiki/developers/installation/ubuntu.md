@@ -117,17 +117,16 @@ psqlを起動。
 sudo -u postgres psql
 ```
 
-ユーザーを作成。ユーザー名を`misskey`、パスワードを`hoge`としている。  
-当然ながら、パスワードは`hoge`では不適切であるから自分で考えて設定すること。
+postgresユーザーのパスワードを変更する。ここでは`hoge`としているが、当然ながら自分で考えて設定すること。
 
 ```sql
-create role misskey LOGIN CREATEDB PASSWORD 'hoge';
+alter role postgres with password 'hoge';
 ```
 
-データベースを作成。データベース名を`mk1`、オーナーを`misskey`としている。
+データベースを作成。データベース名を`mk1`としている。
 
 ```sql
-create database mk1 owner misskey;
+create database mk1;
 ```
 
 ### Redis
@@ -232,7 +231,7 @@ mkdir /etc/cloudflare
 nano /etc/cloudflare/cloudflare.ini
 ```
 
-`dns_cloudflare_email`（下の例では`hoge@fuga.foo`）にはCloudFlareで登録しているメールアドレスを設定する。
+`dns_cloudflare_email`（下の例では`bar@fuga.foo`）にはCloudFlareで登録しているメールアドレスを設定する。
 
 `dns_cloudflare_api_key`（下の例の`xxx...`）は、次の手順で取得できる。
 
@@ -244,7 +243,7 @@ nano /etc/cloudflare/cloudflare.ini
 6. パスワードを入力しreCAPTCHAを解除、Viewを選択
 
 ```ini
-dns_cloudflare_email = hoge@fuga.foo
+dns_cloudflare_email = bar@fuga.foo
 dns_cloudflare_api_key = xxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
@@ -315,9 +314,9 @@ port: 3000
 db:
   host: localhost
   port: 5432
-  db  : mk1     # 〇 PostgreSQLのデータベース名
-  user: misskey # 〇 PostgreSQLのユーザー名
-  pass: hoge    # ● PostgreSQLのパスワード
+  db  : mk1      # 〇 PostgreSQLのデータベース名
+  user: postgres # 〇 PostgreSQLのユーザー名
+  pass: hoge     # ● PostgreSQLのパスワード
 
 # 　 Redisの設定。
 redis:
