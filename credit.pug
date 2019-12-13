@@ -45,7 +45,7 @@ styleRequires: ["credit"]
               div(id=`patrons_list_${patrons.length - 1 - lv}`).patrons-list-tier
                 h3.text-center.pt-5.pb-2
                   =!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title
-                  span.small.font-weight-light (#{amountCents > 0 ? `$${tier.amountCents}～, ` : ""}#{tier.members.length}人)
+                  span.small.font-weight-light (#{amountCents > 0 ? `$${tier.amountCents}/月, ` : ""}#{tier.members.length}人)
                 div.patrons-list-members.d-flex.flex-wrap.justify-content-center
                   each patron in tier.members
                     a(href=patron.attributes.url target="_blank" rel="noopener" title=patron.attributes.full_name).person
