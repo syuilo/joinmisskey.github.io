@@ -198,12 +198,12 @@ module.exports = async (site, keys, tempDir, instances) => {
       {
         title: "the Others",
         titles: site.i18n.the_other_backers,
-        lv: 0,
+        amountCents: 0,
         members: []
       }
     )
 
-    let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Bmember%5D=currently_entitled_amount_cents&fields%5Btier%5D=title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
+    let patreonUrl = `https://www.patreon.com/api/oauth2/v2/campaigns/${keys.patreon.campaign}/members?include=currently_entitled_tiers,user&fields%5Bmember%5D=currently_entitled_amount_cents&fields%5Btier%5D=amount_cents,title&fields%5Buser%5D=full_name,thumb_url,url,hide_pledges`
     while (patreonUrl) {
       // eslint-disable-next-line no-await-in-loop
       const n = await getPatrons(patreonUrl, keys)
@@ -213,36 +213,50 @@ module.exports = async (site, keys, tempDir, instances) => {
           const e = n.data[t]
           // eslint-disable-next-line no-continue
           if (e.attributes.currently_entitled_amount_cents === 0) continue
+
           const cet = e.relationships.currently_entitled_tiers
-          const tierLv = cet.data.length
-          for (let i = patrons.length - 1; i < tierLv; i += 1) {
-            const tier = n.included.find(g => g.id === cet.data[i].id && g.type === "tier")
-            patrons.push({
-              title: tier.attributes.title,
-              lv: tierLv,
-              members: []
-            })
+
+          const member = n.included.find(g => g.id === e.relationships.user.data.id && g.type === "user")
+          member.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
+
+          if (cet.data.length > 0) {
+            // eslint-disable-next-line no-underscore-dangle
+            const _tier = n.included.find(g => g.id === cet.data[0].id && g.type === "tier")
+
+            const tier = patrons.find(e => e.id === _tier.id)
+            if (!tier) {
+              patrons.push({
+                title: _tier.attributes.title,
+                id: _tier.id,
+                amountCents: _tier.attributes.amount_cents,
+                members: [member]
+              })
+            } else {
+              tier.members.push(member)
+            }
+          } else {
+            patrons[0].members.push(member)
           }
-          const patron = n.included.find(g => g.id === e.relationships.user.data.id && g.type === "user")
-          patron.currently_entitled_amount_cents = e.attributes.currently_entitled_amount_cents
-          patrons[tierLv].members.push(patron)
+
         }
         if (n.links) patreonUrl = n.links.next; else patreonUrl = null
       } else {
         patreonUrl = null
       }
     }
+
+    patrons.sort((a, b) => b.amountCents - a.amountCents)
+
     glog("Got patrons from Patreon")
     for (let m = 0; m < patrons.length; m += 1) {
       const tier = patrons[m]
       for (let n = 0; n < tier.members.length; n += 1) {
         const member = tier.members[n]
+        // console.log(member)
         creditIconsPromises.push(downloadTemp(`patreon/${member.id}`, member.attributes.thumb_url, tempDir))
       }
       tier.members.sort((a, b) => b.lifetime_support_cents - a.lifetime_support_cents)
     }
-
-    patrons = patrons.reverse()
   }
 
   await promisify(mkdirp)(`${tempDir}instance-banners/`)
