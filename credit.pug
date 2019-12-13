@@ -21,7 +21,6 @@ styleRequires: ["credit"]
               img(src=`/files/images/credit/github/${contributor.id}.png?${qqq}`)
               p=contributor.login
     h2#contributors.text-center.pt-2.pb-5 Contributors
-    p.text-center.pb-2 #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]でMisskeyの開発に関わってくださった方々
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
