@@ -223,7 +223,7 @@ module.exports = async (site, keys, tempDir, instances) => {
             // eslint-disable-next-line no-underscore-dangle
             const _tier = n.included.find(g => g.id === cet.data[0].id && g.type === "tier")
 
-            const tier = patrons.find(e => e.id === _tier.id)
+            const tier = patrons.find(f => f.id === _tier.id)
             if (!tier) {
               patrons.push({
                 title: _tier.attributes.title,
@@ -237,7 +237,6 @@ module.exports = async (site, keys, tempDir, instances) => {
           } else {
             patrons[0].members.push(member)
           }
-
         }
         if (n.links) patreonUrl = n.links.next; else patreonUrl = null
       } else {
