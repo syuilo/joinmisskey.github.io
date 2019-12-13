@@ -1,1 +1,1 @@
-.\copy-ja %1 && gulp && .\push-ja %1
+.\copy-ja %1 && gulp && .\push %1
