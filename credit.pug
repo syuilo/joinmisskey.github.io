@@ -14,7 +14,6 @@ styleRequires: ["credit"]
     p.text-center.mb-4 We post people who contributed to Misskey.
 
     h2#collaborators.text-center.py-5 Collaborators
-    #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-5
       if(contributors)
         each contributor in contributors
           if(collaborators.some(e => e === contributor.login))
