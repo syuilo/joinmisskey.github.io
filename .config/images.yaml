@@ -60,6 +60,12 @@ images:
         suffix: ".360"
         extname: ".webp"
 icons:
+  - path: "/files/images/icons/icon.svg"
+    sizes: 192x192
+    type: "image/svg+xml"
+  - path: "/files/images/icons/icon.png"
+    sizes: 700x700
+    type: "image/png"
   - path: "/files/images/imports/2019/12/icon.svg"
     sizes: 192x192
     type: "image/svg+xml"
