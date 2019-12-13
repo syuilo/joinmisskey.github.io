@@ -5,16 +5,15 @@ styleRequires: ["credit"]
 ---
 -
   const collaborators = ["syuilo", "AyaMorisawa", "mei23", "acid-chicken", "rinsuki", "tamaina", "u1-liquid"]
-  const bots = ["greenkeeper[bot]", "dependabot[bot]", "dependabot-bot"]
+  const bots = ["greenkeeper[bot]", "dependabot[bot]", "dependabot-bot", "imgbot[bot]"]
   const qqq = update.getTime().toString(36)
 
-.bg-white.py-3
+.bg-white.pt-3.pb-5
   .container-fluid
     h1.text-center.pt-4.pb-2 Credit
-    p.text-center We post people who contributed to Misskey.
+    p.text-center.mb-4 We post people who contributed to Misskey.
 
-    h2#collaborators.text-center.pb-2.pb-2 Collaborators
-    p.text-center Misskey開発陣
+    h2#collaborators.text-center.py-5 Collaborators
     #collaborators_list.d-flex.flex-wrap.justify-content-center.mb-5
       if(contributors)
         each contributor in contributors
@@ -22,8 +21,8 @@ styleRequires: ["credit"]
             a(href=contributor.html_url target="_blank" rel="noopener" title=contributor.login).person
               img(src=`/files/images/credit/github/${contributor.id}.png?${qqq}`)
               p=contributor.login
-    h2#contributors.text-center.pb-2 Contributors
-    p.text-center Write and edit source code of Misskey in #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]
+    h2#contributors.text-center.pt-2.pb-5 Contributors
+    p.text-center.pb-2 #[a(href="https://github.com/syuilo/misskey" target="_blank" rel="noopener") GitHub]でMisskeyの開発に関わってくださった方々
     #contributors_list.d-flex.flex-wrap.justify-content-center
       if(contributors)
         each contributor in contributors
@@ -33,19 +32,21 @@ styleRequires: ["credit"]
               p=contributor.login
       else
         +i18n('nobody')
-    .container
-      hr.my-5.bg-primary
-    h2#contributors.text-center.pb-2 Patrons
-    p.text-center People who donates continuously in #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]
-    #patrons_list
-      if(patrons || patrons.length != 0)
-        each tier in patrons
-          div(id=`patrons_list_${tier.lv}`).patrons-list-tier
-            h3.text-center.pt-4.pb-2 #{!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title} <small>(#{tier.members.length})</small>
-            div.patrons-list-members.d-flex.flex-wrap.justify-content-center
-              each patron in tier.members
-                a(href=patron.attributes.url target="_blank" rel="noopener" title=patron.attributes.full_name).person
-                  img(src=`/files/images/credit/patreon/${patron.id}.png?${qqq}`)
-                  p=patron.attributes.full_name
-      else
-        +i18n('nobody')
+
+    if(patrons || patrons.length != 0)
+      .container.py-5
+        hr.my-5.bg-primary
+      h2#contributors.text-center.pb-2 Patrons
+      p.text-center.mb-4 People who donates continuously in #[a(href="https://www.patreon.com/syuilo" target="_blank" rel="noopener") Patreon]
+      #patrons_list
+          each tier, lv in patrons
+            if(tier.members.length > 0)
+              div(id=`patrons_list_${patrons.length - 1 - lv}`).patrons-list-tier
+                h3.text-center.pt-5.pb-2
+                  =!!tier.titles ? (tier.titles[locale] || tier.titles.ja || tier.title) : tier.title
+                  span.small.font-weight-light (#{amountCents > 0 ? `$${tier.amountCents}～, ` : ""}#{tier.members.length}人)
+                div.patrons-list-members.d-flex.flex-wrap.justify-content-center
+                  each patron in tier.members
+                    a(href=patron.attributes.url target="_blank" rel="noopener" title=patron.attributes.full_name).person
+                      img(src=`/files/images/credit/patreon/${patron.id}.png?${qqq}`)
+                      p=patron.attributes.full_name
