@@ -6,7 +6,7 @@ has_child: false
 rank: 0
 next: /wiki/first
 ---
-Misskeyは、[syuilo](culture/users/syilo)が現在も開発を継続しているミニブログソフトウェアである。  
+Misskeyは、[syuilo](culture/users/syuilo)が現在も開発を継続しているミニブログソフトウェアである。  
 2018年4月8日にサーバー間[ActivityPub](culture/words/activitypub)規格に対応し、Mastodonなどと同じ分散型SNSになった。
 
 さあ、まずはどこかのインスタンスに登録し、始めてみよう。
