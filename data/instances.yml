@@ -203,6 +203,10 @@
   langs: ['ja']
 - url: community.bluecore.net
   langs: ['ja']
+- url: misskey.misoni.club
+  langs: ['ja']
+- url: misskey.ne-moni.work
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
@@ -305,6 +309,14 @@
 - url: short.shitpo.st
   langs: ['en']
 - url: misskey.junna.moe
+  langs: ['en']
+- url: k.kajalinifi.de
+  langs: ['en']
+- url: gensoukyou.jp.net
+  langs: ['en']
+- url: ms.neko.bar
+  langs: ['en']
+- url: cuteposting.institute
   langs: ['en']
 #
 ##
