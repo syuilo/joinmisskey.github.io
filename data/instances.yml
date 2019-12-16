@@ -207,6 +207,8 @@
   langs: ['ja']
 - url: misskey.ne-moni.work
   langs: ['ja']
+- url: vspace.me
+  langs: ['ja']
 #
 - url: msky.cafe
   langs: ['ja']
