@@ -31,7 +31,7 @@ $toppage-scnshts-3-sm: translateX(35vw) translateY(55vh)
 
     .texts
       position: absolute
-      max-width: 75vw
+      max-width: 67vw
       transform: translateX(6vw) translateY(7vh)
       z-index: 2
       white-space: normal
@@ -40,12 +40,17 @@ $toppage-scnshts-3-sm: translateX(35vw) translateY(55vh)
 
       > .slogan
         font-size: calc(1.2rem + 1vw)
-      
+        margin-bottom: .3rem
+        line-height: 1
+
       > h1
         font-size: calc(2.2rem + 3vw)
+        margin-bottom: .25rem
+        margin-left: -0.1rem
+        line-height: 1.1
 
       > p
-        font-size: calc(.9rem + .2vw)
+        font-size: calc(1rem + .2vw)
         word-break: keep-all
         text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7,0px 1px 0 #f7f7f7, 0px -1px 0 #f7f7f7,-1px 0px 0 #f7f7f7,1px 0px 0 #f7f7f7
 
@@ -119,10 +124,10 @@ $toppage-scnshts-3-sm: translateX(35vw) translateY(55vh)
           z-index: 4
 
           @media (max-width: map-get($grid-breakpoints, sm))
-            transform: translateX(38vw)
+            transform: translateX(45vw)
 
         &:nth-child(5)
-          transform: translateX(67vw) translateY(calc(64vh - 1.6em))
+          transform: translateX(67vw) translateY(calc(62vh - 1.6em))
           transform-origin: bottom
           z-index: 5
           filter: none
@@ -130,9 +135,6 @@ $toppage-scnshts-3-sm: translateX(35vw) translateY(55vh)
           word-break: keep-all
           white-space: nowrap
           text-shadow: 1px 1px 0 #f7f7f7, 1px -1px 0 #f7f7f7,-1px 1px 0 #f7f7f7,-1px -1px 0 #f7f7f7,0px 1px 0 #f7f7f7, 0px -1px 0 #f7f7f7,-1px 0px 0 #f7f7f7,1px 0px 0 #f7f7f7
-
-          @media (max-width: map-get($grid-breakpoints, sm) - 0.02)
-            transform: translateX(52.5vw) translateY(calc(62vh - 1.6em))
 
   #section_2
     > .container
