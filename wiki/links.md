@@ -5,9 +5,7 @@ layout: index
 has_child: false
 rank: 99
 ---
-*各インスタンスは **[インスタンス一覧](instances)***  
-*各アプリについては **[関連アプリ・ソフトウェア・クライアント](apps)***  
-*を参照されたい*
+*各インスタンスは **[インスタンス一覧](instances)**、各アプリについては **[関連アプリ・ソフトウェア・クライアント](apps)**を参照*
 
 ## Wiki･辞典
 - [マストドン日本語Wiki](https://ja.mstdn.wiki/Misskey)
