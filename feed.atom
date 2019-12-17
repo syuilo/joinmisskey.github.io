@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Misskeyをはじめよう</title>
-    <updated>2019-12-17T14:56:24.475Z</updated>
+    <updated>2019-12-17T20:35:45.771Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://join.misskey.page"/>
     <link rel="self" href="https://join.misskey.page/feed.atom"/>
@@ -178,11 +178,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Misskey <<daybreak>> v11.0.0 Released!!]]></title>
-        <id>https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12</id>
-        <link href="https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12?rel=rss"/>
+        <title type="html"><![CDATA[最近の更新 ～10.100.0]]></title>
+        <id>https://join.misskey.page/ja/blog/2019/04/14-0-changes</id>
+        <link href="https://join.misskey.page/ja/blog/2019/04/14-0-changes?rel=rss"/>
         <updated>2019-04-14T14:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Misskeyの新しいバージョン「daybreak」がリリースされました。データベースソフトウェアをPostgreSQLに変更しました。]]></summary>
+        <summary type="html"><![CDATA[ドライブのファイル表示の改善など]]></summary>
         <author>
             <name>aqz</name>
             <email/>
@@ -190,11 +190,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[最近の更新 ～10.100.0]]></title>
-        <id>https://join.misskey.page/ja/blog/2019/04/14-0-changes</id>
-        <link href="https://join.misskey.page/ja/blog/2019/04/14-0-changes?rel=rss"/>
+        <title type="html"><![CDATA[Misskey <<daybreak>> v11.0.0 Released!!]]></title>
+        <id>https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12</id>
+        <link href="https://join.misskey.page/ja/blog/2019/04/14-1-misskey-daybreak-12?rel=rss"/>
         <updated>2019-04-14T14:00:00.000Z</updated>
-        <summary type="html"><![CDATA[ドライブのファイル表示の改善など]]></summary>
+        <summary type="html"><![CDATA[Misskeyの新しいバージョン「daybreak」がリリースされました。データベースソフトウェアをPostgreSQLに変更しました。]]></summary>
         <author>
             <name>aqz</name>
             <email/>
