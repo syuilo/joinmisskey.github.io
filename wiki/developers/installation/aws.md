@@ -185,6 +185,8 @@ example.tld を選択。[アクセスポイント]タブを開き、[+アクセ�
 2. Webの[Get Started]を選択
 3. 次のように設定する
 
+| 説明 | 値 |
+|:--|:--|
 |Origin Domain Name|example.tld.s3.amazonaws.com|
 |Restrict Bucket Access|Yes|
 |Origin Access Identity|Create a New Identity|
