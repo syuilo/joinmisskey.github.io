@@ -1,7 +1,7 @@
 ---
 title: リンク集
 description: Misskeyについてのリンクを収集しています。
-layout: index
+layout: wiki
 has_child: false
 rank: 99
 ---
