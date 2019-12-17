@@ -19,7 +19,7 @@ OSの違い、Misskey本体や依存するソフトウェアのバージョン�
 なお、今回の記事にあたっては、AWSの無料利用枠でできる範囲で検証を行った。
 
 ## 環境と条件
-- EC2、RDB、ElastiCache、S3およびCloudFrontを利用する。
+- EC2、RDS、ElastiCache、S3およびCloudFrontを利用する。
 - 独自のドメインを購入する。
   * ドメインは[Google Domains](https://domains.google/intl/ja_jp/)などで予め用意しておくこと。
   * ここではドメインを`example.tld`として解説を進めるので、自分が買ったドメインに適宜置き換えて読むこと。
