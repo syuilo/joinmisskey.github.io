@@ -1,7 +1,7 @@
 ---
 title: Raspberry Pi版Misskeyインストール方法詳説
 title-breadcrumb: Raspberry Pi
-description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
+description: RaspbianをインストールしたRaspberry PiをサーバーとしてMisskeyを動作させる方法を詳細に解説。
 layout: wiki
 rank: 1
 next: /wiki/developers/email
@@ -17,6 +17,9 @@ Bashのコマンド入力、いくつかの設定ファイルの編集、そし�
 OSの違い、Misskey本体や依存するソフトウェアのバージョンアップで変わってしまった部分等あるかもしれないが、ご容赦願いたい。
 
 わからない単語については、[『「分かりそう」で「分からない」でも「分かった」気になれるIT用語辞典』](https://wa3.i-3-i.info/)で調べて分かった気になってほしい。
+
+余談であるが、著者はRaspberry Pi 4 Model BのRAM 4GBモデルにてMisskeyインスタンスを動作させている。  
+Misskeyはかなり余裕を持って動作しており、ビルドもできる。動作時、CPUは最大60%程度、RAMは25%程度で安定している。
 
 ## 環境と条件
 - OSは[**Raspbian Buster**](http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian/images/)を利用する。
