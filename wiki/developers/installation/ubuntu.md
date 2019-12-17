@@ -1,7 +1,7 @@
 ---
 title: Ubuntu版Misskeyインストール方法詳説
 title_breadcrumb: Raspberry Pi
-description: サーバーへMisskeyをインストールし公開する方法の一挙手一投足を解説する。
+description: UbuntuをインストールしたサーバーでMisskeyを動作させる方法を詳細に解説。
 layout: wiki
 rank: 1
 next: /wiki/developers/email
