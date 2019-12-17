@@ -3,7 +3,7 @@ title: Ubuntu版Misskeyインストール方法詳説
 title_breadcrumb: Raspberry Pi
 description: UbuntuをインストールしたサーバーでMisskeyを動作させる方法を詳細に解説。
 layout: wiki
-rank: 1
+rank: 0
 next: /wiki/developers/email
 ---
 ## はじめに
@@ -84,7 +84,7 @@ Node.jsがインストールされたので、バージョンを確認する。
 node -v
 ```
 
-`v13.1.0`などと表示されればOK。`v8.x.x`のように表示された場合は、サーバーを再起動してもう一度確認してみてほしい。
+`v13.3.0`などと表示されればOK。`v8.x.x`のように表示された場合は、サーバーを再起動してもう一度確認してみてほしい。
 
 ### PostgreSQL
 PostgreSQLは、オブジェクト関係データベース管理システムであり、Misskeyが種々のデータを保存するために必要不可欠なソフトだ。
