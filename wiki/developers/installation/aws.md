@@ -193,6 +193,10 @@ example.tld を選択。[アクセスポイント]タブを開き、[+アクセ�
 |Grant Read Permissions on Bucket|Yes, Update Bucket Policy|
 |Viewer Protocol Policy|Redirect HTTP to HTTPS|
 |Object Caching|Customize|
+|Minimum TTL|31536000|
+|Maximum TTL|315360000|
+|Default TTL|315360000|
+|Compress Objects Automatically|Yes|
 |Price Class|Use U.S., Canada, Europe, Asia, Middle East and Africa|
 
 ナビゲーションペインでDistributionsを選択し、作成されたディストリビューションの**Domain name**をメモしておく。ここでは`xxxxxxxxxx.cloudfront.net`であるとする。
@@ -325,7 +329,7 @@ cd misskey
 git checkout master
 ```
 
-### 必要な
+### npmパッケージのインストール
 必要なnpmパッケージをインストール。
 
 ```bash
