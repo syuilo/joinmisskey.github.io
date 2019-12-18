@@ -105,7 +105,7 @@ AWSは標準ではIPv6に対応しないので、IPv6を設定する。
 ここでできたデータベースのエンドポイントは、ここでは`pg.xxxxxxxx.ap-northeast-1.rds.amazonaws.com`として説明する。
 
 ## ElastiCacheインスタンスの作成
-[ElastiCacheコンソール（https://ap-northeast-1.console.aws.amazon.com/elasticache/）](https://ap-northeast-1.console.aws.amazon.com/elasticache/)を開き、ElastiCacheインスタンスを作成しよう。
+[ElastiCacheコンソール（https://console.aws.amazon.com/elasticache/）](https://console.aws.amazon.com/elasticache/)を開き、ElastiCacheインスタンスを作成しよう。
 
 以下のように値を設定する。ここで明示ていない値の変更は自己責任で。
 
