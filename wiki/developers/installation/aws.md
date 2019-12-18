@@ -418,12 +418,12 @@ sudo cp -rf built /home/misskey/misskey/
 
 ## データベースの初期化
 ```bash
-npx yarn run init
+npm run init
 ```
 
 ## Misskeyを起動する
 ```bash
-NODE_ENV=production yarn start
+NODE_ENV=production npm start
 ```
 
 **Now listening on port 3000 on http://example.tld** と表示されたら、設定したURLにアクセスする。
